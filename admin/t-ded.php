@@ -1,9 +1,9 @@
-<? 
-@session_start(); 
+<?
+@session_start();
 include "../inc/config.inc.php";
 include "../function/datethai.php";
 if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 $l_id=$_GET[l_id];
@@ -16,7 +16,7 @@ $r=mysql_fetch_row($re);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
-<? 
+<?
 class Paginator{
 	var $items_per_page;
 	var $items_total;
@@ -96,9 +96,11 @@ class Paginator{
 	{
 		return $this->return;
 	}
-} 
+}
 ?>
-<style type="text/css"> 
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<style type="text/css">
 <!--
 	.paginate {
 	font-family: Arial, Helvetica, sans-serif;
@@ -115,7 +117,7 @@ class Paginator{
 		font-size: 12pt;
 		color: #003366;
 		}
-		
+
 		 h2 {
 		line-height: 1.2em;
 		letter-spacing:-1px;
@@ -148,6 +150,8 @@ class Paginator{
 	}
 -->
 </style>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -222,7 +226,7 @@ body {
                               <td width="500" align="center" valign="middle" bgcolor="#EFEFED"><strong><font color="#333333" size="2">รายการข้อมูล</font></strong></td>
                               <td width="100" height="30" align="center" valign="middle" bgcolor="#EFEFED"><span class="style4">การกระทำ</span></td>
                             </tr>
-                            <?	
+                            <?
 		$strSQL = "SELECT post_date FROM t_ded WHERE l_id='$l_id' GROUP BY post_date";
 		$objQuery = mysql_query($strSQL);
 		$Num_Rows = mysql_num_rows($objQuery);
@@ -258,7 +262,7 @@ body {
 		while($objResult = mysql_fetch_row($objQuery)){
 ?>
                             <tr>
-                              <td width="500" height="25" align="left" valign="middle"><font size="2">&nbsp;&nbsp;<a href="league-t-ded.php?l_id=<?=$l_id;?>&amp;tdate=<?=$objResult[0];?>">ทีเด็ดฟุตบอล วิเคราะห์บอล ราคาบอล ประจำวันที่ 
+                              <td width="500" height="25" align="left" valign="middle"><font size="2">&nbsp;&nbsp;<a href="league-t-ded.php?l_id=<?=$l_id;?>&amp;tdate=<?=$objResult[0];?>">ทีเด็ดฟุตบอล วิเคราะห์บอล ราคาบอล ประจำวันที่
                                 <? $postDate=$objResult[0]; echo DateThai($postDate); ?></a>
                               </font></td>
                               <td width="100" height="25" align="center" valign="middle"><font size="2"><a href="league-t-ded.php?l_id=<?=$l_id;?>&amp;tdate=<?=$objResult[0];?>"><img src="images/edit.gif" width="40" height="15" border="0" /></a> <a href="del-t-ded.php?l_id=<?=$l_id;?>&tdate=<?=$objResult[0];?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"> <img src="images/del.gif" width="40" height="15" border="0" /></a></font></td>
@@ -283,7 +287,7 @@ body {
                                   หน้า</font></td>
                               </tr>
                               <tr>
-                                <td height="30" align="center" valign="middle"><? 
+                                <td height="30" align="center" valign="middle"><?
 $pages = new Paginator;
 $pages->items_total = $Num_Rows;
 $pages->mid_range = 10;

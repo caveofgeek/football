@@ -2,7 +2,7 @@
 session_start();
 include "../inc/config.inc.php";
 if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 ?>
@@ -11,6 +11,8 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการร้านค้า ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -47,13 +49,13 @@ $years=htmlspecialchars($_POST[years]);
 $date="$years-$months-$days";
 if($home!=""&&$away!=""&&$odds_ball!=""&&$detail!=""&&$time_live!=""){
 $sql=mysql_query("UPDATE `t_ded` SET `home`='$home' ,`away`='$away' ,`odds_ball`='$odds_ball' ,`t_ded`='$t_ded' ,`t_ded_detail`='$detail' ,`time_live`='$time_live' ,`ch_live`='$ch_live' ,`score`='$score' ,`days`='$days' ,`months`='$months' ,`years`='$years' ,`post_date`='$date' WHERE id='$id'")or die("ERROR $sql บรรทัด 46");
-echo "<meta http-equiv='refresh' content='0;url=league-t-ded.php?l_id=$l_id&tdate=$date'>"; 
+echo "<meta http-equiv='refresh' content='0;url=league-t-ded.php?l_id=$l_id&tdate=$date'>";
 }else{
 ?>
-<script language="JavaScript"> 	
-	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ'); 	
+<script language="JavaScript">
+	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ');
 	history.back();
-</script> 
+</script>
 <?
 }
 ?>

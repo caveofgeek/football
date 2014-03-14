@@ -1,7 +1,7 @@
 <?
 session_start();
 if(!isset($_SESSION[member_login])) {
-echo "<meta http-equiv='refresh' content='0;url=../index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=../index.php'>" ;
 exit() ;
 }
 include "../inc/config.inc.php";
@@ -36,13 +36,15 @@ $str=mysql_fetch_row($stre);
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>ระบบจัดการข้อมูลสมาชิก | <?=$titler[1];?></title>
 <meta name="robots"  content="index,nofollow">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {
 	background-color: #<?=$bgr[1];?>;
 	<? if($bgr[2]!=""){ ?>background-image: url(http://<?=$titler[13];?>/bg-img/<?=$bgr[2];?>);
 	background-repeat: <?=$bgr[3];?>;
-	<? }if($bgr[4]==1){ ?>	
+	<? }if($bgr[4]==1){ ?>
 	background-attachment:fixed;
 	<? } ?>
 }
@@ -64,7 +66,7 @@ a:active {
 }
 -->
 </style>
-<? 
+<?
 class Paginator{
 	var $items_per_page;
 	var $items_total;
@@ -144,9 +146,11 @@ class Paginator{
 	{
 		return $this->return;
 	}
-} 
+}
 ?>
-<style type="text/css"> 
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<style type="text/css">
 <!--
 	.paginate {
 	font-family: Arial, Helvetica, sans-serif;
@@ -163,7 +167,7 @@ class Paginator{
 		font-size: 12pt;
 		color: #003366;
 		}
-		
+
 		 h2 {
 		line-height: 1.2em;
 		letter-spacing:-1px;
@@ -238,7 +242,7 @@ $strSQL.="webboard.cate_id, webboard.member_id FROM `webboard` ";
 $strSQL.="INNER JOIN member ON webboard.member_id=member.id ";
 $strSQL.="WHERE webboard.member_id=$_SESSION[m_id] ";
 $objQuery=mysql_query($strSQL) or die("ERROR บรรทัด 344");
-$Num_Rows = mysql_num_rows($objQuery);		
+$Num_Rows = mysql_num_rows($objQuery);
 		$Per_Page = 50;   // Per Page
 
 		$Page = $_GET["Page"];
@@ -306,7 +310,7 @@ if($objResult[5]>=$yesterday){
 	}else if($objResult[6]==2){
 ?>
                                       <img src="http://<?=$titler[13];?>/webboard/img/icon_update.gif" width="42" height="12" />
-                                      <?	
+                                      <?
 	}
 }else{
 //echo "no";
@@ -354,7 +358,7 @@ echo DateTime($replyDate);
                     </table>
                     <table width="640" border="0" align="center" cellpadding="0" cellspacing="0">
                       <tr>
-                        <td height="30" align="center" valign="middle"><? 
+                        <td height="30" align="center" valign="middle"><?
 $pages = new Paginator;
 $pages->items_total = $Num_Rows;
 $pages->mid_range = 10;

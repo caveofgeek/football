@@ -33,16 +33,18 @@ $rgame=mysql_fetch_row($regame);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><?=$rgame[4];?> | <?=$titler[1];?></title>
-<META NAME="keywords" CONTENT="<?=$rgame[6];?>"> 
+<META NAME="keywords" CONTENT="<?=$rgame[6];?>">
 <META NAME="description" CONTENT="<?=$titler[1];?> <?=$rgame[5];?>">
 <meta name="robots"  content="index,follow">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {
 	background-color: #<?=$bgr[1];?>;
 	<? if($bgr[2]!=""){ ?>background-image: url(http://<?=$titler[13];?>/bg-img/<?=$bgr[2];?>);
 	background-repeat: <?=$bgr[3];?>;
-	<? }if($bgr[4]==1){ ?>	
+	<? }if($bgr[4]==1){ ?>
 	background-attachment:fixed;
 	<? } ?>
 }
@@ -96,7 +98,7 @@ a:active {
                     <table width="95%" border="0" align="center" cellpadding="1" cellspacing="1">
 
                       <tr>
-                        <td><div align="center" style="font-family:'Times New Roman', Times, serif; font-size:12px; color:#FF0000;">** 
+                        <td><div align="center" style="font-family:'Times New Roman', Times, serif; font-size:12px; color:#FF0000;">**
                           สมาชิกสามารถที่จะทายผลบอลวันต่อวันก่อนเวลา
                           <?=$rgame[1];?>
                           น.เท่านั้น **<br />

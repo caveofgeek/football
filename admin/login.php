@@ -7,6 +7,8 @@ include "../inc/config.inc.php";
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการร้านค้า ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -35,16 +37,16 @@ $r=mysql_fetch_row($re);
 
 if($num<=0){
 ?>
-	<script language="JavaScript"> 	
-		alert("ขออภัยครับ ข้อมูลผู้ดูแลระบบ ของท่านไม่มีอยู่ในระบบครับ"); 	
-		window.location = 'index.php'; 
-	</script> 
+	<script language="JavaScript">
+		alert("ขออภัยครับ ข้อมูลผู้ดูแลระบบ ของท่านไม่มีอยู่ในระบบครับ");
+		window.location = 'index.php';
+	</script>
 <?
 }
 else {
 $_SESSION[admin_login]="admin_login";
 
-echo "<meta http-equiv=refresh content=0;URL=data.php>"; 
+echo "<meta http-equiv=refresh content=0;URL=data.php>";
 }
 ?>
 </body>

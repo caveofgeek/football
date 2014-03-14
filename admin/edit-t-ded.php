@@ -1,9 +1,9 @@
-<? 
-@session_start(); 
+<?
+@session_start();
 include "../inc/config.inc.php";
 include "../function/datethai.php";
 if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 $id=$_GET[id];
@@ -20,6 +20,8 @@ $r=mysql_fetch_row($re);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -149,7 +151,7 @@ body {
                                 <td><input name="t_ded" type="radio" value="1" <? if($row[5]==1){ echo "checked"; } ?> />
                                   <span class="style5">ทีมเจ้าบ้าน
                                   <input name="t_ded" type="radio" value="2" <? if($row[5]==2){ echo "checked"; } ?> />
-ทีมเยือน 
+ทีมเยือน
 <input name="t_ded" type="radio" value="0" <? if($row[5]==0){ echo "checked"; } ?>  />
 เสมอ </span></td>
                               </tr>
@@ -193,7 +195,7 @@ alert("กรุณากรอกรหัสผ่านด้วยนะค�
 document.checkForm.pass.focus() ;
 return false ;
 }
-else 
+else
 return true ;
 }
                       </script>

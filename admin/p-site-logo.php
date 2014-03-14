@@ -3,7 +3,7 @@ session_start();
 include "../inc/config.inc.php";
 //echo "$_SESSION[m_login]<br>$_SESSION[m_id]";
 if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 ?>
@@ -12,6 +12,8 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -41,17 +43,17 @@ if($file1!=""){
 	$part1="../logo-img/$op1";
 	@unlink ($part1);
 	@copy($tmp1,"../logo-img/$file1");
-	
+
 	$sql=mysql_query("UPDATE `site_logo` SET  `site_logo` =  '$file1' WHERE `id` =1 LIMIT 1") or die("ไม่แก้ไขเพิ่มข้อมูลได้ 45");
 	mysql_close();
 	echo "<meta http-equiv=refresh content=0;URL=sitelogo.php>";
-	
+
 }else{
 ?>
-<script language="JavaScript"> 	
-	alert('ขอโทษครับ กรุณาเลือกภาพ Site Logo ด้วยครับ'); 	
+<script language="JavaScript">
+	alert('ขอโทษครับ กรุณาเลือกภาพ Site Logo ด้วยครับ');
 	history.back();
-</script> 
+</script>
 <?
 }
 ?>

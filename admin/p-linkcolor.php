@@ -3,7 +3,7 @@ session_start();
 include "../inc/config.inc.php";
 //echo "$_SESSION[m_login]<br>$_SESSION[m_id]";
 if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 ?>
@@ -12,6 +12,8 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -40,7 +42,7 @@ $active=$_POST[active];
 //echo "$color=[color]<br>$visit=[visit]<br>$rollover=[rollover]<br>$active=[active]";
 
 $sql=mysql_query("update `link` set `color`='$color' ,`visit`='$visit' ,`rollover`='$rollover' ,`active`='$active' where id='1'")or die("ERROR $sql บรรทัด46");
-echo "<meta http-equiv='refresh' content='0;url=linkcolor.php'>"; 
+echo "<meta http-equiv='refresh' content='0;url=linkcolor.php'>";
 
 ?>
 </body>

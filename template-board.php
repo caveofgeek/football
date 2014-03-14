@@ -31,16 +31,18 @@ $str=mysql_fetch_row($stre);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>ข้อความ | <?=$titler[1];?></title>
-<META NAME="keywords" CONTENT="<?=$titler[12];?>"> 
+<META NAME="keywords" CONTENT="<?=$titler[12];?>">
 <META NAME="description" CONTENT="<?=$titler[1];?> ข้อความ <?=$titler[11];?>">
 <meta name="robots"  content="index,follow">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {
 	background-color: #<?=$bgr[1];?>;
 	<? if($bgr[2]!=""){ ?>background-image: url(http://<?=$titler[13];?>/bg-img/<?=$bgr[2];?>);
 	background-repeat: <?=$bgr[3];?>;
-	<? }if($bgr[4]==1){ ?>	
+	<? }if($bgr[4]==1){ ?>
 	background-attachment:fixed;
 	<? } ?>
 }

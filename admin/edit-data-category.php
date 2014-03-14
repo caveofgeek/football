@@ -1,8 +1,8 @@
-<? 
-@session_start(); 
+<?
+@session_start();
 include "../inc/config.inc.php";
 if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 ?>
@@ -12,13 +12,15 @@ exit() ;
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
 <link href="jquery.cleditor.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
 <script type="text/javascript" src="jquery.cleditor.min.js"></script>
 <script type="text/javascript">
       $(document).ready(function() {
         $("#input").cleditor({width:600, height:450, useCSS:true})[0].focus();
       });
 </script>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -85,13 +87,13 @@ $spost.="WHERE post.id='$id'";
 $repost=mysql_query($spost) or die("ERROR $spost");
 $rpost=mysql_fetch_row($repost);
 ?>
-                      <strong><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> 
+                      <strong><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" />
 <? if($cate_id>21){ ?><a href="all-other-category.php?cate_id=<?=$cate_id;?>"><? }else if($cate_id<=21){ ?><a href="all-main-category.php?cate_id=<?=$cate_id;?>"><? } ?>จัดการข้อมูลหมวดหมู่<?=$rcate[0];?></a>
                       <img src="images/arrow.gif" width="7" height="11" /> </font><font color="#000000" size="2">แก้ไขข้อมูลหมวดหมู่<?=$rcate[0];?></font></strong></td>
                   </tr>
                   <tr>
                     <td>
-					<form action="p-edit-data-category.php" method="post" enctype="multipart/form-data" name ="checkForm" id="checkForm" onsubmit="return check1()">			
+					<form action="p-edit-data-category.php" method="post" enctype="multipart/form-data" name ="checkForm" id="checkForm" onsubmit="return check1()">
 					<table width="730" border="0" align="center" cellpadding="0" cellspacing="0">
                       <tr>
                         <td width="100" height="30" align="right" valign="top"><font color="#000000" size="2">หัวข้อ</font></td>
@@ -119,7 +121,7 @@ $rpost=mysql_fetch_row($repost);
                         <td width="100" height="30" align="right" valign="top"><font color="#000000" size="2">รูปภาพ</font></td>
                         <td width="10" height="30">&nbsp;</td>
                         <td width="620" height="30" align="left" valign="top">
-						<? if($rpost[5]!=""){ ?><a href="../post-s-img/<?=$rpost[5];?>" target="_blank"><img src="../post-s-img/<?=$rpost[5];?>" width="50" height="50" border="0" /></a><? } ?> 
+						<? if($rpost[5]!=""){ ?><a href="../post-s-img/<?=$rpost[5];?>" target="_blank"><img src="../post-s-img/<?=$rpost[5];?>" width="50" height="50" border="0" /></a><? } ?>
 						<input name="file1" type="file" id="file1" />
 						<input type="hidden" name="op" id="op" value="<?=$rpost[5];?>" />
                           <font color="#FF0000" size="2">* ขนาดไม่เกิน 50 KB </font></td>
@@ -129,20 +131,20 @@ $rpost=mysql_fetch_row($repost);
                         <td width="10" height="30">&nbsp;</td>
                         <td width="620" height="30" align="left" valign="top">
 						<input name="status_comment" type="radio" value="1" <? if($rpost[6]==1){ echo "checked"; }?> />
-                          <font color="#000000" size="2">Comment ได้ทุกคน 
+                          <font color="#000000" size="2">Comment ได้ทุกคน
                           <input name="status_comment" type="radio" value="2" <? if($rpost[6]==2){ echo "checked"; }?> />
-                          เฉพาะสมาชิก 
+                          เฉพาะสมาชิก
                           <input name="status_comment" type="radio" value="3" <? if($rpost[6]==3){ echo "checked"; }?> />
                            ไม่ให้ Comment </font></td>
                       </tr>
                       <tr>
                         <td width="100" height="30" align="right"><font color="#000000" size="2">TAG</font></td>
                         <td width="10" height="30">&nbsp;</td>
-                        <td height="30" align="left" valign="top"><font color="#000000" size="2">1. 
+                        <td height="30" align="left" valign="top"><font color="#000000" size="2">1.
                           <input name="tag1" type="text" id="tag1" value="<?=$rpost[11];?>" />
-                        2. 
+                        2.
                           <input name="tag2" type="text" id="tag2" value="<?=$rpost[12];?>" />
-3. 
+3.
                           <input name="tag3" type="text" id="tag3" value="<?=$rpost[13];?>" />
 </font></td>
                       </tr>
@@ -179,10 +181,10 @@ alert("กรุณากรอกรายละเอียดด้วยน�
 document.checkForm.detail.focus() ;
 return false ;
 }
-else 
+else
 return true ;
 }
-</script>		
+</script>
 					</form>
                     </td>
                   </tr>

@@ -31,16 +31,20 @@ $str=mysql_fetch_row($stre);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><?=$titler[10];?> | <?=$titler[1];?></title>
-<META NAME="keywords" CONTENT="<?=$titler[12];?>"> 
+<META NAME="keywords" CONTENT="<?=$titler[12];?>">
 <META NAME="description" CONTENT="<?=$titler[1];?> <?=$titler[11];?>">
 <meta name="robots"  content="index,follow">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {
 	background-color: #<?=$bgr[1];?>;
 	<? if($bgr[2]!=""){ ?>background-image: url(http://<?=$titler[13];?>/bg-img/<?=$bgr[2];?>);
 	background-repeat: <?=$bgr[3];?>;
-	<? }if($bgr[4]==1){ ?>	
+	<? }if($bgr[4]==1){ ?>
 	background-attachment:fixed;
 	<? } ?>
 }
@@ -167,7 +171,7 @@ $urlcate=rewrite($rcate[1]);
                                 </tr>
                             </table></td>
                           </tr>
-                          <?	
+                          <?
 $slevel = "SELECT member_id, SUM(point) FROM `game_member_score` GROUP BY member_id ORDER BY SUM(point) DESC, member_id DESC LIMIT 0, 10";
 $relevel = mysql_query($slevel) or die("ERROR $slevel");
 $i=1;
@@ -185,11 +189,11 @@ $bgscore="bgcolor='#d1b36c'";
                             <td><table width="250" border="0" align="center" cellpadding="0" cellspacing="0">
                                 <tr>
                                   <td width="35" height="25" align="center" style="font-family:'Times New Roman', Times, serif; font-size:12px; font-weight:bold; color:#232323;"><?=$i;?></td>
-                                  <td width="150" height="25" align="center" style="font-family:'Times New Roman', Times, serif; font-size:12px; font-weight:bold; color:#232323;"><? 
+                                  <td width="150" height="25" align="center" style="font-family:'Times New Roman', Times, serif; font-size:12px; font-weight:bold; color:#232323;"><?
 $smem = "SELECT name, img FROM `member` WHERE id='$rlevel[0]'";
 $remem = mysql_query($smem) or die("ERROR $smem");
 $rmem = mysql_fetch_row($remem);
-if($rmem[1]!=""){ 
+if($rmem[1]!=""){
 ?>
                                       <img src="http://<?=$titler[13];?>/member/avatar/<?=$rmem[1];?>" width="120" height="19" />
                                       <? }else{ ?>
@@ -328,7 +332,7 @@ $intRows1_2=0;
 while($rtab1_2=mysql_fetch_row($retab1_2))
 {
 $urltab1_2=rewrite($rtab1_2[1]);
-echo "<td width='142' align='center' valign='top'>"; 
+echo "<td width='142' align='center' valign='top'>";
 $intRows1_2++;
 ?>
 <table width="138" border="0" cellspacing="0" cellpadding="0">
@@ -390,11 +394,11 @@ while($rads2=mysql_fetch_row($reads2)){
             </table>
             <table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
               <tr>
-                <td align="center" valign="middle"><? 
-						if($rads2[1]==1){ 
-						$ads2=stripslashes($rads2[3]); 
+                <td align="center" valign="middle"><?
+						if($rads2[1]==1){
+						$ads2=stripslashes($rads2[3]);
 						echo $ads2;
-						}else if($rads2[1]==2){ 
+						}else if($rads2[1]==2){
 						?>
                     <a href="<?=$rads2[7];?>" title="<?=$rads2[8];?>" target="_blank">
                     <? if($rads2[2]==1){  ?>
@@ -908,11 +912,11 @@ while($rads3=mysql_fetch_row($reads3)){
                     <table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
                       <tr>
                         <td align="center" valign="middle">
-						  <? 
-						  if($rads3[1]==1){ 
-						  $ads3=stripslashes($rads3[3]); 
+						  <?
+						  if($rads3[1]==1){
+						  $ads3=stripslashes($rads3[3]);
 						  echo $ads3;
-						  }else if($rads3[1]==2){ 
+						  }else if($rads3[1]==2){
 						  ?>
                             <a href="<?=$rads3[7];?>" title="<?=$rads3[8];?>" target="_blank">
                             <? if($rads3[2]==1){  ?>
@@ -1068,11 +1072,11 @@ while($rads4=mysql_fetch_row($reads4)){
 ?>
                     <table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
                       <tr>
-                        <td align="center" valign="middle"><? 
-						  if($rads4[1]==1){ 
-						  $ads4=stripslashes($rads4[3]); 
+                        <td align="center" valign="middle"><?
+						  if($rads4[1]==1){
+						  $ads4=stripslashes($rads4[3]);
 						  echo $ads4;
-						  }else if($rads4[1]==2){ 
+						  }else if($rads4[1]==2){
 						  ?>
                             <a href="<?=$rads4[7];?>" title="<?=$rads4[8];?>" target="_blank">
                             <? if($rads4[2]==1){  ?>
@@ -1193,11 +1197,11 @@ while($rads5=mysql_fetch_row($reads5)){
                     <table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
                       <tr>
                         <td align="center" valign="middle">
-						  <? 
-						  if($rads5[1]==1){ 
-						  $ads5=stripslashes($rads5[3]); 
+						  <?
+						  if($rads5[1]==1){
+						  $ads5=stripslashes($rads5[3]);
 						  echo $ads5;
-						  }else if($rads5[1]==2){ 
+						  }else if($rads5[1]==2){
 						  ?>
                             <a href="<?=$rads5[7];?>" title="<?=$rads5[8];?>" target="_blank">
                             <? if($rads5[2]==1){  ?>
@@ -1753,11 +1757,11 @@ while($rads6=mysql_fetch_row($reads6)){
                     <table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
                       <tr>
                         <td align="center" valign="middle">
-						  <? 
-						  if($rads6[1]==1){ 
-						  $ads6=stripslashes($rads6[3]); 
+						  <?
+						  if($rads6[1]==1){
+						  $ads6=stripslashes($rads6[3]);
 						  echo $ads6;
-						  }else if($rads6[1]==2){ 
+						  }else if($rads6[1]==2){
 						  ?>
                             <a href="<?=$rads6[7];?>" title="<?=$rads6[8];?>" target="_blank">
                             <? if($rads6[2]==1){  ?>
@@ -2018,7 +2022,7 @@ $urlft=rewrite($rft[1]);
                                   </tr>
                                   <tr>
                                     <td align="center">
-<?	
+<?
 $strSQL4="SELECT id, title, img FROM `post` where cate_id='7' ORDER BY id DESC LIMIT 1,6";
 		$objQuery4=mysql_query($strSQL4) or die("ERROR $strSQL4 บรรทัด 240-248");
 		echo"<table border=\"0\"  cellspacing=\"1\" cellpadding=\"1\"><tr>";
@@ -2026,7 +2030,7 @@ $strSQL4="SELECT id, title, img FROM `post` where cate_id='7' ORDER BY id DESC L
 		while($objResult4=mysql_fetch_row($objQuery4))
 		{
 		$url4=rewrite($objResult4[1]);
-			echo "<td width='115' align='center' valign='top'>"; 
+			echo "<td width='115' align='center' valign='top'>";
 			$intRows4++;
 ?>
                                       <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -2112,7 +2116,7 @@ $strSQL4="SELECT id, title, img FROM `post` where cate_id='7' ORDER BY id DESC L
                                 <td align="center"><table width="230" border="0" align="center" cellpadding="0" cellspacing="0">
                                       <tr>
                                         <td align="center">
-<?	
+<?
 $strSQL4="SELECT id, title, img FROM `post` where cate_id='10' ORDER BY id DESC LIMIT 0,10";
 		$objQuery4=mysql_query($strSQL4) or die("ERROR $strSQL4 บรรทัด 240-248");
 		echo"<table border=\"0\"  cellspacing=\"1\" cellpadding=\"1\"><tr>";
@@ -2120,7 +2124,7 @@ $strSQL4="SELECT id, title, img FROM `post` where cate_id='10' ORDER BY id DESC 
 		while($objResult4=mysql_fetch_row($objQuery4))
 		{
 		$url4=rewrite($objResult4[1]);
-			echo "<td width='115' align='center' valign='top'>"; 
+			echo "<td width='115' align='center' valign='top'>";
 			$intRows4++;
 ?>
                                           <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -2203,7 +2207,7 @@ $strSQL4="SELECT id, title, img FROM `post` where cate_id='10' ORDER BY id DESC 
                                 <td align="center"><table width="230" border="0" align="center" cellpadding="0" cellspacing="0">
                                       <tr>
                                         <td align="center">
-<?	
+<?
 $strSQL4="SELECT id, title, img FROM `post` where cate_id='9' ORDER BY id DESC LIMIT 0,10";
 		$objQuery4=mysql_query($strSQL4) or die("ERROR $strSQL4 บรรทัด 240-248");
 		echo"<table border=\"0\"  cellspacing=\"1\" cellpadding=\"1\"><tr>";
@@ -2211,7 +2215,7 @@ $strSQL4="SELECT id, title, img FROM `post` where cate_id='9' ORDER BY id DESC L
 		while($objResult4=mysql_fetch_row($objQuery4))
 		{
 		$url4=rewrite($objResult4[1]);
-			echo "<td width='115' align='center' valign='top'>"; 
+			echo "<td width='115' align='center' valign='top'>";
 			$intRows4++;
 ?>
                                           <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -2270,7 +2274,7 @@ $strSQL4="SELECT id, title, img FROM `post` where cate_id='9' ORDER BY id DESC L
                       </tr>
                     </table></td>
                 </tr>
-<? 
+<?
 $sads7="SELECT * FROM `ads_a7` ORDER BY id ASC";
 $reads7=mysql_query($sads7) or die("Error $sads7");
 while($rads7=mysql_fetch_row($reads7)){
@@ -2282,10 +2286,10 @@ while($rads7=mysql_fetch_row($reads7)){
       </tr>
     </table>
 <?
-if($rads7[1]==1){ 
+if($rads7[1]==1){
 $ads7=stripslashes($rads7[3]);
 echo $ads7;
-}else if($rads7[1]==2){ 
+}else if($rads7[1]==2){
 ?>
         <a href="<?=$rads7[7];?>" title="<?=$rads7[8];?>" target="_blank">
         <? if($rads7[2]==1){  ?>

@@ -35,16 +35,18 @@ $rpost=mysql_fetch_row($repost);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>แจ้งลบข่าว <?=$rpost[0];?> | <?=$titler[1];?></title>
-<META NAME="keywords" CONTENT="<?=$titler[12];?>"> 
+<META NAME="keywords" CONTENT="<?=$titler[12];?>">
 <META NAME="description" CONTENT="<?=$titler[1];?> แจ้งลบข่าว <?=$rpost[0];?> <?=$titler[11];?>">
 <meta name="robots"  content="index,follow">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {
 	background-color: #<?=$bgr[1];?>;
 	<? if($bgr[2]!=""){ ?>background-image: url(http://<?=$titler[13];?>/bg-img/<?=$bgr[2];?>);
 	background-repeat: <?=$bgr[3];?>;
-	<? }if($bgr[4]==1){ ?>	
+	<? }if($bgr[4]==1){ ?>
 	background-attachment:fixed;
 	<? } ?>
 }
@@ -103,7 +105,7 @@ a:active {
                                 <td width="200" height="20" align="right" valign="middle"><table width="100" border="0" align="right" cellpadding="0" cellspacing="0" bgcolor="#CCCCCC">
                                     <tr>
                                       <td align="center"><strong><font size="3" color="#B00D0E">
-                                        <? 
+                                        <?
 $rand = substr(str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789'),0,4);
 echo $rand;
 ?>
