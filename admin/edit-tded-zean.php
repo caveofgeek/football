@@ -1,9 +1,9 @@
-<? 
-@session_start(); 
+<?
+@session_start();
 include "../inc/config.inc.php";
 include "../function/datethai.php";
 if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 ?>
@@ -12,6 +12,8 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -73,15 +75,15 @@ $id=$_GET[id];
 $szn="SELECT * FROM `zean_name` WHERE id='$zean_id'";
 $rezn=mysql_query($szn) or die("ERROR $szn");
 $rzn=mysql_fetch_row($rezn);
-?> 
-                      <img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> <a href="tded-zean.php?zean_id=<?=$zean_id;?>">จัดการข้อมูลทีเด็ด <?=$rzn[1];?></a> <img src="images/arrow.gif" width="7" height="11" /> แก้ไขข้อมูลทีเด็ด 
-                      <?=$rzn[1];?> 
-                      วันที่ 
+?>
+                      <img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> <a href="tded-zean.php?zean_id=<?=$zean_id;?>">จัดการข้อมูลทีเด็ด <?=$rzn[1];?></a> <img src="images/arrow.gif" width="7" height="11" /> แก้ไขข้อมูลทีเด็ด
+                      <?=$rzn[1];?>
+                      วันที่
 <?
 $spost="SELECT * FROM `tded_zean` WHERE id='$id'";
 $repost=mysql_query($spost) or die("ERROR $spost");
 $rpost=mysql_fetch_row($repost);
-$postDate=$rpost[11]; 
+$postDate=$rpost[11];
 echo DateThai($postDate);
 ?>
                     </font></strong></td>

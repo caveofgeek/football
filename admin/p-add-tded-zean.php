@@ -2,7 +2,7 @@
 session_start();
 include "../inc/config.inc.php";
 if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 ?>
@@ -11,6 +11,8 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการร้านค้า ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -55,18 +57,18 @@ mysql_close();
 echo "<meta http-equiv='refresh' content='0;url=tded-zean.php?zean_id=$zean_id'>";
 }else{
 ?>
-<script language="JavaScript"> 	
-	alert('ขอโทษครับ วันที่ <?=$date;?> คุณให้ทีเด็ดไปแล้วครับ'); 	
+<script language="JavaScript">
+	alert('ขอโทษครับ วันที่ <?=$date;?> คุณให้ทีเด็ดไปแล้วครับ');
 	history.back();
-</script> 
+</script>
 <?
 }
 }else{
 ?>
-<script language="JavaScript"> 	
-	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ'); 	
+<script language="JavaScript">
+	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ');
 	history.back();
-</script> 
+</script>
 <?
 }
 ?>

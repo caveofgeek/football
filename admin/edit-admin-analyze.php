@@ -1,9 +1,9 @@
-<? 
-@session_start(); 
+<?
+@session_start();
 include "../inc/config.inc.php";
 include "../function/datethai.php";
 if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 ?>
@@ -12,6 +12,8 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -87,7 +89,7 @@ $row=mysql_fetch_row($result);
                                 <td width="130" height="20" align="right"><font size="2">ชื่อที่ใช้เรียก / ฉายา </font></td>
                                 <td width="10" height="20" align="center"><font size="2">:</font></td>
                                 <td width="580" height="20" align="left">
-								<input name="name" type="text" id="name" style="width:250px;" value="<?=$row[1];?>" /> 
+								<input name="name" type="text" id="name" style="width:250px;" value="<?=$row[1];?>" />
 								<input type="hidden" name="id" id="id" value="<?=$id;?>" />
 								<input type="hidden" name="op" id="op" value="<?=$row[2];?>" />
 								<font size="2" color="#FF0000">*</font>
@@ -112,7 +114,7 @@ $row=mysql_fetch_row($result);
                                 <td height="20" align="left"><input name="pass" type="text" id="pass" style="width:200px;" value="<?=$row[4];?>" />
                                     <font size="2" color="#FF0000">*</font></td>
                               </tr>
-                              
+
                               <tr>
                                 <td width="130" height="20" align="right">&nbsp;</td>
                                 <td width="10" height="20" align="center">&nbsp;</td>
@@ -137,7 +139,7 @@ alert("กรุณากรอกรหัสผ่านของคุณด�
 document.checkForm.pass.focus() ;
 return false ;
 }
-else 
+else
 return true ;
 }
 

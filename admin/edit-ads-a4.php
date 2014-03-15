@@ -1,8 +1,8 @@
-<? 
-@session_start(); 
+<?
+@session_start();
 include "../inc/config.inc.php";
 if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 $id=$_GET[id];
@@ -20,6 +20,8 @@ $type=$r[1];
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -99,7 +101,7 @@ body {
                         <tr>
                           <td align="center">
 						  <?
-						  $ads=stripslashes($r[3]); 
+						  $ads=stripslashes($r[3]);
 						  echo $ads;
 						  ?>
 						  </td>

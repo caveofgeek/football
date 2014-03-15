@@ -2,7 +2,7 @@
 session_start();
 include "../inc/config.inc.php";
 if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 ?>
@@ -11,6 +11,8 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการร้านค้า ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -41,21 +43,21 @@ $re=mysql_query($s) or die("ERROR $s บรททัด39");
 $num=mysql_num_rows($re);
 if($num>=1){
 ?>
-<script language="JavaScript"> 	
-	alert('ขอโทษครับ หมวดหมู่เว็บบอร์ดนี้มีอยู่แล้วครับ'); 	
+<script language="JavaScript">
+	alert('ขอโทษครับ หมวดหมู่เว็บบอร์ดนี้มีอยู่แล้วครับ');
 	history.back();
-</script> 
+</script>
 <?
 }else{
 if($brand!=""&&$title!=""&&$description!=""&&$keyword!=""){
 $sql=mysql_query("INSERT INTO `webboard_category` (`cate_name`, `title`, `description`, `keyword`)VALUES ('$brand', '$title', '$description', '$keyword')")or die("ERROR $sql บรรทัด 51");
-echo "<meta http-equiv='refresh' content='0;url=webboard-category.php'>"; 
+echo "<meta http-equiv='refresh' content='0;url=webboard-category.php'>";
 }else{
 ?>
-<script language="JavaScript"> 	
-	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ'); 	
+<script language="JavaScript">
+	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ');
 	history.back();
-</script> 
+</script>
 <?
 }
 }

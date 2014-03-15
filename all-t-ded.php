@@ -30,17 +30,19 @@ $str=mysql_fetch_row($stre);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>ทีเด็ดบอล ทีเด็ดบอลวันนี้ ทีเด็ดฟุตบอล ทีเด็ดย้อนหลัง | <?=$titler[1];?></title>
-<META NAME="keywords" CONTENT="ทีเด็ดบอล, ทีเด็ดฟุตบอล, ทีเด็ดบอลวันนี้ ทีเด็ดบอลฟรี, ทีเด็ดบอลลีก, ทีเด็ดย้อนหลัง"> 
+<META NAME="keywords" CONTENT="ทีเด็ดบอล, ทีเด็ดฟุตบอล, ทีเด็ดบอลวันนี้ ทีเด็ดบอลฟรี, ทีเด็ดบอลลีก, ทีเด็ดย้อนหลัง">
 <META NAME="description" CONTENT="<?=$titler[1];?> แหล่งร่วม ทีเด็ด ทีเด็ดบอล ทีเด็ดบอลวันนี้ ทีเด็ดฟุตบอล ทีเด็ดย้อนหลัง ทีเด็ดบอลฟรี">
 <meta name="robots"  content="index,follow">
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {
 	background-color: #<?=$bgr[1];?>;
 	<? if($bgr[2]!=""){ ?>background-image: url(http://<?=$titler[13];?>/bg-img/<?=$bgr[2];?>);
 	background-repeat: <?=$bgr[3];?>;
-	<? }if($bgr[4]==1){ ?>	
+	<? }if($bgr[4]==1){ ?>
 	background-attachment:fixed;
 	<? } ?>
 }
@@ -62,7 +64,7 @@ a:active {
 }
 -->
 </style>
-<? 
+<?
 class Paginator{
 	var $items_per_page;
 	var $items_total;
@@ -142,9 +144,11 @@ class Paginator{
 	{
 		return $this->return;
 	}
-} 
+}
 ?>
-<style type="text/css"> 
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<style type="text/css">
 <!--
 	.paginate {
 	font-family: Arial, Helvetica, sans-serif;
@@ -161,7 +165,7 @@ class Paginator{
 		font-size: 12pt;
 		color: #003366;
 		}
-		
+
 		 h2 {
 		line-height: 1.2em;
 		letter-spacing:-1px;
@@ -224,11 +228,11 @@ while($rads8=mysql_fetch_row($reads8)){
                     <table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tr>
                           <td align="center" valign="middle">
-						  <? 
-						  if($rads8[1]==1){ 
-						  $ads8=stripslashes($rads8[3]); 
+						  <?
+						  if($rads8[1]==1){
+						  $ads8=stripslashes($rads8[3]);
 						  echo $ads8;
-						  }else if($rads8[1]==2){ 
+						  }else if($rads8[1]==2){
 						  ?>
                               <a href="<?=$rads8[7];?>" title="<?=$rads8[8];?>" target="_blank">
                               <? if($rads8[2]==1){  ?>
@@ -270,7 +274,7 @@ while($rads8=mysql_fetch_row($reads8)){
                       <td height="5"></td>
                     </tr>
                   </table>
-<?	
+<?
 		$strSQL = "SELECT post_date FROM t_ded GROUP BY post_date";
 		$objQuery = mysql_query($strSQL);
 		$Num_Rows = mysql_num_rows($objQuery);
@@ -326,7 +330,7 @@ while($rads8=mysql_fetch_row($reads8)){
                 <tr>
                   <td align="center"><table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
                       <tr>
-                        <td height="30" align="center" valign="middle"><? 
+                        <td height="30" align="center" valign="middle"><?
 $pages = new Paginator;
 $pages->items_total = $Num_Rows;
 $pages->mid_range = 10;

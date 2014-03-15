@@ -40,16 +40,18 @@ $keys=rewrite2($tag);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>ผลการค้นหา <?=$keys;?> | <?=$titler[1];?></title>
-<META NAME="keywords" CONTENT="<?=$titler[12];?>"> 
+<META NAME="keywords" CONTENT="<?=$titler[12];?>">
 <META NAME="description" CONTENT="<?=$titler[1];?> ผลการค้นหา <?=$keys;?> <?=$titler[11];?>">
 <meta name="robots"  content="index,follow">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {
 	background-color: #<?=$bgr[1];?>;
 	<? if($bgr[2]!=""){ ?>background-image: url(http://<?=$titler[13];?>/bg-img/<?=$bgr[2];?>);
 	background-repeat: <?=$bgr[3];?>;
-	<? }if($bgr[4]==1){ ?>	
+	<? }if($bgr[4]==1){ ?>
 	background-attachment:fixed;
 	<? } ?>
 }
@@ -71,7 +73,7 @@ a:active {
 }
 -->
 </style>
-<? 
+<?
 class Paginator{
 	var $items_per_page;
 	var $items_total;
@@ -151,9 +153,11 @@ class Paginator{
 	{
 		return $this->return;
 	}
-} 
+}
 ?>
-<style type="text/css"> 
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<style type="text/css">
 <!--
 	.paginate {
 	font-family: Arial, Helvetica, sans-serif;
@@ -170,7 +174,7 @@ class Paginator{
 		font-size: 12pt;
 		color: #003366;
 		}
-		
+
 		 h2 {
 		line-height: 1.2em;
 		letter-spacing:-1px;
@@ -233,11 +237,11 @@ while($rads8=mysql_fetch_row($reads8)){
                     <table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tr>
                           <td align="center" valign="middle">
-						  <? 
-						  if($rads8[1]==1){ 
-						  $ads8=stripslashes($rads8[3]); 
+						  <?
+						  if($rads8[1]==1){
+						  $ads8=stripslashes($rads8[3]);
 						  echo $ads8;
-						  }else if($rads8[1]==2){ 
+						  }else if($rads8[1]==2){
 						  ?>
                               <a href="<?=$rads8[7];?>" title="<?=$rads8[8];?>" target="_blank">
                               <? if($rads8[2]==1){  ?>
@@ -269,7 +273,7 @@ while($rads8=mysql_fetch_row($reads8)){
                 </tr>
                 <tr>
                   <td align="center">
-<?	
+<?
 $stag="select post_id from tag_post where tag1='$keys' or tag2='$keys' or tag3='$keys' or tag4='$keys' or tag5='$keys' or tag6='$keys'";
 $retag=mysql_query($stag) or die("ERROR $stag");
 while($rtag=mysql_fetch_row($retag)){

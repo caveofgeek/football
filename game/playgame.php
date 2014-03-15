@@ -35,7 +35,7 @@ $id=$_GET[id];
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>เล่นเกมส์ทายผลบอล | <?=$titler[1];?></title>
-<META NAME="keywords" CONTENT="<?=$rgame[6];?>"> 
+<META NAME="keywords" CONTENT="<?=$rgame[6];?>">
 <META NAME="description" CONTENT="<?=$titler[1];?> เล่นเกมส์ทายผลบอล <?=$rgame[5];?>">
 <meta name="robots"  content="index,follow">
 <?
@@ -45,10 +45,10 @@ $re=mysql_query($s) or die("ERROR $s");
 $n=mysql_num_rows($re);
 if($n>=1){
 ?>
-	<script language="JavaScript"> 	
-		alert('ขอโทษครับ ท่านได้ทำการทายผลคู่นี้ไปแล้วครับ'); 	
-		window.location = 'index.php'; 
-	</script> 
+	<script language="JavaScript">
+		alert('ขอโทษครับ ท่านได้ทำการทายผลคู่นี้ไปแล้วครับ');
+		window.location = 'index.php';
+	</script>
 <?
 exit();
 }
@@ -59,10 +59,10 @@ $re3=mysql_query($s3) or die("ERROR $s3");
 $r3=mysql_fetch_row($re3);
 if($time>$r3[0]){
 ?>
-	<script language="JavaScript"> 	
-		alert('ขอโทษครับ หมดเวลาทายผลแล้วครับ'); 	
-		window.location = 'index.php'; 
-	</script> 
+	<script language="JavaScript">
+		alert('ขอโทษครับ หมดเวลาทายผลแล้วครับ');
+		window.location = 'index.php';
+	</script>
 <?
 exit();
 }
@@ -73,21 +73,23 @@ $re2=mysql_query($s2) or die("ERROR $s2");
 $n2=mysql_num_rows($re2);
 if($n2>=5){
 ?>
-	<script language="JavaScript"> 	
-		alert('ขอโทษครับ ท่านได้ทำการทายผลเกิน 5 คู่ต่อวันแล้ว ร่วมสนุกใหม่วันพรุ่งนี้นะครับ'); 	
-		window.location = 'index.php'; 
-	</script> 
+	<script language="JavaScript">
+		alert('ขอโทษครับ ท่านได้ทำการทายผลเกิน 5 คู่ต่อวันแล้ว ร่วมสนุกใหม่วันพรุ่งนี้นะครับ');
+		window.location = 'index.php';
+	</script>
 <?
 exit();
 }
 ?>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {
 	background-color: #<?=$bgr[1];?>;
 	<? if($bgr[2]!=""){ ?>background-image: url(http://<?=$titler[13];?>/bg-img/<?=$bgr[2];?>);
 	background-repeat: <?=$bgr[3];?>;
-	<? }if($bgr[4]==1){ ?>	
+	<? }if($bgr[4]==1){ ?>
 	background-attachment:fixed;
 	<? } ?>
 }
@@ -156,7 +158,7 @@ $row=mysql_fetch_row($db_resule);
 ?>
                             <table width="97%" border="0" align="center" cellpadding="1" cellspacing="1" bgcolor="#CCCCCC">
                               <tr bgcolor="#FFFFFF">
-                                <td width="20%" height="20"><div align="right"><font color="#333333" size="3">ลีกบอล 
+                                <td width="20%" height="20"><div align="right"><font color="#333333" size="3">ลีกบอล
                                   :</font></div></td>
                                 <td width="80%" height="20"><font color="#990000" size="3">
                                   <?=$row[0];?>
@@ -164,35 +166,35 @@ $row=mysql_fetch_row($db_resule);
                                     <input type="hidden" name="game_id" value="<?=$id;?>" />                                </td>
                               </tr>
                               <tr bgcolor="#FFFFFF">
-                                <td height="20"><div align="right"><font color="#333333" size="3">ประจำวันที่ 
+                                <td height="20"><div align="right"><font color="#333333" size="3">ประจำวันที่
                                   :</font></div></td>
                                 <td height="20"><font color="#990000" size="3">
                                   <?=Datethai($row[1]);?>
                                 </font></td>
                               </tr>
                               <tr bgcolor="#FFFFFF">
-                                <td height="20"><div align="right"><font color="#333333" size="3">เวลาแข่งขัน 
+                                <td height="20"><div align="right"><font color="#333333" size="3">เวลาแข่งขัน
                                   :</font></div></td>
                                 <td height="20"><font color="#990000" size="3">
                                   <?=$row[2];?>
                                   น. </font></td>
                               </tr>
                               <tr bgcolor="#FFFFFF">
-                                <td height="20"><div align="right"><font color="#333333" size="3">เจ้าบ้าน 
+                                <td height="20"><div align="right"><font color="#333333" size="3">เจ้าบ้าน
                                   :</font></div></td>
                                 <td height="20"><font color="#990000" size="3">
                                   <?=$row[3];?>
                                 </font></td>
                               </tr>
                               <tr bgcolor="#FFFFFF">
-                                <td height="20"><div align="right"><font color="#333333" size="3">ทีมเยือน 
+                                <td height="20"><div align="right"><font color="#333333" size="3">ทีมเยือน
                                   :</font></div></td>
                                 <td height="20"><font color="#990000" size="3">
                                   <?=$row[4];?>
                                 </font></td>
                               </tr>
                               <tr bgcolor="#FFFFCC">
-                                <td height="20"><div align="right"><strong><font color="#FF0000" size="3">ทายผล 
+                                <td height="20"><div align="right"><strong><font color="#FF0000" size="3">ทายผล
                                   :</font></strong></div></td>
                                 <td height="20"><font size="3">
                                   <input type="radio" name="result" value="1" />

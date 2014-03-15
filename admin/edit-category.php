@@ -1,8 +1,8 @@
-<? 
-@session_start(); 
+<?
+@session_start();
 include "../inc/config.inc.php";
 if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 ?>
@@ -11,6 +11,8 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -76,7 +78,7 @@ $rcate=mysql_fetch_row($recate);
 					<? }else if($cate_id<=33){ ?>
 					<a href="all-main-category.php?cate_id=<?=$cate_id;?>">
 					<? } ?>
-					จัดการข้อมูลหมวดหมู่<?=$rcate[1];?> 
+					จัดการข้อมูลหมวดหมู่<?=$rcate[1];?>
 					</a> <img src="images/arrow.gif" width="7" height="11" /> </font><font color="#000000" size="2">แก้ไขข้อมูลหมวดหมู่<?=$rcate[1];?>
 					</font></strong></td>
                   </tr>
@@ -131,7 +133,7 @@ alert("กรุณากรอก Keyword ด้วยนะครับ") ;
 document.checkForm.keyword.focus() ;
 return false ;
 }
-else 
+else
 return true ;
 }
 </script>

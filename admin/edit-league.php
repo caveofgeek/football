@@ -1,8 +1,8 @@
-<? 
-@session_start(); 
+<?
+@session_start();
 include "../inc/config.inc.php";
 if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 $id=$_GET[id];
@@ -15,7 +15,7 @@ $r=mysql_fetch_row($re);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
-<? 
+<?
 class Paginator{
 	var $items_per_page;
 	var $items_total;
@@ -95,9 +95,11 @@ class Paginator{
 	{
 		return $this->return;
 	}
-} 
+}
 ?>
-<style type="text/css"> 
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<style type="text/css">
 <!--
 	.paginate {
 	font-family: Arial, Helvetica, sans-serif;
@@ -114,7 +116,7 @@ class Paginator{
 		font-size: 12pt;
 		color: #003366;
 		}
-		
+
 		 h2 {
 		line-height: 1.2em;
 		letter-spacing:-1px;
@@ -241,7 +243,7 @@ alert("กรุณากรอกไอพีด้วยนะครับ") ;
 document.checkForm.brand.focus() ;
 return false ;
 }
-else 
+else
 return true ;
 }
                     </script>
@@ -259,7 +261,7 @@ return true ;
                               <td width="310" align="center" valign="middle" bgcolor="#EFEFED"><strong><font color="#333333" size="2">ชื่อลีก</font></strong></td>
                               <td width="100" height="30" align="center" valign="middle" bgcolor="#EFEFED"><span class="style4">การกระทำ</span></td>
                             </tr>
-                            <?	
+                            <?
 		$strSQL = "SELECT * FROM league";
 		$objQuery = mysql_query($strSQL);
 		$Num_Rows = mysql_num_rows($objQuery);
@@ -321,7 +323,7 @@ return true ;
                                   หน้า</font></td>
                               </tr>
                               <tr>
-                                <td height="30" align="center" valign="middle"><? 
+                                <td height="30" align="center" valign="middle"><?
 $pages = new Paginator;
 $pages->items_total = $Num_Rows;
 $pages->mid_range = 10;

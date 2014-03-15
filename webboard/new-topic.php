@@ -36,7 +36,7 @@ $rrcate=mysql_fetch_row($rrecate);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>ตั้งคำถามใหม่ <? if(isset($_GET[cate_id])){ echo "หมวดหมู่ $rrcate[0]";} ?>  | <?=$titler[1];?></title>
-<META NAME="keywords" CONTENT="<?=$titler[12];?>"> 
+<META NAME="keywords" CONTENT="<?=$titler[12];?>">
 <META NAME="description" CONTENT="<?=$titler[1];?> ตั้งคำถามใหม่ <? if(isset($_GET[cate_id])){ echo "หมวดหมู่ $rrcate[0]";} ?>  <?=$titler[11];?>">
 <meta name="robots"  content="index,follow">
 <?
@@ -47,28 +47,30 @@ $reip=mysql_query($sip) or die("ERROR $sip");
 $nip=mysql_num_rows($reip);
 if($nip>=1){
 ?>
-	<script language="JavaScript"> 	
-		alert('ขอโทษครับ หมายเลข IP ของท่านไม่สามารถใช้งานได้ครับ'); 	
-		window.location = 'index.php'; 
-	</script> 
-<? 
+	<script language="JavaScript">
+		alert('ขอโทษครับ หมายเลข IP ของท่านไม่สามารถใช้งานได้ครับ');
+		window.location = 'index.php';
+	</script>
+<?
 exit();
 }?>
 <link href="jquery.cleditor.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
 <script type="text/javascript" src="jquery.cleditor.min.js"></script>
 <script type="text/javascript">
       $(document).ready(function() {
         $("#input").cleditor({width:950, height:450, useCSS:true})[0].focus();
       });
 </script>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {
 	background-color: #<?=$bgr[1];?>;
 	<? if($bgr[2]!=""){ ?>background-image: url(http://<?=$titler[13];?>/bg-img/<?=$bgr[2];?>);
 	background-repeat: <?=$bgr[3];?>;
-	<? }if($bgr[4]==1){ ?>	
+	<? }if($bgr[4]==1){ ?>
 	background-attachment:fixed;
 	<? } ?>
 }
@@ -137,7 +139,7 @@ a:active {
                   <? }else{ ?>
                   <input type="hidden" name="user" id="user" value="<?=$_SESSION[m_user];?>" />
                   <input type="hidden" name="pass" id="pass" value="<?=$_SESSION[m_pass];?>" />
-                  <? } 
+                  <? }
 if(isset($cate_id)){ ?>
                   <input type="hidden" name="cate" id="cate" value="<?=$cate_id;?>" />
                   <? }else if(!isset($cate_id)){ ?>
@@ -182,7 +184,7 @@ if(isset($cate_id)){ ?>
                           <td width="100"><table width="100" border="0" align="right" cellpadding="0" cellspacing="0" bgcolor="#CCCCCC">
                               <tr>
                                 <td align="center"><strong><font size="3" color="#B00D0E">
-                                  <? 
+                                  <?
 $rand = substr(str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789'),0,4);
 echo $rand;
 ?>
