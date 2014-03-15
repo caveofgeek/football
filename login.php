@@ -1,9 +1,9 @@
-<? @session_start();  ?>
+<?php @session_start();  ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<?
+<?php
 include "inc/config.inc.php";
-$user=$_POST[user];
-$pass=$_POST[pass];
+$user=$_POST["user"];
+$pass=$_POST["pass"];
 $date=date("Y-n-j H:i:s");
 //echo "$user<br>$pass";
 //login
@@ -18,14 +18,14 @@ if($num<=0){
 	alert('ขออภัยครับ ท่านกรอก ชื่อผู้ใช้ และ/หรือ รหัสผ่าน ไม่ถูกต้องครับ'); 	
 	history.back();
 </script>
-<?
+<?php
 }
 else {
-$_SESSION[member_login]="member_login";
-$_SESSION[m_id]="$r[0]";
-$_SESSION[m_name]="$r[1]";
-$_SESSION[m_user]="$r[2]";
-$_SESSION[m_pass]="$r[3]";
+$_SESSION["member_login"]="member_login";
+$_SESSION["m_id"]="$r[0]";
+$_SESSION["m_name"]="$r[1]";
+$_SESSION["m_user"]="$r[2]";
+$_SESSION["m_pass"]="$r[3]";
 echo "<meta http-equiv=refresh content=0;URL=member/index.php>"; 
 }
 ?>

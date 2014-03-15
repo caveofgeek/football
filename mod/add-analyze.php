@@ -1,4 +1,4 @@
-<? 
+<?php 
 @session_start(); 
 include "../inc/config.inc.php";
 if(!isset($_SESSION[mod_login])) {
@@ -44,7 +44,7 @@ a:active {
       <table width="980" border="0" cellspacing="1" cellpadding="1">
         <tr valign="top">
           <td width="490"><div align="left"><font color="#000000" size="2">:: ยินดีต้อนรับเข้าสู่ ระบบจัดการ<font color="#333333">ข้อมูลวิเคราะห์บอล</font> :: | 
-				<?
+				<?php
 				$dm=date("d/m");
 				$y=date("Y")+543;
 				$date="$dm/$y";

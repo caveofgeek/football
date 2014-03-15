@@ -1,8 +1,8 @@
-<?
+<?php
 session_start();
 include "../inc/config.inc.php";
-//echo "$_SESSION[m_login]<br>$_SESSION[m_id]";
-if(!isset($_SESSION[admin_login])) {
+//echo "$_SESSION[m_login]<br>$_SESSION["m_id"]";
+if(!isset($_SESSION["admin_login"])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
 exit() ;
 }
@@ -31,11 +31,11 @@ a:active {
 </style></head>
 
 <body>
-<?
+<?php
 $Submit=$_POST[Submit];
 $op1=$_POST[op1];
-$file1=$_FILES[file1][name];
-$tmp1=$_FILES[file1][tmp_name];
+$file1=$_FILES["file1"]["name"];
+$tmp1=$_FILES["file1"]["tmp_name"];
 if($file1!=""){
 	//del img1
 	$part1="../logo-img/$op1";
@@ -52,7 +52,7 @@ if($file1!=""){
 	alert('ขอโทษครับ กรุณาเลือกภาพ Site Logo ด้วยครับ'); 	
 	history.back();
 </script> 
-<?
+<?php
 }
 ?>
 </body>

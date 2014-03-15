@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 include "inc/config.inc.php";
 include "function/datethai.php";
@@ -29,35 +29,35 @@ $str=mysql_fetch_row($stre);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>ลืมรหัสผ่าน | <?=$titler[1];?></title>
-<META NAME="keywords" CONTENT="<?=$titler[12];?>"> 
-<META NAME="description" CONTENT="<?=$titler[1];?> ลืมรหัสผ่าน <?=$titler[11];?>">
+<title>ลืมรหัสผ่าน | <?php echo $titler[1]; ?></title>
+<META NAME="keywords" CONTENT="<?php echo $titler[12]; ?>"> 
+<META NAME="description" CONTENT="<?php echo $titler[1]; ?> ลืมรหัสผ่าน <?php echo $titler[11]; ?>">
 <meta name="robots"  content="index,follow">
 <style type="text/css">
 <!--
 body {
-	background-color: #<?=$bgr[1];?>;
-	<? if($bgr[2]!=""){ ?>background-image: url(http://<?=$titler[13];?>/bg-img/<?=$bgr[2];?>);
-	background-repeat: <?=$bgr[3];?>;
-	<? }if($bgr[4]==1){ ?>	
+	background-color: #<?php echo $bgr[1]; ?>;
+	<?php if($bgr[2]!=""){ ?>background-image: url(http://<?php echo $titler[13]; ?>/bg-img/<?php echo $bgr[2]; ?>);
+	background-repeat: <?php echo $bgr[3]; ?>;
+	<?php }if($bgr[4]==1){ ?>	
 	background-attachment:fixed;
-	<? } ?>
+	<?php } ?>
 }
 a:link {
-	color: #<?=$linkr[1];?>;
+	color: #<?php echo $linkr[1]; ?>;
 	text-decoration: none;
 }
 a:visited {
 	text-decoration: none;
-	color: #<?=$linkr[2];?>;
+	color: #<?php echo $linkr[2]; ?>;
 }
 a:hover {
 	text-decoration: underline;
-	color: #<?=$linkr[3];?>;
+	color: #<?php echo $linkr[3]; ?>;
 }
 a:active {
 	text-decoration: none;
-	color: #<?=$linkr[4];?>;
+	color: #<?php echo $linkr[4]; ?>;
 }
 -->
 </style>
@@ -66,7 +66,7 @@ a:active {
 <body>
 <table width="995" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
-    <td align="center" valign="top"><? include "header.php"; ?></td>
+    <td align="center" valign="top"><?php include "header.php"; ?></td>
   </tr>
   <tr>
     <td style="background-color:#FFFFFF;"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -76,14 +76,14 @@ a:active {
     </table>
       <table width="985" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
-          <td width="250" align="center" valign="top"><? include "menu.php"; ?></td>
+          <td width="250" align="center" valign="top"><?php include "menu.php"; ?></td>
           <td width="7" align="center" valign="top">&nbsp;</td>
           <td width="728" align="center" valign="top"><table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
               <td align="center"><table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
                 <tr>
                   <td align="center">
-<?
+<?php
 $sads8="SELECT * FROM `ads_a8` ORDER BY id ASC";
 $reads8=mysql_query($sads8) or die("Error $sads8");
 while($rads8=mysql_fetch_row($reads8)){
@@ -91,22 +91,22 @@ while($rads8=mysql_fetch_row($reads8)){
                     <table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tr>
                           <td align="center" valign="middle">
-						  <? 
+						  <?php 
 						  if($rads8[1]==1){ 
 						  $ads8=stripslashes($rads8[3]); 
 						  echo $ads8;
 						  }else if($rads8[1]==2){ 
 						  ?>
-                              <a href="<?=$rads8[7];?>" title="<?=$rads8[8];?>" target="_blank">
-                              <? if($rads8[2]==1){  ?>
-                              <img src="http://<?=$titler[13];?>/ads-img/<?=$rads8[9];?>" alt="<?=$rads8[8];?>" width="728" border="0" title="<?=$rads8[8];?>" />
-                              <? }else if($rads8[2]==2){ ?>
+                              <a href="<?php echo $rads8[7]; ?>" title="<?php echo $rads8[8]; ?>" target="_blank">
+                              <?php if($rads8[2]==1){  ?>
+                              <img src="http://<?php echo $titler[13]; ?>/ads-img/<?php echo $rads8[9]; ?>" alt="<?php echo $rads8[8]; ?>" width="728" border="0" title="<?php echo $rads8[8]; ?>" />
+                              <?php }else if($rads8[2]==2){ ?>
                               <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="728" border="0">
-                                <param name="movie" value="http://<?=$titler[13];?>/ads-img/<?=$rads8[9];?>" />
+                                <param name="movie" value="http://<?php echo $titler[13]; ?>/ads-img/<?php echo $rads8[9]; ?>" />
                                 <param name="quality" value="high" />
-                                <embed src="http://<?=$titler[13];?>/ads-img/<?=$rads8[9];?>" width="728" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"></embed>
+                                <embed src="http://<?php echo $titler[13]; ?>/ads-img/<?php echo $rads8[9]; ?>" width="728" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"></embed>
                               </object>
-                              <? }} ?>
+                              <?php }} ?>
                             </a></td>
                         </tr>
                       </table>
@@ -115,7 +115,7 @@ while($rads8=mysql_fetch_row($reads8)){
                         <td height="5"></td>
                       </tr>
                     </table>
-<? } ?>
+<?php } ?>
 				  </td>
                 </tr>
               </table></td>
@@ -187,9 +187,9 @@ return true ;
       </table></td>
   </tr>
   <tr>
-    <td align="center"><? include "top-footer.php"; ?></td>
+    <td align="center"><?php include "top-footer.php"; ?></td>
   </tr>
 </table>
-<? include "footer.php"; ?>
+<?php include "footer.php"; ?>
 </body>
 </html>

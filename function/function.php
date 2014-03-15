@@ -1,4 +1,4 @@
-<?
+<?php
 function func($detail)  
 	{
 		$detail=str_replace(chr(13), "<br>", $detail);

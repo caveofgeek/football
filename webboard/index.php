@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 include "../inc/config.inc.php";
 include "../function/datethai.php";
@@ -30,39 +30,39 @@ $str=mysql_fetch_row($stre);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>เว็บบอร์ดพูดคุย แลกเปลี่ยน ทรรศนะฟุตบอล | <?=$titler[1];?></title>
-<META NAME="keywords" CONTENT="<?=$titler[12];?>"> 
-<META NAME="description" CONTENT="<?=$titler[1];?> เว็บบอร์ดพูดคุย แลกเปลี่ยน ทรรศนะฟุตบอล">
+<title>เว็บบอร์ดพูดคุย แลกเปลี่ยน ทรรศนะฟุตบอล | <?php echo $titler[1]; ?></title>
+<META NAME="keywords" CONTENT="<?php echo $titler[12]; ?>"> 
+<META NAME="description" CONTENT="<?php echo $titler[1]; ?> เว็บบอร์ดพูดคุย แลกเปลี่ยน ทรรศนะฟุตบอล">
 <meta name="robots"  content="index,follow">
 <style type="text/css">
 <!--
 body {
-	background-color: #<?=$bgr[1];?>;
-	<? if($bgr[2]!=""){ ?>background-image: url(http://<?=$titler[13];?>/bg-img/<?=$bgr[2];?>);
-	background-repeat: <?=$bgr[3];?>;
-	<? }if($bgr[4]==1){ ?>	
+	background-color: #<?php echo $bgr[1]; ?>;
+	<?php if($bgr[2]!=""){ ?>background-image: url(http://<?php echo $titler[13]; ?>/bg-img/<?php echo $bgr[2]; ?>);
+	background-repeat: <?php echo $bgr[3]; ?>;
+	<?php }if($bgr[4]==1){ ?>	
 	background-attachment:fixed;
-	<? } ?>
+	<?php } ?>
 }
 a:link {
-	color: #<?=$linkr[1];?>;
+	color: #<?php echo $linkr[1]; ?>;
 	text-decoration: none;
 }
 a:visited {
 	text-decoration: none;
-	color: #<?=$linkr[2];?>;
+	color: #<?php echo $linkr[2]; ?>;
 }
 a:hover {
 	text-decoration: underline;
-	color: #<?=$linkr[3];?>;
+	color: #<?php echo $linkr[3]; ?>;
 }
 a:active {
 	text-decoration: none;
-	color: #<?=$linkr[4];?>;
+	color: #<?php echo $linkr[4]; ?>;
 }
 -->
 </style>
-<? 
+<?php 
 class Paginator{
 	var $items_per_page;
 	var $items_total;
@@ -134,8 +134,8 @@ class Paginator{
 			}
 		}
 		$this->low = ($this->current_page-1) * $this->items_per_page;
-		$this->high = ($_GET['ipp'] == 'All') ? $this->items_total:($this->current_page * $this->items_per_page)-1;
-		$this->limit = ($_GET['ipp'] == 'All') ? "":" LIMIT $this->low,$this->items_per_page";
+		$this->high = (isset($_GET['ipp']) == 'All') ? $this->items_total:($this->current_page * $this->items_per_page)-1;
+		$this->limit = (isset($_GET['ipp']) == 'All') ? "":" LIMIT $this->low,$this->items_per_page";
 	}
 
 	function display_pages()
@@ -199,7 +199,7 @@ class Paginator{
 <body>
 <table width="995" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
-    <td align="center" valign="top"><? include "../header.php"; ?></td>
+    <td align="center" valign="top"><?php include "../header.php"; ?></td>
   </tr>
   <tr>
     <td style="background-color:#FFFFFF;"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -212,7 +212,7 @@ class Paginator{
           <td><table width="970" border="0" align="center" cellpadding="0" cellspacing="0">
               <tr>
                 <td>
-<?
+<?php
    $sni="select * from news_index where id=1";
    $reni=mysql_query($sni) or die("ERROR $sni บรททัด 89");
    $rni=mysql_fetch_row($reni);
@@ -231,9 +231,9 @@ class Paginator{
             </table>
               <table width="970" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#1d73da">
                 <tr>
-                  <td height="30" style="background-image:url(http://<?=$titler[13];?>/img/bg-tab-login.png); background-repeat:repeat-x;"><table width="960" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <td height="30" style="background-image:url(http://<?php echo $titler[13]; ?>/img/bg-tab-login.png); background-repeat:repeat-x;"><table width="960" border="0" align="center" cellpadding="0" cellspacing="0">
                       <tr>
-                        <td width="35" align="left"><img src="http://<?=$titler[13];?>/img/football-icon.png" /></td>
+                        <td width="35" align="left"><img src="http://<?php echo $titler[13]; ?>/img/football-icon.png" /></td>
                         <td width="925" align="left" style="font-size:14px; color:#FFFFFF; font-weight:bold;"> หมวดหมู่เว็บบอร์ด </td>
                       </tr>
                   </table></td>
@@ -245,18 +245,18 @@ class Paginator{
                       </tr>
                     </table>
                       <table width="960" border="0" align="center" cellpadding="0" cellspacing="0">
-                        <?
+                        <?php
    $scate="SELECT * FROM `webboard_category` ORDER BY id ASC";
    $recate=mysql_query($scate) or die("Error $scate");
    while($rcate=mysql_fetch_row($recate)){
    $url=rewrite($rcate[1]);
 ?>
                         <tr>
-                          <td width="760" height="20" align="left"><strong><font size="2"><img src="img/icon_bullet_arrow_small.gif" width="9" height="9" /> <a href="http://<?=$titler[13];?>/wcate-<?=$rcate[0];?>/<?=$url?>" title="<?=$rcate[1];?>" target="_blank" style="color:#000000">
-                            <?=$rcate[1];?>
+                          <td width="760" height="20" align="left"><strong><font size="2"><img src="img/icon_bullet_arrow_small.gif" width="9" height="9" /> <a href="http://<?php echo $titler[13]; ?>/wcate-<?php echo $rcate[0]; ?>/<?php echo $url?>" title="<?php echo $rcate[1]; ?>" target="_blank" style="color:#000000">
+                            <?php echo $rcate[1]; ?>
                           </a></font></strong></td>
                           <td width="200" height="20" align="right"><strong><font size="2">
-                            <?
+                            <?php
 $strCATE="SELECT * FROM `webboard` WHERE cate_id='$rcate[0]' ";
 $QueryCATE=mysql_query($strCATE) or die("ERROR $strCATE บรรทัด 221");
 $NumCATE = mysql_num_rows($QueryCATE);	
@@ -264,7 +264,7 @@ echo $NumCATE;
 ?>
                             กระทู้ </font></strong></td>
                         </tr>
-                        <? } ?>
+                        <?php } ?>
                     </table></td>
                 </tr>
             </table></td>
@@ -301,7 +301,7 @@ echo $NumCATE;
             </table>
               <table width="970" border="0" align="center" cellpadding="0" cellspacing="0">
                 <tr>
-                  <td height="30" style="background-image:url(http://<?=$titler[13];?>/img/bg-tab-login.png); background-repeat:repeat-x;"><table width="960" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <td height="30" style="background-image:url(http://<?php echo $titler[13]; ?>/img/bg-tab-login.png); background-repeat:repeat-x;"><table width="960" border="0" align="center" cellpadding="0" cellspacing="0">
                       <tr>
                         <td align="left"><strong><font size="2" color="#FFFFFF">กระทู้อัพเดทล่าสุด</font></strong></td>
                       </tr>
@@ -316,7 +316,7 @@ echo $NumCATE;
                         <td width="65" height="30" align="center" bgcolor="#CCCCCC"><font size="2"><strong>อ่าน</strong></font></td>
                         <td width="65" height="30" align="center" bgcolor="#CCCCCC"><font size="2"><strong>ตอบ</strong></font></td>
                       </tr>
-                      <?
+                      <?php
 $swb="SELECT webboard.id, webboard.title, webboard.date, webboard.view, member.name, webboard.upd_date, webboard.status, ";
 $swb.="webboard.cate_id, webboard.member_id, member.img FROM `webboard` ";
 $swb.="INNER JOIN member ON webboard.member_id=member.id ";
@@ -331,11 +331,11 @@ $url=rewrite($rwb[1]);
                               <td height="20" align="left"><table width="580" border="0" cellspacing="0" cellpadding="0">
                                   <tr>
                                     <td width="30" align="center"><img src="img/stick.gif" width="25" height="20" /></td>
-                                    <td width="550" align="left"><font size="2"><a href="http://<?=$titler[13];?>/board-<?=$rwb[0];?>-<?=$rwb[7];?>/<?=$url;?>.html" title="<?=$rwb[1];?>" target="_blank"><strong>
-                                      <?=$rwb[1];?>
+                                    <td width="550" align="left"><font size="2"><a href="http://<?php echo $titler[13]; ?>/board-<?php echo $rwb[0]; ?>-<?php echo $rwb[7]; ?>/<?php echo $url; ?>.html" title="<?php echo $rwb[1]; ?>" target="_blank"><strong>
+                                      <?php echo $rwb[1]; ?>
                                       </strong></a> <img src="img/Logout.gif" width="16" height="16" />
-                                      <?=$rwb[4];?>
-                                      <?
+                                      <?php echo $rwb[4]; ?>
+                                      <?php
 $today=date("Y-n-j H:i:s");
 $yesterday=date("Y-m-d H:i:s",strtotime("- 1 day"));
 //echo $objResult[5];
@@ -344,11 +344,11 @@ if($rwb[5]>=$yesterday){
 	if($rwb[6]==1){
 ?>
                                       <img src="img/new_icon.gif" width="21" height="9" />
-                                      <?
+                                      <?php
 	}else if($rwb[6]==2){
 ?>
                                       <img src="img/icon_update.gif" width="42" height="12" />
-                                      <?	
+                                      <?php	
 	}
 }else{
 //echo "no";
@@ -362,7 +362,7 @@ if($rwb[5]>=$yesterday){
                               <td height="20" align="left"><table width="520" border="0" align="center" cellpadding="0" cellspacing="0">
                                   <tr>
                                     <td width="10" align="left"><img src="img/arrow.gif" width="11" height="8" /></td>
-                                    <td width="510" align="left"><?
+                                    <td width="510" align="left"><?php
 $strWB="SELECT member.name, ans_webboard.date FROM `ans_webboard` ";
 $strWB.="INNER JOIN member ON ans_webboard.member_id=member.id ";
 $strWB.="WHERE ans_webboard.topic_id='$rwb[0]' ORDER BY ans_webboard.id DESC ";
@@ -371,9 +371,9 @@ $WBResult=mysql_fetch_row($WBQuery);
 $NumWB = mysql_num_rows($WBQuery);
 ?>
                                         <font size="1">ตอบล่าสุดโดย
-                                          <? if($NumWB<=0){ echo "ยังไม่มีผู้ตอบ"; }else{ echo $WBResult[0];?>
+                                          <?php if($NumWB<=0){ echo "ยังไม่มีผู้ตอบ"; }else{ echo $WBResult[0]; ?>
                                           เมื่อ
-                                          <? $replyDate = $WBResult[1];
+                                          <?php $replyDate = $WBResult[1];
 echo DateTime($replyDate);
 }
 ?>
@@ -382,26 +382,26 @@ echo DateTime($replyDate);
                               </table></td>
                             </tr>
                         </table></td>
-                        <td width="125" height="40" align="center" bgcolor="#FFFFFF"><? if($rwb[9]!=""){ ?>
-                            <img src="http://<?=$titler[13];?>/member/avatar/<?=$rwb[9];?>" width="120" height="19" />
-                            <? }else{ ?>
+                        <td width="125" height="40" align="center" bgcolor="#FFFFFF"><?php if($rwb[9]!=""){ ?>
+                            <img src="http://<?php echo $titler[13]; ?>/member/avatar/<?php echo $rwb[9]; ?>" width="120" height="19" />
+                            <?php }else{ ?>
                             <span style="font-family:'Times New Roman', Times, serif; font-size:12px; color:#333333;">Avatar</span>
-                            <? } ?></td>
+                            <?php } ?></td>
                         <td width="125" height="40" align="center" bgcolor="#FFFFFF"><font size="2">
-                          <?
+                          <?php
 								$postDate = $rwb[2];
 								echo DateTime($postDate);
 								?>
                         </font></td>
                         <td width="65" height="40" align="center" bgcolor="#FFFFFF"><font size="2">
-                          <?=$rwb[3];?>
+                          <?php echo $rwb[3]; ?>
                         </font></td>
                         <td width="65" height="40" align="center" bgcolor="#FFFFFF"><font size="2">
-                          <?=$NumWB;?>
+                          <?php echo $NumWB; ?>
                         </font></td>
                       </tr>
-                      <? } ?>
-                      <?
+                      <?php } ?>
+                      <?php
 $strSQL="SELECT webboard.id, webboard.title, webboard.date, webboard.view, member.name, webboard.upd_date, webboard.status, ";
 $strSQL.="webboard.cate_id, webboard.member_id, member.img FROM `webboard` ";
 $strSQL.="INNER JOIN member ON webboard.member_id=member.id ";
@@ -410,10 +410,14 @@ $objQuery=mysql_query($strSQL) or die("ERROR บรรทัด 344");
 $Num_Rows = mysql_num_rows($objQuery);		
 		$Per_Page = 20;   // Per Page
 
-		$Page = $_GET["Page"];
-		if(!$_GET["Page"])
+		
+		if(!isset($_GET["Page"]))
 		{
 			$Page=1;
+		}
+		else
+		{
+			$Page = $_GET["Page"];
 		}
 
 		$Prev_Page = $Page-1;
@@ -445,7 +449,7 @@ $Num_Rows = mysql_num_rows($objQuery);
                             <tr>
                               <td height="20" align="left"><table width="580" border="0" cellspacing="0" cellpadding="0">
                                   <tr>
-                                    <td width="30" align="center"><?
+                                    <td width="30" align="center"><?php
 $strWB2="SELECT member.name, ans_webboard.date FROM `ans_webboard` ";
 $strWB2.="INNER JOIN member ON ans_webboard.member_id=member.id ";
 $strWB2.="WHERE ans_webboard.topic_id='$objResult[0]' ORDER BY ans_webboard.id DESC ";
@@ -455,14 +459,14 @@ $NumWB2=mysql_num_rows($WBQuery2);
 if($NumWB2<=0){
 ?>
                                         <img src="img/boardans.gif" width="16" height="11" />
-                                        <? }else{ ?>
+                                        <?php }else{ ?>
                                         <img src="img/boardunans.gif" width="16" height="11" />
-                                        <? } ?></td>
-                                    <td width="550" align="left"><font size="2"><a href="http://<?=$titler[13];?>/board-<?=$objResult[0];?>-<?=$objResult[7];?>/<?=$url;?>.html" title="<?=$objResult[1];?>" target="_blank">
-                                      <?=$objResult[1];?>
+                                        <?php } ?></td>
+                                    <td width="550" align="left"><font size="2"><a href="http://<?php echo $titler[13]; ?>/board-<?php echo $objResult[0]; ?>-<?php echo $objResult[7]; ?>/<?php echo $url; ?>.html" title="<?php echo $objResult[1]; ?>" target="_blank">
+                                      <?php echo $objResult[1]; ?>
                                       </a> <img src="img/Logout.gif" width="16" height="16" />
-                                      <?=$objResult[4];?>
-                                      <?
+                                      <?php echo $objResult[4]; ?>
+                                      <?php
 $today=date("Y-n-j H:i:s");
 $yesterday=date("Y-m-d H:i:s",strtotime("- 1 day"));
 //echo $objResult[5];
@@ -471,11 +475,11 @@ if($objResult[5]>=$yesterday){
 	if($objResult[6]==1){
 ?>
                                       <img src="img/new_icon.gif" width="21" height="9" />
-                                      <?
+                                      <?php
 	}else if($objResult[6]==2){
 ?>
                                       <img src="img/icon_update.gif" width="42" height="12" />
-                                      <?	
+                                      <?php	
 	}
 }else{
 //echo "no";
@@ -490,9 +494,9 @@ if($objResult[5]>=$yesterday){
                                   <tr>
                                     <td width="10" align="left"><img src="img/arrow.gif" width="11" height="8" /></td>
                                     <td width="510" align="left"><font size="1">ตอบล่าสุดโดย
-                                      <? if($NumWB2<=0){ echo "ยังไม่มีผู้ตอบ"; }else{ echo $WBResult2[0];?>
+                                      <?php if($NumWB2<=0){ echo "ยังไม่มีผู้ตอบ"; }else{ echo $WBResult2[0]; ?>
                                       เมื่อ
-                                      <? $replyDate = $WBResult2[1];
+                                      <?php $replyDate = $WBResult2[1];
 echo DateTime($replyDate);
 }
 ?>
@@ -501,24 +505,24 @@ echo DateTime($replyDate);
                               </table></td>
                             </tr>
                         </table></td>
-                        <td width="125" height="40" align="center" bgcolor="#FFFFFF"><? if($objResult[9]!=""){ ?>
-                            <img src="http://<?=$titler[13];?>/member/avatar/<?=$objResult[9];?>" width="120" height="19" />
-                            <? }else{ ?>
-                        <span style="font-family:'Times New Roman', Times, serif; font-size:12px; color:#333333;">Avatar</span>                            <? } ?></td>
+                        <td width="125" height="40" align="center" bgcolor="#FFFFFF"><?php if($objResult[9]!=""){ ?>
+                            <img src="http://<?php echo $titler[13]; ?>/member/avatar/<?php echo $objResult[9]; ?>" width="120" height="19" />
+                            <?php }else{ ?>
+                        <span style="font-family:'Times New Roman', Times, serif; font-size:12px; color:#333333;">Avatar</span>                            <?php } ?></td>
                         <td width="125" height="40" align="center" bgcolor="#FFFFFF"><font size="2">
-                          <?
+                          <?php
 								$postDate = $objResult[2];
 								echo DateTime($postDate);
 								?>
                         </font></td>
                         <td width="65" height="40" align="center" bgcolor="#FFFFFF"><font size="2">
-                          <?=$objResult[3];?>
+                          <?php echo $objResult[3]; ?>
                         </font></td>
                         <td width="65" height="40" align="center" bgcolor="#FFFFFF"><font size="2">
-                          <?=$NumWB2;?>
+                          <?php echo $NumWB2; ?>
                         </font></td>
                       </tr>
-                      <? } ?>
+                      <?php } ?>
                     </table>
                       <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tr>
@@ -527,7 +531,7 @@ echo DateTime($replyDate);
                       </table>
                     <table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tr>
-                          <td height="30" align="center" valign="middle"><? 
+                          <td height="30" align="center" valign="middle"><?php 
 $pages = new Paginator;
 $pages->items_total = $Num_Rows;
 $pages->mid_range = 10;
@@ -552,9 +556,9 @@ echo $pages->display_pages()
       </table></td>
   </tr>
   <tr>
-    <td align="center"><? include "../top-footer.php"; ?></td>
+    <td align="center"><?php include "../top-footer.php"; ?></td>
   </tr>
 </table>
-<? include "../footer.php"; ?>
+<?php include "../footer.php"; ?>
 </body>
 </html>

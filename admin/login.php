@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 include "../inc/config.inc.php";
 ?>
@@ -25,9 +25,9 @@ a:active {
 </style></head>
 
 <body>
-<?
-$user=$_POST[user];
-$pass=$_POST[pass];
+<?php
+$user=$_POST["user"];
+$pass=$_POST["pass"];
 $s="SELECT * FROM `admin` where user='$user' and pass='$pass'";
 $re=mysql_query($s) or die("ERROR $s");
 $num=mysql_num_rows($re);
@@ -39,10 +39,10 @@ if($num<=0){
 		alert("ขออภัยครับ ข้อมูลผู้ดูแลระบบ ของท่านไม่มีอยู่ในระบบครับ"); 	
 		window.location = 'index.php'; 
 	</script> 
-<?
+<?php
 }
 else {
-$_SESSION[admin_login]="admin_login";
+$_SESSION["admin_login"]="admin_login";
 
 echo "<meta http-equiv=refresh content=0;URL=data.php>"; 
 }

@@ -1,7 +1,7 @@
-<? 
+<?php 
 @session_start(); 
 include "../inc/config.inc.php";
-if(!isset($_SESSION[admin_login])) {
+if(!isset($_SESSION["admin_login"])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
 exit() ;
 }
@@ -45,7 +45,7 @@ body {
             <table width="960" border="0" cellspacing="1" cellpadding="1">
               <tr valign="top">
                 <td width="690"><div align="left"><font color="#ffffff" size="4">.:: ยินดีต้อนรับเข้าสู่ ระบบจัดการข้อมูลเว็บไซต์ ::
-                  <?
+                  <?php
 				$dm=date("d/m");
 				$y=date("Y")+543;
 				$date="$dm/$y";
@@ -61,17 +61,17 @@ body {
       <tr>
         <td bgcolor="#CCCCCC"><table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
-              <td width="220" align="center" valign="top"><? include "menu.php"; ?></td>
+              <td width="220" align="center" valign="top"><?php include "menu.php"; ?></td>
               <td width="760" align="center" valign="top" bgcolor="#FFFFFF"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
                   <tr>
                     <td height="25"><strong><font size="2">
-<?
+<?php
 $zean_id=$_GET[zean_id];
 $szn="SELECT * FROM `zean_name` WHERE id='$zean_id'";
 $rezn=mysql_query($szn) or die("ERROR $szn");
 $rzn=mysql_fetch_row($rezn);
 ?>
-                      <img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> <a href="tded-zean.php?zean_id=<?=$zean_id;?>">จัดการข้อมูลทีเด็ด <?=$rzn[1];?></a> <img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> เปลี่ยนชื่อเซียน
+                      <img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> <a href="tded-zean.php?zean_id=<?php echo $zean_id; ?>">จัดการข้อมูลทีเด็ด <?php echo $rzn[1]; ?></a> <img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> เปลี่ยนชื่อเซียน
                     </font></strong></td>
                   </tr>
                   <tr>
@@ -87,8 +87,8 @@ $rzn=mysql_fetch_row($rezn);
                               <tr>
                                 <td width="150" align="right" valign="top"><span class="style4">ชื่อเซียน</span></td>
                                 <td width="10">&nbsp;</td>
-                                <td width="350"><input name="name" type="text" id="name" value="<?=$rzn[1];?>" />
-                                    <input type="hidden" name="id" id="id" value="<?=$zean_id;?>" /></td>
+                                <td width="350"><input name="name" type="text" id="name" value="<?php echo $rzn[1]; ?>" />
+                                    <input type="hidden" name="id" id="id" value="<?php echo $zean_id; ?>" /></td>
                               </tr>
                               <tr>
                                 <td width="150">&nbsp;</td>

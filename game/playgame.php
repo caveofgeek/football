@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 include "../inc/config.inc.php";
 include "../function/datethai.php";
@@ -28,19 +28,19 @@ $sgame="select * from game_config where id=1";
 $regame=mysql_query($sgame) or die("ERROR $sgame บรททัด19");
 $rgame=mysql_fetch_row($regame);
 
-$id=$_GET[id];
+$id=$_GET["id"];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>เล่นเกมส์ทายผลบอล | <?=$titler[1];?></title>
-<META NAME="keywords" CONTENT="<?=$rgame[6];?>"> 
-<META NAME="description" CONTENT="<?=$titler[1];?> เล่นเกมส์ทายผลบอล <?=$rgame[5];?>">
+<title>เล่นเกมส์ทายผลบอล | <?php echo $titler[1]; ?></title>
+<META NAME="keywords" CONTENT="<?php echo $rgame[6]; ?>"> 
+<META NAME="description" CONTENT="<?php echo $titler[1]; ?> เล่นเกมส์ทายผลบอล <?php echo $rgame[5]; ?>">
 <meta name="robots"  content="index,follow">
-<?
+<?php
 //เช็คทายผลรายคู่
-$s="SELECT * FROM `game_play` WHERE member_id='$_SESSION[m_id]' AND game_id='$id'";
+$s="SELECT * FROM `game_play` WHERE member_id='$_SESSION["m_id"]' AND game_id='$id'";
 $re=mysql_query($s) or die("ERROR $s");
 $n=mysql_num_rows($re);
 if($n>=1){
@@ -49,7 +49,7 @@ if($n>=1){
 		alert('ขอโทษครับ ท่านได้ทำการทายผลคู่นี้ไปแล้วครับ'); 	
 		window.location = 'index.php'; 
 	</script> 
-<?
+<?php
 exit();
 }
 //เช็คเวลาเล่นเกมส์
@@ -63,12 +63,12 @@ if($time>$r3[0]){
 		alert('ขอโทษครับ หมดเวลาทายผลแล้วครับ'); 	
 		window.location = 'index.php'; 
 	</script> 
-<?
+<?php
 exit();
 }
 //เช็คจำนวนทายผลรายวัน
 $today_date=date("Y-m-d");
-$s2="SELECT * FROM `game_play` WHERE member_id='$_SESSION[m_id]' AND dategame='$today_date'";
+$s2="SELECT * FROM `game_play` WHERE member_id='$_SESSION["m_id"]' AND dategame='$today_date'";
 $re2=mysql_query($s2) or die("ERROR $s2");
 $n2=mysql_num_rows($re2);
 if($n2>=5){
@@ -77,35 +77,35 @@ if($n2>=5){
 		alert('ขอโทษครับ ท่านได้ทำการทายผลเกิน 5 คู่ต่อวันแล้ว ร่วมสนุกใหม่วันพรุ่งนี้นะครับ'); 	
 		window.location = 'index.php'; 
 	</script> 
-<?
+<?php
 exit();
 }
 ?>
 <style type="text/css">
 <!--
 body {
-	background-color: #<?=$bgr[1];?>;
-	<? if($bgr[2]!=""){ ?>background-image: url(http://<?=$titler[13];?>/bg-img/<?=$bgr[2];?>);
-	background-repeat: <?=$bgr[3];?>;
-	<? }if($bgr[4]==1){ ?>	
+	background-color: #<?php echo $bgr[1]; ?>;
+	<?php if($bgr[2]!=""){ ?>background-image: url(http://<?php echo $titler[13]; ?>/bg-img/<?php echo $bgr[2]; ?>);
+	background-repeat: <?php echo $bgr[3]; ?>;
+	<?php }if($bgr[4]==1){ ?>	
 	background-attachment:fixed;
-	<? } ?>
+	<?php } ?>
 }
 a:link {
-	color: #<?=$linkr[1];?>;
+	color: #<?php echo $linkr[1]; ?>;
 	text-decoration: none;
 }
 a:visited {
 	text-decoration: none;
-	color: #<?=$linkr[2];?>;
+	color: #<?php echo $linkr[2]; ?>;
 }
 a:hover {
 	text-decoration: underline;
-	color: #<?=$linkr[3];?>;
+	color: #<?php echo $linkr[3]; ?>;
 }
 a:active {
 	text-decoration: none;
-	color: #<?=$linkr[4];?>;
+	color: #<?php echo $linkr[4]; ?>;
 }
 -->
 </style>
@@ -114,7 +114,7 @@ a:active {
 <body>
 <table width="995" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
-    <td align="center" valign="top"><? include "../header.php"; ?></td>
+    <td align="center" valign="top"><?php include "../header.php"; ?></td>
   </tr>
   <tr>
     <td style="background-color:#FFFFFF;"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -124,7 +124,7 @@ a:active {
     </table>
       <table width="985" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
-          <td width="250" align="center" valign="top"><? include "../menu.php"; ?></td>
+          <td width="250" align="center" valign="top"><?php include "../menu.php"; ?></td>
           <td width="7" align="center" valign="top">&nbsp;</td>
           <td width="728" align="center" valign="top"><table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
@@ -142,7 +142,7 @@ a:active {
 
                       <tr>
                         <td><div align="left"><span style="font-family:'Times New Roman', Times, serif; font-size:12px; color:#FF0000; font-weight:bold;">ทายผลประจำวันที่</span> <span style="font-family:'Times New Roman', Times, serif; font-size:12px; color:#232323; font-weight:bold;">
-                            <? $game_date=DateThai($today_date); echo $game_date; ?>
+                            <?php $game_date=DateThai($today_date); echo $game_date; ?>
                         </span></div></td>
                       </tr>
                       <tr>
@@ -159,36 +159,36 @@ $row=mysql_fetch_row($db_resule);
                                 <td width="20%" height="20"><div align="right"><font color="#333333" size="3">ลีกบอล 
                                   :</font></div></td>
                                 <td width="80%" height="20"><font color="#990000" size="3">
-                                  <?=$row[0];?>
+                                  <?php echo $row[0]; ?>
                                   </font>
-                                    <input type="hidden" name="game_id" value="<?=$id;?>" />                                </td>
+                                    <input type="hidden" name="game_id" value="<?php echo $id; ?>" />                                </td>
                               </tr>
                               <tr bgcolor="#FFFFFF">
                                 <td height="20"><div align="right"><font color="#333333" size="3">ประจำวันที่ 
                                   :</font></div></td>
                                 <td height="20"><font color="#990000" size="3">
-                                  <?=Datethai($row[1]);?>
+                                  <?php echo Datethai($row[1]); ?>
                                 </font></td>
                               </tr>
                               <tr bgcolor="#FFFFFF">
                                 <td height="20"><div align="right"><font color="#333333" size="3">เวลาแข่งขัน 
                                   :</font></div></td>
                                 <td height="20"><font color="#990000" size="3">
-                                  <?=$row[2];?>
+                                  <?php echo $row[2]; ?>
                                   น. </font></td>
                               </tr>
                               <tr bgcolor="#FFFFFF">
                                 <td height="20"><div align="right"><font color="#333333" size="3">เจ้าบ้าน 
                                   :</font></div></td>
                                 <td height="20"><font color="#990000" size="3">
-                                  <?=$row[3];?>
+                                  <?php echo $row[3]; ?>
                                 </font></td>
                               </tr>
                               <tr bgcolor="#FFFFFF">
                                 <td height="20"><div align="right"><font color="#333333" size="3">ทีมเยือน 
                                   :</font></div></td>
                                 <td height="20"><font color="#990000" size="3">
-                                  <?=$row[4];?>
+                                  <?php echo $row[4]; ?>
                                 </font></td>
                               </tr>
                               <tr bgcolor="#FFFFCC">
@@ -196,10 +196,10 @@ $row=mysql_fetch_row($db_resule);
                                   :</font></strong></div></td>
                                 <td height="20"><font size="3">
                                   <input type="radio" name="result" value="1" />
-                                  <?=$row[3];?>
+                                  <?php echo $row[3]; ?>
                                   ชนะ
                                   <input type="radio" name="result" value="2" />
-                                  <?=$row[4];?>
+                                  <?php echo $row[4]; ?>
                                   ชนะ
                                   <input type="radio" name="result" value="3" />
                                   เสมอกัน </font></td>
@@ -222,9 +222,9 @@ $row=mysql_fetch_row($db_resule);
       </table></td>
   </tr>
   <tr>
-    <td align="center"><? include "../top-footer.php"; ?></td>
+    <td align="center"><?php include "../top-footer.php"; ?></td>
   </tr>
 </table>
-<? include "../footer.php"; ?>
+<?php include "../footer.php"; ?>
 </body>
 </html>

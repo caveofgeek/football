@@ -1,4 +1,4 @@
-<?	
+<?php	
 function DateTime($strDate)
 	{
 		$strYear = date("Y",strtotime($strDate))+543;

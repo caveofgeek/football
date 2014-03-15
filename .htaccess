@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^cate-([0-9]*)/(.*)$ all-category.php?cate_id=$1&cate=$2 [L]
+RewriteRule ^topic-([0-9]*)/(.*).html$ post-detail.php?topic_id=$1&topic=$2 [L]
+RewriteRule ^analyze-(.*)$ all-analyze.php [L]
+RewriteRule ^post-([0-9]*)/(.*).html$ post-analyze-detail.php?topic_id=$1&topic=$2 [L]
+RewriteRule ^ball-([0-9]*)/(.*)$ all-football.php?id=$1&name=$2 [L]
+RewriteRule ^tded-(.*)$ all-t-ded.php [L]
+RewriteRule ^wcate-([0-9]*)/(.*)$ webboard-category.php?cate_id=$1&cate=$2 [L]
+RewriteRule ^board-([0-9]*)-([0-9]*)/(.*).html$ webboard-detail.php?topic_id=$1&cate_id=$2&topic=$3 [L]
+</IfModule>

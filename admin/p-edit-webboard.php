@@ -1,19 +1,19 @@
-<? @session_start();  ?>
+<?php @session_start();  ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<?
-if(!isset($_SESSION[admin_login])) {
+<?php
+if(!isset($_SESSION["admin_login"])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
 exit() ;
 }
 include "../inc/config.inc.php";
-$topic_id=$_POST[topic_id];
+$topic_id=$_POST["topic_id"];
 $title=$_POST[title];
 $cate=$_POST[cate];
-$detail=addslashes($_POST[input]);
+$detail=addslashes($_POST["input"]);
 $op=$_POST[op];
-$file1=$_FILES[file1][name];
-$tmp1=$_FILES[file1][tmp_name];
-$size1=$_FILES[file1][size];
+$file1=$_FILES["file1"]["name"];
+$tmp1=$_FILES["file1"]["tmp_name"];
+$size1=$_FILES["file1"]["size"];
 if(isset($file1)&&$file1!=""){
 	if($size1<=200000){
 		if(isset($op)){
@@ -32,7 +32,7 @@ if(isset($file1)&&$file1!=""){
 			alert('ขอโทษครับ ขนาดไฟล์ภาพของท่านมีขนาดเกิน 200kb ครับ'); 	
 			history.back();
 		</script> 
-<? 		
+<?php 		
 	}
 }else{
 			$upd=mysql_query("UPDATE `webboard` SET `cate_id`='$cate' ,`title`='$title' ,`detail`='$detail' WHERE `id`='$topic_id'") or die("ERROR $upd บรรทัดที่ 36");

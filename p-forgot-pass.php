@@ -1,6 +1,6 @@
-<? @session_start();  ?>
+<?php @session_start();  ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<?
+<?php
 include "inc/config.inc.php";
 $email=$_POST[email];
 
@@ -14,7 +14,7 @@ if($email==""){
 		alert('ขอโทษครับ กรุณากรอกอีเมล์ด้วยครับ'); 	
 		history.back();
 	</script> 
-	<?
+	<?php
 }else{
 	//check Email
 	$s="select email from member where email='$email'";
@@ -26,7 +26,7 @@ if($email==""){
 		alert('ไม่พบอีเมล์นี้ในระบบ กรุณาเช็คอีเมล์อีกครั้งครับ'); 	
 		history.back();
 	</script> 
-	<?
+	<?php
 	}else{
 	$s="select user, pass from member where email='$email'";
 	$re=mysql_query($s) or die("ERROR $s");
@@ -46,7 +46,7 @@ if($email==""){
 		alert('ระบบได้ทำการส่งข้อมูลไปให้ท่านแล้วครับ กรุณาเช็คอีเมล์ที่กล่องขาเข้า (Inbex) หรือ กล่องขยะ (Junkbox)'); 	
 		window.location = 'index.php'; 
 	</script> 
-	<?
+	<?php
 	}
 }
 ?>

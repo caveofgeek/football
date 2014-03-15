@@ -1,7 +1,7 @@
-<?
+<?php
 session_start();
 include "../inc/config.inc.php";
-if(!isset($_SESSION[admin_login])) {
+if(!isset($_SESSION["admin_login"])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
 exit() ;
 }
@@ -30,7 +30,7 @@ a:active {
 </style></head>
 
 <body>
-<?
+<?php
 $Submit=$_POST[Submit];
 $id=$_POST[id];
 $brand=htmlspecialchars($_POST[brand]);
@@ -46,7 +46,7 @@ echo "<meta http-equiv='refresh' content='0;url=edit-webboard-category.php?id=$i
 	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ'); 	
 	history.back();
 </script> 
-<?
+<?php
 }
 ?>
 </body>

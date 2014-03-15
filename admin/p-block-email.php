@@ -1,7 +1,7 @@
-<?
+<?php
 session_start();
 include "../inc/config.inc.php";
-if(!isset($_SESSION[admin_login])) {
+if(!isset($_SESSION["admin_login"])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
 exit() ;
 }
@@ -30,7 +30,7 @@ a:active {
 </style></head>
 
 <body>
-<?
+<?php
 $Submit=$_POST[Submit];
 $brand=htmlspecialchars($_POST[brand]);
 $s="select * from block_email where email='$brand'";
@@ -42,7 +42,7 @@ if($num>=1){
 	alert('ขอโทษครับ Email นี้มีอยู่แล้วครับ'); 	
 	history.back();
 </script> 
-<?
+<?php
 }else{
 if($brand!=""){
 $sql=mysql_query("INSERT INTO `block_email` (`email`)VALUES ('$brand')")or die("ERROR $sql บรรทัด 51");
@@ -53,7 +53,7 @@ echo "<meta http-equiv='refresh' content='0;url=block-email.php'>";
 	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ'); 	
 	history.back();
 </script> 
-<?
+<?php
 }
 }
 ?>

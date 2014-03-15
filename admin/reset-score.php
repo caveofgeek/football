@@ -1,8 +1,8 @@
-<?
+<?php
 session_start();
 include "../inc/config.inc.php";
-//echo "$_SESSION[m_login]<br>$_SESSION[m_id]";
-if(!isset($_SESSION[admin_login])) {
+//echo "$_SESSION[m_login]<br>$_SESSION["m_id"]";
+if(!isset($_SESSION["admin_login"])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
 exit() ;
 }
@@ -31,7 +31,7 @@ a:active {
 </style></head>
 
 <body>
-<?
+<?php
 $sql=mysql_query("TRUNCATE TABLE `game_match`")or die("ERROR $sql");
 $sql2=mysql_query("TRUNCATE TABLE `game_play`")or die("ERROR $sql2");
 $sql3=mysql_query("TRUNCATE TABLE `game_member_score`")or die("ERROR $sql3");

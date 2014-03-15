@@ -1,8 +1,8 @@
-<?
+<?php
 session_start();
 include "../inc/config.inc.php";
-//echo "$_SESSION[m_login]<br>$_SESSION[m_id]";
-if(!isset($_SESSION[admin_login])) {
+//echo "$_SESSION[m_login]<br>$_SESSION["m_id"]";
+if(!isset($_SESSION["admin_login"])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
 exit() ;
 }
@@ -31,7 +31,7 @@ a:active {
 </style></head>
 
 <body>
-<?
+<?php
 $id=$_POST[id];
 $name=htmlspecialchars($_POST[name]);
 if($name!=""){
@@ -43,7 +43,7 @@ echo "<meta http-equiv='refresh' content='0;url=tded-zean.php?zean_id=$id'>";
 	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ'); 	
 	history.back();
 </script> 
-<?
+<?php
 }
 ?>
 </body>

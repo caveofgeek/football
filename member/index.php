@@ -1,6 +1,6 @@
-<?
+<?php
 session_start();
-if(!isset($_SESSION[member_login])) {
+if(!isset($_SESSION["member_login"])) {
 echo "<meta http-equiv='refresh' content='0;url=../index.php'>" ; 
 exit() ;
 }
@@ -33,33 +33,33 @@ $str=mysql_fetch_row($stre);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>ระบบจัดการข้อมูลสมาชิก | <?=$titler[1];?></title>
+<title>ระบบจัดการข้อมูลสมาชิก | <?php echo $titler[1]; ?></title>
 <meta name="robots"  content="index,nofollow">
 <style type="text/css">
 <!--
 body {
-	background-color: #<?=$bgr[1];?>;
-	<? if($bgr[2]!=""){ ?>background-image: url(http://<?=$titler[13];?>/bg-img/<?=$bgr[2];?>);
-	background-repeat: <?=$bgr[3];?>;
-	<? }if($bgr[4]==1){ ?>	
+	background-color: #<?php echo $bgr[1]; ?>;
+	<?php if($bgr[2]!=""){ ?>background-image: url(http://<?php echo $titler[13]; ?>/bg-img/<?php echo $bgr[2]; ?>);
+	background-repeat: <?php echo $bgr[3]; ?>;
+	<?php }if($bgr[4]==1){ ?>	
 	background-attachment:fixed;
-	<? } ?>
+	<?php } ?>
 }
 a:link {
-	color: #<?=$linkr[1];?>;
+	color: #<?php echo $linkr[1]; ?>;
 	text-decoration: none;
 }
 a:visited {
 	text-decoration: none;
-	color: #<?=$linkr[2];?>;
+	color: #<?php echo $linkr[2]; ?>;
 }
 a:hover {
 	text-decoration: underline;
-	color: #<?=$linkr[3];?>;
+	color: #<?php echo $linkr[3]; ?>;
 }
 a:active {
 	text-decoration: none;
-	color: #<?=$linkr[4];?>;
+	color: #<?php echo $linkr[4]; ?>;
 }
 -->
 </style>
@@ -68,7 +68,7 @@ a:active {
 <body>
 <table width="995" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
-    <td align="center" valign="top"><? include "../header.php"; ?></td>
+    <td align="center" valign="top"><?php include "../header.php"; ?></td>
   </tr>
   <tr>
     <td style="background-color:#FFFFFF;"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -78,7 +78,7 @@ a:active {
     </table>
       <table width="985" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
-          <td width="250" align="center" valign="top"><? include "../menu.php"; ?></td>
+          <td width="250" align="center" valign="top"><?php include "../menu.php"; ?></td>
           <td width="7" align="center" valign="top">&nbsp;</td>
           <td width="728" align="center" valign="top"><table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
@@ -91,10 +91,10 @@ a:active {
                       <tr>
                         <td align="left"><table width="720" border="0" align="center" cellpadding="0" cellspacing="0">
                             <tr>
-                              <td><?
+                              <td><?php
 $sp="select member.*, province.PROVINCE_NAME from member ";
 $sp.="inner join province on member.province_id=province.PROVINCE_ID ";
-$sp.="where id='$_SESSION[m_id]'";
+$sp.="where id='$_SESSION["m_id"]'";
 $rep=mysql_query($sp) or die("ERROR $sp");
 $rp=mysql_fetch_row($rep);
 ?>
@@ -108,45 +108,45 @@ $rp=mysql_fetch_row($rep);
                                             <td width="130" height="20" align="right"><strong><font size="2">ชื่อที่ใช้เรียก </font></strong></td>
                                             <td width="10" height="20" align="center"><font size="2">:</font></td>
                                             <td width="580" height="20" align="left"><font size="2">
-                                              <?=$rp[1];?>
+                                              <?php echo $rp[1]; ?>
                                             </font></td>
                                           </tr>
                                           <tr>
                                             <td width="130" height="20" align="right"><strong><font size="2">ที่อยู่</font></strong></td>
                                             <td width="10" height="20" align="center"><font size="2">:</font></td>
                                             <td width="580" height="20" align="left"><font size="2">
-                                              <?=$rp[2];?>
+                                              <?php echo $rp[2]; ?>
                                             </font></td>
                                           </tr>
                                           <tr>
                                             <td width="130" height="20" align="right"><strong><font size="2">จังหวัด</font></strong></td>
                                             <td width="10" height="20" align="center"><font size="2">:</font></td>
                                             <td width="580" height="20" align="left"><font size="2">
-                                              <?=$rp[10];?>
+                                              <?php echo $rp[10]; ?>
                                             </font></td>
                                           </tr>
                                           <tr>
                                             <td width="130" height="20" align="right"><strong><font size="2">เบอร์โทรศัพท์</font></strong></td>
                                             <td width="10" height="20" align="center"><font size="2">:</font></td>
                                             <td width="580" height="20" align="left"><font size="2">
-                                              <?=$rp[4];?>
+                                              <?php echo $rp[4]; ?>
                                             </font></td>
                                           </tr>
                                           <tr>
                                             <td width="130" height="20" align="right"><strong><font size="2">Email</font></strong></td>
                                             <td width="10" height="20" align="center"><font size="2">:</font></td>
                                             <td width="580" height="20" align="left"><font size="2">
-                                              <?=$rp[5];?>
+                                              <?php echo $rp[5]; ?>
                                             </font></td>
                                           </tr>
                                           <tr>
                                             <td height="20" align="right"><strong><font size="2">รูป Avatar </font></strong></td>
                                             <td height="20" align="center"><font size="2">:</font></td>
-                                            <td width="580" height="20" align="left"><? if($rp[6]!=""){ ?>
-                                                <img src="avatar/<?=$rp[6];?>" width="120" height="19" />
-                                                <? }else{ ?>
+                                            <td width="580" height="20" align="left"><?php if($rp[6]!=""){ ?>
+                                                <img src="avatar/<?php echo $rp[6]; ?>" width="120" height="19" />
+                                                <?php }else{ ?>
                                                 <font size="2" color="#FF0000">ไม่พบรูป Avatar</font>
-                                                <? } ?></td>
+                                                <?php } ?></td>
                                           </tr>
                                       </table></td>
                                     </tr>
@@ -163,14 +163,14 @@ $rp=mysql_fetch_row($rep);
                                           <td width="130" height="20" align="right"><strong><font size="2">ชื่อผู้ใช้</font></strong></td>
                                           <td width="10" height="20" align="center"><font size="2">:</font></td>
                                           <td width="580" height="20" align="left"><font size="2">
-                                            <?=$rp[7];?>
+                                            <?php echo $rp[7]; ?>
                                           </font></td>
                                         </tr>
                                         <tr>
                                           <td width="130" height="20" align="right"><strong><font size="2">รหัสผ่าน</font></strong></td>
                                           <td width="10" height="20" align="center"><font size="2">:</font></td>
                                           <td width="580" height="20" align="left"><font size="2">
-                                            <?=$rp[8];?>
+                                            <?php echo $rp[8]; ?>
                                           </font></td>
                                         </tr>
                                         <tr>
@@ -193,9 +193,9 @@ $rp=mysql_fetch_row($rep);
       </table></td>
   </tr>
   <tr>
-    <td align="center"><? include "../top-footer.php"; ?></td>
+    <td align="center"><?php include "../top-footer.php"; ?></td>
   </tr>
 </table>
-<? include "../footer.php"; ?>
+<?php include "../footer.php"; ?>
 </body>
 </html>

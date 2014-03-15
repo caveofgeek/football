@@ -1,11 +1,11 @@
-<?
+<?php
 session_start();
 include "../inc/config.inc.php";
 ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<?
-//echo "$_SESSION[m_login]<br>$_SESSION[m_id]";
-if(!isset($_SESSION[admin_login])) {
+<?php
+//echo "$_SESSION[m_login]<br>$_SESSION["m_id"]";
+if(!isset($_SESSION["admin_login"])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
 exit() ;
 }
@@ -23,7 +23,7 @@ if($league!=""){
 	alert('ขอโทษครับ ท่านกรอกข้อมูลไม่ครบครับ'); 	
 	history.back();
 </script>
-<?
+<?php
 exit();
 }
 ?>

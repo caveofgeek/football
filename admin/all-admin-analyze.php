@@ -1,8 +1,8 @@
-<? 
+<?php 
 @session_start(); 
 include "../inc/config.inc.php";
 include "../function/datethai.php";
-if(!isset($_SESSION[admin_login])) {
+if(!isset($_SESSION["admin_login"])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
 exit() ;
 }
@@ -46,7 +46,7 @@ body {
             <table width="960" border="0" cellspacing="1" cellpadding="1">
               <tr valign="top">
                 <td width="690"><div align="left"><font color="#ffffff" size="4">.:: ยินดีต้อนรับเข้าสู่ ระบบจัดการข้อมูลเว็บไซต์ ::
-                  <?
+                  <?php
 				$dm=date("d/m");
 				$y=date("Y")+543;
 				$date="$dm/$y";
@@ -62,7 +62,7 @@ body {
       <tr>
         <td bgcolor="#CCCCCC"><table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
-              <td width="220" align="center" valign="top"><? include "menu.php"; ?></td>
+              <td width="220" align="center" valign="top"><?php include "menu.php"; ?></td>
               <td width="760" align="center" valign="top" bgcolor="#FFFFFF"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
                   <tr>
                     <td height="25"><strong><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> จัดการข้อมูลทีมงานวิเคราะห์บอล </font></strong></td>
@@ -148,31 +148,31 @@ return true ;
                                 <td width="120" height="30" align="center" valign="middle" bgcolor="#EFEFED"><span class="style4">วันที่ลงทะเบียน</span></td>
                                 <td width="150" height="30" align="center" valign="middle" bgcolor="#EFEFED"><span class="style4">การกระทำ</span></td>
                               </tr>
-                              <?
+                              <?php
 $s="SELECT * FROM `admin_analyze` ORDER BY id ASC";
 $re=mysql_query($s) or die("ERROR $s");
 while($r=mysql_fetch_row($re)){
 ?>
                               <tr>
                                 <td width="150" height="25" align="center" valign="middle"><font size="2">
-                                  <?=$r[1];?>
+                                  <?php echo $r[1]; ?>
                                 </font> </td>
                                 <td width="130" height="25" align="center" valign="middle"><font size="2">
-                                  <? if($r[2]==""){ echo "ไม่มีรูป Avatar"; }else{ ?>
-                                  <img src="../mod/avatar/<?=$r[2];?>" width="110" height="18" /></font>
-								  <? } ?>								</td>
+                                  <?php if($r[2]==""){ echo "ไม่มีรูป Avatar"; }else{ ?>
+                                  <img src="../mod/avatar/<?php echo $r[2]; ?>" width="110" height="18" /></font>
+								  <?php } ?>								</td>
                                 <td width="100" height="25" align="center" valign="middle"><font size="2">
-                                  <?=$r[3];?>
+                                  <?php echo $r[3]; ?>
                                 </font></td>
                                 <td width="100" height="25" align="center" valign="middle"><font size="2">
-                                  <?=$r[4];?>
+                                  <?php echo $r[4]; ?>
                                 </font> </td>
                                 <td width="120" height="25" align="center" valign="middle"><font size="2">
-                                  <?=DateThai($r[5]);?>
+                                  <?php echo DateThai($r[5]); ?>
                                 </font> </td>
-                                <td width="150" height="25" align="center" valign="middle"><font size="2"><a href="all-post-analyze.php?id=<?=$r[0];?>"><img src="images/post.jpg" width="40" height="15" border="0" /></a> <a href="edit-admin-analyze.php?id=<?=$r[0];?>"><img src="images/edit.gif" width="40" height="15" border="0" /></a> <a href="del-admin-analyze.php?id=<?=$r[0];?>&img=<?=$r[2];?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"> <img src="images/del.gif" width="40" height="15" border="0" /></a> </font> </td>
+                                <td width="150" height="25" align="center" valign="middle"><font size="2"><a href="all-post-analyze.php?id=<?php echo $r[0]; ?>"><img src="images/post.jpg" width="40" height="15" border="0" /></a> <a href="edit-admin-analyze.php?id=<?php echo $r[0]; ?>"><img src="images/edit.gif" width="40" height="15" border="0" /></a> <a href="del-admin-analyze.php?id=<?php echo $r[0]; ?>&img=<?php echo $r[2]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"> <img src="images/del.gif" width="40" height="15" border="0" /></a> </font> </td>
                               </tr>
-                              <? } ?>
+                              <?php } ?>
                           </table></td>
                       </tr>
                     </table></td>

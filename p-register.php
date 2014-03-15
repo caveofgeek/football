@@ -1,19 +1,19 @@
-<? @session_start();  ?>
+<?php @session_start();  ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<?
+<?php
 include "inc/config.inc.php";
 $name=htmlspecialchars($_POST[name]);
 $add=htmlspecialchars($_POST[add]);
 $province=$_POST[province];
 $tel=htmlspecialchars($_POST[tel]);
 $email=htmlspecialchars($_POST[email]);
-$file1=$_FILES[file1][name];
-$tmp1=$_FILES[file1][tmp_name];
-$size1=$_FILES[file1][size];
-$user=htmlspecialchars($_POST[user]);
-$pass=htmlspecialchars($_POST[pass]);
-$capcha=htmlspecialchars($_POST[capcha]);
-$rands=$_POST[rands];
+$file1=$_FILES["file1"]["name"];
+$tmp1=$_FILES["file1"]["tmp_name"];
+$size1=$_FILES["file1"]["size"];
+$user=htmlspecialchars($_POST["user"]);
+$pass=htmlspecialchars($_POST["pass"]);
+$capcha=htmlspecialchars($_POST["capcha"]);
+$rands=$_POST["rands"];
 $date=date("Y-m-d");
 $ip=$_SERVER['REMOTE_ADDR'];
 if(isset($rands)&&isset($capcha)&&$rands==$capcha){
@@ -27,7 +27,7 @@ if($nip>=1){
 		alert('ขอโทษครับ หมายเลข IP ของท่านไม่สามารถใช้งานได้ครับ'); 	
 		window.location = 'index.php'; 
 	</script> 
-<? 
+<?php 
 exit();
 }else{
 //check block email
@@ -40,7 +40,7 @@ if($nm>=1){
 		alert('ขอโทษครับ Email ของท่านไม่สามารถใช้งานได้ครับ'); 	
 		window.location = 'index.php'; 
 	</script> 
-<? 
+<?php 
 exit();
 }else{
 //check ชื่อผู้ใช้ และ email ว่ามีอยู่ในระบบหรือไม่
@@ -53,7 +53,7 @@ if($n>=1){
 		alert('ขอโทษครับ ชื่อผู้ใช้ และ/หรือ Email นี้มีอยู่ในระบบแล้วครับ'); 	
 		window.location = 'member-condition.php'; 
 	</script> 
-<? 
+<?php 
 exit();
 }else{
 if(isset($file1)&&$file1!=""){
@@ -68,11 +68,11 @@ if(isset($file1)&&$file1!=""){
 	$re=mysql_query($s) or die("ERROR $s");
 	$r=mysql_fetch_row($re);
 
-	$_SESSION[member_login]="member_login";
-	$_SESSION[m_id]="$r[0]";
-	$_SESSION[m_name]="$r[1]";
-	$_SESSION[m_user]="$r[2]";
-	$_SESSION[m_pass]="$r[3]";
+	$_SESSION["member_login"]="member_login";
+	$_SESSION["m_id"]="$r[0]";
+	$_SESSION["m_name"]="$r[1]";
+	$_SESSION["m_user"]="$r[2]";
+	$_SESSION["m_pass"]="$r[3]";
 	echo "<meta http-equiv=refresh content=0;URL=member/index.php>"; 
 	}else{
 ?>
@@ -80,7 +80,7 @@ if(isset($file1)&&$file1!=""){
 		alert('ขอโทษครับ ขนาดไฟล์ภาพของท่านมีขนาดเกิน 50kb ครับ'); 	
 		window.location = 'member-condition.php'; 
 	</script> 
-<?
+<?php
 	}
 }else{
 $insert_member=mysql_query("INSERT INTO `member` (`name` ,`add` ,`province_id` ,`tel` ,`email` ,`user` ,`pass` ,`reg_date` )VALUES ('$name', '$add', '$province', '$tel', '$email', '$user', '$pass', '$date')") or die ("ERROR $insert_member");
@@ -89,11 +89,11 @@ $s="SELECT id, name, user, pass FROM `member` ORDER BY id DESC LIMIT 0,1";
 $re=mysql_query($s) or die("ERROR $s");
 $r=mysql_fetch_row($re);
 
-$_SESSION[member_login]="member_login";
-$_SESSION[m_id]="$r[0]";
-$_SESSION[m_name]="$r[1]";
-$_SESSION[m_user]="$r[2]";
-$_SESSION[m_pass]="$r[3]";
+$_SESSION["member_login"]="member_login";
+$_SESSION["m_id"]="$r[0]";
+$_SESSION["m_name"]="$r[1]";
+$_SESSION["m_user"]="$r[2]";
+$_SESSION["m_pass"]="$r[3]";
 echo "<meta http-equiv=refresh content=0;URL=member/index.php>"; 
 }
 }
@@ -105,7 +105,7 @@ echo "<meta http-equiv=refresh content=0;URL=member/index.php>";
 		alert('ขอโทษครับ คุณกรอกรหัสยืนยันไม่ถูกต้องครับ'); 	
 		window.location = 'member-condition.php'; 
 	</script> 
-<? 
+<?php 
 	exit();
 }
 ?>

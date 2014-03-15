@@ -1,9 +1,9 @@
-<? 
+<?php 
 @session_start(); 
 include "../inc/config.inc.php";
 include "../function/function.php";
 include "../function/datetime.php";
-if(!isset($_SESSION[admin_login])) {
+if(!isset($_SESSION["admin_login"])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
 exit() ;
 }
@@ -13,7 +13,7 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
-<? 
+<?php 
 class Paginator{
 	var $items_per_page;
 	var $items_total;
@@ -85,8 +85,8 @@ class Paginator{
 			}
 		}
 		$this->low = ($this->current_page-1) * $this->items_per_page;
-		$this->high = ($_GET['ipp'] == 'All') ? $this->items_total:($this->current_page * $this->items_per_page)-1;
-		$this->limit = ($_GET['ipp'] == 'All') ? "":" LIMIT $this->low,$this->items_per_page";
+		$this->high = (isset($_GET['ipp']) == 'All') ? $this->items_total:($this->current_page * $this->items_per_page)-1;
+		$this->limit = (isset($_GET['ipp']) == 'All') ? "":" LIMIT $this->low,$this->items_per_page";
 	}
 
 	function display_pages()
@@ -178,7 +178,7 @@ body {
             <table width="960" border="0" cellspacing="1" cellpadding="1">
               <tr valign="top">
                 <td width="690"><div align="left"><font color="#ffffff" size="4">.:: ยินดีต้อนรับเข้าสู่ ระบบจัดการข้อมูลเว็บไซต์ ::
-                  <?
+                  <?php
 				$dm=date("d/m");
 				$y=date("Y")+543;
 				$date="$dm/$y";
@@ -194,7 +194,7 @@ body {
       <tr>
         <td bgcolor="#CCCCCC"><table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
-              <td width="220" align="center" valign="top"><? include "menu.php"; ?></td>
+              <td width="220" align="center" valign="top"><?php include "menu.php"; ?></td>
               <td width="760" align="center" valign="top" bgcolor="#FFFFFF"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
                   <tr>
                     <td height="25"><strong><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> จัดการข้อมูลรายการเว็บบอร์ด</font></strong></td>
@@ -213,7 +213,7 @@ body {
                             </tr>
                             <tr>
                               <td><table width="750" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#EFEFED">
-                                  <?
+                                  <?php
 $scate="SELECT * FROM `webboard_category` ORDER BY id ASC";
 $recate=mysql_query($scate) or die("ERROR $scate");
 while($rcate=mysql_fetch_row($recate)){
@@ -222,11 +222,11 @@ $url=rewrite($rcate[1]);
                                   <tr>
                                     <td width="650" height="25" bgcolor="#FFFFFF"><table width="650" border="0" align="center" cellpadding="0" cellspacing="0">
                                         <tr>
-                                          <td align="left"><font size="2"><strong><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> <a href="../wcate-<?=$rcate[0];?>/<?=$url?>" title="<?=$rcate[1];?>" target="_blank"><?=$rcate[1];?></a></strong></font></td>
+                                          <td align="left"><font size="2"><strong><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> <a href="../wcate-<?php echo $rcate[0]; ?>/<?php echo $url?>" title="<?php echo $rcate[1]; ?>" target="_blank"><?php echo $rcate[1]; ?></a></strong></font></td>
                                         </tr>
                                     </table></td>
                                     <td width="100" height="25" align="center" bgcolor="#FFFFFF"><font size="2">
-                                      <?
+                                      <?php
 $strCATE="SELECT * FROM `webboard` WHERE cate_id='$rcate[0]' ";
 $QueryCATE=mysql_query($strCATE) or die("ERROR $strCATE บรรทัด 221");
 $NumCATE = mysql_num_rows($QueryCATE);	
@@ -234,7 +234,7 @@ echo $NumCATE;
 ?>
                                       กระทู้</font></td>
                                   </tr>
-                                  <? } ?>
+                                  <?php } ?>
                               </table></td>
                             </tr>
                         </table></td>
@@ -274,7 +274,7 @@ echo $NumCATE;
                                       <td width="75" height="35" align="center" bgcolor="#EFEFED"><font color="#000000" size="2"><strong>ตอบ</strong></font></td>
                                       <td width="170" align="center" bgcolor="#EFEFED"><font color="#000000" size="2"><strong>การกระทำ</strong></font></td>
                                     </tr>
-                                    <?
+                                    <?php
 $swb="SELECT webboard.id, webboard.title, webboard.date, webboard.view, member.name, webboard.cate_id FROM `webboard` ";
 $swb.="INNER JOIN member ON webboard.member_id=member.id ";
 $swb.="WHERE webboard.sticky='1' ORDER BY webboard.upd_date DESC";
@@ -288,8 +288,8 @@ $url=rewrite($rwb[1]);
                                             <td height="20" align="left"><table width="300" border="0" cellspacing="0" cellpadding="0">
                                                 <tr>
                                                   <td width="30" align="left"><img src="../webboard/img/stick.gif" width="25" height="20" /></td>
-                                                  <td width="270" align="left"><font size="2"><strong><a href="../board-<?=$rwb[0];?>-<?=$rwb[5];?>/<?=$url;?>.html" title="<?=$rwb[1];?>" target="_blank"><?=$rwb[1];?> </a></strong> <img src="../webboard/img/Logout.gif" width="16" height="16" />
-                                                    <?=$rwb[4];?>
+                                                  <td width="270" align="left"><font size="2"><strong><a href="../board-<?php echo $rwb[0]; ?>-<?php echo $rwb[5]; ?>/<?php echo $url; ?>.html" title="<?php echo $rwb[1]; ?>" target="_blank"><?php echo $rwb[1]; ?> </a></strong> <img src="../webboard/img/Logout.gif" width="16" height="16" />
+                                                    <?php echo $rwb[4]; ?>
                                                   </font></td>
                                                 </tr>
                                             </table></td>
@@ -298,7 +298,7 @@ $url=rewrite($rwb[1]);
                                             <td height="20" align="left"><table width="240" border="0" align="center" cellpadding="0" cellspacing="0">
                                                 <tr>
                                                   <td width="10" align="left"><img src="../webboard/img/arrow.gif" width="11" height="8" /></td>
-                                                  <td width="230" align="left"><?
+                                                  <td width="230" align="left"><?php
 $strWB="SELECT member.name, ans_webboard.date FROM `ans_webboard` ";
 $strWB.="INNER JOIN member ON ans_webboard.member_id=member.id ";
 $strWB.="WHERE ans_webboard.topic_id='$rwb[0]' ORDER BY ans_webboard.id DESC ";
@@ -307,9 +307,9 @@ $WBResult=mysql_fetch_row($WBQuery);
 $NumWB = mysql_num_rows($WBQuery);
 ?>
                                                       <font size="2">ตอบล่าสุดโดย
-                                                        <? if($NumWB<=0){ echo "ยังไม่มีผู้ตอบ"; }else{ echo $WBResult[0];?>
+                                                        <?php if($NumWB<=0){ echo "ยังไม่มีผู้ตอบ"; }else{ echo $WBResult[0]; ?>
                                                         เมื่อ
-                                                        <? $replyDate = $WBResult[1];
+                                                        <?php $replyDate = $WBResult[1];
 echo DateTime($replyDate);
 }
 ?>
@@ -319,25 +319,25 @@ echo DateTime($replyDate);
                                           </tr>
                                       </table></td>
                                       <td width="130" height="40" align="center"><font size="2">
-                                        <?
+                                        <?php
 								$postDate = $rwb[2];
 								echo DateTime($postDate);
 								?>
                                       </font></td>
                                       <td width="75" height="40" align="center"><font size="2">
-                                        <?=$rwb[3];?>
+                                        <?php echo $rwb[3]; ?>
                                       </font></td>
                                       <td width="75" height="40" align="center"><font size="2">
-                                        <?=$NumWB;?>
+                                        <?php echo $NumWB; ?>
                                       </font></td>
                                       <td width="170" align="center"><select name="type" id="type" onchange="window.open(this.options[this.selectedIndex].value,'_self')">
                                           <option value="">- เลือกการกระทำ -</option>
-                                          <option value="sticky.php?id=<?=$rwb[0];?>&amp;type=1">ถอนหมุด</option>
-                                          <option value="edit-webboard.php?id=<?=$rwb[0];?>">แก้ไขข้อมูล</option>
-                                          <option value="del-webboard.php?id=<?=$rwb[0];?>">ลบข้อมูล</option>
+                                          <option value="sticky.php?id=<?php echo $rwb[0]; ?>&amp;type=1">ถอนหมุด</option>
+                                          <option value="edit-webboard.php?id=<?php echo $rwb[0]; ?>">แก้ไขข้อมูล</option>
+                                          <option value="del-webboard.php?id=<?php echo $rwb[0]; ?>">ลบข้อมูล</option>
                                       </select></td>
                                     </tr>
-                                    <? } ?>
+                                    <?php } ?>
                                 </table></td>
                               </tr>
                               <tr>
@@ -349,7 +349,7 @@ echo DateTime($replyDate);
                                       <td width="75" height="35" align="center" bgcolor="#EFEFED"><font color="#000000" size="2"><strong>ตอบ</strong></font></td>
                                       <td width="170" align="center" bgcolor="#EFEFED"><font color="#000000" size="2"><strong>การกระทำ</strong></font></td>
                                     </tr>
-                                    <?
+                                    <?php
 $strSQL="SELECT webboard.id, webboard.title, webboard.date, webboard.view, member.name, webboard.cate_id FROM `webboard` ";
 $strSQL.="INNER JOIN member ON webboard.member_id=member.id ";
 $strSQL.="WHERE webboard.sticky='0' ";
@@ -357,10 +357,14 @@ $objQuery=mysql_query($strSQL) or die("ERROR บรรทัด 344");
 $Num_Rows = mysql_num_rows($objQuery);		
 		$Per_Page = 20;   // Per Page
 
-		$Page = $_GET["Page"];
-		if(!$_GET["Page"])
+		
+		if(!isset($_GET["Page"]))
 		{
 			$Page=1;
+		}
+		else
+		{
+			$Page = $_GET["Page"];
 		}
 
 		$Prev_Page = $Page-1;
@@ -392,7 +396,7 @@ $Num_Rows = mysql_num_rows($objQuery);
                                           <tr>
                                             <td height="20" align="left"><table width="300" border="0" cellspacing="0" cellpadding="0">
                                                 <tr>
-                                                  <td width="30" align="center"><?
+                                                  <td width="30" align="center"><?php
 $strWB2="SELECT member.name, ans_webboard.date FROM `ans_webboard` ";
 $strWB2.="INNER JOIN member ON ans_webboard.member_id=member.id ";
 $strWB2.="WHERE ans_webboard.topic_id='$objResult[0]' ORDER BY ans_webboard.id DESC ";
@@ -402,11 +406,11 @@ $NumWB2=mysql_num_rows($WBQuery2);
 if($NumWB2<=0){
 ?>
                                                       <img src="../webboard/img/boardans.gif" width="16" height="11" />
-                                                      <? }else{ ?>
+                                                      <?php }else{ ?>
                                                       <img src="../webboard/img/boardunans.gif" width="16" height="11" />
-                                                      <? } ?></td>
-                                                  <td width="270" align="left"><font size="2"><strong><a href="../board-<?=$objResult[0];?>-<?=$objResult[5];?>/<?=$url;?>.html" target="_blank"><?=$objResult[1];?></a></strong> <img src="../webboard/img/Logout.gif" width="16" height="16" />
-                                                    <?=$objResult[4];?>
+                                                      <?php } ?></td>
+                                                  <td width="270" align="left"><font size="2"><strong><a href="../board-<?php echo $objResult[0]; ?>-<?php echo $objResult[5]; ?>/<?php echo $url; ?>.html" target="_blank"><?php echo $objResult[1]; ?></a></strong> <img src="../webboard/img/Logout.gif" width="16" height="16" />
+                                                    <?php echo $objResult[4]; ?>
                                                   </font></td>
                                                 </tr>
                                             </table></td>
@@ -416,9 +420,9 @@ if($NumWB2<=0){
                                                 <tr>
                                                   <td width="10" align="left"><img src="../webboard/img/arrow.gif" width="11" height="8" /></td>
                                                   <td width="230" align="left"><font size="2">ตอบล่าสุดโดย
-                                                    <? if($NumWB2<=0){ echo "ยังไม่มีผู้ตอบ"; }else{ echo $WBResult2[0];?>
+                                                    <?php if($NumWB2<=0){ echo "ยังไม่มีผู้ตอบ"; }else{ echo $WBResult2[0]; ?>
                                                     เมื่อ
-                                                    <? $replyDate = $WBResult2[1];
+                                                    <?php $replyDate = $WBResult2[1];
 echo DateTime($replyDate);
 }
 ?>
@@ -428,25 +432,25 @@ echo DateTime($replyDate);
                                           </tr>
                                       </table></td>
                                       <td width="130" height="40" align="center"><font size="2">
-                                        <?
+                                        <?php
 								$postDate = $objResult[2];
 								echo DateTime($postDate);
 								?>
                                       </font></td>
                                       <td width="75" height="40" align="center"><font size="2">
-                                        <?=$objResult[3];?>
+                                        <?php echo $objResult[3]; ?>
                                       </font></td>
                                       <td width="75" height="40" align="center"><font size="2">
-                                        <?=$NumWB2;?>
+                                        <?php echo $NumWB2; ?>
                                       </font></td>
                                       <td width="170" align="center"><select name="select" id="select" onchange="window.open(this.options[this.selectedIndex].value,'_self')">
                                           <option value="">- เลือกการกระทำ -</option>
-                                          <option value="sticky.php?id=<?=$objResult[0];?>&amp;type=2">ปักหมุด</option>
-                                          <option value="edit-webboard.php?id=<?=$objResult[0];?>">แก้ไขข้อมูล</option>
-                                          <option value="del-webboard.php?id=<?=$objResult[0];?>">ลบข้อมูล</option>
+                                          <option value="sticky.php?id=<?php echo $objResult[0]; ?>&amp;type=2">ปักหมุด</option>
+                                          <option value="edit-webboard.php?id=<?php echo $objResult[0]; ?>">แก้ไขข้อมูล</option>
+                                          <option value="del-webboard.php?id=<?php echo $objResult[0]; ?>">ลบข้อมูล</option>
                                       </select></td>
                                     </tr>
-                                    <? } ?>
+                                    <?php } ?>
                                   </table>
                                     <table width="100%" height="10" border="0" cellpadding="0" cellspacing="0">
                                       <tr>
@@ -456,15 +460,15 @@ echo DateTime($replyDate);
                                   <table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
                                       <tr>
                                         <td align="center"><font size="2" color="#000000">รายการข้อมูลเว็บบอร์ด ทั้งหมด
-                                          <?=$Num_Rows;?>
+                                          <?php echo $Num_Rows; ?>
                                           รายการ : แสดงผลหน้าละ
-                                          <?=$Per_Page;?>
+                                          <?php echo $Per_Page; ?>
                                           รายการ จำนวนทั้งหมด
-                                          <?=$Num_Pages;?>
+                                          <?php echo $Num_Pages; ?>
                                           หน้า</font></td>
                                       </tr>
                                       <tr>
-                                        <td height="30" align="center" valign="middle"><? 
+                                        <td height="30" align="center" valign="middle"><?php 
 $pages = new Paginator;
 $pages->items_total = $Num_Rows;
 $pages->mid_range = 10;

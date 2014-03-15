@@ -1,8 +1,8 @@
-<?
+<?php
 session_start();
 include "../inc/config.inc.php";
-//echo "$_SESSION[m_login]<br>$_SESSION[m_id]";
-if(!isset($_SESSION[admin_login])) {
+//echo "$_SESSION[m_login]<br>$_SESSION["m_id"]";
+if(!isset($_SESSION["admin_login"])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
 exit() ;
 }
@@ -31,12 +31,12 @@ a:active {
 </style></head>
 
 <body>
-<?
+<?php
 $links=$_POST[links];
 $data=$_POST[data];
 $op=$_POST[op];
-$file1=$_FILES[file1][name];
-$tmp1=$_FILES[file1][tmp_name];
+$file1=$_FILES["file1"]["name"];
+$tmp1=$_FILES["file1"]["tmp_name"];
 $name=$_POST[name];
 $email=$_POST[email];
 $url=$_POST[url];

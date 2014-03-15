@@ -1,4 +1,4 @@
-<? 
+<?php 
 @session_start(); 
 include "../inc/config.inc.php";
 if(!isset($_SESSION[mod_login])) {
@@ -35,7 +35,7 @@ a:active {
       <table width="980" border="0" cellspacing="1" cellpadding="1">
         <tr valign="top">
           <td width="490"><div align="left"><font color="#000000" size="2">:: ยินดีต้อนรับเข้าสู่ ระบบจัดการ<font color="#333333">ข้อมูลวิเคราะห์บอล</font> :: | 
-				<?
+				<?php
 				$dm=date("d/m");
 				$y=date("Y")+543;
 				$date="$dm/$y";
@@ -79,7 +79,7 @@ a:active {
               <td></td>
             </tr>
           </table>
-<?
+<?php
 $sql="SELECT * FROM `admin_analyze` WHERE id='$_SESSION[mod_id]'";
 $result=mysql_query($sql) or die("ERROR $sql");
 $row=mysql_fetch_row($result);
@@ -88,29 +88,29 @@ $row=mysql_fetch_row($result);
             <tr>
               <td width="130" height="20" align="right"><font size="2">ชื่อที่ใช้เรียก / ฉายา </font></td>
               <td width="10" height="20" align="center"><font size="2">:</font></td>
-              <td width="580" height="20" align="left"><input name="name" type="text" id="name" style="width:250px;" value="<?=$row[1];?>" />
-                <input type="hidden" name="op" id="op" value="<?=$row[2];?>" />
+              <td width="580" height="20" align="left"><input name="name" type="text" id="name" style="width:250px;" value="<?php echo $row[1]; ?>" />
+                <input type="hidden" name="op" id="op" value="<?php echo $row[2]; ?>" />
                   <font size="2" color="#FF0000">*</font> </td>
             </tr>
             <tr>
               <td height="20" align="right"><font size="2">รูป Avatar </font></td>
               <td height="20" align="center"><font size="2">:</font></td>
               <td height="20" align="left"><input name="file1" type="file" id="file1" />
-                  <? if($row[2]!=""){ ?>
-                <img src="../mod/avatar/<?=$row[2];?>" width="110" height="18" />
-                <? } ?>
+                  <?php if($row[2]!=""){ ?>
+                <img src="../mod/avatar/<?php echo $row[2]; ?>" width="110" height="18" />
+                <?php } ?>
                   <font size="2" color="#FF0000">* ขนาด 110x18 px ไม่เกิน 50kb </font></td>
             </tr>
             <tr>
               <td height="20" align="right" valign="top"><font size="2">ชื่อผู้ใช้</font></td>
               <td height="20" align="center" valign="top"><font size="2">:</font></td>
-              <td height="20" align="left"><input name="user" type="text" id="user" style="width:200px;" value="<?=$row[3];?>" />
+              <td height="20" align="left"><input name="user" type="text" id="user" style="width:200px;" value="<?php echo $row[3]; ?>" />
                   <font size="2" color="#FF0000">*</font></td>
             </tr>
             <tr>
               <td height="20" align="right" valign="top"><font size="2">รหัสผ่าน</font></td>
               <td height="20" align="center" valign="top"><font size="2">:</font></td>
-              <td height="20" align="left"><input name="pass" type="text" id="pass" style="width:200px;" value="<?=$row[4];?>" />
+              <td height="20" align="left"><input name="pass" type="text" id="pass" style="width:200px;" value="<?php echo $row[4]; ?>" />
                   <font size="2" color="#FF0000">*</font></td>
             </tr>
             <tr>

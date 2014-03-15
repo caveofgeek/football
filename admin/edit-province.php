@@ -1,7 +1,7 @@
-<? 
+<?php 
 @session_start(); 
 include "../inc/config.inc.php";
-if(!isset($_SESSION[admin_login])) {
+if(!isset($_SESSION["admin_login"])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
 exit() ;
 }
@@ -11,7 +11,7 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
-<? 
+<?php 
 class Paginator{
 	var $items_per_page;
 	var $items_total;
@@ -83,8 +83,8 @@ class Paginator{
 			}
 		}
 		$this->low = ($this->current_page-1) * $this->items_per_page;
-		$this->high = ($_GET['ipp'] == 'All') ? $this->items_total:($this->current_page * $this->items_per_page)-1;
-		$this->limit = ($_GET['ipp'] == 'All') ? "":" LIMIT $this->low,$this->items_per_page";
+		$this->high = (isset($_GET['ipp']) == 'All') ? $this->items_total:($this->current_page * $this->items_per_page)-1;
+		$this->limit = (isset($_GET['ipp']) == 'All') ? "":" LIMIT $this->low,$this->items_per_page";
 	}
 
 	function display_pages()
@@ -177,7 +177,7 @@ body {
             <table width="960" border="0" cellspacing="1" cellpadding="1">
               <tr valign="top">
                 <td width="690"><div align="left"><font color="#ffffff" size="4">.:: ยินดีต้อนรับเข้าสู่ ระบบจัดการข้อมูลเว็บไซต์ ::
-                  <?
+                  <?php
 				$dm=date("d/m");
 				$y=date("Y")+543;
 				$date="$dm/$y";
@@ -193,7 +193,7 @@ body {
       <tr>
         <td bgcolor="#CCCCCC"><table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
-              <td width="220" align="center" valign="top"><? include "menu.php"; ?></td>
+              <td width="220" align="center" valign="top"><?php include "menu.php"; ?></td>
               <td width="760" align="center" valign="top" bgcolor="#FFFFFF"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
                   <tr>
                     <td height="25"><strong><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> <a href="province.php">จัดการข้อมูลจังหวัด</a> <img src="images/arrow.gif" width="7" height="11" /> </font><font size="2" color="#333333"><strong>แก้ไขข้อมูลจังหวัด</strong></font></strong></td>
@@ -207,8 +207,8 @@ body {
                         <td><table width="580" border="0" align="center" cellpadding="0" cellspacing="0">
                             <tr>
                               <td><form method="post" action="p-edit-province.php"  enctype="multipart/form-data" name ="checkForm" id="checkForm" onsubmit="return check1()">
-                                  <?
-$id=$_GET[id];
+                                  <?php
+$id=$_GET["id"];
 $s="select * from province where PROVINCE_ID='$id'";
 $re=mysql_query($s) or die("ERROR $s บรททัด209");
 $r=mysql_fetch_row($re);
@@ -219,22 +219,22 @@ $r=mysql_fetch_row($re);
                                       <td width="10">&nbsp;</td>
                                       <td width="300" align="left"><select name="geo" id="geo">
                                           <option value="">-- กรุณาเลือกภาค --</option>
-                                          <?
+                                          <?php
 								$ss="SELECT * FROM `geography`";
 								$res=mysql_query($ss) or die("ERROR $s");
 								while($rs=mysql_fetch_row($res)){
 								?>
-                                          <option value="<?=$rs[0];?>" <? if($rs[0]==$r[3]){ echo "selected";} ?>>
-                                          <?=$rs[1];?>
+                                          <option value="<?php echo $rs[0]; ?>" <?php if($rs[0]==$r[3]){ echo "selected";} ?>>
+                                          <?php echo $rs[1]; ?>
                                           </option>
-                                          <? } ?>
+                                          <?php } ?>
                                       </select></td>
                                     </tr>
                                     <tr>
                                       <td align="right"><font size="2" color="#333333"><strong>ชื่อข้อมูลจังหวัด</strong></font></td>
                                       <td width="10">&nbsp;</td>
-                                      <td width="300" align="left"><input name="province" type="text" id="province" value="<?=$r[2];?>" />
-                                          <input type="hidden" id="id" name="id" value="<?=$id;?>" /></td>
+                                      <td width="300" align="left"><input name="province" type="text" id="province" value="<?php echo $r[2]; ?>" />
+                                          <input type="hidden" id="id" name="id" value="<?php echo $id; ?>" /></td>
                                     </tr>
                                     <tr>
                                       <td width="150" align="right">&nbsp;</td>
@@ -274,17 +274,21 @@ return true ;
                               <td width="250" height="30" align="center" valign="middle" bgcolor="#EFEFED"><font size="2" color="#333333"><strong>ข้อมูลจังหวัด</strong></font></td>
                               <td width="100" align="center" valign="middle" bgcolor="#EFEFED"><span class="style4">การกระทำ</span></td>
                             </tr>
-                            <?	
+                            <?php	
 		$strSQL = "SELECT * FROM province";
 		$objQuery = mysql_query($strSQL);
 		$Num_Rows = mysql_num_rows($objQuery);
 
 		$Per_Page = 20;   // Per Page
 
-		$Page = $_GET["Page"];
-		if(!$_GET["Page"])
+		
+		if(!isset($_GET["Page"]))
 		{
 			$Page=1;
+		}
+		else
+		{
+			$Page = $_GET["Page"];
 		}
 
 		$Prev_Page = $Page-1;
@@ -311,10 +315,10 @@ return true ;
 ?>
                             <tr>
                               <td width="50" height="25" align="center"><font size="2">
-                                <?=$objResult[0];?>
+                                <?php echo $objResult[0]; ?>
                               </font> </td>
                               <td width="150" height="25" align="center"><font size="2">
-                                <?
+                                <?php
 					  $sgo="SELECT * FROM `geography` WHERE GEO_ID='$objResult[3]'";
 					  $rego=mysql_query($sgo) or die("ERROR $sgo");
 					  $rgo=mysql_fetch_row($rego);
@@ -322,11 +326,11 @@ return true ;
 					  ?>
                               </font></td>
                               <td width="250" height="25" align="left">&nbsp;&nbsp;<font size="2">
-                                <?=$objResult[2];?>
+                                <?php echo $objResult[2]; ?>
                               </font></td>
-                              <td width="100" align="center"><font size="2"><a href="edit-province.php?id=<?=$objResult[0];?>"><img src="images/edit.gif" width="40" height="15" border="0" /> </a><a href="del-province.php?id=<?=$objResult[0];?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"> <img src="images/del.gif" width="40" height="15" border="0" /></a></font></td>
+                              <td width="100" align="center"><font size="2"><a href="edit-province.php?id=<?php echo $objResult[0]; ?>"><img src="images/edit.gif" width="40" height="15" border="0" /> </a><a href="del-province.php?id=<?php echo $objResult[0]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"> <img src="images/del.gif" width="40" height="15" border="0" /></a></font></td>
                             </tr>
-                            <? } ?>
+                            <?php } ?>
                         </table></td>
                       </tr>
                       <tr>
@@ -339,21 +343,21 @@ return true ;
                               <tr>
                                 <td align="center"><font size="2" color="#000000">รายการข้อมูลจังหวัด
                                   ทั้งหมด
-                                  <?=$Num_Rows;?>
+                                  <?php echo $Num_Rows; ?>
                                   รายการ : แสดงผลหน้าละ
-                                  <?=$Per_Page;?>
+                                  <?php echo $Per_Page; ?>
                                   รายการ จำนวนทั้งหมด
-                                  <?=$Num_Pages;?>
+                                  <?php echo $Num_Pages; ?>
                                   หน้า</font></td>
                               </tr>
                               <tr>
-                                <td height="30" align="center" valign="middle"><? 
+                                <td height="30" align="center" valign="middle"><?php 
 $pages = new Paginator;
 $pages->items_total = $Num_Rows;
 $pages->mid_range = 10;
 $pages->current_page = $Page;
 $pages->default_ipp = $Per_Page;
-$pages->url_next = $_SERVER["PHP_SELF"]."?QueryString=value&id=$id&Page=";
+$pages->url_next = $_SERVER["PHP_SELF"]."?QueryString=value&Page=";
 
 $pages->paginate();
 

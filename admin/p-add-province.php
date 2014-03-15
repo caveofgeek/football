@@ -1,7 +1,7 @@
-<?
+<?php
 session_start();
 include "../inc/config.inc.php";
-if(!isset($_SESSION[admin_login])) {
+if(!isset($_SESSION["admin_login"])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
 exit() ;
 }
@@ -30,7 +30,7 @@ a:active {
 </style></head>
 
 <body>
-<?
+<?php
 $Submit=$_POST[Submit];
 $geo=$_POST[geo];
 $province=htmlspecialchars($_POST[province]);
@@ -43,7 +43,7 @@ if($num>=1){
 	alert('ขอโทษครับ ชื่อจังหวัดนี้มีอยู่แล้วครับ'); 	
 	history.back();
 </script> 
-<?
+<?php
 }else{
 if($province!=""&&$geo!=""){
 $sql=mysql_query("INSERT INTO `province` (`PROVINCE_NAME`, `GEO_ID`)VALUES ('$province', '$geo')")or die("ERROR $sql บรรทัด49");
@@ -54,7 +54,7 @@ echo "<meta http-equiv='refresh' content='0;url=province.php'>";
 	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ'); 	
 	history.back();
 </script> 
-<?
+<?php
 }
 }
 ?>

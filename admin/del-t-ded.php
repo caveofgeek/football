@@ -1,8 +1,8 @@
-<?
+<?php
 session_start();
 include "../inc/config.inc.php";
-//echo "$_SESSION[m_login]<br>$_SESSION[m_id]";
-if(!isset($_SESSION[admin_login])) {
+//echo "$_SESSION[m_login]<br>$_SESSION["m_id"]";
+if(!isset($_SESSION["admin_login"])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
 exit() ;
 }
@@ -31,9 +31,9 @@ a:active {
 </style></head>
 
 <body>
-<?
-$l_id=$_GET[l_id];
-$tdate=$_GET[tdate];
+<?php
+$l_id=$_GET["l_id"];
+$tdate=$_GET["tDate"];
 //del t_ded
 $sql=mysql_query("delete from t_ded where l_id='$l_id' AND post_date='$tdate'")or die("ERROR $sql");
 
