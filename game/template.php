@@ -38,6 +38,7 @@ $rgame=mysql_fetch_row($regame);
 <meta name="robots"  content="index,follow">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="css/justified-nav.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {

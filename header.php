@@ -11,7 +11,20 @@
             <td width="7" align="center" valign="top">&nbsp;</td>
             <td width="728" align="center" valign="top"><table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
                 <tr>
-                  <td align="center"><table width="728" border="0" align="center" cellpadding="0" cellspacing="0" style="background-image:url(http://<?=$titler[13];?>/img/bg-menu-top.png); background-repeat:no-repeat; height:42px;">
+                  <td align="center">
+                    <div class="masthead">
+                      <ul class="nav nav-justified">
+                        <li><a href="http://<?=$titler[13];?>">หน้าแรก</a></li>
+                        <li><a href="http://<?=$titler[13];?>/tded-ทีเด็ดบอลวันนี้">ทีเด็ดบอล</a></li>
+                        <li><a href="http://<?=$titler[13];?>/analyze-วิเคราะห์บอลวันี้">วิเคราะห์บอล</a></li>
+                        <li><a href="http://<?=$titler[13];?>/ball-1/โปรแกรมบอลวันนี้">โปรแกรมบอล</a></li>
+                        <li><a href="http://<?=$titler[13];?>/ball-2/ผลบอลสด">ผลบอลสด</a></li>
+                        <li><a href="http://<?=$titler[13];?>/ball-3/ดูบอลออนไลน์">ดูบอลออนไลน์</a></li>
+                        <li><a href="http://<?=$titler[13];?>/contact.php">ติดต่อโฆษณา</a></li>
+                      </ul>
+                    </div>
+                    <!--
+                    <table width="728" border="0" align="center" cellpadding="0" cellspacing="0" style="background-image:url(http://<?=$titler[13];?>/img/bg-menu-top.png); background-repeat:no-repeat; height:42px;">
                       <tr>
                         <td align="center" valign="top"><table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
                             <tr>
@@ -19,7 +32,9 @@
                             </tr>
                         </table></td>
                       </tr>
-                  </table></td>
+                    </table>
+                    -->
+                  </td>
                 </tr>
                 <tr>
                   <td height="20" align="center"></td>
@@ -30,10 +45,10 @@
 $sads1="SELECT * FROM `ads_a1` WHERE id='1'";
 $reads1=mysql_query($sads1) or die("Error $sads1");
 $rads1=mysql_fetch_row($reads1);
-if($rads1[1]==1){ 
+if($rads1[1]==1){
 $ads1=stripslashes($rads1[3]);
 echo $ads1;
-}else if($rads1[1]==2){ 
+}else if($rads1[1]==2){
 ?>
                       <a href="<?=$rads1[7];?>" title="<?=$rads1[8];?>" target="_blank">
                       <? if($rads1[2]==1){  ?>

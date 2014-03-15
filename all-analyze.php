@@ -37,6 +37,7 @@ $str=mysql_fetch_row($stre);
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="css/justified-nav.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {
@@ -149,6 +150,7 @@ class Paginator{
 ?>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="css/justified-nav.css" rel="stylesheet">
 <style type="text/css">
 <!--
 	.paginate {

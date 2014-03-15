@@ -34,10 +34,13 @@ $str=mysql_fetch_row($stre);
 <META NAME="keywords" CONTENT="<?=$titler[12];?>">
 <META NAME="description" CONTENT="<?=$titler[1];?> <?=$titler[11];?>">
 <meta name="robots"  content="index,follow">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/font-awesome.min.css" rel="stylesheet">
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="css/justified-nav.css" rel="stylesheet">
+<link href="css/justified-nav.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {
@@ -69,6 +72,7 @@ a:active {
 </head>
 
 <body>
+
 <table width="995" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
     <td align="center" valign="top"><? include "header.php"; ?></td>
