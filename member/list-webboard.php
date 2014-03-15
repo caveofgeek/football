@@ -36,9 +36,9 @@ $str=mysql_fetch_row($stre);
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>ระบบจัดการข้อมูลสมาชิก | <?=$titler[1];?></title>
 <meta name="robots"  content="index,nofollow">
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/font-awesome.min.css" rel="stylesheet">
-<link href="css/justified-nav.css" rel="stylesheet">
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/font-awesome.min.css" rel="stylesheet">
+<link href="../css/justified-nav.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {
@@ -149,9 +149,9 @@ class Paginator{
 	}
 }
 ?>
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/font-awesome.min.css" rel="stylesheet">
-<link href="css/justified-nav.css" rel="stylesheet">
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/font-awesome.min.css" rel="stylesheet">
+<link href="../css/justified-nav.css" rel="stylesheet">
 <style type="text/css">
 <!--
 	.paginate {
