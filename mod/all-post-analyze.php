@@ -4,7 +4,7 @@ include "../inc/config.inc.php";
 include "../function/function.php";
 include "../function/datetime.php";
 if(!isset($_SESSION[mod_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 ?>
@@ -13,6 +13,8 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลวิเคราะห์บอล ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -109,9 +111,11 @@ class Paginator{
 	{
 		return $this->return;
 	}
-} 
+}
 ?>
-<style type="text/css"> 
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<style type="text/css">
 <!--
 	.paginate {
 	font-family: Arial, Helvetica, sans-serif;
@@ -128,7 +132,7 @@ class Paginator{
 		font-size: 12pt;
 		color: #003366;
 		}
-		
+
 		 h2 {
 		line-height: 1.2em;
 		letter-spacing:-1px;
@@ -177,7 +181,7 @@ class Paginator{
 				$time=date("H:i:s");
 				echo "$date $time";
 				?> ::.<br />
-                หน้าปัจจุบันของคุณ 
+                หน้าปัจจุบันของคุณ
           :</font><font size="2"> <font color="#333333"><a href="main.php">หน้าหลัก</a> </font></font></div></td>
           <td width="490"><div align="right"><font color="#000000" size="2"><a href="../index.php" target="_blank"><font color="#000033">ไปยังหน้าเว็บไซต์</font></a> | <a href="logout.php"><font color="#000033">ออกจากระบบ</font></a></font></div></td>
         </tr>

@@ -33,6 +33,8 @@ $str=mysql_fetch_row($stre);
 <META NAME="keywords" CONTENT="<?php echo $titler[12]; ?>"> 
 <META NAME="description" CONTENT="<?php echo $titler[1]; ?> เว็บเพื่อนบ้าน <?php echo $titler[11]; ?>">
 <meta name="robots"  content="index,follow">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {
@@ -95,7 +97,7 @@ while($rads8=mysql_fetch_row($reads8)){
 						  if($rads8[1]==1){ 
 						  $ads8=stripslashes($rads8[3]); 
 						  echo $ads8;
-						  }else if($rads8[1]==2){ 
+						  }else if($rads8[1]==2){
 						  ?>
                               <a href="<?php echo $rads8[7]; ?>" title="<?php echo $rads8[8]; ?>" target="_blank">
                               <?php if($rads8[2]==1){  ?>
@@ -305,8 +307,8 @@ alert("คุณบวกเลขไม่ถูกต้องครับ") ;
 document.checkForm.ans.focus() ;
 return false ;
 }
-else 
-return true ;  
+else
+return true ;
 }
 
                                             </script>
@@ -351,7 +353,7 @@ return true ;
 		$intRows1= 0;
 		while($objResult1 = mysql_fetch_row($objQuery1))
 		{
-			echo "<td width='90' align='center' valign='top'>"; 
+			echo "<td width='90' align='center' valign='top'>";
 			$intRows1++;
 	?>
                                           <table width="90" border="0" align="center" cellpadding="0" cellspacing="0">

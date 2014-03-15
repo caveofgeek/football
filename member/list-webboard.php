@@ -36,6 +36,8 @@ $str=mysql_fetch_row($stre);
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>ระบบจัดการข้อมูลสมาชิก | <?php echo $titler[1]; ?></title>
 <meta name="robots"  content="index,nofollow">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {
@@ -144,9 +146,11 @@ class Paginator{
 	{
 		return $this->return;
 	}
-} 
+}
 ?>
-<style type="text/css"> 
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<style type="text/css">
 <!--
 	.paginate {
 	font-family: Arial, Helvetica, sans-serif;
@@ -163,7 +167,7 @@ class Paginator{
 		font-size: 12pt;
 		color: #003366;
 		}
-		
+
 		 h2 {
 		line-height: 1.2em;
 		letter-spacing:-1px;
@@ -238,7 +242,7 @@ $strSQL.="webboard.cate_id, webboard.member_id FROM `webboard` ";
 $strSQL.="INNER JOIN member ON webboard.member_id=member.id ";
 $strSQL.="WHERE webboard.member_id=$_SESSION["m_id"] ";
 $objQuery=mysql_query($strSQL) or die("ERROR บรรทัด 344");
-$Num_Rows = mysql_num_rows($objQuery);		
+$Num_Rows = mysql_num_rows($objQuery);
 		$Per_Page = 50;   // Per Page
 
 		

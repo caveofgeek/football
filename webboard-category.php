@@ -40,6 +40,8 @@ $rCATE=mysql_fetch_row($reCATE);
 <META NAME="keywords" CONTENT="<?php echo $rCATE[4]; ?>"> 
 <META NAME="description" CONTENT="<?php echo $titler[1]; ?> <?php echo $rCATE[3]; ?>">
 <meta name="robots"  content="index,follow">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {
@@ -148,9 +150,11 @@ class Paginator{
 	{
 		return $this->return;
 	}
-} 
+}
 ?>
-<style type="text/css"> 
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<style type="text/css">
 <!--
 	.paginate {
 	font-family: Arial, Helvetica, sans-serif;
@@ -167,7 +171,7 @@ class Paginator{
 		font-size: 12pt;
 		color: #003366;
 		}
-		
+
 		 h2 {
 		line-height: 1.2em;
 		letter-spacing:-1px;
@@ -361,7 +365,7 @@ $strSQL.="webboard.cate_id, webboard.member_id, member.img FROM `webboard` ";
 $strSQL.="INNER JOIN member ON webboard.member_id=member.id ";
 $strSQL.="WHERE webboard.sticky='0' AND webboard.cate_id='$cate_id' ";
 $objQuery=mysql_query($strSQL) or die("ERROR บรรทัด 344");
-$Num_Rows = mysql_num_rows($objQuery);		
+$Num_Rows = mysql_num_rows($objQuery);
 		$Per_Page = 20;   // Per Page
 
 		

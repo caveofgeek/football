@@ -34,6 +34,10 @@ $str=mysql_fetch_row($stre);
 <META NAME="keywords" CONTENT="<?php echo $titler[12]; ?>"> 
 <META NAME="description" CONTENT="<?php echo $titler[1]; ?> <?php echo $titler[11]; ?>">
 <meta name="robots"  content="index,follow">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {
@@ -189,7 +193,7 @@ $bgscore="bgcolor='#d1b36c'";
 $smem = "SELECT name, img FROM `member` WHERE id='$rlevel[0]'";
 $remem = mysql_query($smem) or die("ERROR $smem");
 $rmem = mysql_fetch_row($remem);
-if($rmem[1]!=""){ 
+if($rmem[1]!=""){
 ?>
                                       <img src="http://<?php echo $titler[13]; ?>/member/avatar/<?php echo $rmem[1]; ?>" width="120" height="19" />
                                       <?php }else{ ?>
@@ -328,7 +332,7 @@ $intRows1_2=0;
 while($rtab1_2=mysql_fetch_row($retab1_2))
 {
 $urltab1_2=rewrite($rtab1_2[1]);
-echo "<td width='142' align='center' valign='top'>"; 
+echo "<td width='142' align='center' valign='top'>";
 $intRows1_2++;
 ?>
 <table width="138" border="0" cellspacing="0" cellpadding="0">
@@ -394,7 +398,7 @@ while($rads2=mysql_fetch_row($reads2)){
 						if($rads2[1]==1){ 
 						$ads2=stripslashes($rads2[3]); 
 						echo $ads2;
-						}else if($rads2[1]==2){ 
+						}else if($rads2[1]==2){
 						?>
                     <a href="<?php echo $rads2[7]; ?>" title="<?php echo $rads2[8]; ?>" target="_blank">
                     <?php if($rads2[2]==1){  ?>
@@ -912,7 +916,7 @@ while($rads3=mysql_fetch_row($reads3)){
 						  if($rads3[1]==1){ 
 						  $ads3=stripslashes($rads3[3]); 
 						  echo $ads3;
-						  }else if($rads3[1]==2){ 
+						  }else if($rads3[1]==2){
 						  ?>
                             <a href="<?php echo $rads3[7]; ?>" title="<?php echo $rads3[8]; ?>" target="_blank">
                             <?php if($rads3[2]==1){  ?>
@@ -1072,7 +1076,7 @@ while($rads4=mysql_fetch_row($reads4)){
 						  if($rads4[1]==1){ 
 						  $ads4=stripslashes($rads4[3]); 
 						  echo $ads4;
-						  }else if($rads4[1]==2){ 
+						  }else if($rads4[1]==2){
 						  ?>
                             <a href="<?php echo $rads4[7]; ?>" title="<?php echo $rads4[8]; ?>" target="_blank">
                             <?php if($rads4[2]==1){  ?>
@@ -1197,7 +1201,7 @@ while($rads5=mysql_fetch_row($reads5)){
 						  if($rads5[1]==1){ 
 						  $ads5=stripslashes($rads5[3]); 
 						  echo $ads5;
-						  }else if($rads5[1]==2){ 
+						  }else if($rads5[1]==2){
 						  ?>
                             <a href="<?php echo $rads5[7]; ?>" title="<?php echo $rads5[8]; ?>" target="_blank">
                             <?php if($rads5[2]==1){  ?>
@@ -1757,7 +1761,7 @@ while($rads6=mysql_fetch_row($reads6)){
 						  if($rads6[1]==1){ 
 						  $ads6=stripslashes($rads6[3]); 
 						  echo $ads6;
-						  }else if($rads6[1]==2){ 
+						  }else if($rads6[1]==2){
 						  ?>
                             <a href="<?php echo $rads6[7]; ?>" title="<?php echo $rads6[8]; ?>" target="_blank">
                             <?php if($rads6[2]==1){  ?>
@@ -2026,7 +2030,7 @@ $strSQL4="SELECT id, title, img FROM `post` where cate_id='7' ORDER BY id DESC L
 		while($objResult4=mysql_fetch_row($objQuery4))
 		{
 		$url4=rewrite($objResult4[1]);
-			echo "<td width='115' align='center' valign='top'>"; 
+			echo "<td width='115' align='center' valign='top'>";
 			$intRows4++;
 ?>
                                       <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -2120,7 +2124,7 @@ $strSQL4="SELECT id, title, img FROM `post` where cate_id='10' ORDER BY id DESC 
 		while($objResult4=mysql_fetch_row($objQuery4))
 		{
 		$url4=rewrite($objResult4[1]);
-			echo "<td width='115' align='center' valign='top'>"; 
+			echo "<td width='115' align='center' valign='top'>";
 			$intRows4++;
 ?>
                                           <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -2211,7 +2215,7 @@ $strSQL4="SELECT id, title, img FROM `post` where cate_id='9' ORDER BY id DESC L
 		while($objResult4=mysql_fetch_row($objQuery4))
 		{
 		$url4=rewrite($objResult4[1]);
-			echo "<td width='115' align='center' valign='top'>"; 
+			echo "<td width='115' align='center' valign='top'>";
 			$intRows4++;
 ?>
                                           <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -2285,7 +2289,7 @@ while($rads7=mysql_fetch_row($reads7)){
 if($rads7[1]==1){ 
 $ads7=stripslashes($rads7[3]);
 echo $ads7;
-}else if($rads7[1]==2){ 
+}else if($rads7[1]==2){
 ?>
         <a href="<?php echo $rads7[7]; ?>" title="<?php echo $rads7[8]; ?>" target="_blank">
         <?php if($rads7[2]==1){  ?>

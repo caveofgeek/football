@@ -34,6 +34,8 @@ $date=$_GET["tDate"];
 <META NAME="keywords" CONTENT="ทีเด็ดบอล, ทีเด็ดฟุตบอล, ทีเด็ดบอลวันนี้ ทีเด็ดบอลฟรี, ทีเด็ดบอลลีก, ทีเด็ดย้อนหลัง"> 
 <META NAME="description" CONTENT="<?php echo $titler[1]; ?> ทีเด็ดฟุตบอล วิเคราะห์บอล ราคาบอล ประจำวันที่ <?php $postDate=$date; echo DateThai($postDate); ?> ">
 <meta name="robots"  content="index,follow">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {
@@ -96,7 +98,7 @@ while($rads8=mysql_fetch_row($reads8)){
 						  if($rads8[1]==1){ 
 						  $ads8=stripslashes($rads8[3]); 
 						  echo $ads8;
-						  }else if($rads8[1]==2){ 
+						  }else if($rads8[1]==2){
 						  ?>
                               <a href="<?php echo $rads8[7]; ?>" title="<?php echo $rads8[8]; ?>" target="_blank">
                               <?php if($rads8[2]==1){  ?>

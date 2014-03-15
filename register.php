@@ -37,10 +37,12 @@ $str=mysql_fetch_row($stre);
 $check=$_POST[check];
 if($check!=1){
 ?>
-<script language="JavaScript" type="text/javascript"> 	
-	alert('ขอโทษครับ ท่านยังไม่ได้ยอมรับเงื่อนไขข้อตกลงในการสมัครสมาชิกครับ'); 	
-	window.location = 'member-condition.php'; 
+<script language="JavaScript" type="text/javascript">
+	alert('ขอโทษครับ ท่านยังไม่ได้ยอมรับเงื่อนไขข้อตกลงในการสมัครสมาชิกครับ');
+	window.location = 'member-condition.php';
 </script>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <?php exit(); } ?>
 <style type="text/css">
 <!--
@@ -104,7 +106,7 @@ while($rads8=mysql_fetch_row($reads8)){
 						  if($rads8[1]==1){ 
 						  $ads8=stripslashes($rads8[3]); 
 						  echo $ads8;
-						  }else if($rads8[1]==2){ 
+						  }else if($rads8[1]==2){
 						  ?>
                               <a href="<?php echo $rads8[7]; ?>" title="<?php echo $rads8[8]; ?>" target="_blank">
                               <?php if($rads8[2]==1){  ?>
@@ -318,7 +320,7 @@ alert("คุณกรอกรหัสยืนยันไม่ถูกต�
 document.checkForm1.capcha.focus() ;
 return false ;
 }
-else 
+else
 return true ;
 }
 

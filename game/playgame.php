@@ -81,6 +81,8 @@ if($n2>=5){
 exit();
 }
 ?>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {
@@ -156,7 +158,7 @@ $row=mysql_fetch_row($db_resule);
 ?>
                             <table width="97%" border="0" align="center" cellpadding="1" cellspacing="1" bgcolor="#CCCCCC">
                               <tr bgcolor="#FFFFFF">
-                                <td width="20%" height="20"><div align="right"><font color="#333333" size="3">ลีกบอล 
+                                <td width="20%" height="20"><div align="right"><font color="#333333" size="3">ลีกบอล
                                   :</font></div></td>
                                 <td width="80%" height="20"><font color="#990000" size="3">
                                   <?php echo $row[0]; ?>
@@ -164,35 +166,35 @@ $row=mysql_fetch_row($db_resule);
                                     <input type="hidden" name="game_id" value="<?php echo $id; ?>" />                                </td>
                               </tr>
                               <tr bgcolor="#FFFFFF">
-                                <td height="20"><div align="right"><font color="#333333" size="3">ประจำวันที่ 
+                                <td height="20"><div align="right"><font color="#333333" size="3">ประจำวันที่
                                   :</font></div></td>
                                 <td height="20"><font color="#990000" size="3">
                                   <?php echo Datethai($row[1]); ?>
                                 </font></td>
                               </tr>
                               <tr bgcolor="#FFFFFF">
-                                <td height="20"><div align="right"><font color="#333333" size="3">เวลาแข่งขัน 
+                                <td height="20"><div align="right"><font color="#333333" size="3">เวลาแข่งขัน
                                   :</font></div></td>
                                 <td height="20"><font color="#990000" size="3">
                                   <?php echo $row[2]; ?>
                                   น. </font></td>
                               </tr>
                               <tr bgcolor="#FFFFFF">
-                                <td height="20"><div align="right"><font color="#333333" size="3">เจ้าบ้าน 
+                                <td height="20"><div align="right"><font color="#333333" size="3">เจ้าบ้าน
                                   :</font></div></td>
                                 <td height="20"><font color="#990000" size="3">
                                   <?php echo $row[3]; ?>
                                 </font></td>
                               </tr>
                               <tr bgcolor="#FFFFFF">
-                                <td height="20"><div align="right"><font color="#333333" size="3">ทีมเยือน 
+                                <td height="20"><div align="right"><font color="#333333" size="3">ทีมเยือน
                                   :</font></div></td>
                                 <td height="20"><font color="#990000" size="3">
                                   <?php echo $row[4]; ?>
                                 </font></td>
                               </tr>
                               <tr bgcolor="#FFFFCC">
-                                <td height="20"><div align="right"><strong><font color="#FF0000" size="3">ทายผล 
+                                <td height="20"><div align="right"><strong><font color="#FF0000" size="3">ทายผล
                                   :</font></strong></div></td>
                                 <td height="20"><font size="3">
                                   <input type="radio" name="result" value="1" />

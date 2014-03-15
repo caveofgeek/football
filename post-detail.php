@@ -52,6 +52,8 @@ $url=rewrite($rct[1]);
 <META NAME="description" CONTENT="<?php echo $titler[1]; ?> <?php echo $rpost[3]; ?>">
 <meta name="robots"  content="index,follow">
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {
@@ -114,7 +116,7 @@ while($rads8=mysql_fetch_row($reads8)){
 						  if($rads8[1]==1){ 
 						  $ads8=stripslashes($rads8[3]); 
 						  echo $ads8;
-						  }else if($rads8[1]==2){ 
+						  }else if($rads8[1]==2){
 						  ?>
                               <a href="<?php echo $rads8[7]; ?>" title="<?php echo $rads8[8]; ?>" target="_blank">
                               <?php if($rads8[2]==1){  ?>
@@ -235,7 +237,7 @@ $intRows= 0;
 while($objResult = mysql_fetch_row($objQuery))
 {
 $url=rewrite($objResult[1]);
-	echo "<td width='360' align='center' valign='top'>"; 
+	echo "<td width='360' align='center' valign='top'>";
 	$intRows++;
 ?>
                           <table width="360" border="0" align="center" cellpadding="0" cellspacing="0">

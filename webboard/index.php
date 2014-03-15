@@ -34,6 +34,8 @@ $str=mysql_fetch_row($stre);
 <META NAME="keywords" CONTENT="<?php echo $titler[12]; ?>"> 
 <META NAME="description" CONTENT="<?php echo $titler[1]; ?> เว็บบอร์ดพูดคุย แลกเปลี่ยน ทรรศนะฟุตบอล">
 <meta name="robots"  content="index,follow">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {
@@ -142,9 +144,11 @@ class Paginator{
 	{
 		return $this->return;
 	}
-} 
+}
 ?>
-<style type="text/css"> 
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<style type="text/css">
 <!--
 	.paginate {
 	font-family: Arial, Helvetica, sans-serif;
@@ -161,7 +165,7 @@ class Paginator{
 		font-size: 12pt;
 		color: #003366;
 		}
-		
+
 		 h2 {
 		line-height: 1.2em;
 		letter-spacing:-1px;
@@ -216,7 +220,7 @@ class Paginator{
    $sni="select * from news_index where id=1";
    $reni=mysql_query($sni) or die("ERROR $sni บรททัด 89");
    $rni=mysql_fetch_row($reni);
-   $msg=stripslashes($rni[1]); 
+   $msg=stripslashes($rni[1]);
    echo $msg;
 ?>
                 </td>
@@ -259,7 +263,7 @@ class Paginator{
                             <?php
 $strCATE="SELECT * FROM `webboard` WHERE cate_id='$rcate[0]' ";
 $QueryCATE=mysql_query($strCATE) or die("ERROR $strCATE บรรทัด 221");
-$NumCATE = mysql_num_rows($QueryCATE);	
+$NumCATE = mysql_num_rows($QueryCATE);
 echo $NumCATE;
 ?>
                             กระทู้ </font></strong></td>
@@ -407,7 +411,7 @@ $strSQL.="webboard.cate_id, webboard.member_id, member.img FROM `webboard` ";
 $strSQL.="INNER JOIN member ON webboard.member_id=member.id ";
 $strSQL.="WHERE webboard.sticky='0' ";
 $objQuery=mysql_query($strSQL) or die("ERROR บรรทัด 344");
-$Num_Rows = mysql_num_rows($objQuery);		
+$Num_Rows = mysql_num_rows($objQuery);
 		$Per_Page = 20;   // Per Page
 
 		

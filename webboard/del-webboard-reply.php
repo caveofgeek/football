@@ -7,6 +7,8 @@ include "../inc/config.inc.php";
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -35,13 +37,13 @@ $topic=$_GET["topic"];
 $sql6="SELECT img FROM `ans_webboard` WHERE id='$id'";
 $re6=mysql_query($sql6) or die("ERROR $sql6");
 while($r6=mysql_fetch_row($re6)){
-//del img ans_webboard 
+//del img ans_webboard
 	$ans_webboard="board-img/$r6[0]";
 	@unlink ($ans_webboard);
-}	
+}
 //del ans_webboard
 $del_ans_webboard=mysql_query("DELETE FROM `ans_webboard` WHERE `id`='$id'") or die ("ERROR del_ans_webboard");
-echo "<meta http-equiv='refresh' content='0;url=../board-$topic_id-$cate_id/$topic.html'>"; 
+echo "<meta http-equiv='refresh' content='0;url=../board-$topic_id-$cate_id/$topic.html'>";
 ?>
 </body>
 </html>

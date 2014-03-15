@@ -38,7 +38,7 @@ $rBOARD=mysql_fetch_row($reBOARDE);
 $url=rewrite($rBOARD[13]);
 
 $new_view=$rBOARD[7]+1;
-$upd_view=mysql_query("UPDATE webboard SET view='$new_view' WHERE id='$topic_id'") or die("ERROE $upd_view");	
+$upd_view=mysql_query("UPDATE webboard SET view='$new_view' WHERE id='$topic_id'") or die("ERROE $upd_view");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -49,6 +49,8 @@ $upd_view=mysql_query("UPDATE webboard SET view='$new_view' WHERE id='$topic_id'
 <META NAME="description" CONTENT="<?php echo $titler[1]; ?> <?php echo $rBOARD[3]; ?> <?php echo $titler[11]; ?>">
 <meta name="robots"  content="index,follow">
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {
@@ -157,9 +159,11 @@ class Paginator{
 	{
 		return $this->return;
 	}
-} 
+}
 ?>
-<style type="text/css"> 
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<style type="text/css">
 <!--
 	.paginate {
 	font-family: Arial, Helvetica, sans-serif;
@@ -176,7 +180,7 @@ class Paginator{
 		font-size: 12pt;
 		color: #003366;
 		}
-		
+
 		 h2 {
 		line-height: 1.2em;
 		letter-spacing:-1px;
@@ -258,8 +262,8 @@ class Paginator{
    $sql = "select * from ban_word ";
    $dbquery = mysql_query($sql);
    $num_rows = mysql_num_rows($dbquery);
-   $msg=stripslashes($rBOARD[4]); 
-   
+   $msg=stripslashes($rBOARD[4]);
+
    $i=0;
    while ($i < $num_rows)
    {
@@ -300,7 +304,7 @@ class Paginator{
                           <?php
 $strSQL="SELECT * FROM `ans_webboard` WHERE topic_id='$topic_id' ";
 $objQuery=mysql_query($strSQL) or die("ERROR บรรทัด 344");
-$Num_Rows = mysql_num_rows($objQuery);	
+$Num_Rows = mysql_num_rows($objQuery);
 echo $Num_Rows;
 ?>
                               <?php if($_SESSION["m_id"]==$rBOARD[1]){ ?>
@@ -390,8 +394,8 @@ echo $Num_Rows;
    $sql = "select * from ban_word ";
    $dbquery = mysql_query($sql);
    $num_rows = mysql_num_rows($dbquery);
-   $msg=stripslashes($objResult[3]); 
-   
+   $msg=stripslashes($objResult[3]);
+
    $i=0;
    while ($i < $num_rows)
    {

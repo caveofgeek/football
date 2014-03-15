@@ -42,6 +42,8 @@ function Enable() {
       document.checkForm1.btLogin.disabled = true
 }
 </script>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {
@@ -104,7 +106,7 @@ while($rads8=mysql_fetch_row($reads8)){
 						  if($rads8[1]==1){ 
 						  $ads8=stripslashes($rads8[3]); 
 						  echo $ads8;
-						  }else if($rads8[1]==2){ 
+						  }else if($rads8[1]==2){
 						  ?>
                               <a href="<?php echo $rads8[7]; ?>" title="<?php echo $rads8[8]; ?>" target="_blank">
                               <?php if($rads8[2]==1){  ?>
@@ -148,7 +150,7 @@ while($rads8=mysql_fetch_row($reads8)){
 					  $re=mysql_query($s) or die("Error $s");
 					  $r=mysql_fetch_row($re);
 					  $msg=stripslashes($r[1]);
-					  echo $msg; 
+					  echo $msg;
 					  ?></td>
                         </tr>
                         <tr>
@@ -167,7 +169,7 @@ alert("กรุณากรอกรหัสผ่านสำหรับแ�
 document.checkForm1.pass.focus() ;
 return false ;
 }
-else 
+else
 return true ;
 }
 

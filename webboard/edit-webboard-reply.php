@@ -47,13 +47,15 @@ $rre=mysql_fetch_row($rere);
 <META NAME="description" CONTENT="<?php echo $titler[1]; ?> แก้ไขข้อมูล ตอบคำถาม <?php echo $rart[0]; ?> <?php echo $titler[11]; ?>">
 <meta name="robots"  content="index,follow">
 <link href="jquery.cleditor.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
 <script type="text/javascript" src="jquery.cleditor.min.js"></script>
 <script type="text/javascript">
       $(document).ready(function() {
         $("#input").cleditor({width:950, height:450, useCSS:true})[0].focus();
       });
 </script>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {

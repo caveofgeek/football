@@ -1,4 +1,4 @@
-<?php
+<?
 session_start();
 include "../inc/config.inc.php";
 include "../function/datethai.php";
@@ -32,35 +32,37 @@ $rgame=mysql_fetch_row($regame);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title><?php echo $rgame[4]; ?> | <?php echo $titler[1]; ?></title>
-<META NAME="keywords" CONTENT="<?php echo $rgame[6]; ?>"> 
-<META NAME="description" CONTENT="<?php echo $titler[1]; ?> <?php echo $rgame[5]; ?>">
+<title><?=$rgame[4];?> | <?=$titler[1];?></title>
+<META NAME="keywords" CONTENT="<?=$rgame[6];?>">
+<META NAME="description" CONTENT="<?=$titler[1];?> <?=$rgame[5];?>">
 <meta name="robots"  content="index,follow">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {
-	background-color: #<?php echo $bgr[1]; ?>;
-	<?php if($bgr[2]!=""){ ?>background-image: url(http://<?php echo $titler[13]; ?>/bg-img/<?php echo $bgr[2]; ?>);
-	background-repeat: <?php echo $bgr[3]; ?>;
-	<?php }if($bgr[4]==1){ ?>	
+	background-color: #<?=$bgr[1];?>;
+	<? if($bgr[2]!=""){ ?>background-image: url(http://<?=$titler[13];?>/bg-img/<?=$bgr[2];?>);
+	background-repeat: <?=$bgr[3];?>;
+	<? }if($bgr[4]==1){ ?>
 	background-attachment:fixed;
-	<?php } ?>
+	<? } ?>
 }
 a:link {
-	color: #<?php echo $linkr[1]; ?>;
+	color: #<?=$linkr[1];?>;
 	text-decoration: none;
 }
 a:visited {
 	text-decoration: none;
-	color: #<?php echo $linkr[2]; ?>;
+	color: #<?=$linkr[2];?>;
 }
 a:hover {
 	text-decoration: underline;
-	color: #<?php echo $linkr[3]; ?>;
+	color: #<?=$linkr[3];?>;
 }
 a:active {
 	text-decoration: none;
-	color: #<?php echo $linkr[4]; ?>;
+	color: #<?=$linkr[4];?>;
 }
 -->
 </style>
@@ -69,7 +71,7 @@ a:active {
 <body>
 <table width="995" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
-    <td align="center" valign="top"><?php include "../header.php"; ?></td>
+    <td align="center" valign="top"><? include "../header.php"; ?></td>
   </tr>
   <tr>
     <td style="background-color:#FFFFFF;"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -79,7 +81,7 @@ a:active {
     </table>
       <table width="985" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
-          <td width="250" align="center" valign="top"><?php include "../menu.php"; ?></td>
+          <td width="250" align="center" valign="top"><? include "../menu.php"; ?></td>
           <td width="7" align="center" valign="top">&nbsp;</td>
           <td width="728" align="center" valign="top"><table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
@@ -96,30 +98,30 @@ a:active {
                     <table width="95%" border="0" align="center" cellpadding="1" cellspacing="1">
 
                       <tr>
-                        <td><div align="center" style="font-family:'Times New Roman', Times, serif; font-size:12px; color:#FF0000;">** 
+                        <td><div align="center" style="font-family:'Times New Roman', Times, serif; font-size:12px; color:#FF0000;">**
                           สมาชิกสามารถที่จะทายผลบอลวันต่อวันก่อนเวลา
-                          <?php echo $rgame[1]; ?>
+                          <?=$rgame[1];?>
                           น.เท่านั้น **<br />
                           ท่านสามารถทายผลได้ไม่เกินวันละ 5 คู่ และเมื่อทายแล้วในคู่นั้น จะไม่สามารถเปลี่ยนการทายผลได้<br />
                           ทายถูกจะได้
-                          <?php echo $rgame[2]; ?>
+                          <?=$rgame[2];?>
                           คะแนน ทายผิดจะได้
-                          <?php echo $rgame[3]; ?>
+                          <?=$rgame[3];?>
                           คะแนน</div></td>
                       </tr>
                       <tr>
                         <td><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
                           <tr>
                             <td width="50%" align="left"><div align="left"><span style="font-family:'Times New Roman', Times, serif; font-size:12px; color:#FF0000; font-weight:bold;">ทายผลประจำวันที่</span> <span style="font-family:'Times New Roman', Times, serif; font-size:12px; color:#232323; font-weight:bold;">
-                                <?php $today_date=date("Y-m-d"); $game_date=DateThai($today_date); echo $game_date; ?>
+                                <? $today_date=date("Y-m-d"); $game_date=DateThai($today_date); echo $game_date; ?>
                             </span></div></td>
-                            <td width="50%" align="right"><div align="right" style="font-family:'Times New Roman', Times, serif; font-size:12px; color:#232323; font-weight:bold;">[ <a href="http://<?php echo $titler[13]; ?>/game/level.php" title="อันดับคะแนนสมาชิก">อันดับคะแนนสมาชิก</a> ]</div></td>
+                            <td width="50%" align="right"><div align="right" style="font-family:'Times New Roman', Times, serif; font-size:12px; color:#232323; font-weight:bold;">[ <a href="http://<?=$titler[13];?>/game/level.php" title="อันดับคะแนนสมาชิก">อันดับคะแนนสมาชิก</a> ]</div></td>
                           </tr>
                         </table></td>
                       </tr>
                       <tr>
                         <td><table width="100%" border="0" cellpadding="1" cellspacing="1" bgcolor="#FFFFFF">
-                            <tr style="background-image:url(http://<?php echo $titler[13]; ?>/img/bg-tab-login.png); background-repeat:repeat-x;">
+                            <tr style="background-image:url(http://<?=$titler[13];?>/img/bg-tab-login.png); background-repeat:repeat-x;">
                               <td width="7%" height="29"><div align="center"></div></td>
                               <td width="12%"><div align="center"><font color="#FFFFFF" size="2">เวลา</font></div></td>
                               <td width="21%"><div align="center"><font color="#FFFFFF" size="2">เจ้าบ้าน</font></div></td>
@@ -127,7 +129,7 @@ a:active {
                               <td width="23%"><div align="center"><font color="#FFFFFF" size="2">ทีมเยือน</font></div></td>
                               <td width="11%"><div align="center"><font color="#FFFFFF" size="2">#</font><font color="#333333" size="2"> </font></div></td>
                             </tr>
-<?php
+<?
 $sgm="select * from game_match where game_date = '$today_date' order by id asc";
 $regm=mysql_query($sgm) or die("ERROR ");
 $ngm=mysql_num_rows($regm);
@@ -141,24 +143,24 @@ if($i%2==0){
 	$bg="#999999";
 }
 ?>
-                            <tr bgcolor="<?php echo $bg; ?>">
+                            <tr bgcolor="<?=$bg;?>">
                               <td align="center"><img src="images/pinn.gif" width="14" height="14" /></td>
                               <td align="center"><font color="#000000" size="2">
-                                <?php echo $rgm[10]; ?>
+                                <?=$rgm[10];?>
                               </font></td>
                               <td align="center"><font color="#ff0000" size="2">
-                                <?php echo $rgm[2]; ?>
+                                <?=$rgm[2];?>
                               </font></td>
                               <td align="center"><font color="#000000" size="2">
-                                <?php echo $rgm[4]; ?>
+                                <?=$rgm[4];?>
                               </font></td>
                               <td align="center"><font color="#ff0000" size="2">
-                                <?php echo $rgm[3]; ?>
+                                <?=$rgm[3];?>
                               </font></td>
                               <td align="center"><font color="#000033" size="2">
-                                <?php
+                                <?
 								if($rgm[11]==1){
-								  if(!isset($_SESSION["member_login"])){
+								  if(!isset($_SESSION[member_login])){
 								  echo "เข้าระบบ!!!";
 								  }else{
 								  	if(date('H:m:s') >= "$rgame[1]"){
@@ -173,11 +175,11 @@ if($i%2==0){
 								?>
                               </font> </td>
                             </tr>
-                            <?php }}else{ ?>
+                            <? }}else{ ?>
                             <tr>
                               <td height="30" colspan="6" align="center"><font color="#666666" size="2"><strong>ยังไม่มีการเพิ่มข้อมูลค่ะ</strong></font></td>
                             </tr>
-                            <?php } ?>
+                            <? } ?>
                         </table></td>
                       </tr>
                     </table></td>
@@ -189,9 +191,9 @@ if($i%2==0){
       </table></td>
   </tr>
   <tr>
-    <td align="center"><?php include "../top-footer.php"; ?></td>
+    <td align="center"><? include "../top-footer.php"; ?></td>
   </tr>
 </table>
-<?php include "../footer.php"; ?>
+<? include "../footer.php"; ?>
 </body>
 </html>
