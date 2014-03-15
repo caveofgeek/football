@@ -51,22 +51,6 @@ body {
 	background-attachment:fixed;
 	<? } ?>
 }
-a:link {
-	color: #<?=$linkr[1];?>;
-	text-decoration: none;
-}
-a:visited {
-	text-decoration: none;
-	color: #<?=$linkr[2];?>;
-}
-a:hover {
-	text-decoration: underline;
-	color: #<?=$linkr[3];?>;
-}
-a:active {
-	text-decoration: none;
-	color: #<?=$linkr[4];?>;
-}
 -->
 </style>
 </head>

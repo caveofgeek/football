@@ -68,63 +68,34 @@ echo $ads1;
       </table></td>
   </tr>
   <tr>
-    <td align="center" style="background-color:#FFFFFF;"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-      <tr>
-        <td height="5"></td>
-      </tr>
-    </table>
-        <table width="985" border="0" align="center" cellpadding="0" cellspacing="0">
-          <tr>
-            <td height="45" align="center" style="background-image:url(http://<?=$titler[13];?>/img/bg-tab-login.png); border-top-right-radius:5px; border-top-left-radius:5px; -moz-border-radius-topright:5px; -moz-border-radius-topleft:5px; -webkit-border-top-right-radius:5px; -webkit-border-top-left-radius:5px;"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td height="5"></td>
-                </tr>
-              </table>
-                <table width="970" border="0" align="center" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td width="150" align="left"><a href="http://<?=$titler[13];?>" title="<?=$titler[1];?>" style="font-family:'Times New Roman', Times, serif; font-size:14; font-weight:bold; color:#FFFFFF;">
-                      <?=$titler[1];?>
-                    </a></td>
-                    <td width="820" align="center"><? if(isset($_SESSION["member_login"])){ ?>
-                        <table width="820" border="0" align="center" cellpadding="0" cellspacing="0">
-                          <tr>
-                            <td align="right" style="font-family:'Times New Roman', Times, serif; color:#FFFFFF; font-size:12px;"><strong>ยินดีต้อนรับ
-                              <?=$_SESSION["m_name"];?>
-                              :</strong> <a href="http://<?=$titler[13];?>/member/index.php" title="ข้อมูลส่วนตัว" style="color:#FFFFFF;">ข้อมูลส่วนตัว</a> | <a href="http://<?=$titler[13];?>/member/list-webboard.php" title="ข้อมูลกระทู้" style="color:#FFFFFF;">ข้อมูลกระทู้</a> | <a href="http://<?=$titler[13];?>/game/list-play-game.php" title="ประวัติการทายผล" style="color:#FFFFFF;">ประวัติการทายผล</a> | <a href="http://<?=$titler[13];?>/member/logout.php" title="ออกจากระบบ" style="color:#FFFFFF;">ออกจากระบบ</a></td>
-                          </tr>
-                        </table>
-                      <? }else{ ?>
-                        <table width="820" border="0" align="center" cellpadding="0" cellspacing="0">
-                          <tr>
-                            <td width="120" align="left" style="font-family:'Times New Roman', Times, serif; font-size:12px; color:#FFFFFF;">สวัสดีครับ, บุคคลทั่วไป</td>
-                            <td width="700" align="left"><form id="form1" name="form1" method="post" action="http://<?=$titler[13];?>/login.php">
-                                <table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
-                                  <tr>
-                                    <td width="430" align="left" style="font-family:'Times New Roman', Times, serif; font-size:12px; color:#FFFFFF;"> ชื่อผู้ใช้ :
-                                      <input name="user" type="text" id="user" />
-                                      รหัสผ่าน :
-                                      <input name="pass" type="text" id="pass" />
-                                    </td>
-                                    <td width="270" align="center"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-                                        <tr>
-                                          <td height="5"></td>
-                                        </tr>
-                                      </table>
-                                        <table width="270" border="0" align="center" cellpadding="0" cellspacing="0">
-                                          <tr>
-                                            <td align="left"><input type="image" name="Submit" id="Submit" value="Submit" src="http://<?=$titler[13];?>/img/bt-login.png" />
-                                              <a href="http://<?=$titler[13];?>/forgot-pass.php" title="ลืมรหัสผ่าน"><img src="http://<?=$titler[13];?>/img/bt-forgot-pass.png" alt="ลืมรหัสผ่าน" width="70" height="24" border="0" title="ลืมรหัสผ่าน" /></a> <a href="http://<?=$titler[13];?>/member-condition.php" title="สมัครสมาชิกใหม่"><img src="http://<?=$titler[13];?>/img/bt-register.png" alt="สมัครสมาชิกใหม่" width="107" height="24" border="0" title="สมัครสมาชิกใหม่" /></a></td>
-                                          </tr>
-                                      </table></td>
-                                  </tr>
-                                </table>
-                            </form></td>
-                          </tr>
-                        </table>
-                      <? } ?></td>
-                  </tr>
-              </table></td>
-          </tr>
-      </table></td>
+    <td align="center" style="background-color:#FFFFFF;">
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Project name</a>
+          </div>
+          <? if(isset($_SESSION["member_login"])){ ?>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="http://<?=$titler[13];?>/member/index.php" title="ข้อมูลส่วนตัว">ข้อมูลส่วนตัว</a></li>
+              <li><a href="http://<?=$titler[13];?>/member/list-webboard.php" title="ข้อมูลกระทู้">ข้อมูลกระทู้</a></li>
+              <li><a href="http://<?=$titler[13];?>/game/list-play-game.php" title="ประวัติการทายผล">ประวัติการทายผล</a></li>
+              <li><a href="http://<?=$titler[13];?>/member/logout.php" title="ออกจากระบบ">ออกจากระบบ</a></li>
+            </ul>
+          <? }else { ?>
+            <form class="navbar-form navbar-right" role="form" id="form1" name="form1" method="post" action="http://<?=$titler[13];?>/login.php">
+              <div class="form-group">
+                <input type="text" name="user" placeholder="Username" id="user" class="form-control" />
+              </div>
+              <div class="form-group">
+                <input type="password" name="pass" id="pass" placeholder="Password" class="form-control">
+              </div>
+              <button type="submit" class="btn btn-success">เข้าสู่ระบบ</button>
+              <a href="http://<?=$titler[13];?>/forgot-pass.php" title="ลืมรหัสผ่าน" class="btn btn-danger">ลืมรหัสผ่าน</a>
+              <a href="http://<?=$titler[13];?>/member-condition.php" title="สมัครสมาชิกใหม่" class="btn btn-info">สมัครสมาชิก</a>
+            </form>
+          <? } ?>
+        </div>
+      </div>
+    </td>
   </tr>
 </table>
