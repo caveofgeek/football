@@ -41,7 +41,7 @@ $rgame=mysql_fetch_row($regame);
 <style type="text/css">
 <!--
 body {
-	background-color: #<?php=$bgr[1];?>;
+  background-color: #<?php=$bgr[1];?>;
 	<?php if($bgr[2]!=""){ ?>background-image: url(http://<?php=$titler[13];?>/bg-img/<?php=$bgr[2];?>);
 	background-repeat: <?php=$bgr[3];?>;
 	<?php }if($bgr[4]==1){ ?>

@@ -12,13 +12,15 @@ exit() ;
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
 <link href="jquery.cleditor.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
 <script type="text/javascript" src="jquery.cleditor.min.js"></script>
 <script type="text/javascript">
       $(document).ready(function() {
         $("#input").cleditor({width:600, height:450, useCSS:true})[0].focus();
       });
 </script>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -84,7 +86,7 @@ $rcate=mysql_fetch_row($recate);
                   </tr>
                   <tr>
                     <td>
-					<form action="p-add-data-category.php" method="post" enctype="multipart/form-data" name ="checkForm" id="checkForm" onsubmit="return check1()">			
+					<form action="p-add-data-category.php" method="post" enctype="multipart/form-data" name ="checkForm" id="checkForm" onsubmit="return check1()">
 					<table width="730" border="0" align="center" cellpadding="0" cellspacing="0">
                       <tr>
                         <td width="100" height="30" align="right" valign="top"><font color="#000000" size="2">หัวข้อ</font></td>
@@ -113,20 +115,20 @@ $rcate=mysql_fetch_row($recate);
                         <td width="100" height="30" align="right" valign="top"><font color="#000000" size="2">สถานะ</font></td>
                         <td width="10" height="30">&nbsp;</td>
                         <td width="620" height="30" align="left" valign="top"><input name="status_comment" type="radio" value="1" checked="checked" />
-                          <font color="#000000" size="2">Comment ได้ทุกคน 
+                          <font color="#000000" size="2">Comment ได้ทุกคน
                           <input name="status_comment" type="radio" value="2" />
-                          เฉพาะสมาชิก 
+                          เฉพาะสมาชิก
                           <input name="status_comment" type="radio" value="3" />
                            ไม่ให้ Comment </font></td>
                       </tr>
                       <tr>
                         <td width="100" height="30" align="right"><font color="#000000" size="2">TAG</font></td>
                         <td width="10" height="30">&nbsp;</td>
-                        <td height="30" align="left" valign="top"><font color="#000000" size="2">1. 
+                        <td height="30" align="left" valign="top"><font color="#000000" size="2">1.
                           <input name="tag1" type="text" id="tag1" />
-                        2. 
+                        2.
                           <input name="tag2" type="text" id="tag2" />
-3. 
+3.
                           <input name="tag3" type="text" id="tag3" />
 </font></td>
                       </tr>
@@ -163,10 +165,10 @@ alert("กรุณากรอกรายละเอียดด้วยน�
 document.checkForm.detail.focus() ;
 return false ;
 }
-else 
+else
 return true ;
 }
-</script>		
+</script>
 					</form>
                     </td>
                   </tr>

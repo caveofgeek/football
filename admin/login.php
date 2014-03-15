@@ -7,6 +7,8 @@ include "../inc/config.inc.php";
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการร้านค้า ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -44,7 +46,7 @@ if($num<=0){
 else {
 $_SESSION["admin_login"]="admin_login";
 
-echo "<meta http-equiv=refresh content=0;URL=data.php>"; 
+echo "<meta http-equiv=refresh content=0;URL=data.php>";
 }
 ?>
 </body>

@@ -12,6 +12,8 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -36,7 +38,7 @@ $img=$_GET[img];
 $part1="../bg-img/$img";
 @unlink ($part1);
 $sql=mysql_query("update `bg` set `img`='' ,`repeat`='' ,`fix`='' where id='1'")or die("ERROR $sql บรรทัด");
-echo "<meta http-equiv='refresh' content='0;url=bg.php'>"; 
+echo "<meta http-equiv='refresh' content='0;url=bg.php'>";
 ?>
 </body>
 </html>

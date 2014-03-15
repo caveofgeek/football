@@ -4,6 +4,7 @@ include "../inc/config.inc.php";
 include "../function/datethai.php";
 if(!isset($_SESSION["admin_login"])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+
 exit() ;
 }
 ?>
@@ -12,6 +13,8 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -112,7 +115,7 @@ $row=mysql_fetch_row($result);
                                 <td height="20" align="left"><input name="pass" type="text" id="pass" style="width:200px;" value="<?php echo $row[4]; ?>" />
                                     <font size="2" color="#FF0000">*</font></td>
                               </tr>
-                              
+
                               <tr>
                                 <td width="130" height="20" align="right">&nbsp;</td>
                                 <td width="10" height="20" align="center">&nbsp;</td>
@@ -137,7 +140,7 @@ alert("กรุณากรอกรหัสผ่านของคุณด�
 document.checkForm.pass.focus() ;
 return false ;
 }
-else 
+else
 return true ;
 }
 

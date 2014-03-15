@@ -3,6 +3,7 @@
 include "../inc/config.inc.php";
 if(!isset($_SESSION["admin_login"])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+
 exit() ;
 }
 $s="SELECT * FROM `ads` WHERE id='1'";
@@ -15,13 +16,15 @@ $r=mysql_fetch_row($re);
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
 <link href="jquery.cleditor.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
 <script type="text/javascript" src="jquery.cleditor.min.js"></script>
 <script type="text/javascript">
       $(document).ready(function() {
         $("#input").cleditor({width:720, height:450, useCSS:true})[0].focus();
       });
 </script>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {

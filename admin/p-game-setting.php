@@ -12,6 +12,8 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -41,11 +43,11 @@ $description=htmlspecialchars($_POST[description]);
 $keyword=htmlspecialchars($_POST[keyword]);
 if($gametime!=""&&$win!=""&&$lost!=""){
 $sql=mysql_query("UPDATE `game_config` SET `gametime`='$gametime' ,`yes`='$win' ,`no`='$lost',`title`='$title',`description`='$description',`keyword`='$keyword' WHERE `id`=1")or die("ERROR $sql");
-echo "<meta http-equiv='refresh' content='0;url=game-setting.php'>"; 
+echo "<meta http-equiv='refresh' content='0;url=game-setting.php'>";
 }else{
 ?>
-<script language="JavaScript"> 	
-	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ'); 	
+<script language="JavaScript">
+	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ');
 	history.back();
 </script> 
 <?php

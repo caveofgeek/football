@@ -12,6 +12,8 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -50,23 +52,24 @@ if($name!=""&&$user!=""&&$pass!=""){
 		$rename="$time-$file1";
 		@copy($tmp1,"../mod/avatar/$rename");
 		$sql=mysql_query("UPDATE `admin_analyze` SET `name`='$name' ,`img`='$rename' ,`user`='$user' ,`pass`='$pass' WHERE id='$id'")or die("ERROR $sql");
-		echo "<meta http-equiv='refresh' content='0;url=edit-admin-analyze.php?id=$id'>"; 
+		echo "<meta http-equiv='refresh' content='0;url=edit-admin-analyze.php?id=$id'>";
 		}else{
 ?>
-		<script language="JavaScript"> 	
-			alert('ขอโทษครับ ขนาดไฟล์ภาพของท่านมีขนาดเกิน 50kb ครับ'); 	
+		<script language="JavaScript">
+			alert('ขอโทษครับ ขนาดไฟล์ภาพของท่านมีขนาดเกิน 50kb ครับ');
 			history.back();
-		</script> 
+        </script>
 <?php
+
 		}
 	}else{
 	$sql=mysql_query("UPDATE `admin_analyze` SET `name`='$name' ,`user`='$user' ,`pass`='$pass' WHERE id='$id'")or die("ERROR $sql");
-	echo "<meta http-equiv='refresh' content='0;url=edit-admin-analyze.php?id=$id'>";  
+	echo "<meta http-equiv='refresh' content='0;url=edit-admin-analyze.php?id=$id'>";
 	}
 }else{
 ?>
-<script language="JavaScript"> 	
-	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ'); 	
+<script language="JavaScript">
+	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ');
 	history.back();
 </script> 
 <?php

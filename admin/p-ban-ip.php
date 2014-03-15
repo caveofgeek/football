@@ -11,6 +11,8 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการร้านค้า ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -38,19 +40,19 @@ $re=mysql_query($s) or die("ERROR $s บรททัด39");
 $num=mysql_num_rows($re);
 if($num>=1){
 ?>
-<script language="JavaScript"> 	
-	alert('ขอโทษครับ IP นี้มีอยู่แล้วครับ'); 	
+<script language="JavaScript">
+	alert('ขอโทษครับ IP นี้มีอยู่แล้วครับ');
 	history.back();
 </script> 
 <?php
 }else{
 if($brand!=""){
 $sql=mysql_query("INSERT INTO `ban_ip` (`ip`)VALUES ('$brand')")or die("ERROR $sql บรรทัด 51");
-echo "<meta http-equiv='refresh' content='0;url=ban-ip.php'>"; 
+echo "<meta http-equiv='refresh' content='0;url=ban-ip.php'>";
 }else{
 ?>
-<script language="JavaScript"> 	
-	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ'); 	
+<script language="JavaScript">
+	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ');
 	history.back();
 </script> 
 <?php

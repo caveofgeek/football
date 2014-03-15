@@ -12,6 +12,8 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -35,7 +37,7 @@ a:active {
 $sql=mysql_query("TRUNCATE TABLE `game_match`")or die("ERROR $sql");
 $sql2=mysql_query("TRUNCATE TABLE `game_play`")or die("ERROR $sql2");
 $sql3=mysql_query("TRUNCATE TABLE `game_member_score`")or die("ERROR $sql3");
-echo "<meta http-equiv='refresh' content='0;url=all-game-level.php'>"; 
+echo "<meta http-equiv='refresh' content='0;url=all-game-level.php'>";
 ?>
 </body>
 </html>

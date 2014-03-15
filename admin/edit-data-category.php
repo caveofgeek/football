@@ -3,6 +3,7 @@
 include "../inc/config.inc.php";
 if(!isset($_SESSION["admin_login"])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+
 exit() ;
 }
 ?>
@@ -12,13 +13,15 @@ exit() ;
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
 <link href="jquery.cleditor.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
 <script type="text/javascript" src="jquery.cleditor.min.js"></script>
 <script type="text/javascript">
       $(document).ready(function() {
         $("#input").cleditor({width:600, height:450, useCSS:true})[0].focus();
       });
 </script>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -91,7 +94,7 @@ $rpost=mysql_fetch_row($repost);
                   </tr>
                   <tr>
                     <td>
-					<form action="p-edit-data-category.php" method="post" enctype="multipart/form-data" name ="checkForm" id="checkForm" onsubmit="return check1()">			
+					<form action="p-edit-data-category.php" method="post" enctype="multipart/form-data" name ="checkForm" id="checkForm" onsubmit="return check1()">
 					<table width="730" border="0" align="center" cellpadding="0" cellspacing="0">
                       <tr>
                         <td width="100" height="30" align="right" valign="top"><font color="#000000" size="2">หัวข้อ</font></td>
@@ -179,10 +182,10 @@ alert("กรุณากรอกรายละเอียดด้วยน�
 document.checkForm.detail.focus() ;
 return false ;
 }
-else 
+else
 return true ;
 }
-</script>		
+</script>
 					</form>
                     </td>
                   </tr>

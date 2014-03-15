@@ -3,6 +3,7 @@
 include "../inc/config.inc.php";
 if(!isset($_SESSION["admin_login"])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+
 exit() ;
 }
 $shop="select url from web_detail where id=1";
@@ -21,6 +22,7 @@ $r2=mysql_fetch_row($re2);
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
 <?php 
+
 class Paginator{
 	var $items_per_page;
 	var $items_total;
@@ -100,9 +102,11 @@ class Paginator{
 	{
 		return $this->return;
 	}
-} 
+}
 ?>
-<style type="text/css"> 
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<style type="text/css">
 <!--
 	.paginate {
 	font-family: Arial, Helvetica, sans-serif;
@@ -119,7 +123,7 @@ class Paginator{
 		font-size: 12pt;
 		color: #003366;
 		}
-		
+
 		 h2 {
 		line-height: 1.2em;
 		letter-spacing:-1px;
@@ -478,7 +482,7 @@ while($r=mysql_fetch_row($re)){
                             <table width="550" border="0" align="center" cellpadding="0" cellspacing="0">
                               <tr>
                                 <td align="center"><font size="2" color="#000000">รายการเว็บเพื่อนบ้านที่อนุมัติแล้ว
-                                  
+
                                   ทั้งหมด
                                   <?php echo $Num_Rows; ?>
                                   รายการ : แสดงผลหน้าละ
@@ -488,7 +492,9 @@ while($r=mysql_fetch_row($re)){
                                   หน้า</font></td>
                               </tr>
                               <tr>
-                                <td height="30" align="center" valign="middle"><?php 
+                                <td height="30" align="center" valign="middle"><?php
+
+
 $pages = new Paginator;
 $pages->items_total = $Num_Rows;
 $pages->mid_range = 10;

@@ -57,8 +57,9 @@ if($name!=""&&$user!=""&&$pass!=""){
 		<script language="JavaScript">
 			alert('ขอโทษครับ ขนาดไฟล์ภาพของท่านมีขนาดเกิน 50kb ครับ');
 			history.back();
-		</script> 
+        </script>
 <?php
+
 		}
 	}else{
 	$sql=mysql_query("UPDATE `admin_analyze` SET `name`='$name' ,`user`='$user' ,`pass`='$pass' WHERE id='$_SESSION[mod_id]'")or die("ERROR $sql");

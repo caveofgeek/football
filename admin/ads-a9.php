@@ -3,6 +3,7 @@
 include "../inc/config.inc.php";
 if(!isset($_SESSION["admin_login"])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+
 exit() ;
 }
 ?>
@@ -11,6 +12,8 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -74,9 +77,10 @@ body {
                       <table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tr>
                           <td width="260" align="left" valign="top">
-						  <?php if($objResult1[1]==1){ 
+              <?php if($objResult1[1]==1){ 
+
 						  $ads=stripslashes($objResult1[3]);
-						  echo $ads; 
+						  echo $ads;
 						  }else if($objResult1[1]==2){
 						  if($objResult1[2]==1){
 						  ?>

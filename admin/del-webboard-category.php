@@ -12,6 +12,8 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -34,21 +36,21 @@ a:active {
 <?php
 $id=$_GET["id"];
 
-//select img webboard   
+//select img webboard
 $sql5="SELECT id, img FROM `webboard` WHERE cate_id='$id'";
 $re5=mysql_query($sql5) or die("ERROR $sql5");
 while($r5=mysql_fetch_row($re5)){
-//del img webboard 
+//del img webboard
 	$webboard="../webboard/board-img/$r5[1]";
-	@unlink ($webboard);	
-//select img ans_webboard   
+	@unlink ($webboard);
+//select img ans_webboard
 $sql6="SELECT img FROM `ans_webboard` WHERE topic_id='$r5[0]'";
 $re6=mysql_query($sql6) or die("ERROR $sql6");
 while($r6=mysql_fetch_row($re6)){
-//del img ans_webboard 
+//del img ans_webboard
 	$ans_webboard="../webboard/board-img/$r6[0]";
 	@unlink ($ans_webboard);
-}	
+}
 //del ans_webboard
 $del_ans_webboard=mysql_query("DELETE FROM `ans_webboard` WHERE topic_id='$r5[0]'") or die ("ERROR del_ans_webboard");
 }
@@ -56,7 +58,7 @@ $del_ans_webboard=mysql_query("DELETE FROM `ans_webboard` WHERE topic_id='$r5[0]
 $del_webboard=mysql_query("DELETE FROM `webboard` WHERE `cate_id`='$id'") or die ("ERROR del_webboard");
 //del category
 $sql2=mysql_query("DELETE FROM `webboard_category` WHERE id='$id'")or die("ERROR $sql2");
-echo "<meta http-equiv='refresh' content='0;url=webboard-category.php'>"; 
+echo "<meta http-equiv='refresh' content='0;url=webboard-category.php'>";
 ?>
 </body>
 </html>

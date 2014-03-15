@@ -4,6 +4,7 @@ include "../inc/config.inc.php";
 include "../function/datethai.php";
 if(!isset($_SESSION["admin_login"])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+
 exit() ;
 }
 $l_id=$_GET["l_id"];
@@ -17,6 +18,8 @@ $r=mysql_fetch_row($re);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -81,7 +84,6 @@ body {
                               :: </strong></font></td>
                             <td width="375" align="right"><font size="2" color="#333333"><strong>
 							[ <a href="add-t-ded.php?l_id=<?php echo $l_id; ?>">เพิ่มข้อมูลข้อมูลทีเด็ด<?php echo $r[1]; ?></a> ]
-							
 							</strong></font></td>
                           </tr>
                         </table></td>

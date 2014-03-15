@@ -12,6 +12,8 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -37,24 +39,24 @@ $id=$_GET["id"];
 $sql5="SELECT img FROM `webboard` WHERE id='$id'";
 $re5=mysql_query($sql5) or die("ERROR $sql5");
 while($r5=mysql_fetch_row($re5)){
-//del img webboard 
+//del img webboard
 	$webboard="../webboard/board-img/$r5[0]";
 	@unlink ($webboard);
-}	
+}
 //del webboard
 $del_webboard=mysql_query("DELETE FROM `webboard` WHERE `id`='$id'") or die ("ERROR del_webboard");
 
-//select img ans_webboard   
+//select img ans_webboard
 $sql6="SELECT img FROM `ans_webboard` WHERE topic_id='$id'";
 $re6=mysql_query($sql6) or die("ERROR $sql6");
 while($r6=mysql_fetch_row($re6)){
-//del img ans_webboard 
+//del img ans_webboard
 	$ans_webboard="../webboard/board-img/$r6[0]";
 	@unlink ($ans_webboard);
-}	
+}
 //del ans_webboard
 $del_ans_webboard=mysql_query("DELETE FROM `ans_webboard` WHERE `topic_id`='$id'") or die ("ERROR del_ans_webboard");
-echo "<meta http-equiv='refresh' content='0;url=all-webboard.php'>"; 
+echo "<meta http-equiv='refresh' content='0;url=all-webboard.php'>";
 ?>
 </body>
 </html>

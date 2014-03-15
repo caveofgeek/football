@@ -4,6 +4,7 @@ include "../inc/config.inc.php";
 include "../function/datethai.php";
 if(!isset($_SESSION["admin_login"])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+
 exit() ;
 }
 ?>
@@ -13,6 +14,7 @@ exit() ;
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
 <?php 
+
 class Paginator{
 	var $items_per_page;
 	var $items_total;
@@ -92,9 +94,11 @@ class Paginator{
 	{
 		return $this->return;
 	}
-} 
+}
 ?>
-<style type="text/css"> 
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<style type="text/css">
 <!--
 	.paginate {
 	font-family: Arial, Helvetica, sans-serif;
@@ -111,7 +115,7 @@ class Paginator{
 		font-size: 12pt;
 		color: #003366;
 		}
-		
+
 		 h2 {
 		line-height: 1.2em;
 		letter-spacing:-1px;
@@ -239,6 +243,8 @@ body {
                             <td width="120" height="30" align="center" bgcolor="#EFEFED"><span class="style4">การกระทำ</span></td>
                           </tr>
 <?php	
+
+
 		$strSQL = "SELECT * FROM game_match ";
 		$objQuery = mysql_query($strSQL);
 		$Num_Rows = mysql_num_rows($objQuery);
@@ -292,6 +298,7 @@ body {
                               <?php echo $objResult[3]; ?>
                             </font></td>
                             <td width="120" height="20" align="center"><font size="2" color="#FF0000">
+
 							<?php if($objResult[11]==1){?>
 							<a href="stop-game-match.php?id=<?php echo $objResult[0]; ?>"><img src="images/icon-stop.png" width="16" height="16" border="0" /></a> 
 							<a href="edit-game-match.php?id=<?php echo $objResult[0]; ?>&type=1"><img src="images/edit.gif" width="40" height="15" border="0" /></a>
@@ -327,7 +334,9 @@ body {
                                   หน้า</font></td>
                               </tr>
                               <tr>
-                                <td height="30" align="center" valign="middle"><?php 
+                                <td height="30" align="center" valign="middle"><?php
+
+
 $pages = new Paginator;
 $pages->items_total = $Num_Rows;
 $pages->mid_range = 10;

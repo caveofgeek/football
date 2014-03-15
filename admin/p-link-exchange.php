@@ -12,6 +12,8 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -52,9 +54,9 @@ if($links==1){
 	if($file1!=""){
 	$part="../banner/$op";
 	@unlink ($part);
-	@copy($tmp1,"../banner/$file1"); 
+	@copy($tmp1,"../banner/$file1");
 	$sql=mysql_query("update link_admin set data='$data', img='$file1' where id='1'")or die("ERROR $sql บรรทัด50");
-	echo "<meta http-equiv='refresh' content='0;url=linkexchange.php'>"; 
+	echo "<meta http-equiv='refresh' content='0;url=linkexchange.php'>";
 	}else{
 	$sql=mysql_query("update link_admin set data='$data' where id='1'")or die("ERROR $sql บรรทัด53");
 	echo "<meta http-equiv='refresh' content='0;url=linkexchange.php'>";
@@ -62,7 +64,7 @@ if($links==1){
 }else if($links==3){
 	$sql=mysql_query("INSERT INTO `link_exchange` (`name` ,`email` ,`url` ,`code` ,`type` ,`date` ,`actived`)VALUES ('$name',  '$email',  '$url',  '$code',  '$type',  '$date',  '1'
 )")or die("ERROR $sql บรรทัด62");
-	echo "<meta http-equiv='refresh' content='0;url=linkexchange.php'>";	
+	echo "<meta http-equiv='refresh' content='0;url=linkexchange.php'>";
 }
 ?>
 </body>

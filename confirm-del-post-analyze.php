@@ -38,6 +38,8 @@ $rpost=mysql_fetch_row($repost);
 <META NAME="keywords" CONTENT="<?php echo $titler[12]; ?>"> 
 <META NAME="description" CONTENT="<?php echo $titler[1]; ?> แจ้งลบบทวิเคราะห์บอล <?php echo $rpost[0]; ?> <?php echo $titler[11]; ?>">
 <meta name="robots"  content="index,follow">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {

@@ -12,6 +12,8 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -36,11 +38,11 @@ $id=$_POST[id];
 $name=htmlspecialchars($_POST[name]);
 if($name!=""){
 $sql=mysql_query("update `zean_name` set `name`='$name' where id='$id'")or die("ERROR $sql");
-echo "<meta http-equiv='refresh' content='0;url=tded-zean.php?zean_id=$id'>"; 
+echo "<meta http-equiv='refresh' content='0;url=tded-zean.php?zean_id=$id'>";
 }else{
 ?>
-<script language="JavaScript"> 	
-	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ'); 	
+<script language="JavaScript">
+	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ');
 	history.back();
 </script> 
 <?php

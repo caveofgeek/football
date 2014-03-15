@@ -3,6 +3,7 @@
 include "../inc/config.inc.php";
 if(!isset($_SESSION["admin_login"])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+
 exit() ;
 }
 ?>
@@ -12,6 +13,7 @@ exit() ;
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
 <?php 
+
 class Paginator{
 	var $items_per_page;
 	var $items_total;
@@ -91,9 +93,11 @@ class Paginator{
 	{
 		return $this->return;
 	}
-} 
+}
 ?>
-<style type="text/css"> 
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<style type="text/css">
 <!--
 	.paginate {
 	font-family: Arial, Helvetica, sans-serif;
@@ -110,7 +114,7 @@ class Paginator{
 		font-size: 12pt;
 		color: #003366;
 		}
-		
+
 		 h2 {
 		line-height: 1.2em;
 		letter-spacing:-1px;
@@ -246,7 +250,7 @@ alert("กรุณาเลือกผู้รับผิดชอบด้�
 document.checkForm.member_id.focus() ;
 return false ;
 }
-else 
+else
 return true ;
 }
                     </script>
@@ -263,7 +267,9 @@ return true ;
                               <td width="500" height="30" align="center" valign="middle" bgcolor="#EFEFED"><font size="2" color="#333333"><strong>หมวดหมู่เว็บบอร์ด</strong></font></td>
                               <td width="100" align="center" valign="middle" bgcolor="#EFEFED"><span class="style4">การกระทำ</span></td>
                             </tr>
-                            <?php	
+                          <?php
+
+
 		$strSQL = "SELECT * FROM webboard_category ";
 		$objQuery = mysql_query($strSQL) or die("ERROR $strSQL");
 		$Num_Rows = mysql_num_rows($objQuery);
@@ -328,7 +334,9 @@ return true ;
                                   หน้า</font></td>
                               </tr>
                               <tr>
-                                <td height="30" align="center" valign="middle"><?php 
+                                <td height="30" align="center" valign="middle"><?php
+
+
 $pages = new Paginator;
 $pages->items_total = $Num_Rows;
 $pages->mid_range = 10;

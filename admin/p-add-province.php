@@ -11,6 +11,8 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการร้านค้า ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -39,19 +41,19 @@ $re=mysql_query($s) or die("ERROR $s บรททัด38");
 $num=mysql_num_rows($re);
 if($num>=1){
 ?>
-<script language="JavaScript"> 	
-	alert('ขอโทษครับ ชื่อจังหวัดนี้มีอยู่แล้วครับ'); 	
+<script language="JavaScript">
+	alert('ขอโทษครับ ชื่อจังหวัดนี้มีอยู่แล้วครับ');
 	history.back();
 </script> 
 <?php
 }else{
 if($province!=""&&$geo!=""){
 $sql=mysql_query("INSERT INTO `province` (`PROVINCE_NAME`, `GEO_ID`)VALUES ('$province', '$geo')")or die("ERROR $sql บรรทัด49");
-echo "<meta http-equiv='refresh' content='0;url=province.php'>"; 
+echo "<meta http-equiv='refresh' content='0;url=province.php'>";
 }else{
 ?>
-<script language="JavaScript"> 	
-	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ'); 	
+<script language="JavaScript">
+	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ');
 	history.back();
 </script> 
 <?php

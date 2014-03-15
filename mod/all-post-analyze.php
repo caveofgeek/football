@@ -32,6 +32,7 @@ a:active {
 -->
 </style>
 <?php 
+
 class Paginator{
 	var $items_per_page;
 	var $items_total;

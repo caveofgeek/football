@@ -12,6 +12,8 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -39,7 +41,7 @@ $sql2=mysql_query("update webboard set sticky='0' where id='$id'")or die("ERROR 
 }else if($type==2){
 $sql2=mysql_query("update webboard set sticky='1' where id='$id'")or die("ERROR $sql2");
 }
-echo "<meta http-equiv='refresh' content='0;url=all-webboard.php'>"; 
+echo "<meta http-equiv='refresh' content='0;url=all-webboard.php'>";
 ?>
 </body>
 </html>

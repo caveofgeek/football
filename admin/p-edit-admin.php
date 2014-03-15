@@ -12,6 +12,8 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -38,11 +40,11 @@ $user=htmlspecialchars($_POST["user"]);
 $pass=htmlspecialchars($_POST["pass"]);
 if($user!=""&&$pass!=""){
 $sql=mysql_query("update `admin` set `user`='$user' ,`pass`='$pass' where id='$id'")or die("ERROR $sql");
-echo "<meta http-equiv='refresh' content='0;url=admin.php'>"; 
+echo "<meta http-equiv='refresh' content='0;url=admin.php'>";
 }else{
 ?>
-<script language="JavaScript"> 	
-	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ'); 	
+<script language="JavaScript">
+	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ');
 	history.back();
 </script> 
 <?php

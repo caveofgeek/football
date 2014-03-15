@@ -91,9 +91,11 @@ class Paginator{
 	{
 		return $this->return;
 	}
-} 
+}
 ?>
-<style type="text/css"> 
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<style type="text/css">
 <!--
 	.paginate {
 	font-family: Arial, Helvetica, sans-serif;
@@ -110,7 +112,7 @@ class Paginator{
 		font-size: 12pt;
 		color: #003366;
 		}
-		
+
 		 h2 {
 		line-height: 1.2em;
 		letter-spacing:-1px;
@@ -232,7 +234,7 @@ alert("กรุณากรอกไอพีด้วยนะครับ") ;
 document.checkForm.brand.focus() ;
 return false ;
 }
-else 
+else
 return true ;
 }
                     </script>

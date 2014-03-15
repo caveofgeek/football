@@ -4,6 +4,7 @@ include "../inc/config.inc.php";
 include "../function/datethai.php";
 if(!isset($_SESSION["admin_login"])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+
 exit() ;
 }
 ?>
@@ -12,6 +13,8 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -81,7 +84,7 @@ $rzn=mysql_fetch_row($rezn);
 $spost="SELECT * FROM `tded_zean` WHERE id='$id'";
 $repost=mysql_query($spost) or die("ERROR $spost");
 $rpost=mysql_fetch_row($repost);
-$postDate=$rpost[11]; 
+$postDate=$rpost[11];
 echo DateThai($postDate);
 ?>
                     </font></strong></td>

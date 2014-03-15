@@ -12,6 +12,8 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -38,7 +40,7 @@ $id=$_GET["id"];
 //del t_ded
 $sql=mysql_query("delete from t_ded where id='$id'")or die("ERROR $sql");
 
-echo "<meta http-equiv='refresh' content='0;url=league-t-ded.php?l_id=$l_id&tdate=$tdate'>"; 
+echo "<meta http-equiv='refresh' content='0;url=league-t-ded.php?l_id=$l_id&tdate=$tdate'>";
 ?>
 </body>
 </html>

@@ -11,6 +11,8 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการร้านค้า ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -50,11 +52,11 @@ $sql=mysql_query("INSERT INTO `t_ded` (`l_id` ,`home` ,`away` ,`odds_ball` ,`t_d
 $s="SELECT post_date FROM `t_ded` order by id desc limit 0, 1";
 $re=mysql_query($s) or die("ERROR $s");
 $r=mysql_fetch_row($re);
-echo "<meta http-equiv='refresh' content='0;url=league-t-ded.php?l_id=$l_id&tdate=$r[0]'>"; 
+echo "<meta http-equiv='refresh' content='0;url=league-t-ded.php?l_id=$l_id&tdate=$r[0]'>";
 }else{
 ?>
-<script language="JavaScript"> 	
-	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ'); 	
+<script language="JavaScript">
+	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ');
 	history.back();
 </script> 
 <?php

@@ -105,6 +105,8 @@ a:active {
                         <td width="75" height="30" align="center"><span class="style6">คะแนน</span></td>
                       </tr>
 <?php	
+
+
 $strSQL = "SELECT member_id, SUM(yes), SUM(no), SUM(point) FROM `game_member_score` GROUP BY member_id ORDER BY SUM(point) DESC, member_id DESC LIMIT 0,100";
 $objQuery = mysql_query($strSQL) or die("ERROR $strSQL");
 $i=1;

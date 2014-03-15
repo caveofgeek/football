@@ -12,6 +12,8 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -34,7 +36,7 @@ a:active {
 <?php
 $id=$_GET["id"];
 $sql2=mysql_query("delete from block_email where id='$id'")or die("ERROR $sql2");
-echo "<meta http-equiv='refresh' content='0;url=block-email.php'>"; 
+echo "<meta http-equiv='refresh' content='0;url=block-email.php'>";
 ?>
 </body>
 </html>

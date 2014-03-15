@@ -12,6 +12,8 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -37,11 +39,11 @@ $online=$_POST[online];
 $detail=$_POST[detail];
 if($detail!=""){
 $sql=mysql_query("UPDATE `fanpage` SET  `code` =  '$detail', online='$online' WHERE `id` =1 LIMIT 1")or die("ERROR $sql");
-echo "<meta http-equiv='refresh' content='0;url=fb.php'>"; 
+echo "<meta http-equiv='refresh' content='0;url=fb.php'>";
 }else{
 ?>
-<script language="JavaScript"> 	
-	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ'); 	
+<script language="JavaScript">
+	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ');
 	history.back();
 </script> 
 <?php

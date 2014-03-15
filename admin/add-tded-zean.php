@@ -12,6 +12,8 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -148,7 +150,7 @@ $rzn=mysql_fetch_row($rezn);
                                   <tr>
                                     <td width="90" height="20" align="center" bgcolor="#CCCCCC"><span class="style4">ทีเด็ด</span></td>
                                     <td width="170" height="20" align="center" bgcolor="#999999"><input name="t_ded1" type="radio" value="1" checked="checked" />
-                                      <span class="style5">ถูก 
+                                      <span class="style5">ถูก
                                       <input name="t_ded1" type="radio" value="0" />
                                       ผิด</span></td>
                                     <td width="170" height="20" align="center" bgcolor="#CCCCCC"><input name="t_ded2" type="radio" value="1" checked="checked" />
