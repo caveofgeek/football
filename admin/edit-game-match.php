@@ -1,9 +1,9 @@
-<? 
-@session_start(); 
+<?
+@session_start();
 include "../inc/config.inc.php";
 include "../function/datethai.php";
 if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 ?>
@@ -12,6 +12,8 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -168,9 +170,9 @@ while($r=mysql_fetch_row($re)){
                                     <td align="right"><span class="style4">ผลการแข่งขัน</span></td>
                                     <td>&nbsp;</td>
                                     <td><input name="result" type="radio" value="1" <? if($rpost[5]==1){ echo "checked"; } ?> />
-                                      <span class="style5"><?=$rpost[2];?> ชนะ 
+                                      <span class="style5"><?=$rpost[2];?> ชนะ
                                       <input name="result" type="radio" value="2" <? if($rpost[5]==2){ echo "checked"; } ?> />
-                                      <?=$rpost[3];?> ชนะ 
+                                      <?=$rpost[3];?> ชนะ
                                       <input name="result" type="radio" value="3" <? if($rpost[5]==3){ echo "checked"; } ?> />
                                       เสมอกัน</span></td>
                                   </tr>

@@ -1,10 +1,10 @@
-<? 
-@session_start(); 
+<?
+@session_start();
 include "../inc/config.inc.php";
 include "../function/function.php";
 include "../function/datetime.php";
 if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 ?>
@@ -13,7 +13,7 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
-<? 
+<?
 class Paginator{
 	var $items_per_page;
 	var $items_total;
@@ -93,9 +93,11 @@ class Paginator{
 	{
 		return $this->return;
 	}
-} 
+}
 ?>
-<style type="text/css"> 
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<style type="text/css">
 <!--
 	.paginate {
 	font-family: Arial, Helvetica, sans-serif;
@@ -112,7 +114,7 @@ class Paginator{
 		font-size: 12pt;
 		color: #003366;
 		}
-		
+
 		 h2 {
 		line-height: 1.2em;
 		letter-spacing:-1px;
@@ -230,7 +232,7 @@ $cate_id=$_POST[category];
 $cate_id=$_GET[category];
 }
 if(isset($_POST[keys])){
-$keys=$_POST[keys];	
+$keys=$_POST[keys];
 }else if(isset($_GET[keys])){
 $keys=$_GET[keys];
 }
@@ -286,7 +288,7 @@ $strSQL="SELECT webboard.id, webboard.title, webboard.date, webboard.view, membe
 $strSQL.="FROM `webboard` INNER JOIN member ON webboard.member_id=member.id ";
 $strSQL.="$where ";
 $objQuery=mysql_query($strSQL) or die("ERROR บรรทัด 344");
-$Num_Rows = mysql_num_rows($objQuery);		
+$Num_Rows = mysql_num_rows($objQuery);
 		$Per_Page = 20;   // Per Page
 
 		$Page = $_GET["Page"];
@@ -406,7 +408,7 @@ echo DateTime($replyDate);
                                         หน้า</font></td>
                                     </tr>
                                     <tr>
-                                      <td height="30" align="center" valign="middle"><? 
+                                      <td height="30" align="center" valign="middle"><?
 $pages = new Paginator;
 $pages->items_total = $Num_Rows;
 $pages->mid_range = 10;

@@ -3,7 +3,7 @@ session_start();
 include "../inc/config.inc.php";
 //echo "$_SESSION[m_login]<br>$_SESSION[m_id]";
 if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 ?>
@@ -12,6 +12,8 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -48,13 +50,13 @@ $description=htmlspecialchars($_POST[description]);
 $keyword=htmlspecialchars($_POST[keyword]);
 if($name!=""&&$add!=""&&$tel!=""&&$email!=""&&$fax!=""&&$date_s!=""&&$date_f!=""&&$time_s!=""&&$time_f!=""&&$title!=""&&$description!=""&&$keyword!=""){
 $sql=mysql_query("UPDATE `web_detail` SET  `name` =  '$name',`add` =  '$add',`tel` =  '$tel',`email` =  '$email',`fax` =  '$fax',`date_s` =  '$date_s',`date_f` =  '$date_f',`time_s` =  '$time_s',`time_f` =  '$time_f',`title` =  '$title',`description` =  '$description',`keyword` =  '$keyword',`url` =  '$url' WHERE `id` =1 LIMIT 1")or die("ERROR $sql");
-echo "<meta http-equiv='refresh' content='0;url=data.php'>"; 
+echo "<meta http-equiv='refresh' content='0;url=data.php'>";
 }else{
 ?>
-<script language="JavaScript"> 	
-	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ'); 	
+<script language="JavaScript">
+	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ');
 	history.back();
-</script> 
+</script>
 <?
 }
 ?>

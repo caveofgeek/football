@@ -1,7 +1,7 @@
 <?
 session_start();
 if(!isset($_SESSION[member_login])) {
-echo "<meta http-equiv='refresh' content='0;url=../index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=../index.php'>" ;
 exit() ;
 }
 include "../inc/config.inc.php";
@@ -35,13 +35,15 @@ $str=mysql_fetch_row($stre);
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>ระบบจัดการข้อมูลสมาชิก | <?=$titler[1];?></title>
 <meta name="robots"  content="index,follow">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {
 	background-color: #<?=$bgr[1];?>;
 	<? if($bgr[2]!=""){ ?>background-image: url(http://<?=$titler[13];?>/bg-img/<?=$bgr[2];?>);
 	background-repeat: <?=$bgr[3];?>;
-	<? }if($bgr[4]==1){ ?>	
+	<? }if($bgr[4]==1){ ?>
 	background-attachment:fixed;
 	<? } ?>
 }

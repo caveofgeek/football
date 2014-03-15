@@ -14,3 +14,7 @@
       <? if($str[2]==1){ echo $str[1]; } ?></td>
   </tr>
 </table>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" ></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js" type="text/javascript"></script>

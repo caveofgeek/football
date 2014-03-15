@@ -33,16 +33,18 @@ $rgame=mysql_fetch_row($regame);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>อันดับคะแนนสมาชิก | <?=$titler[1];?></title>
-<META NAME="keywords" CONTENT="<?=$rgame[6];?>"> 
+<META NAME="keywords" CONTENT="<?=$rgame[6];?>">
 <META NAME="description" CONTENT="<?=$titler[1];?> อันดับคะแนนสมาชิก <?=$rgame[5];?>">
 <meta name="robots"  content="index,follow">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {
 	background-color: #<?=$bgr[1];?>;
 	<? if($bgr[2]!=""){ ?>background-image: url(http://<?=$titler[13];?>/bg-img/<?=$bgr[2];?>);
 	background-repeat: <?=$bgr[3];?>;
-	<? }if($bgr[4]==1){ ?>	
+	<? }if($bgr[4]==1){ ?>
 	background-attachment:fixed;
 	<? } ?>
 }
@@ -102,7 +104,7 @@ a:active {
                         <td width="75" height="30" align="center"><span class="style6">ผิด</span></td>
                         <td width="75" height="30" align="center"><span class="style6">คะแนน</span></td>
                       </tr>
-<?	
+<?
 $strSQL = "SELECT member_id, SUM(yes), SUM(no), SUM(point) FROM `game_member_score` GROUP BY member_id ORDER BY SUM(point) DESC, member_id DESC LIMIT 0,100";
 $objQuery = mysql_query($strSQL) or die("ERROR $strSQL");
 $i=1;
@@ -113,7 +115,7 @@ while($objResult = mysql_fetch_row($objQuery)){
                           <?=$i;?>
                         </font></td>
                         <td width="200" height="22" align="center" bgcolor="#CCCCCC"><font size="2">
-                          <? 
+                          <?
 $smem = "SELECT name, img FROM `member` WHERE id='$objResult[0]'";
 $remem = mysql_query($smem) or die("ERROR $smem");
 $rmem = mysql_fetch_row($remem);

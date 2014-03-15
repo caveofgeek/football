@@ -1,8 +1,8 @@
-<? 
-@session_start(); 
+<?
+@session_start();
 include "../inc/config.inc.php";
 if(!isset($_SESSION[mod_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 ?>
@@ -11,6 +11,8 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลวิเคราะห์บอล ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -34,7 +36,7 @@ a:active {
     <td><div align="center">
       <table width="980" border="0" cellspacing="1" cellpadding="1">
         <tr valign="top">
-          <td width="490"><div align="left"><font color="#000000" size="2">:: ยินดีต้อนรับเข้าสู่ ระบบจัดการ<font color="#333333">ข้อมูลวิเคราะห์บอล</font> :: | 
+          <td width="490"><div align="left"><font color="#000000" size="2">:: ยินดีต้อนรับเข้าสู่ ระบบจัดการ<font color="#333333">ข้อมูลวิเคราะห์บอล</font> :: |
 				<?
 				$dm=date("d/m");
 				$y=date("Y")+543;
@@ -42,7 +44,7 @@ a:active {
 				$time=date("H:i:s");
 				echo "$date $time";
 				?> ::.<br />
-                หน้าปัจจุบันของคุณ 
+                หน้าปัจจุบันของคุณ
           :</font><font size="2"> <font color="#333333"><a href="main.php">หน้าหลัก</a> </font></font></div></td>
           <td width="490"><div align="right"><font color="#000000" size="2"><a href="../index.php" target="_blank"><font color="#000033">ไปยังหน้าเว็บไซต์</font></a> | <a href="logout.php"><font color="#000033">ออกจากระบบ</font></a></font></div></td>
         </tr>

@@ -3,7 +3,7 @@ session_start();
 include "../inc/config.inc.php";
 //echo "$_SESSION[m_login]<br>$_SESSION[m_id]";
 if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 ?>
@@ -12,6 +12,8 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -38,7 +40,7 @@ $mod_id=$_GET[mod_id];
 //del post
 $spost=mysql_query("delete from `analyze` where id='$id'")or die("ERROR $spost");
 
-echo "<meta http-equiv='refresh' content='0;url=all-post-analyze.php?id=$mod_id'>"; 
+echo "<meta http-equiv='refresh' content='0;url=all-post-analyze.php?id=$mod_id'>";
 ?>
 </body>
 </html>
