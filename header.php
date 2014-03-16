@@ -77,12 +77,11 @@ echo $ads1;
       </table></td>
   </tr>
   <tr>
-<<<<<<< HEAD
     <td align="center" style="background-color:#FFFFFF;">
       <div class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">Project name</a>
+            <a href="http://<?php echo $titler[13]; ?>" class="navbar-brand" title="<?php echo $titler[1]; ?>"><?php echo $titler[1]; ?></a>
           </div>
           <? if(isset($_SESSION["member_login"])){ ?>
             <ul class="nav navbar-nav navbar-right">
