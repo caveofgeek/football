@@ -1,18 +1,10 @@
-<?php 
-@session_start(); 
-include "../inc/config.inc.php";
-include "../function/datethai.php";
-if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
-=======
-<?
+<?php
 @session_start();
 include "../inc/config.inc.php";
 include "../function/datethai.php";
-if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
->>>>>>> develop
-exit() ;
+if(!isset($_SESSION["admin_login"])) {
+  echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
+  exit() ;
 }
 $l_id=$_GET["l_id"];
 $s="SELECT * FROM `league` where id='$l_id'";
@@ -24,8 +16,9 @@ $r=mysql_fetch_row($re);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/font-awesome.min.css" rel="stylesheet">
+<link href="../css/justified-nav.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {

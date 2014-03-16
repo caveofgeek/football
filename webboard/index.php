@@ -34,8 +34,9 @@ $str=mysql_fetch_row($stre);
 <META NAME="keywords" CONTENT="<?php echo $titler[12]; ?>"> 
 <META NAME="description" CONTENT="<?php echo $titler[1]; ?> เว็บบอร์ดพูดคุย แลกเปลี่ยน ทรรศนะฟุตบอล">
 <meta name="robots"  content="index,follow">
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/font-awesome.min.css" rel="stylesheet">
+<link href="../css/justified-nav.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {
@@ -147,8 +148,9 @@ class Paginator{
 	}
 }
 ?>
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/font-awesome.min.css" rel="stylesheet">
+<link href="../css/justified-nav.css" rel="stylesheet">
 <style type="text/css">
 <!--
 	.paginate {

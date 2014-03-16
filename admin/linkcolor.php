@@ -16,8 +16,9 @@ $r=mysql_fetch_row($re);
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
 <script type="text/javascript" src="jscolor.js"></script>
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/font-awesome.min.css" rel="stylesheet">
+<link href="../css/justified-nav.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {

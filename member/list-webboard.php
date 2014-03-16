@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION["member_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=../index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=../index.php'>" ;
 exit() ;
 }
 include "../inc/config.inc.php";
@@ -36,15 +36,16 @@ $str=mysql_fetch_row($stre);
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>ระบบจัดการข้อมูลสมาชิก | <?php echo $titler[1]; ?></title>
 <meta name="robots"  content="index,nofollow">
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/font-awesome.min.css" rel="stylesheet">
+<link href="../css/justified-nav.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {
 	background-color: #<?php echo $bgr[1]; ?>;
 	<?php if($bgr[2]!=""){ ?>background-image: url(http://<?php echo $titler[13]; ?>/bg-img/<?php echo $bgr[2]; ?>);
 	background-repeat: <?php echo $bgr[3]; ?>;
-	<?php }if($bgr[4]==1){ ?>	
+	<?php }if($bgr[4]==1){ ?>
 	background-attachment:fixed;
 	<?php } ?>
 }
@@ -66,7 +67,7 @@ a:active {
 }
 -->
 </style>
-<?php 
+<?php
 
 class Paginator{
 	var $items_per_page;
@@ -149,8 +150,9 @@ class Paginator{
 	}
 }
 ?>
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/font-awesome.min.css" rel="stylesheet">
+<link href="../css/justified-nav.css" rel="stylesheet">
 <style type="text/css">
 <!--
 	.paginate {
@@ -241,12 +243,12 @@ class Paginator{
 $strSQL="SELECT webboard.id, webboard.title, webboard.date, webboard.view, member.name, webboard.upd_date, webboard.status, ";
 $strSQL.="webboard.cate_id, webboard.member_id FROM `webboard` ";
 $strSQL.="INNER JOIN member ON webboard.member_id=member.id ";
-$strSQL.="WHERE webboard.member_id=$_SESSION["m_id"] ";
+$strSQL.="WHERE webboard.member_id=$_SESSION[m_id] ";
 $objQuery=mysql_query($strSQL) or die("ERROR บรรทัด 344");
 $Num_Rows = mysql_num_rows($objQuery);
 		$Per_Page = 50;   // Per Page
 
-		
+
 		if(!isset($_GET["Page"]))
 		{
 			$Page=1;
@@ -315,7 +317,7 @@ if($objResult[5]>=$yesterday){
 	}else if($objResult[6]==2){
 ?>
                                       <img src="http://<?php echo $titler[13]; ?>/webboard/img/icon_update.gif" width="42" height="12" />
-                                      <?php	
+                                      <?php
 	}
 }else{
 //echo "no";
@@ -363,7 +365,7 @@ echo DateTime($replyDate);
                     </table>
                     <table width="640" border="0" align="center" cellpadding="0" cellspacing="0">
                       <tr>
-                        <td height="30" align="center" valign="middle"><?php 
+                        <td height="30" align="center" valign="middle"><?php
 $pages = new Paginator;
 $pages->items_total = $Num_Rows;
 $pages->mid_range = 10;

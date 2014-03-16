@@ -36,8 +36,9 @@ $rgame=mysql_fetch_row($regame);
 <META NAME="keywords" CONTENT="<?php=$rgame[6];?>">
 <META NAME="description" CONTENT="<?php=$titler[1];?> <?php=$rgame[5];?>">
 <meta name="robots"  content="index,follow">
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/font-awesome.min.css" rel="stylesheet">
+<link href="../css/justified-nav.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {

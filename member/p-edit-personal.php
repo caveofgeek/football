@@ -1,8 +1,8 @@
-<?php 
+<?php
 session_start();
 //echo "$_SESSION[m_login]<br>$_SESSION["m_id"]";
 if(!isset($_SESSION["member_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 ?>
@@ -28,22 +28,22 @@ if(isset($file1)&&$file1!=""){
 	$rename="$time-$file1";
 	@copy($tmp1,"avatar/$rename");
 
-	$update_member=mysql_query("UPDATE `member` SET `name`='$name' ,`add`='$add' ,`province_id`='$province' ,`tel`='$tel' ,`email`='$email' ,`img`='$rename' ,`user`='$user' ,`pass`='$pass' WHERE id='$_SESSION["m_id"]'") or die ("ERROR $update_member");
+	$update_member=mysql_query("UPDATE `member` SET `name`='$name' ,`add`='$add' ,`province_id`='$province' ,`tel`='$tel' ,`email`='$email' ,`img`='$rename' ,`user`='$user' ,`pass`='$pass' WHERE id='$_SESSION[m_id]'") or die ("ERROR $update_member");
 
 	$_SESSION["m_name"]="$name";
-	echo "<meta http-equiv=refresh content=0;URL=index.php>"; 	
+	echo "<meta http-equiv=refresh content=0;URL=index.php>";
 	}else{
 ?>
-	<script language="JavaScript"> 	
-		alert('ขอโทษครับ ขนาดไฟล์ภาพของท่านมีขนาดเกิน 50kb ครับ'); 	
-		window.location = 'edit-personal.php'; 
-	</script> 
+	<script language="JavaScript">
+		alert('ขอโทษครับ ขนาดไฟล์ภาพของท่านมีขนาดเกิน 50kb ครับ');
+		window.location = 'edit-personal.php';
+	</script>
 <?php
 	}
 }else{
-	$update_member=mysql_query("UPDATE `member` SET `name`='$name' ,`add`='$add' ,`province_id`='$province' ,`tel`='$tel' ,`email`='$email' ,`user`='$user' ,`pass`='$pass' WHERE id='$_SESSION["m_id"]'") or die ("ERROR $update_member");
+	$update_member=mysql_query("UPDATE `member` SET `name`='$name' ,`add`='$add' ,`province_id`='$province' ,`tel`='$tel' ,`email`='$email' ,`user`='$user' ,`pass`='$pass' WHERE id='$_SESSION[m_id]'") or die ("ERROR $update_member");
 
 	$_SESSION["m_name"]="$name";
-	echo "<meta http-equiv=refresh content=0;URL=index.php>"; 	
+	echo "<meta http-equiv=refresh content=0;URL=index.php>";
 }
 ?>
