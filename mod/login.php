@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 include "../inc/config.inc.php";
 ?>
@@ -28,9 +28,9 @@ a:active {
 </style></head>
 
 <body>
-<?
-$user=$_POST[user];
-$pass=$_POST[pass];
+<?php
+$user=$_POST["user"];
+$pass=$_POST["pass"];
 $s="SELECT * FROM `admin_analyze` where user='$user' and pass='$pass'";
 $re=mysql_query($s) or die("ERROR $s");
 $num=mysql_num_rows($re);
@@ -38,11 +38,11 @@ $r=mysql_fetch_row($re);
 
 if($num<=0){
 ?>
-	<script language="JavaScript">
-		alert("ขออภัยครับ ข้อมูลของท่านไม่มีอยู่ในระบบครับ");
-		window.location = 'index.php';
-	</script>
-<?
+	<script language="JavaScript"> 	
+		alert("ขออภัยครับ ข้อมูลของท่านไม่มีอยู่ในระบบครับ"); 	
+		window.location = 'index.php'; 
+	</script> 
+<?php
 }else {
 $_SESSION[mod_login]="mod_login";
 $_SESSION[mod_id]=$r[0];

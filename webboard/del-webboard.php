@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 include "../inc/config.inc.php";
 ?>
@@ -29,11 +29,11 @@ a:active {
 </style></head>
 
 <body>
-<?
-$topic_id=$_GET[topic_id];
-$cate_id=$_GET[cate_id];
-$cate=$_GET[cate];
-//select img webboard
+<?php
+$topic_id=$_GET["topic_id"];
+$cate_id=$_GET["cate_id"];
+$cate=$_GET["cate"];
+//select img webboard   
 $sql5="SELECT img FROM `webboard` WHERE id='$topic_id'";
 $re5=mysql_query($sql5) or die("ERROR $sql5");
 while($r5=mysql_fetch_row($re5)){

@@ -1,18 +1,18 @@
-<? @session_start();  ?>
+<?php @session_start();  ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<?
+<?php
 include "../inc/config.inc.php";
-$topic_id=$_POST[topic_id];
-$cate_id=$_POST[cate_id];
-$topic=$_POST[topic];
-$user=$_POST[user];
-$pass=$_POST[pass];
-$detail=addslashes($_POST[input]);
-$file1=$_FILES[file1][name];
-$tmp1=$_FILES[file1][tmp_name];
-$size1=$_FILES[file1][size];
-$capcha=$_POST[capcha];
-$rands=$_POST[rands];
+$topic_id=$_POST["topic_id"];
+$cate_id=$_POST["cate_id"];
+$topic=$_POST["topic"];
+$user=$_POST["user"];
+$pass=$_POST["pass"];
+$detail=addslashes($_POST["input"]);
+$file1=$_FILES["file1"]["name"];
+$tmp1=$_FILES["file1"]["tmp_name"];
+$size1=$_FILES["file1"]["size"];
+$capcha=$_POST["capcha"];
+$rands=$_POST["rands"];
 $date=date("Y-n-j H:i:s");
 $ip=$_SERVER['REMOTE_ADDR'];
 //check capcha
@@ -28,7 +28,7 @@ if(isset($rands)&&isset($capcha)&&$rands==$capcha){
 		alert('ขออภัยครับ ท่านกรอก ชื่อผู้ใช้ และ/หรือ รหัสผ่าน ไม่ถูกต้องครับ'); 	
 		history.back();
 	</script>
-<?
+<?php
 	}else{
 			//check ขนาดไฟล์ภาพ
 			if(isset($file1)&&$file1!=""){
@@ -46,7 +46,7 @@ if(isset($rands)&&isset($capcha)&&$rands==$capcha){
 			alert('ขอโทษครับ ขนาดไฟล์ภาพของท่านมีขนาดเกิน 200kb ครับ'); 	
 			history.back();
 		</script> 
-<? 		
+<?php 		
 			}
 			}else{
 			$insert=mysql_query("INSERT INTO `ans_webboard` (`topic_id` ,`member_id` ,`detail` ,`img` ,`date` ,`ip` )VALUES ('$topic_id', '$r[0]', '$detail', '', '$date', '$ip')") or die("ERROR $insert บรรทัดที่ 55");
@@ -61,4 +61,4 @@ if(isset($rands)&&isset($capcha)&&$rands==$capcha){
 		alert('ขอโทษครับ คุณกรอกรหัสยืนยันไม่ถูกต้องครับ'); 	
 		history.back();
 	</script> 
-<? } ?>
+<?php } ?>

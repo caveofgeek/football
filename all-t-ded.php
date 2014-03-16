@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 include "inc/config.inc.php";
 include "function/datethai.php";
@@ -29,9 +29,9 @@ $str=mysql_fetch_row($stre);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>ทีเด็ดบอล ทีเด็ดบอลวันนี้ ทีเด็ดฟุตบอล ทีเด็ดย้อนหลัง | <?=$titler[1];?></title>
-<META NAME="keywords" CONTENT="ทีเด็ดบอล, ทีเด็ดฟุตบอล, ทีเด็ดบอลวันนี้ ทีเด็ดบอลฟรี, ทีเด็ดบอลลีก, ทีเด็ดย้อนหลัง">
-<META NAME="description" CONTENT="<?=$titler[1];?> แหล่งร่วม ทีเด็ด ทีเด็ดบอล ทีเด็ดบอลวันนี้ ทีเด็ดฟุตบอล ทีเด็ดย้อนหลัง ทีเด็ดบอลฟรี">
+<title>ทีเด็ดบอล ทีเด็ดบอลวันนี้ ทีเด็ดฟุตบอล ทีเด็ดย้อนหลัง | <?php echo $titler[1]; ?></title>
+<META NAME="keywords" CONTENT="ทีเด็ดบอล, ทีเด็ดฟุตบอล, ทีเด็ดบอลวันนี้ ทีเด็ดบอลฟรี, ทีเด็ดบอลลีก, ทีเด็ดย้อนหลัง"> 
+<META NAME="description" CONTENT="<?php echo $titler[1]; ?> แหล่งร่วม ทีเด็ด ทีเด็ดบอล ทีเด็ดบอลวันนี้ ทีเด็ดฟุตบอล ทีเด็ดย้อนหลัง ทีเด็ดบอลฟรี">
 <meta name="robots"  content="index,follow">
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -40,32 +40,32 @@ $str=mysql_fetch_row($stre);
 <style type="text/css">
 <!--
 body {
-	background-color: #<?=$bgr[1];?>;
-	<? if($bgr[2]!=""){ ?>background-image: url(http://<?=$titler[13];?>/bg-img/<?=$bgr[2];?>);
-	background-repeat: <?=$bgr[3];?>;
-	<? }if($bgr[4]==1){ ?>
+	background-color: #<?php echo $bgr[1]; ?>;
+	<?php if($bgr[2]!=""){ ?>background-image: url(http://<?php echo $titler[13]; ?>/bg-img/<?php echo $bgr[2]; ?>);
+	background-repeat: <?php echo $bgr[3]; ?>;
+	<?php }if($bgr[4]==1){ ?>	
 	background-attachment:fixed;
-	<? } ?>
+	<?php } ?>
 }
 a:link {
-	color: #<?=$linkr[1];?>;
+	color: #<?php echo $linkr[1]; ?>;
 	text-decoration: none;
 }
 a:visited {
 	text-decoration: none;
-	color: #<?=$linkr[2];?>;
+	color: #<?php echo $linkr[2]; ?>;
 }
 a:hover {
 	text-decoration: underline;
-	color: #<?=$linkr[3];?>;
+	color: #<?php echo $linkr[3]; ?>;
 }
 a:active {
 	text-decoration: none;
-	color: #<?=$linkr[4];?>;
+	color: #<?php echo $linkr[4]; ?>;
 }
 -->
 </style>
-<?
+<?php 
 class Paginator{
 	var $items_per_page;
 	var $items_total;
@@ -137,8 +137,8 @@ class Paginator{
 			}
 		}
 		$this->low = ($this->current_page-1) * $this->items_per_page;
-		$this->high = ($_GET['ipp'] == 'All') ? $this->items_total:($this->current_page * $this->items_per_page)-1;
-		$this->limit = ($_GET['ipp'] == 'All') ? "":" LIMIT $this->low,$this->items_per_page";
+		$this->high = (isset($_GET['ipp']) == 'All') ? $this->items_total:($this->current_page * $this->items_per_page)-1;
+		$this->limit = (isset($_GET['ipp']) == 'All') ? "":" LIMIT $this->low,$this->items_per_page";
 	}
 
 	function display_pages()
@@ -205,7 +205,7 @@ class Paginator{
 <body>
 <table width="995" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
-    <td align="center" valign="top"><? include "header.php"; ?></td>
+    <td align="center" valign="top"><?php include "header.php"; ?></td>
   </tr>
   <tr>
     <td style="background-color:#FFFFFF;"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -215,14 +215,14 @@ class Paginator{
     </table>
       <table width="985" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
-          <td width="250" align="center" valign="top"><? include "menu.php"; ?></td>
+          <td width="250" align="center" valign="top"><?php include "menu.php"; ?></td>
           <td width="7" align="center" valign="top">&nbsp;</td>
           <td width="728" align="center" valign="top"><table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
               <td align="center"><table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
                 <tr>
                   <td align="center">
-<?
+<?php
 $sads8="SELECT * FROM `ads_a8` ORDER BY id ASC";
 $reads8=mysql_query($sads8) or die("Error $sads8");
 while($rads8=mysql_fetch_row($reads8)){
@@ -230,22 +230,22 @@ while($rads8=mysql_fetch_row($reads8)){
                     <table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tr>
                           <td align="center" valign="middle">
-						  <?
-						  if($rads8[1]==1){
-						  $ads8=stripslashes($rads8[3]);
+						  <?php 
+						  if($rads8[1]==1){ 
+						  $ads8=stripslashes($rads8[3]); 
 						  echo $ads8;
 						  }else if($rads8[1]==2){
 						  ?>
-                              <a href="<?=$rads8[7];?>" title="<?=$rads8[8];?>" target="_blank">
-                              <? if($rads8[2]==1){  ?>
-                              <img src="http://<?=$titler[13];?>/ads-img/<?=$rads8[9];?>" alt="<?=$rads8[8];?>" width="728" border="0" title="<?=$rads8[8];?>" />
-                              <? }else if($rads8[2]==2){ ?>
+                              <a href="<?php echo $rads8[7]; ?>" title="<?php echo $rads8[8]; ?>" target="_blank">
+                              <?php if($rads8[2]==1){  ?>
+                              <img src="http://<?php echo $titler[13]; ?>/ads-img/<?php echo $rads8[9]; ?>" alt="<?php echo $rads8[8]; ?>" width="728" border="0" title="<?php echo $rads8[8]; ?>" />
+                              <?php }else if($rads8[2]==2){ ?>
                               <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="728" border="0">
-                                <param name="movie" value="http://<?=$titler[13];?>/ads-img/<?=$rads8[9];?>" />
+                                <param name="movie" value="http://<?php echo $titler[13]; ?>/ads-img/<?php echo $rads8[9]; ?>" />
                                 <param name="quality" value="high" />
-                                <embed src="http://<?=$titler[13];?>/ads-img/<?=$rads8[9];?>" width="728" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"></embed>
+                                <embed src="http://<?php echo $titler[13]; ?>/ads-img/<?php echo $rads8[9]; ?>" width="728" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"></embed>
                               </object>
-                              <? }} ?>
+                              <?php }} ?>
                             </a></td>
                         </tr>
                       </table>
@@ -254,7 +254,7 @@ while($rads8=mysql_fetch_row($reads8)){
                         <td height="5"></td>
                       </tr>
                     </table>
-<? } ?>
+<?php } ?>
 				  </td>
                 </tr>
               </table></td>
@@ -276,17 +276,20 @@ while($rads8=mysql_fetch_row($reads8)){
                       <td height="5"></td>
                     </tr>
                   </table>
-<?
+<?php	
 		$strSQL = "SELECT post_date FROM t_ded GROUP BY post_date";
 		$objQuery = mysql_query($strSQL);
 		$Num_Rows = mysql_num_rows($objQuery);
 
 		$Per_Page = 20;   // Per Page
 
-		$Page = $_GET["Page"];
-		if(!$_GET["Page"])
+		if(!isset($_GET["Page"]))
 		{
 			$Page=1;
+		}
+		else
+		{
+			$Page = $_GET["Page"];
 		}
 
 		$Prev_Page = $Page-1;
@@ -313,8 +316,8 @@ while($rads8=mysql_fetch_row($reads8)){
 ?>
                     <table width="720" border="0" align="center" cellpadding="0" cellspacing="0">
                       <tr>
-                        <td width="20" align="left" valign="middle"><img src="http://<?=$titler[13];?>/img/icon-stud.png" width="16" height="16" /></td>
-                        <td width="700" align="left" valign="middle"><a href="http://<?=$titler[13];?>/t-ded.php?tDate=<?=$objResult[0];?>" title="ทีเด็ดฟุตบอล วิเคราะห์บอล ราคาบอล ประจำวันที่ <? $postDate=$objResult[0]; echo DateThai($postDate); ?>" style="font-size:12px; font-weight:bolder;">ทีเด็ดฟุตบอล วิเคราะห์บอล ราคาบอล ประจำวันที่ <? $postDate=$objResult[0]; echo DateThai($postDate); ?></a></font></td>
+                        <td width="20" align="left" valign="middle"><img src="http://<?php echo $titler[13]; ?>/img/icon-stud.png" width="16" height="16" /></td>
+                        <td width="700" align="left" valign="middle"><a href="http://<?php echo $titler[13]; ?>/t-ded.php?tDate=<?php echo $objResult[0]; ?>" title="ทีเด็ดฟุตบอล วิเคราะห์บอล ราคาบอล ประจำวันที่ <?php $postDate=$objResult[0]; echo DateThai($postDate); ?>" style="font-size:12px; font-weight:bolder;">ทีเด็ดฟุตบอล วิเคราะห์บอล ราคาบอล ประจำวันที่ <?php $postDate=$objResult[0]; echo DateThai($postDate); ?></a></font></td>
                       </tr>
                     </table>
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -327,18 +330,18 @@ while($rads8=mysql_fetch_row($reads8)){
                         <td height="5"></td>
                       </tr>
                     </table>
-                    <? } ?></td>
+                    <?php } ?></td>
                 </tr>
                 <tr>
                   <td align="center"><table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
                       <tr>
-                        <td height="30" align="center" valign="middle"><?
+                        <td height="30" align="center" valign="middle"><?php 
 $pages = new Paginator;
 $pages->items_total = $Num_Rows;
 $pages->mid_range = 10;
 $pages->current_page = $Page;
 $pages->default_ipp = $Per_Page;
-$pages->url_next = $_SERVER["PHP_SELF"]."?QueryString=value&id=$id&Page=";
+$pages->url_next = $_SERVER["PHP_SELF"]."?QueryString=value&Page=";
 
 $pages->paginate();
 
@@ -354,9 +357,9 @@ echo $pages->display_pages()
       </table></td>
   </tr>
   <tr>
-    <td align="center"><? include "top-footer.php"; ?></td>
+    <td align="center"><?php include "top-footer.php"; ?></td>
   </tr>
 </table>
-<? include "footer.php"; ?>
+<?php include "footer.php"; ?>
 </body>
 </html>

@@ -1,9 +1,10 @@
-<?
-@session_start();
+<?php 
+@session_start(); 
 include "../inc/config.inc.php";
 include "../function/datethai.php";
-if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
+if(!isset($_SESSION["admin_login"])) {
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+
 exit() ;
 }
 $member_id=$_GET[member_id];
@@ -54,7 +55,7 @@ body {
             <table width="960" border="0" cellspacing="1" cellpadding="1">
               <tr valign="top">
                 <td width="690"><div align="left"><font color="#ffffff" size="4">.:: ยินดีต้อนรับเข้าสู่ ระบบจัดการข้อมูลเว็บไซต์ ::
-                  <?
+                  <?php
 				$dm=date("d/m");
 				$y=date("Y")+543;
 				$date="$dm/$y";
@@ -70,7 +71,7 @@ body {
       <tr>
         <td bgcolor="#CCCCCC"><table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
-              <td width="220" align="center" valign="top"><? include "menu.php"; ?></td>
+              <td width="220" align="center" valign="top"><?php include "menu.php"; ?></td>
               <td width="760" align="center" valign="top" bgcolor="#FFFFFF"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
                   <tr>
                     <td height="25"><strong><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> <a href="all-member.php">จัดการข้อมูลรายชื่อสมาชิก</a></font></strong><strong><font size="2"> <img src="images/arrow.gif" width="7" height="11" /> </font><font color="#000000" size="2">รายละเอียดข้อมูลสมาชิก</font></strong></td>
@@ -92,25 +93,25 @@ body {
                                       <td width="540" height="20" align="left"><table width="530" border="0" align="left" cellpadding="0" cellspacing="0">
                                           <tr>
                                             <td align="left"><font size="2">
-                                              <?
+                                              <?php
 							  $regDate = $r5[9];
 							  echo DateThai($regDate);
 							  ?>
                                             </font></td>
-                                            <td width="50" align="right"><font size="2"><a href="del-member.php?member_id=<?=$member_id;?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"><img src="images/del.gif" width="40" height="15" border="0" /></a></font></td>
+                                            <td width="50" align="right"><font size="2"><a href="del-member.php?member_id=<?php echo $member_id; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"><img src="images/del.gif" width="40" height="15" border="0" /></a></font></td>
                                           </tr>
                                       </table></td>
                                     </tr>
                                     <tr>
                                       <td width="150" height="20" align="right"><strong><font color="#000000" size="2">ชื่อที่ใช้เรียก / ฉายา</font></strong> </td>
                                       <td height="20" align="center">:</td>
-                                      <td width="540" height="20" align="left"><font color="#000000" size="2"><? echo $r5[1]; ?> </font><font size="2"></font></td>
+                                      <td width="540" height="20" align="left"><font color="#000000" size="2"><?php echo $r5[1]; ?> </font><font size="2"></font></td>
                                     </tr>
                                     <tr>
                                       <td width="150" height="20" align="right"><strong><font color="#000000" size="2">ที่อยู่</font></strong></td>
                                       <td width="10" height="20" align="center">:</td>
                                       <td width="540" height="20" align="left"><font size="2">
-                                        <?=$r5[2];?>
+                                        <?php echo $r5[2]; ?>
                                       </font></td>
                                     </tr>
 
@@ -118,27 +119,27 @@ body {
                                       <td width="150" height="20" align="right"><strong><font color="#000000" size="2">จังหวัด</font></strong></td>
                                       <td width="10" height="20" align="center">&nbsp;</td>
                                       <td height="20" align="left"><font size="2">
-                                        <?=$r5[10];?>
+                                        <?php echo $r5[10]; ?>
                                       </font></td>
                                     </tr>
                                     <tr>
                                       <td width="150" height="20" align="right"><strong><font color="#000000" size="2">เบอร์โทรศัพท์</font> </strong></td>
                                       <td width="10" height="20" align="center">:</td>
-                                      <td width="540" height="20" align="left"><font color="#000000" size="2"><? echo "$r5[4]"; ?></font></td>
+                                      <td width="540" height="20" align="left"><font color="#000000" size="2"><?php echo "$r5[4]"; ?></font></td>
                                     </tr>
                                     <tr>
                                       <td width="150" height="20" align="right"><strong> <font color="#000000" size="2">Email</font> </strong></td>
                                       <td width="10" height="20" align="center">:</td>
-                                      <td width="540" height="20" align="left"><font color="#000000" size="2"><? echo "$r5[5]";?></font></td>
+                                      <td width="540" height="20" align="left"><font color="#000000" size="2"><?php echo "$r5[5]"; ?></font></td>
                                     </tr>
                                     <tr>
                                       <td height="20" align="right"><strong> <font color="#000000" size="2">รูป Avatar </font> </strong></td>
                                       <td height="20" align="center">:</td>
-                                      <td height="20" align="left"><? if($r5[6]!=""){ ?>
-                                        <img src="../member/avatar/<?=$r5[6];?>" width="110" height="18" />
-                                        <? }else{ ?>
+                                      <td height="20" align="left"><?php if($r5[6]!=""){ ?>
+                                        <img src="../member/avatar/<?php echo $r5[6]; ?>" width="110" height="18" />
+                                        <?php }else{ ?>
                                         <span style="font-family:'Times New Roman', Times, serif; font-size:12px; color:#333333;">Avatar</span>
-                                        <? } ?></td>
+                                        <?php } ?></td>
                                     </tr>
 
                                     <tr>
@@ -150,14 +151,14 @@ body {
                                       <td height="20" align="right"><strong> <font color="#000000" size="2">ชื่อผู้ใช้</font> </strong></td>
                                       <td height="20" align="center">:</td>
                                       <td height="20" align="left"><font size="2">
-                                        <?=$r5[7];?>
+                                        <?php echo $r5[7]; ?>
                                       </font></td>
                                     </tr>
                                     <tr>
                                       <td height="20" align="right"><strong><font color="#000000" size="2">รหัสผ่าน</font></strong></td>
                                       <td height="20" align="center">:</td>
                                       <td height="20" align="left"><font size="2">
-                                        <?=$r5[8];?>
+                                        <?php echo $r5[8]; ?>
                                       </font></td>
                                     </tr>
                                 </table></td>

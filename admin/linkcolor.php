@@ -1,8 +1,9 @@
-<?
-@session_start();
+<?php 
+@session_start(); 
 include "../inc/config.inc.php";
-if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
+if(!isset($_SESSION["admin_login"])) {
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+
 exit() ;
 }
 $s="select * from link where id=1";
@@ -21,20 +22,20 @@ $r=mysql_fetch_row($re);
 <style type="text/css">
 <!--
 a:link {
-	color: #<?=$r[1];?>;
+	color: #<?php echo $r[1]; ?>;
 	text-decoration: none;
 }
 a:visited {
 	text-decoration: none;
-	color: #<?=$r[2];?>;
+	color: #<?php echo $r[2]; ?>;
 }
 a:hover {
 	text-decoration: underline;
-	color: #<?=$r[3];?>;
+	color: #<?php echo $r[3]; ?>;
 }
 a:active {
 	text-decoration: none;
-	color: #<?=$r[4];?>;
+	color: #<?php echo $r[4]; ?>;
 }
 body {
 	background-color: #888888;
@@ -52,7 +53,7 @@ body {
             <table width="960" border="0" cellspacing="1" cellpadding="1">
               <tr valign="top">
                 <td width="690"><div align="left"><font color="#ffffff" size="4">.:: ยินดีต้อนรับเข้าสู่ ระบบจัดการข้อมูลเว็บไซต์ ::
-                  <?
+                  <?php
 				$dm=date("d/m");
 				$y=date("Y")+543;
 				$date="$dm/$y";
@@ -68,7 +69,7 @@ body {
       <tr>
         <td bgcolor="#CCCCCC"><table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
-              <td width="220" align="center" valign="top"><? include "menu.php"; ?></td>
+              <td width="220" align="center" valign="top"><?php include "menu.php"; ?></td>
               <td width="760" align="center" valign="top" bgcolor="#FFFFFF"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
                   <tr>
                     <td height="25"><strong><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> จัดการข้อมูลสีลิงค์</font></strong></td>
@@ -85,19 +86,19 @@ body {
                                 <td><table width="600" border="0" cellspacing="0" cellpadding="0">
                                     <tr>
                                       <td width="295" align="left"><font size="2" color="#333333"><strong>Link Color</strong></font>
-                                          <input name="color" class="color" id="color" value="<?=$r[1];?>" maxlength="6" /></td>
+                                          <input name="color" class="color" id="color" value="<?php echo $r[1]; ?>" maxlength="6" /></td>
                                       <td width="10" align="left">&nbsp;</td>
                                       <td width="295" align="left"><font size="2" color="#333333"><strong>Rollover Link
-                                        <input name="rollover" class="color" id="rollover" value="<?=$r[3];?>" maxlength="6" />
+                                        <input name="rollover" class="color" id="rollover" value="<?php echo $r[3]; ?>" maxlength="6" />
                                       </strong></font></td>
                                     </tr>
                                     <tr>
                                       <td width="295" align="left"><font size="2" color="#333333"><strong>Visited Link
-                                        <input name="visit" class="color" id="visit" value="<?=$r[2];?>" maxlength="6" />
+                                        <input name="visit" class="color" id="visit" value="<?php echo $r[2]; ?>" maxlength="6" />
                                       </strong></font></td>
                                       <td width="10" align="left">&nbsp;</td>
                                       <td width="295" align="left"><font size="2" color="#333333"><strong>Active Link
-                                        <input name="active" class="color" id="active" value="<?=$r[4];?>" maxlength="6" />
+                                        <input name="active" class="color" id="active" value="<?php echo $r[4]; ?>" maxlength="6" />
                                       </strong></font></td>
                                     </tr>
                                 </table></td>

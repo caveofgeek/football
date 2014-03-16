@@ -1,8 +1,9 @@
-<?
-@session_start();
+<?php 
+@session_start(); 
 include "../inc/config.inc.php";
-if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
+if(!isset($_SESSION["admin_login"])) {
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+
 exit() ;
 }
 ?>
@@ -55,7 +56,7 @@ body {
             <table width="960" border="0" cellspacing="1" cellpadding="1">
               <tr valign="top">
                 <td width="690"><div align="left"><font color="#ffffff" size="4">.:: ยินดีต้อนรับเข้าสู่ ระบบจัดการข้อมูลเว็บไซต์ ::
-                  <?
+                  <?php
 				$dm=date("d/m");
 				$y=date("Y")+543;
 				$date="$dm/$y";
@@ -71,7 +72,7 @@ body {
       <tr>
         <td bgcolor="#CCCCCC"><table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
-              <td width="220" align="center" valign="top"><? include "menu.php"; ?></td>
+              <td width="220" align="center" valign="top"><?php include "menu.php"; ?></td>
               <td width="760" align="center" valign="top" bgcolor="#FFFFFF"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
                   <tr>
                     <td height="25"><strong><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> <a href="all-webboard.php">จัดการข้อมูลรายการเว็บบอร์ด</a></font></strong><strong><font size="2"> <img src="images/arrow.gif" width="7" height="11" /> แก้ไขข้อมูลรายการเว็บบอร์ด</font></strong></td>
@@ -79,8 +80,8 @@ body {
                   <tr>
                     <td><table width="730" border="0" align="center" cellpadding="0" cellspacing="0">
                       <tr>
-                        <td><?
-$topic_id=$_GET[id];
+                        <td><?php
+$topic_id=$_GET["id"];
 $strWB="SELECT * FROM `webboard` WHERE id='$topic_id'";
 $WBQuery=mysql_query($strWB) or die("ERROR บรรทัด 131");
 $WBResult=mysql_fetch_row($WBQuery);
@@ -91,7 +92,7 @@ $WBResult=mysql_fetch_row($WBQuery);
                                   <td height="30" align="left"><strong><font size="2">หัวข้อ</font></strong></td>
                                 </tr>
                                 <tr>
-                                  <td height="30" align="left"><input name="title" type="text" id="title" style="width:700px;" value="<?=$WBResult[3];?>" /></td>
+                                  <td height="30" align="left"><input name="title" type="text" id="title" style="width:700px;" value="<?php echo $WBResult[3]; ?>" /></td>
                                 </tr>
                                 <tr>
                                   <td height="30" align="left"><strong><font size="2">เลือกหมวดหมู่</font></strong></td>
@@ -99,15 +100,15 @@ $WBResult=mysql_fetch_row($WBQuery);
                                 <tr>
                                   <td height="30" align="left"><select name="cate" id="cate" style="width:350px;">
                                       <option value="">- กรุณาเลือกหมวดหมู่ -</option>
-                                      <?
+                                      <?php
 $scate="SELECT * FROM `webboard_category` ORDER BY id ASC";
 $recate=mysql_query($scate) or die("ERROR $scate");
 while($rcate=mysql_fetch_row($recate)){
 ?>
-                                      <option value="<?=$rcate[0];?>" <? if($WBResult[2]==$rcate[0]){ echo "selected";} ?>>
-                                      <?=$rcate[1];?>
+                                      <option value="<?php echo $rcate[0]; ?>" <?php if($WBResult[2]==$rcate[0]){ echo "selected";} ?>>
+                                      <?php echo $rcate[1]; ?>
                                       </option>
-                                      <? } ?>
+                                      <?php } ?>
                                     </select>
                                   </td>
                                 </tr>
@@ -116,19 +117,19 @@ while($rcate=mysql_fetch_row($recate)){
                                 </tr>
                                 <tr>
                                   <td align="left" class="cleditorMain">
-								  <? $msg=stripslashes($WBResult[4]); ?>
-								  <textarea id="input" name="input" style="width:720px; height:450px;"><?=$msg;?></textarea>
+								  <?php $msg=stripslashes($WBResult[4]); ?>
+								  <textarea id="input" name="input" style="width:720px; height:450px;"><?php echo $msg; ?></textarea>
 								  </td>
                                 </tr>
                                 <tr>
-                                  <td height="30" align="left"><? if($WBResult[5]!=""){?>
-                                      <img src="../board-img/<?=$WBResult[5];?>" width="50" />
-                                      <input type="hidden" id="op" name="op" value="<?=$WBResult[5];?>" />
-                                      <? } ?>
+                                  <td height="30" align="left"><?php if($WBResult[5]!=""){?>
+                                      <img src="../board-img/<?php echo $WBResult[5]; ?>" width="50" />
+                                      <input type="hidden" id="op" name="op" value="<?php echo $WBResult[5]; ?>" />
+                                      <?php } ?>
                                       <strong><font size="2">ไฟล์ภาพ
                                         <input name="file1" type="file" id="file1" />
                                       </font></strong><font size="2" color="#FF0000">* ขนาดภาพไม่เกิน 200kb
-                                        <input type="hidden" name="topic_id" id="topic_id" value="<?=$topic_id;?>" />
+                                        <input type="hidden" name="topic_id" id="topic_id" value="<?php echo $topic_id; ?>" />
                                     </font></td>
                                 </tr>
                                 <tr>

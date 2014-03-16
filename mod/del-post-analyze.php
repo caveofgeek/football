@@ -1,7 +1,7 @@
-<?
+<?php
 session_start();
 include "../inc/config.inc.php";
-//echo "$_SESSION[m_login]<br>$_SESSION[m_id]";
+//echo "$_SESSION[m_login]<br>$_SESSION["m_id"]";
 if(!isset($_SESSION[mod_login])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
@@ -34,8 +34,8 @@ a:active {
 </style></head>
 
 <body>
-<?
-$id=$_GET[id];
+<?php
+$id=$_GET["id"];
 //del post
 $spost=mysql_query("delete from `analyze` where id='$id'")or die("ERROR $spost");
 

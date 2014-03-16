@@ -1,4 +1,4 @@
-<?
+<?php
 @session_start();
 include "inc/config.inc.php";
 ?>
@@ -10,10 +10,10 @@ include "inc/config.inc.php";
 </head>
 
 <body>
-<?
-$topic_id=$_POST[topic_id];
-$capcha=htmlspecialchars($_POST[capcha]);
-$rands=$_POST[rands];
+<?php
+$topic_id=$_POST["topic_id"];
+$capcha=htmlspecialchars($_POST["capcha"]);
+$rands=$_POST["rands"];
 $date=date("Y-n-j H:i:s");
 if(isset($rands)&&isset($capcha)&&$rands==$capcha){
 //insert
@@ -23,13 +23,13 @@ $insert=mysql_query("INSERT INTO `contact_del_analyze_post` (`post_id` ,`date`)V
 	alert('บันทึกข้อมูลเสร็จเรียบร้อย');
 	window.location = 'index.php'; 
 </script> 
-<?
+<?php
 }else{
 ?>
 <script language="JavaScript" type="text/javascript"> 	
 		alert('ขอโทษครับ คุณกรอกรหัสยืนยันไม่ถูกต้องครับ'); 	
 		history.back();
 </script>
-<? } ?>
+<?php } ?>
 </body>
 </html>

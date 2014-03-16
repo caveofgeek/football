@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 include "inc/config.inc.php";
 include "function/datethai.php";
@@ -30,9 +30,9 @@ $str=mysql_fetch_row($stre);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>วิเคราะห์บอล วิเคราะห์บอลวันนี้ วิเคราะห์ฟุตบอล | <?=$titler[1];?></title>
-<META NAME="keywords" CONTENT="วิเคราะห์บอล,วิเคราะห์บอลวันนี้,ผลบอล,7m,ผลบอลมีเสียง,polball,ทีเด็ดฟุตบอล,ผลฟุตบอล,ทีเด็ด,ผลบอลสด,ฟุตบอล,ล้มโต๊ะ,ทีเด็ดฟุตบอลวันนี้,ราคาบอล,lomtoe,ราคาบอลวันนี้,คลิปฟุตบอล,คลิปบอล">
-<META NAME="description" CONTENT="<?=$titler[1];?> วิเคราะห์บอล วิเคราะห์ฟุตบอล วิเคราะห์บอลวันนี้ ผลบอล ผลบอลสด 7M livescore ผลบอลมีเสียง เกมส์ฟุตบอล เกมส์ทายผลฟุตบอล ทีเด็ด ทีเด็ดวันนี้ ราคาบอล">
+<title>วิเคราะห์บอล วิเคราะห์บอลวันนี้ วิเคราะห์ฟุตบอล | <?php echo $titler[1]; ?></title>
+<META NAME="keywords" CONTENT="วิเคราะห์บอล,วิเคราะห์บอลวันนี้,ผลบอล,7m,ผลบอลมีเสียง,polball,ทีเด็ดฟุตบอล,ผลฟุตบอล,ทีเด็ด,ผลบอลสด,ฟุตบอล,ล้มโต๊ะ,ทีเด็ดฟุตบอลวันนี้,ราคาบอล,lomtoe,ราคาบอลวันนี้,คลิปฟุตบอล,คลิปบอล"> 
+<META NAME="description" CONTENT="<?php echo $titler[1]; ?> วิเคราะห์บอล วิเคราะห์ฟุตบอล วิเคราะห์บอลวันนี้ ผลบอล ผลบอลสด 7M livescore ผลบอลมีเสียง เกมส์ฟุตบอล เกมส์ทายผลฟุตบอล ทีเด็ด ทีเด็ดวันนี้ ราคาบอล">
 <meta name="robots"  content="index,follow">
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -41,32 +41,32 @@ $str=mysql_fetch_row($stre);
 <style type="text/css">
 <!--
 body {
-	background-color: #<?=$bgr[1];?>;
-	<? if($bgr[2]!=""){ ?>background-image: url(http://<?=$titler[13];?>/bg-img/<?=$bgr[2];?>);
-	background-repeat: <?=$bgr[3];?>;
-	<? }if($bgr[4]==1){ ?>
+	background-color: #<?php echo $bgr[1]; ?>;
+	<?php if($bgr[2]!=""){ ?>background-image: url(http://<?php echo $titler[13]; ?>/bg-img/<?php echo $bgr[2]; ?>);
+	background-repeat: <?php echo $bgr[3]; ?>;
+	<?php }if($bgr[4]==1){ ?>	
 	background-attachment:fixed;
-	<? } ?>
+	<?php } ?>
 }
 a:link {
-	color: #<?=$linkr[1];?>;
+	color: #<?php echo $linkr[1]; ?>;
 	text-decoration: none;
 }
 a:visited {
 	text-decoration: none;
-	color: #<?=$linkr[2];?>;
+	color: #<?php echo $linkr[2]; ?>;
 }
 a:hover {
 	text-decoration: underline;
-	color: #<?=$linkr[3];?>;
+	color: #<?php echo $linkr[3]; ?>;
 }
 a:active {
 	text-decoration: none;
-	color: #<?=$linkr[4];?>;
+	color: #<?php echo $linkr[4]; ?>;
 }
 -->
 </style>
-<?
+<?php 
 class Paginator{
 	var $items_per_page;
 	var $items_total;
@@ -138,8 +138,8 @@ class Paginator{
 			}
 		}
 		$this->low = ($this->current_page-1) * $this->items_per_page;
-		$this->high = ($_GET['ipp'] == 'All') ? $this->items_total:($this->current_page * $this->items_per_page)-1;
-		$this->limit = ($_GET['ipp'] == 'All') ? "":" LIMIT $this->low,$this->items_per_page";
+		$this->high = (isset($_GET['ipp']) == 'All') ? $this->items_total:($this->current_page * $this->items_per_page)-1;
+		$this->limit = (isset($_GET['ipp']) == 'All') ? "":" LIMIT $this->low,$this->items_per_page";
 	}
 
 	function display_pages()
@@ -206,7 +206,7 @@ class Paginator{
 <body>
 <table width="995" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
-    <td align="center" valign="top"><? include "header.php"; ?></td>
+    <td align="center" valign="top"><?php include "header.php"; ?></td>
   </tr>
   <tr>
     <td style="background-color:#FFFFFF;"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -216,14 +216,14 @@ class Paginator{
     </table>
       <table width="985" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
-          <td width="250" align="center" valign="top"><? include "menu.php"; ?></td>
+          <td width="250" align="center" valign="top"><?php include "menu.php"; ?></td>
           <td width="7" align="center" valign="top">&nbsp;</td>
           <td width="728" align="center" valign="top"><table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
               <td align="center"><table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
                 <tr>
                   <td align="center">
-<?
+<?php
 $sads8="SELECT * FROM `ads_a8` ORDER BY id ASC";
 $reads8=mysql_query($sads8) or die("Error $sads8");
 while($rads8=mysql_fetch_row($reads8)){
@@ -231,22 +231,22 @@ while($rads8=mysql_fetch_row($reads8)){
                     <table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tr>
                           <td align="center" valign="middle">
-						  <?
-						  if($rads8[1]==1){
-						  $ads8=stripslashes($rads8[3]);
+						  <?php 
+						  if($rads8[1]==1){ 
+						  $ads8=stripslashes($rads8[3]); 
 						  echo $ads8;
 						  }else if($rads8[1]==2){
 						  ?>
-                              <a href="<?=$rads8[7];?>" title="<?=$rads8[8];?>" target="_blank">
-                              <? if($rads8[2]==1){  ?>
-                              <img src="http://<?=$titler[13];?>/ads-img/<?=$rads8[9];?>" alt="<?=$rads8[8];?>" width="728" border="0" title="<?=$rads8[8];?>" />
-                              <? }else if($rads8[2]==2){ ?>
+                              <a href="<?php echo $rads8[7]; ?>" title="<?php echo $rads8[8]; ?>" target="_blank">
+                              <?php if($rads8[2]==1){  ?>
+                              <img src="http://<?php echo $titler[13]; ?>/ads-img/<?php echo $rads8[9]; ?>" alt="<?php echo $rads8[8]; ?>" width="728" border="0" title="<?php echo $rads8[8]; ?>" />
+                              <?php }else if($rads8[2]==2){ ?>
                               <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="728" border="0">
-                                <param name="movie" value="http://<?=$titler[13];?>/ads-img/<?=$rads8[9];?>" />
+                                <param name="movie" value="http://<?php echo $titler[13]; ?>/ads-img/<?php echo $rads8[9]; ?>" />
                                 <param name="quality" value="high" />
-                                <embed src="http://<?=$titler[13];?>/ads-img/<?=$rads8[9];?>" width="728" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"></embed>
+                                <embed src="http://<?php echo $titler[13]; ?>/ads-img/<?php echo $rads8[9]; ?>" width="728" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"></embed>
                               </object>
-                              <? }} ?>
+                              <?php }} ?>
                             </a></td>
                         </tr>
                       </table>
@@ -255,7 +255,7 @@ while($rads8=mysql_fetch_row($reads8)){
                         <td height="5"></td>
                       </tr>
                     </table>
-<? } ?>
+<?php } ?>
 				  </td>
                 </tr>
               </table></td>
@@ -277,17 +277,21 @@ while($rads8=mysql_fetch_row($reads8)){
                       <td height="5"></td>
                     </tr>
                   </table>
-<?
+<?php
 		$strSQL = "SELECT * FROM `analyze` ";
 		$objQuery = mysql_query($strSQL);
 		$Num_Rows = mysql_num_rows($objQuery);
 
 		$Per_Page = 50;   // Per Page
 
-		$Page = $_GET["Page"];
-		if(!$_GET["Page"])
+		
+		if(!isset($_GET["Page"]))
 		{
 			$Page=1;
+		}
+		else
+		{
+			$Page = $_GET["Page"];
 		}
 
 		$Prev_Page = $Page-1;
@@ -326,20 +330,20 @@ while($rads8=mysql_fetch_row($reads8)){
                     <table width="728" border="0" align="center" cellpadding="0" cellspacing="0" style="border-bottom:1px solid #999999;">
                       <tr>
                         <td><table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
-                            <tr bgcolor="<?=$bg;?>">
+                            <tr bgcolor="<?php echo $bg; ?>">
                               <td width="50" height="25" align="center"><span style="font-family:'Times New Roman', Times, serif; font-size:12px;">
-                                <?=$objResult[0];?>
+                                <?php echo $objResult[0]; ?>
                               </span></td>
                               <td width="410" height="25" align="center"><table width="400" border="0" align="center" cellpadding="0" cellspacing="0">
                                   <tr>
-                                    <td align="left"><a href="http://<?=$titler[13];?>/post-<?=$objResult[0];?>/<?=$url;?>.html" style="font-family:'Times New Roman', Times, serif; font-size:12px; color:#000000;" title="<?=$objResult[2];?>">
-                                      <?=$objResult[2];?>
+                                    <td align="left"><a href="http://<?php echo $titler[13]; ?>/post-<?php echo $objResult[0]; ?>/<?php echo $url; ?>.html" style="font-family:'Times New Roman', Times, serif; font-size:12px; color:#000000;" title="<?php echo $objResult[2]; ?>">
+                                      <?php echo $objResult[2]; ?>
                                       </a> <span style="font-family:'Times New Roman', Times, serif; font-size:12px; color:#666666;">[
-                                        <?=$objResult[6];?>
+                                        <?php echo $objResult[6]; ?>
                                         ]</span></td>
                                   </tr>
                               </table></td>
-                              <td width="125" height="25" align="center"><?
+                              <td width="125" height="25" align="center"><?php
 $sql="SELECT name, img FROM `admin_analyze` WHERE id='$objResult[1]'";
 $result=mysql_query($sql) or die("ERROR $sql");
 $row=mysql_fetch_row($result);
@@ -347,20 +351,20 @@ if($row[1]==""){
 echo $row[0];
 }else{
 ?>
-                                  <img src="http://<?=$titler[13];?>/mod/avatar/<?=$row[1];?>" width="120" height="19" />
-                                  <? } ?>                              </td>
+                                  <img src="http://<?php echo $titler[13]; ?>/mod/avatar/<?php echo $row[1]; ?>" width="120" height="19" />
+                                  <?php } ?>                              </td>
                               <td width="143" height="25" align="center"><span style="font-family:'Times New Roman', Times, serif; font-size:12px;">
-                                <?=DateTime($objResult[5]);?>
+                                <?php echo DateTime($objResult[5]); ?>
                               </span></td>
                             </tr>
                         </table></td>
                       </tr>
                     </table>
-                    <? } ?>
+                    <?php } ?>
                     <table width="720" border="0" align="center" cellpadding="0" cellspacing="0">
 
                       <tr>
-                        <td height="30" align="center" valign="middle"><?
+                        <td height="30" align="center" valign="middle"><?php 
 $pages = new Paginator;
 $pages->items_total = $Num_Rows;
 $pages->mid_range = 10;
@@ -382,9 +386,9 @@ echo $pages->display_pages()
       </table></td>
   </tr>
   <tr>
-    <td align="center"><? include "top-footer.php"; ?></td>
+    <td align="center"><?php include "top-footer.php"; ?></td>
   </tr>
 </table>
-<? include "footer.php"; ?>
+<?php include "footer.php"; ?>
 </body>
 </html>

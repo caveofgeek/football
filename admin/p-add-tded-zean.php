@@ -1,8 +1,8 @@
-<?
+<?php
 session_start();
 include "../inc/config.inc.php";
-if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
+if(!isset($_SESSION["admin_login"])) {
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
 exit() ;
 }
 ?>
@@ -33,7 +33,7 @@ a:active {
 </style></head>
 
 <body>
-<?
+<?php
 $zean_id=$_POST[zean_id];
 $team1=htmlspecialchars($_POST[team1]);
 $team2=htmlspecialchars($_POST[team2]);
@@ -58,19 +58,19 @@ mysql_close();
 echo "<meta http-equiv='refresh' content='0;url=tded-zean.php?zean_id=$zean_id'>";
 }else{
 ?>
-<script language="JavaScript">
-	alert('ขอโทษครับ วันที่ <?=$date;?> คุณให้ทีเด็ดไปแล้วครับ');
+<script language="JavaScript"> 	
+	alert('ขอโทษครับ วันที่ <?php echo $date; ?> คุณให้ทีเด็ดไปแล้วครับ'); 	
 	history.back();
-</script>
-<?
+</script> 
+<?php
 }
 }else{
 ?>
 <script language="JavaScript">
 	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ');
 	history.back();
-</script>
-<?
+</script> 
+<?php
 }
 ?>
 </body>

@@ -1,4 +1,4 @@
-<?	
+<?php	
 function DateThai($strDate)
 	{
 		$strYear = date("Y",strtotime($strDate))+543;

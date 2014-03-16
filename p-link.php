@@ -1,6 +1,6 @@
-<? @session_start();  ?>
+<?php @session_start();  ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<?
+<?php
 include "inc/config.inc.php";
 $submit=$_POST[Submit];
 $name=htmlspecialchars($_POST[name]);
@@ -24,14 +24,14 @@ if(isset($submit)&&$submit=="บันทึกข้อมูล"&&$name!=""&&$
 			alert('บันทึกข้อมูลเสร็จเรียบร้อยแล้วครับ'); 	
 			window.location = 'index.php'; 
 		</script> 
-	<?
+	<?php
 	}else{
 	?>
 	<script language="JavaScript"> 	
 		alert('ขอโทษครับ คุณบวกเลขไม่ถูกต้องครับ'); 	
 		history.back();
 	</script> 
-	<?
+	<?php
 	}
 }else{
 	?>
@@ -39,6 +39,6 @@ if(isset($submit)&&$submit=="บันทึกข้อมูล"&&$name!=""&&$
 		alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ'); 	
 		history.back();
 	</script> 
-	<?
+	<?php
 }
 ?>

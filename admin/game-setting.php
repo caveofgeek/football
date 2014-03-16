@@ -1,8 +1,9 @@
-<?
-@session_start();
+<?php 
+@session_start(); 
 include "../inc/config.inc.php";
-if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
+if(!isset($_SESSION["admin_login"])) {
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+
 exit() ;
 }
 ?>
@@ -48,7 +49,7 @@ body {
             <table width="960" border="0" cellspacing="1" cellpadding="1">
               <tr valign="top">
                 <td width="690"><div align="left"><font color="#ffffff" size="4">.:: ยินดีต้อนรับเข้าสู่ ระบบจัดการข้อมูลเว็บไซต์ ::
-                  <?
+                  <?php
 				$dm=date("d/m");
 				$y=date("Y")+543;
 				$date="$dm/$y";
@@ -64,11 +65,11 @@ body {
       <tr>
         <td bgcolor="#CCCCCC"><table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
-              <td width="220" align="center" valign="top"><? include "menu.php"; ?></td>
+              <td width="220" align="center" valign="top"><?php include "menu.php"; ?></td>
               <td width="760" align="center" valign="top" bgcolor="#FFFFFF"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
                   <tr>
                     <td height="25"><strong><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> จัดการข้อมูลตั้งค่าเกมส์</font></strong>
-<?
+<?php
 $s="SELECT * FROM `game_config` where id='1'";
 $re=mysql_query($s) or die("ERROR $s");
 $r=mysql_fetch_row($re);
@@ -88,17 +89,17 @@ $r=mysql_fetch_row($re);
                             <tr>
                               <td width="200" align="right"><span class="style4">กำหนดทายผลก่อนเวลา</span></td>
                               <td width="10">&nbsp;</td>
-                              <td width="300"><input name="gametime" type="text" id="gametime" value="<?=$r[1];?>" /></td>
+                              <td width="300"><input name="gametime" type="text" id="gametime" value="<?php echo $r[1]; ?>" /></td>
                             </tr>
                             <tr>
                               <td width="200" align="right"><span class="style4">กำหนดคะแนนทายถูก</span></td>
                               <td width="10">&nbsp;</td>
-                              <td width="300"><input name="win" type="text" id="win" value="<?=$r[2];?>" /></td>
+                              <td width="300"><input name="win" type="text" id="win" value="<?php echo $r[2]; ?>" /></td>
                             </tr>
                             <tr>
                               <td align="right"><span class="style4">กำหนดคะแนนทายผิด</span></td>
                               <td>&nbsp;</td>
-                              <td><input name="lost" type="text" id="lost" value="<?=$r[3];?>" /></td>
+                              <td><input name="lost" type="text" id="lost" value="<?php echo $r[3]; ?>" /></td>
                             </tr>
 
                           </table></td>
@@ -111,17 +112,17 @@ $r=mysql_fetch_row($re);
                             <tr>
                               <td width="100" align="left" valign="top"><font color="#000000" size="2">Title</font></td>
                               <td width="10">&nbsp;</td>
-                              <td width="350" align="left"><textarea name="title" cols="50" rows="3" id="title"><?=$r[4];?></textarea></td>
+                              <td width="350" align="left"><textarea name="title" cols="50" rows="3" id="title"><?php echo $r[4]; ?></textarea></td>
                             </tr>
                             <tr>
                               <td width="100" align="left" valign="top"><font color="#000000" size="2">Description</font></td>
                               <td width="10">&nbsp;</td>
-                              <td width="350" align="left"><textarea name="description" cols="50" rows="3" id="description"><?=$r[5];?></textarea></td>
+                              <td width="350" align="left"><textarea name="description" cols="50" rows="3" id="description"><?php echo $r[5]; ?></textarea></td>
                             </tr>
                             <tr>
                               <td width="100" align="left" valign="top"><font color="#000000" size="2">Keyword</font></td>
                               <td width="10">&nbsp;</td>
-                              <td width="350" align="left"><textarea name="keyword" cols="50" rows="3" id="keyword"><?=$r[6];?></textarea></td>
+                              <td width="350" align="left"><textarea name="keyword" cols="50" rows="3" id="keyword"><?php echo $r[6]; ?></textarea></td>
                             </tr>
                           </table></td>
                         </tr>

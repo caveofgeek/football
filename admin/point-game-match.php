@@ -1,8 +1,8 @@
-<?
+<?php
 session_start();
 include "../inc/config.inc.php";
-if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
+if(!isset($_SESSION["admin_login"])) {
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
 exit() ;
 }
 ?>
@@ -33,8 +33,8 @@ a:active {
 </style></head>
 
 <body>
-<?
-$id=$_GET[id];
+<?php
+$id=$_GET["id"];
 
 $sql=mysql_query("UPDATE `game_match` SET `game_status`='4' WHERE id='$id'")or die("ERROR $sql");
 

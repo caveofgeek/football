@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 include "inc/config.inc.php";
 include "function/datethai.php";
@@ -26,8 +26,8 @@ $st="select * from stats where id=1";
 $stre=mysql_query($st) or die("ERROR $st บรททัด19");
 $str=mysql_fetch_row($stre);
 
-$cate_id=$_GET[cate_id];
-$cate=$_GET[cate];
+$cate_id=$_GET["cate_id"];
+$cate=$_GET["cate"];
 $sct="select * from category where id='$cate_id'";
 $rect=mysql_query($sct) or die("ERROR $sct");
 $rct=mysql_fetch_row($rect);
@@ -36,9 +36,9 @@ $rct=mysql_fetch_row($rect);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title><?=$rct[2];?> | <?=$titler[1];?></title>
-<META NAME="keywords" CONTENT="<?=$rct[4];?>">
-<META NAME="description" CONTENT="<?=$titler[1];?> <?=$rct[3];?>">
+<title><?php echo $rct[2]; ?> | <?php echo $titler[1]; ?></title>
+<META NAME="keywords" CONTENT="<?php echo $rct[4]; ?>"> 
+<META NAME="description" CONTENT="<?php echo $titler[1]; ?> <?php echo $rct[3]; ?>">
 <meta name="robots"  content="index,follow">
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -47,32 +47,32 @@ $rct=mysql_fetch_row($rect);
 <style type="text/css">
 <!--
 body {
-	background-color: #<?=$bgr[1];?>;
-	<? if($bgr[2]!=""){ ?>background-image: url(http://<?=$titler[13];?>/bg-img/<?=$bgr[2];?>);
-	background-repeat: <?=$bgr[3];?>;
-	<? }if($bgr[4]==1){ ?>
+	background-color: #<?php echo $bgr[1]; ?>;
+	<?php if($bgr[2]!=""){ ?>background-image: url(http://<?php echo $titler[13]; ?>/bg-img/<?php echo $bgr[2]; ?>);
+	background-repeat: <?php echo $bgr[3]; ?>;
+	<?php }if($bgr[4]==1){ ?>	
 	background-attachment:fixed;
-	<? } ?>
+	<?php } ?>
 }
 a:link {
-	color: #<?=$linkr[1];?>;
+	color: #<?php echo $linkr[1]; ?>;
 	text-decoration: none;
 }
 a:visited {
 	text-decoration: none;
-	color: #<?=$linkr[2];?>;
+	color: #<?php echo $linkr[2]; ?>;
 }
 a:hover {
 	text-decoration: underline;
-	color: #<?=$linkr[3];?>;
+	color: #<?php echo $linkr[3]; ?>;
 }
 a:active {
 	text-decoration: none;
-	color: #<?=$linkr[4];?>;
+	color: #<?php echo $linkr[4]; ?>;
 }
 -->
 </style>
-<?
+<?php 
 class Paginator{
 	var $items_per_page;
 	var $items_total;
@@ -144,8 +144,8 @@ class Paginator{
 			}
 		}
 		$this->low = ($this->current_page-1) * $this->items_per_page;
-		$this->high = ($_GET['ipp'] == 'All') ? $this->items_total:($this->current_page * $this->items_per_page)-1;
-		$this->limit = ($_GET['ipp'] == 'All') ? "":" LIMIT $this->low,$this->items_per_page";
+		$this->high = (isset($_GET['ipp']) == 'All') ? $this->items_total:($this->current_page * $this->items_per_page)-1;
+		$this->limit = (isset($_GET['ipp']) == 'All') ? "":" LIMIT $this->low,$this->items_per_page";
 	}
 
 	function display_pages()
@@ -212,7 +212,7 @@ class Paginator{
 <body>
 <table width="995" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
-    <td align="center" valign="top"><? include "header.php"; ?></td>
+    <td align="center" valign="top"><?php include "header.php"; ?></td>
   </tr>
   <tr>
     <td style="background-color:#FFFFFF;"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -222,14 +222,14 @@ class Paginator{
     </table>
       <table width="985" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
-          <td width="250" align="center" valign="top"><? include "menu.php"; ?></td>
+          <td width="250" align="center" valign="top"><?php include "menu.php"; ?></td>
           <td width="7" align="center" valign="top">&nbsp;</td>
           <td width="728" align="center" valign="top"><table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
               <td align="center"><table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
                 <tr>
                   <td align="center">
-<?
+<?php
 $sads8="SELECT * FROM `ads_a8` ORDER BY id ASC";
 $reads8=mysql_query($sads8) or die("Error $sads8");
 while($rads8=mysql_fetch_row($reads8)){
@@ -237,22 +237,22 @@ while($rads8=mysql_fetch_row($reads8)){
                     <table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tr>
                           <td align="center" valign="middle">
-						  <?
-						  if($rads8[1]==1){
-						  $ads8=stripslashes($rads8[3]);
+						  <?php 
+						  if($rads8[1]==1){ 
+						  $ads8=stripslashes($rads8[3]); 
 						  echo $ads8;
 						  }else if($rads8[1]==2){
 						  ?>
-                              <a href="<?=$rads8[7];?>" title="<?=$rads8[8];?>" target="_blank">
-                              <? if($rads8[2]==1){  ?>
-                              <img src="http://<?=$titler[13];?>/ads-img/<?=$rads8[9];?>" alt="<?=$rads8[8];?>" width="728" border="0" title="<?=$rads8[8];?>" />
-                              <? }else if($rads8[2]==2){ ?>
+                              <a href="<?php echo $rads8[7]; ?>" title="<?php echo $rads8[8]; ?>" target="_blank">
+                              <?php if($rads8[2]==1){  ?>
+                              <img src="http://<?php echo $titler[13]; ?>/ads-img/<?php echo $rads8[9]; ?>" alt="<?php echo $rads8[8]; ?>" width="728" border="0" title="<?php echo $rads8[8]; ?>" />
+                              <?php }else if($rads8[2]==2){ ?>
                               <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="728" border="0">
-                                <param name="movie" value="http://<?=$titler[13];?>/ads-img/<?=$rads8[9];?>" />
+                                <param name="movie" value="http://<?php echo $titler[13]; ?>/ads-img/<?php echo $rads8[9]; ?>" />
                                 <param name="quality" value="high" />
-                                <embed src="http://<?=$titler[13];?>/ads-img/<?=$rads8[9];?>" width="728" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"></embed>
+                                <embed src="http://<?php echo $titler[13]; ?>/ads-img/<?php echo $rads8[9]; ?>" width="728" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"></embed>
                               </object>
-                              <? }} ?>
+                              <?php }} ?>
                             </a></td>
                         </tr>
                       </table>
@@ -261,7 +261,7 @@ while($rads8=mysql_fetch_row($reads8)){
                         <td height="5"></td>
                       </tr>
                     </table>
-<? } ?>
+<?php } ?>
 				  </td>
                 </tr>
               </table></td>
@@ -271,14 +271,14 @@ while($rads8=mysql_fetch_row($reads8)){
                 <tr>
                   <td height="30" align="left" style="border-bottom:2px solid #333333;"><table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
                       <tr>
-                        <td width="300" align="left" style="font-family:'Times New Roman', Times, serif; font-size:16px; font-weight:bold; color:#020202; "><?=$rct[1];?></td>
+                        <td width="300" align="left" style="font-family:'Times New Roman', Times, serif; font-size:16px; font-weight:bold; color:#020202; "><?php echo $rct[1]; ?></td>
                         <td width="428" align="right"><span class='st_fblike_hcount' displaytext='Facebook Like'></span><span class='st_facebook_hcount' displaytext='Facebook'></span> <span class='st_twitter_hcount' displaytext='Tweet'></span> <span class='st_googleplus_hcount' displaytext='Google +'></span></td>
                       </tr>
                     </table></td>
                 </tr>
                 <tr>
                   <td align="center">
-<?
+<?php	
 $strSQL="SELECT id, title, img, short_detail, view FROM `post` WHERE cate_id='$cate_id' ";
 		/*$strSQL1="SELECT category.*, sub_category.sub_cate_name FROM category ";
 		$strSQL1.="INNER JOIN sub_category ON category.id=sub_category.cate_id";*/
@@ -287,10 +287,13 @@ $strSQL="SELECT id, title, img, short_detail, view FROM `post` WHERE cate_id='$c
 
 		$Per_Page = 20;   // Per Page
 
-		$Page = $_GET["Page"];
-		if(!$_GET["Page"])
+		if(!isset($_GET["Page"]))
 		{
 			$Page=1;
+		}
+		else
+		{
+			$Page = $_GET["Page"];
 		}
 
 		$Prev_Page = $Page-1;
@@ -333,26 +336,26 @@ $strSQL="SELECT id, title, img, short_detail, view FROM `post` WHERE cate_id='$c
                                       </table>
                                         <table width="715" border="0" align="center" cellpadding="0" cellspacing="0">
                                           <tr>
-                                            <td width="150" align="center" valign="top"><a href="http://<?=$titler[13];?>/topic-<?=$objResult[0];?>/<?=$url;?>.html" title="<?=$objResult[1];?>">
-                                              <? if($objResult[2]==""){ ?>
-                                              <img src="http://<?=$titler[13];?>/post-s-img/NoPic.png" alt="<?=$objResult[1];?>" width="150" height="115" border="0" title="<?=$objResult[1];?>" />
-                                              <? }else{ ?>
-                                              <img src="http://<?=$titler[13];?>/post-s-img/<?=$objResult[2];?>" alt="<?=$objResult[1];?>" width="150" height="115" border="0" title="<?=$objResult[1];?>" />
-                                              <? } ?>
+                                            <td width="150" align="center" valign="top"><a href="http://<?php echo $titler[13]; ?>/topic-<?php echo $objResult[0]; ?>/<?php echo $url; ?>.html" title="<?php echo $objResult[1]; ?>">
+                                              <?php if($objResult[2]==""){ ?>
+                                              <img src="http://<?php echo $titler[13]; ?>/post-s-img/NoPic.png" alt="<?php echo $objResult[1]; ?>" width="150" height="115" border="0" title="<?php echo $objResult[1]; ?>" />
+                                              <?php }else{ ?>
+                                              <img src="http://<?php echo $titler[13]; ?>/post-s-img/<?php echo $objResult[2]; ?>" alt="<?php echo $objResult[1]; ?>" width="150" height="115" border="0" title="<?php echo $objResult[1]; ?>" />
+                                              <?php } ?>
                                             </a></td>
                                             <td width="5" align="center" valign="top">&nbsp;</td>
                                             <td width="560" align="center" valign="top"><table width="560" border="0" align="center" cellpadding="0" cellspacing="0">
                                                 <tr>
-                                                  <td align="left"><strong><font size="2"><a href="http://<?=$titler[13];?>/topic-<?=$objResult[0];?>/<?=$url;?>.html" title="<?=$objResult[1];?>"><?=$objResult[1];?></a></font></strong></td>
+                                                  <td align="left"><strong><font size="2"><a href="http://<?php echo $titler[13]; ?>/topic-<?php echo $objResult[0]; ?>/<?php echo $url; ?>.html" title="<?php echo $objResult[1]; ?>"><?php echo $objResult[1]; ?></a></font></strong></td>
                                                 </tr>
                                                 <tr>
                                                   <td align="left"><font size="2" color="#999999">
-                                                    <?=$objResult[3];?>
+                                                    <?php echo $objResult[3]; ?>
                                                   </font></td>
                                                 </tr>
                                                 <tr>
                                                   <td align="left"><font size="2" color="#960105">เข้าชม :
-                                                    <?=$objResult[4];?>
+                                                    <?php echo $objResult[4]; ?>
                                                     ครั้ง</font></td>
                                                 </tr>
                                             </table></td>
@@ -369,7 +372,7 @@ $strSQL="SELECT id, title, img, short_detail, view FROM `post` WHERE cate_id='$c
                         </table></td>
                       </tr>
                     </table>
-                    <? } ?>
+                    <?php } ?>
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                       <tr>
                         <td height="5"></td>
@@ -377,7 +380,7 @@ $strSQL="SELECT id, title, img, short_detail, view FROM `post` WHERE cate_id='$c
                     </table>
                     <table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
                       <tr>
-                        <td height="30" align="center" valign="middle"><?
+                        <td height="30" align="center" valign="middle"><?php 
 $pages = new Paginator;
 $pages->items_total = $Num_Rows;
 $pages->mid_range = 10;
@@ -399,9 +402,9 @@ echo $pages->display_pages()
       </table></td>
   </tr>
   <tr>
-    <td align="center"><? include "top-footer.php"; ?></td>
+    <td align="center"><?php include "top-footer.php"; ?></td>
   </tr>
 </table>
-<? include "footer.php"; ?>
+<?php include "footer.php"; ?>
 </body>
 </html>

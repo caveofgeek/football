@@ -1,11 +1,11 @@
-<?
+<?php
 session_start();
 include "../inc/config.inc.php";
 ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<?
-//echo "$_SESSION[m_login]<br>$_SESSION[m_id]";
-if(!isset($_SESSION[admin_login])) {
+<?php
+//echo "$_SESSION[m_login]<br>$_SESSION["m_id"]";
+if(!isset($_SESSION["admin_login"])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
 exit() ;
 }
@@ -23,8 +23,8 @@ $finish_date=$_POST[finish_date];
 $name=$_POST[name];
 $tel=$_POST[tel];
 $email=$_POST[email];
-$file1=$_FILES[file1][name];
-$tmp1=$_FILES[file1][tmp_name];
+$file1=$_FILES["file1"]["name"];
+$tmp1=$_FILES["file1"]["tmp_name"];
 
 if($file1==""){ 
 ?>
@@ -32,7 +32,7 @@ if($file1==""){
 	alert('ขอโทษครับ กรุณาเลือกไฟล์โฆษณาด้วยนะครับ'); 	
 	history.back();
 </script> 
-<?
+<?php
 }else{ 
 $date=date("dmYHis");
 $img="$date$file1";

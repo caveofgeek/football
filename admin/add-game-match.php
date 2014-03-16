@@ -1,9 +1,17 @@
+<?php 
+@session_start(); 
+include "../inc/config.inc.php";
+include "../function/datethai.php";
+if(!isset($_SESSION["admin_login"])) {
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+=======
 <?
 @session_start();
 include "../inc/config.inc.php";
 include "../function/datethai.php";
 if(!isset($_SESSION[admin_login])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
+>>>>>>> develop
 exit() ;
 }
 ?>
@@ -50,7 +58,7 @@ body {
             <table width="960" border="0" cellspacing="1" cellpadding="1">
               <tr valign="top">
                 <td width="690"><div align="left"><font color="#ffffff" size="4">.:: ยินดีต้อนรับเข้าสู่ ระบบจัดการข้อมูลเว็บไซต์ ::
-                  <?
+                  <?php
 				$dm=date("d/m");
 				$y=date("Y")+543;
 				$date="$dm/$y";
@@ -66,7 +74,7 @@ body {
       <tr>
         <td bgcolor="#CCCCCC"><table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
-              <td width="220" align="center" valign="top"><? include "menu.php"; ?></td>
+              <td width="220" align="center" valign="top"><?php include "menu.php"; ?></td>
               <td width="760" align="center" valign="top" bgcolor="#FFFFFF"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
                   <tr>
                     <td height="25"><strong><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> <a href="all-game-match.php">จัดการข้อมูลรายการแข่งขัน</a> <img src="images/arrow.gif" width="7" height="11" /> เพิ่มข้อมูลรายการแข่งขัน</font></strong></td>
@@ -88,13 +96,13 @@ body {
                                     <td width="10">&nbsp;</td>
                                     <td width="390"><select name="league_id" id="league_id">
                                       <option selected="selected" value="">- กรุณาเลือก -</option>
-<?
+<?php
 $sql="SELECT * FROM `game_league` ORDER BY `id` ASC";
 $result=mysql_query($sql) or die("Error $sql");
 while($row=mysql_fetch_row($result)){
 ?>
-									  <option value="<?=$row[0];?>"><?=$row[1];?></option>
-<? } ?>
+									  <option value="<?php echo $row[0]; ?>"><?php echo $row[1]; ?></option>
+<?php } ?>
                                     </select>
                                     </td>
                                   </tr>
@@ -102,41 +110,41 @@ while($row=mysql_fetch_row($result)){
                                     <td align="right"><span class="style4">วันที่แข่งขัน</span></td>
                                     <td>&nbsp;</td>
                                     <td><select name="days" id="days">
-                                        <?
+                                        <?php
 								  $dd=date("j");
 								  $a=1;
 								  while($a<=31){
 								  ?>
-                                        <option value="<?=$a;?>" <? if($a==$dd){ ?>selected="selected" <? } ?> >
-                                        <?=$a;?>
+                                        <option value="<?php echo $a; ?>" <?php if($a==$dd){ ?>selected="selected" <?php } ?> >
+                                        <?php echo $a; ?>
                                         </option>
-                                        <? $a++;} ?>
+                                        <?php $a++;} ?>
                                       </select>
                                         <select name="months" id="months">
-                                          <option value="1" <? $mm=date("m"); if($mm==1){ ?>selected="selected" <? } ?> >มกราคม</option>
-                                          <option value="2" <? $mm=date("m"); if($mm==2){ ?>selected="selected" <? } ?> >กุมภาพันธ์</option>
-                                          <option value="3" <? $mm=date("m"); if($mm==3){ ?>selected="selected" <? } ?> >มีนาคม</option>
-                                          <option value="4" <? $mm=date("m"); if($mm==4){ ?>selected="selected" <? } ?> >เมษายน</option>
-                                          <option value="5" <? $mm=date("m"); if($mm==5){ ?>selected="selected" <? } ?> >พฤษภาคม</option>
-                                          <option value="6" <? $mm=date("m"); if($mm==6){ ?>selected="selected" <? } ?> >มิถุนายน</option>
-                                          <option value="7" <? $mm=date("m"); if($mm==7){ ?>selected="selected" <? } ?> >กรกฏาคม</option>
-                                          <option value="8" <? $mm=date("m"); if($mm==8){ ?>selected="selected" <? } ?> >สิงหาคม</option>
-                                          <option value="9" <? $mm=date("m"); if($mm==9){ ?>selected="selected" <? } ?> >กันยายน</option>
-                                          <option value="10" <? $mm=date("m"); if($mm==10){ ?>selected="selected" <? } ?> >ตุลาคม</option>
-                                          <option value="11" <? $mm=date("m"); if($mm==11){ ?>selected="selected" <? } ?> >พฤศจิกายน</option>
-                                          <option value="12" <? $mm=date("m"); if($mm==12){ ?>selected="selected" <? } ?> >ธันวาคม</option>
+                                          <option value="1" <?php $mm=date("m"); if($mm==1){ ?>selected="selected" <?php } ?> >มกราคม</option>
+                                          <option value="2" <?php $mm=date("m"); if($mm==2){ ?>selected="selected" <?php } ?> >กุมภาพันธ์</option>
+                                          <option value="3" <?php $mm=date("m"); if($mm==3){ ?>selected="selected" <?php } ?> >มีนาคม</option>
+                                          <option value="4" <?php $mm=date("m"); if($mm==4){ ?>selected="selected" <?php } ?> >เมษายน</option>
+                                          <option value="5" <?php $mm=date("m"); if($mm==5){ ?>selected="selected" <?php } ?> >พฤษภาคม</option>
+                                          <option value="6" <?php $mm=date("m"); if($mm==6){ ?>selected="selected" <?php } ?> >มิถุนายน</option>
+                                          <option value="7" <?php $mm=date("m"); if($mm==7){ ?>selected="selected" <?php } ?> >กรกฏาคม</option>
+                                          <option value="8" <?php $mm=date("m"); if($mm==8){ ?>selected="selected" <?php } ?> >สิงหาคม</option>
+                                          <option value="9" <?php $mm=date("m"); if($mm==9){ ?>selected="selected" <?php } ?> >กันยายน</option>
+                                          <option value="10" <?php $mm=date("m"); if($mm==10){ ?>selected="selected" <?php } ?> >ตุลาคม</option>
+                                          <option value="11" <?php $mm=date("m"); if($mm==11){ ?>selected="selected" <?php } ?> >พฤศจิกายน</option>
+                                          <option value="12" <?php $mm=date("m"); if($mm==12){ ?>selected="selected" <?php } ?> >ธันวาคม</option>
                                         </select>
                                         <select name="years" id="years">
-                                          <?
+                                          <?php
 								  $yy=date("Y");
 								  $y=date("Y");
 								  $ny=date("Y")+1;
 								  while($y<=$ny){
 								  ?>
-                                          <option value="<?=$y;?>" <? if($y==$yy){ ?>selected="selected" <? } ?> >
-                                          <?=$y;?>
+                                          <option value="<?php echo $y; ?>" <?php if($y==$yy){ ?>selected="selected" <?php } ?> >
+                                          <?php echo $y; ?>
                                           </option>
-                                          <? $y++;} ?>
+                                          <?php $y++;} ?>
                                       </select></td>
                                   </tr>
                                   <tr>

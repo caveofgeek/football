@@ -1,8 +1,9 @@
-<?
-@session_start();
+<?php 
+@session_start(); 
 include "../inc/config.inc.php";
-if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
+if(!isset($_SESSION["admin_login"])) {
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+
 exit() ;
 }
 ?>
@@ -55,7 +56,7 @@ body {
             <table width="960" border="0" cellspacing="1" cellpadding="1">
               <tr valign="top">
                 <td width="690"><div align="left"><font color="#ffffff" size="4">.:: ยินดีต้อนรับเข้าสู่ ระบบจัดการข้อมูลเว็บไซต์ ::
-                  <?
+                  <?php
 				$dm=date("d/m");
 				$y=date("Y")+543;
 				$date="$dm/$y";
@@ -71,13 +72,13 @@ body {
       <tr>
         <td bgcolor="#CCCCCC"><table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
-              <td width="220" align="center" valign="top"><? include "menu.php"; ?></td>
+              <td width="220" align="center" valign="top"><?php include "menu.php"; ?></td>
               <td width="760" align="center" valign="top" bgcolor="#FFFFFF"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
                   <tr>
                     <td height="25">
-<?
-$id=$_GET[id];
-$cate_id=$_GET[cate_id];
+<?php
+$id=$_GET["id"];
+$cate_id=$_GET["cate_id"];
 $scate="SELECT cate_name FROM `category` WHERE id='$cate_id'";
 $recate=mysql_query($scate) or die("ERROR $scate");
 $rcate=mysql_fetch_row($recate);
@@ -88,9 +89,9 @@ $spost.="WHERE post.id='$id'";
 $repost=mysql_query($spost) or die("ERROR $spost");
 $rpost=mysql_fetch_row($repost);
 ?>
-                      <strong><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" />
-<? if($cate_id>21){ ?><a href="all-other-category.php?cate_id=<?=$cate_id;?>"><? }else if($cate_id<=21){ ?><a href="all-main-category.php?cate_id=<?=$cate_id;?>"><? } ?>จัดการข้อมูลหมวดหมู่<?=$rcate[0];?></a>
-                      <img src="images/arrow.gif" width="7" height="11" /> </font><font color="#000000" size="2">แก้ไขข้อมูลหมวดหมู่<?=$rcate[0];?></font></strong></td>
+                      <strong><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> 
+<?php if($cate_id>21){ ?><a href="all-other-category.php?cate_id=<?php echo $cate_id; ?>"><?php }else if($cate_id<=21){ ?><a href="all-main-category.php?cate_id=<?php echo $cate_id; ?>"><?php } ?>จัดการข้อมูลหมวดหมู่<?php echo $rcate[0]; ?></a>
+                      <img src="images/arrow.gif" width="7" height="11" /> </font><font color="#000000" size="2">แก้ไขข้อมูลหมวดหมู่<?php echo $rcate[0]; ?></font></strong></td>
                   </tr>
                   <tr>
                     <td>
@@ -100,64 +101,64 @@ $rpost=mysql_fetch_row($repost);
                         <td width="100" height="30" align="right" valign="top"><font color="#000000" size="2">หัวข้อ</font></td>
                         <td width="10" height="30">&nbsp;</td>
                         <td width="620" height="30" valign="top">
-						<input name="title" type="text" id="title" style="width:600px;" value="<?=$rpost[2];?>" />
-						<input type="hidden" name="cate_id" id="cate_id" value="<?=$cate_id;?>" />
-						<input type="hidden" name="id" id="id" value="<?=$id;?>" />
+						<input name="title" type="text" id="title" style="width:600px;" value="<?php echo $rpost[2]; ?>" />
+						<input type="hidden" name="cate_id" id="cate_id" value="<?php echo $cate_id; ?>" />
+						<input type="hidden" name="id" id="id" value="<?php echo $id; ?>" />
 						</td>
                       </tr>
                       <tr>
                         <td width="100" height="80" align="right" valign="top"><font color="#000000" size="2">รายละเอียดย่อ</font></td>
                         <td width="10" height="80">&nbsp;</td>
-                        <td width="620" height="80" valign="top"><textarea name="short_detail" id="short_detail" style="width:600px; height:75px;"><?=$rpost[3];?></textarea></td>
+                        <td width="620" height="80" valign="top"><textarea name="short_detail" id="short_detail" style="width:600px; height:75px;"><?php echo $rpost[3]; ?></textarea></td>
                       </tr>
                       <tr>
                         <td width="100" height="455" align="right" valign="top"><font color="#000000" size="2">รายละเอียด</font></td>
                         <td width="10" height="455">&nbsp;</td>
                         <td width="620" height="455" valign="top">
-						<? $msg=stripslashes($rpost[4]); ?>
-						<textarea class="cleditorMain" id="input" name="input" style="width:600px; height:450px;"><?=$msg;?></textarea>
+						<?php $msg=stripslashes($rpost[4]); ?>
+						<textarea class="cleditorMain" id="input" name="input" style="width:600px; height:450px;"><?php echo $msg; ?></textarea>
 						</td>
                       </tr>
                       <tr>
                         <td width="100" height="30" align="right" valign="top"><font color="#000000" size="2">รูปภาพ</font></td>
                         <td width="10" height="30">&nbsp;</td>
                         <td width="620" height="30" align="left" valign="top">
-						<? if($rpost[5]!=""){ ?><a href="../post-s-img/<?=$rpost[5];?>" target="_blank"><img src="../post-s-img/<?=$rpost[5];?>" width="50" height="50" border="0" /></a><? } ?>
+						<?php if($rpost[5]!=""){ ?><a href="../post-s-img/<?php echo $rpost[5]; ?>" target="_blank"><img src="../post-s-img/<?php echo $rpost[5]; ?>" width="50" height="50" border="0" /></a><?php } ?> 
 						<input name="file1" type="file" id="file1" />
-						<input type="hidden" name="op" id="op" value="<?=$rpost[5];?>" />
+						<input type="hidden" name="op" id="op" value="<?php echo $rpost[5]; ?>" />
                           <font color="#FF0000" size="2">* ขนาดไม่เกิน 50 KB </font></td>
                       </tr>
                       <tr>
                         <td width="100" height="30" align="right" valign="top"><font color="#000000" size="2">สถานะ</font></td>
                         <td width="10" height="30">&nbsp;</td>
                         <td width="620" height="30" align="left" valign="top">
-						<input name="status_comment" type="radio" value="1" <? if($rpost[6]==1){ echo "checked"; }?> />
-                          <font color="#000000" size="2">Comment ได้ทุกคน
-                          <input name="status_comment" type="radio" value="2" <? if($rpost[6]==2){ echo "checked"; }?> />
-                          เฉพาะสมาชิก
-                          <input name="status_comment" type="radio" value="3" <? if($rpost[6]==3){ echo "checked"; }?> />
+						<input name="status_comment" type="radio" value="1" <?php if($rpost[6]==1){ echo "checked"; } ?> />
+                          <font color="#000000" size="2">Comment ได้ทุกคน 
+                          <input name="status_comment" type="radio" value="2" <?php if($rpost[6]==2){ echo "checked"; } ?> />
+                          เฉพาะสมาชิก 
+                          <input name="status_comment" type="radio" value="3" <?php if($rpost[6]==3){ echo "checked"; } ?> />
                            ไม่ให้ Comment </font></td>
                       </tr>
                       <tr>
                         <td width="100" height="30" align="right"><font color="#000000" size="2">TAG</font></td>
                         <td width="10" height="30">&nbsp;</td>
-                        <td height="30" align="left" valign="top"><font color="#000000" size="2">1.
-                          <input name="tag1" type="text" id="tag1" value="<?=$rpost[11];?>" />
-                        2.
-                          <input name="tag2" type="text" id="tag2" value="<?=$rpost[12];?>" />
-3.
-                          <input name="tag3" type="text" id="tag3" value="<?=$rpost[13];?>" />
+                        <td height="30" align="left" valign="top"><font color="#000000" size="2">1. 
+                          <input name="tag1" type="text" id="tag1" value="<?php echo $rpost[11]; ?>" />
+                        2. 
+                          <input name="tag2" type="text" id="tag2" value="<?php echo $rpost[12]; ?>" />
+3. 
+                          <input name="tag3" type="text" id="tag3" value="<?php echo $rpost[13]; ?>" />
 </font></td>
                       </tr>
                       <tr>
                         <td width="100" height="30" align="right" valign="top">&nbsp;</td>
                         <td width="10" height="30">&nbsp;</td>
                         <td height="30" align="left" valign="top"><font color="#000000" size="2">4.
-                            <input name="tag4" type="text" id="tag4" value="<?=$rpost[14];?>" />
+                            <input name="tag4" type="text" id="tag4" value="<?php echo $rpost[14]; ?>" />
 5.
-<input name="tag5" type="text" id="tag5" value="<?=$rpost[15];?>" />
+<input name="tag5" type="text" id="tag5" value="<?php echo $rpost[15]; ?>" />
 6.
-<input name="tag6" type="text" id="tag6" value="<?=$rpost[16];?>" />
+<input name="tag6" type="text" id="tag6" value="<?php echo $rpost[16]; ?>" />
                         </font></td>
                       </tr>
                       <tr>

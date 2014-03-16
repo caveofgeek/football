@@ -1,8 +1,9 @@
-<?
-@session_start();
+<?php 
+@session_start(); 
 include "../inc/config.inc.php";
-if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
+if(!isset($_SESSION["admin_login"])) {
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+
 exit() ;
 }
 $s="select * from stats where id=1";
@@ -50,7 +51,7 @@ body {
             <table width="960" border="0" cellspacing="1" cellpadding="1">
               <tr valign="top">
                 <td width="690"><div align="left"><font color="#ffffff" size="4">.:: ยินดีต้อนรับเข้าสู่ ระบบจัดการข้อมูลเว็บไซต์ ::
-                  <?
+                  <?php
 				$dm=date("d/m");
 				$y=date("Y")+543;
 				$date="$dm/$y";
@@ -66,7 +67,7 @@ body {
       <tr>
         <td bgcolor="#CCCCCC"><table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
-              <td width="220" align="center" valign="top"><? include "menu.php"; ?></td>
+              <td width="220" align="center" valign="top"><?php include "menu.php"; ?></td>
               <td width="760" align="center" valign="top" bgcolor="#FFFFFF"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
                   <tr>
                     <td height="25"><strong><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> จัดการข้อมูลโค๊ดสถิติ</font></strong></td>
@@ -76,13 +77,13 @@ body {
                       <table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tr>
                           <td align="left"><font size="2">
-                            <input name="online" type="radio" value="1" <? if($r[2]==1){ echo "checked";}?> />
+                            <input name="online" type="radio" value="1" <?php if($r[2]==1){ echo "checked";} ?> />
                             แสดง
-                            <input name="online" type="radio" value="0" <? if($r[2]==0){ echo "checked";}?> />
+                            <input name="online" type="radio" value="0" <?php if($r[2]==0){ echo "checked";} ?> />
                             ไม่แสดง </font></td>
                         </tr>
                         <tr>
-                          <td align="center"><textarea name="detail" rows="10" id="detail" style="width:700px"><?=$r[1];?></textarea></td>
+                          <td align="center"><textarea name="detail" rows="10" id="detail" style="width:700px"><?php echo $r[1]; ?></textarea></td>
                         </tr>
                         <tr>
                           <td align="center"><input type="submit" name="Submit" value="บันทึกข้อมูล" /></td>

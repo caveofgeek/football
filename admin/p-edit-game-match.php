@@ -1,8 +1,8 @@
-<?
+<?php
 session_start();
 include "../inc/config.inc.php";
-if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
+if(!isset($_SESSION["admin_login"])) {
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
 exit() ;
 }
 ?>
@@ -33,7 +33,7 @@ a:active {
 </style></head>
 
 <body>
-<?
+<?php
 $type=htmlspecialchars($_POST[type]);
 $id=htmlspecialchars($_POST[id]);
 $league_id=htmlspecialchars($_POST[league_id]);
@@ -57,8 +57,8 @@ echo "<meta http-equiv='refresh' content='0;url=edit-game-match.php?id=$id&type=
 <script language="JavaScript">
 	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ');
 	history.back();
-</script>
-<?
+</script> 
+<?php
 }
 ?>
 </body>

@@ -149,7 +149,7 @@
             </tr>
         </table></td>
       </tr>
-      <?
+      <?php
 $stab="select id, cate_name from category order by id asc";
 $retab=mysql_query($stab) or die("ERROR $stab");
 while($rtab=mysql_fetch_row($retab)){
@@ -157,13 +157,13 @@ while($rtab=mysql_fetch_row($retab)){
       <tr>
         <td height="20"><table width="200" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
-              <td align="left"><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> <a href="all-main-category.php?cate_id=<?=$rtab[0];?>">
-                <?=$rtab[1];?>
+              <td align="left"><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> <a href="all-main-category.php?cate_id=<?php echo $rtab[0]; ?>">
+                <?php echo $rtab[1]; ?>
               </a></font></td>
             </tr>
         </table></td>
       </tr>
-      <? } ?>
+      <?php } ?>
     </table></td>
   </tr>
   <tr>
@@ -178,17 +178,17 @@ while($rtab=mysql_fetch_row($retab)){
         <tr>
           <td height="20"><table width="200" border="0" align="center" cellpadding="0" cellspacing="0">
 
-<?
+<?php
 $sball="select id, name from football order by id asc";
 $reball=mysql_query($sball) or die("ERROR $sball");
 while($rball=mysql_fetch_row($reball)){
 ?>
               <tr>
-                <td height="20" align="left"><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> <a href="football.php?id=<?=$rball[0];?>">
-                  <?=$rball[1];?>
+                <td height="20" align="left"><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> <a href="football.php?id=<?php echo $rball[0]; ?>">
+                  <?php echo $rball[1]; ?>
                 </a></font></td>
               </tr>
-<? } ?>
+<?php } ?>
           </table></td>
         </tr>
       </table></td>
@@ -204,24 +204,24 @@ while($rball=mysql_fetch_row($reball)){
       </tr>
       <tr>
         <td height="20"><table width="200" border="0" align="center" cellpadding="0" cellspacing="0">
-<?
+<?php
 $szean="select * from zean_name order by id asc";
 $rezean=mysql_query($szean) or die("ERROR $szean");
 while($rzean=mysql_fetch_row($rezean)){
 ?>
           <tr>
-            <td height="20" align="left"><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> <a href="tded-zean.php?zean_id=<?=$rzean[0];?>"><?=$rzean[1];?></a></font></td>
+            <td height="20" align="left"><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> <a href="tded-zean.php?zean_id=<?php echo $rzean[0]; ?>"><?php echo $rzean[1]; ?></a></font></td>
           </tr>
-          <? } ?>
+          <?php } ?>
         </table></td>
       </tr>
-      <?
+      <?php
 $ssco="select id, league from league order by id asc";
 $resco=mysql_query($ssco) or die("ERROR $ssco");
 while($rsco=mysql_fetch_row($resco)){
 ?>
 
-      <? } ?>
+      <?php } ?>
     </table></td>
   </tr>
   <tr>
@@ -240,7 +240,7 @@ while($rsco=mysql_fetch_row($resco)){
             </tr>
         </table></td>
       </tr>
-      <?
+      <?php
 $ssco="select id, league from league order by id asc";
 $resco=mysql_query($ssco) or die("ERROR $ssco");
 while($rsco=mysql_fetch_row($resco)){
@@ -248,13 +248,13 @@ while($rsco=mysql_fetch_row($resco)){
       <tr>
         <td height="20"><table width="200" border="0" align="center" cellpadding="0" cellspacing="0">
           <tr>
-            <td align="left"><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> <a href="t-ded.php?l_id=<?=$rsco[0];?>">
-              <?=$rsco[1];?>
+            <td align="left"><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> <a href="t-ded.php?l_id=<?php echo $rsco[0]; ?>">
+              <?php echo $rsco[1]; ?>
             </a></font></td>
           </tr>
         </table></td>
       </tr>
-      <? } ?>
+      <?php } ?>
     </table></td>
   </tr>
   <tr>

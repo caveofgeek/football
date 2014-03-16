@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 include "inc/config.inc.php";
 include "function/datethai.php";
@@ -29,9 +29,9 @@ $str=mysql_fetch_row($stre);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>เว็บเพื่อนบ้าน | <?=$titler[1];?></title>
-<META NAME="keywords" CONTENT="<?=$titler[12];?>">
-<META NAME="description" CONTENT="<?=$titler[1];?> เว็บเพื่อนบ้าน <?=$titler[11];?>">
+<title>เว็บเพื่อนบ้าน | <?php echo $titler[1]; ?></title>
+<META NAME="keywords" CONTENT="<?php echo $titler[12]; ?>"> 
+<META NAME="description" CONTENT="<?php echo $titler[1]; ?> เว็บเพื่อนบ้าน <?php echo $titler[11]; ?>">
 <meta name="robots"  content="index,follow">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -39,28 +39,28 @@ $str=mysql_fetch_row($stre);
 <style type="text/css">
 <!--
 body {
-	background-color: #<?=$bgr[1];?>;
-	<? if($bgr[2]!=""){ ?>background-image: url(http://<?=$titler[13];?>/bg-img/<?=$bgr[2];?>);
-	background-repeat: <?=$bgr[3];?>;
-	<? }if($bgr[4]==1){ ?>
+	background-color: #<?php echo $bgr[1]; ?>;
+	<?php if($bgr[2]!=""){ ?>background-image: url(http://<?php echo $titler[13]; ?>/bg-img/<?php echo $bgr[2]; ?>);
+	background-repeat: <?php echo $bgr[3]; ?>;
+	<?php }if($bgr[4]==1){ ?>	
 	background-attachment:fixed;
-	<? } ?>
+	<?php } ?>
 }
 a:link {
-	color: #<?=$linkr[1];?>;
+	color: #<?php echo $linkr[1]; ?>;
 	text-decoration: none;
 }
 a:visited {
 	text-decoration: none;
-	color: #<?=$linkr[2];?>;
+	color: #<?php echo $linkr[2]; ?>;
 }
 a:hover {
 	text-decoration: underline;
-	color: #<?=$linkr[3];?>;
+	color: #<?php echo $linkr[3]; ?>;
 }
 a:active {
 	text-decoration: none;
-	color: #<?=$linkr[4];?>;
+	color: #<?php echo $linkr[4]; ?>;
 }
 -->
 </style>
@@ -69,7 +69,7 @@ a:active {
 <body>
 <table width="995" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
-    <td align="center" valign="top"><? include "header.php"; ?></td>
+    <td align="center" valign="top"><?php include "header.php"; ?></td>
   </tr>
   <tr>
     <td style="background-color:#FFFFFF;"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -79,14 +79,14 @@ a:active {
     </table>
       <table width="985" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
-          <td width="250" align="center" valign="top"><? include "menu.php"; ?></td>
+          <td width="250" align="center" valign="top"><?php include "menu.php"; ?></td>
           <td width="7" align="center" valign="top">&nbsp;</td>
           <td width="728" align="center" valign="top"><table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
               <td align="center"><table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
                 <tr>
                   <td align="center">
-<?
+<?php
 $sads8="SELECT * FROM `ads_a8` ORDER BY id ASC";
 $reads8=mysql_query($sads8) or die("Error $sads8");
 while($rads8=mysql_fetch_row($reads8)){
@@ -94,22 +94,22 @@ while($rads8=mysql_fetch_row($reads8)){
                     <table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tr>
                           <td align="center" valign="middle">
-						  <?
-						  if($rads8[1]==1){
-						  $ads8=stripslashes($rads8[3]);
+						  <?php 
+						  if($rads8[1]==1){ 
+						  $ads8=stripslashes($rads8[3]); 
 						  echo $ads8;
 						  }else if($rads8[1]==2){
 						  ?>
-                              <a href="<?=$rads8[7];?>" title="<?=$rads8[8];?>" target="_blank">
-                              <? if($rads8[2]==1){  ?>
-                              <img src="http://<?=$titler[13];?>/ads-img/<?=$rads8[9];?>" alt="<?=$rads8[8];?>" width="728" border="0" title="<?=$rads8[8];?>" />
-                              <? }else if($rads8[2]==2){ ?>
+                              <a href="<?php echo $rads8[7]; ?>" title="<?php echo $rads8[8]; ?>" target="_blank">
+                              <?php if($rads8[2]==1){  ?>
+                              <img src="http://<?php echo $titler[13]; ?>/ads-img/<?php echo $rads8[9]; ?>" alt="<?php echo $rads8[8]; ?>" width="728" border="0" title="<?php echo $rads8[8]; ?>" />
+                              <?php }else if($rads8[2]==2){ ?>
                               <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="728" border="0">
-                                <param name="movie" value="http://<?=$titler[13];?>/ads-img/<?=$rads8[9];?>" />
+                                <param name="movie" value="http://<?php echo $titler[13]; ?>/ads-img/<?php echo $rads8[9]; ?>" />
                                 <param name="quality" value="high" />
-                                <embed src="http://<?=$titler[13];?>/ads-img/<?=$rads8[9];?>" width="728" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"></embed>
+                                <embed src="http://<?php echo $titler[13]; ?>/ads-img/<?php echo $rads8[9]; ?>" width="728" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"></embed>
                               </object>
-                              <? }} ?>
+                              <?php }} ?>
                             </a></td>
                         </tr>
                       </table>
@@ -118,7 +118,7 @@ while($rads8=mysql_fetch_row($reads8)){
                         <td height="5"></td>
                       </tr>
                     </table>
-<? } ?>
+<?php } ?>
 				  </td>
                 </tr>
               </table></td>
@@ -164,7 +164,7 @@ while($rads8=mysql_fetch_row($reads8)){
                                                   <td><font size="2" color="#FF0000">4. กรุณานำโค๊ดลิงค์ของเรา ไปติดในเว็บของท่าน หากเราตรวจสอบแล้ว ไม่มีลิงค์ของเรา ติดในเว็บของท่าน ระบบจะลบลิงค์แบนเนอร์ของท่านออก โดยไม่ต้องแจ้งให้ทราบล่วงหน้า</font></td>
                                                 </tr>
                                                 <tr>
-                                                  <td align="center"><?
+                                                  <td align="center"><?php
 $s1="select data from link_admin where id=2";
 $re1=mysql_query($s1) or die("ERROR $s1");
 $r1=mysql_fetch_row($re1);
@@ -176,26 +176,26 @@ $r2=mysql_fetch_row($re2);
                                                         <tr>
                                                           <td width="110" align="right"><strong><font color="#0000FF" size="2">Banner Link</font></strong></td>
                                                           <td width="10">&nbsp;</td>
-                                                          <td width="160" align="left"><font size="2"><strong><a href="http://<?=$titler[13];?>" title="<?=$r2[0];?>" target="_blank"><img src="http://<?=$titler[13];?>/banner/<?=$r2[1];?>" title="<?=$r2[0];?>" alt="<?=$r2[0];?>" border="0" /></a></strong></font></td>
+                                                          <td width="160" align="left"><font size="2"><strong><a href="http://<?php echo $titler[13]; ?>" title="<?php echo $r2[0]; ?>" target="_blank"><img src="http://<?php echo $titler[13]; ?>/banner/<?php echo $r2[1]; ?>" title="<?php echo $r2[0]; ?>" alt="<?php echo $r2[0]; ?>" border="0" /></a></strong></font></td>
                                                         </tr>
                                                     </table></td>
                                                 </tr>
                                                 <tr>
-                                                  <td align="center"><input name="code3" type="text" id="code3" readonly="readonly" value="&lt;a href=&quot;http://<?=$titler[13];?>&quot; title=&quot;<?=$r2[0];?>&quot; target=&quot;_blank&quot;  rel=&quot;dofollow &quot;&gt;&lt;img src=&quot;http://<?=$titler[13];?>/banner/<?=$r2[1];?>&quot; title=&quot;<?=$r2[0];?>&quot; alt=&quot;<?=$r2[0];?>&quot; border=&quot;0&quot;&gt;&lt;/a&gt;" size="50" onclick="this.focus();this.select()" /></td>
+                                                  <td align="center"><input name="code3" type="text" id="code3" readonly="readonly" value="&lt;a href=&quot;http://<?php echo $titler[13]; ?>&quot; title=&quot;<?php echo $r2[0]; ?>&quot; target=&quot;_blank&quot;  rel=&quot;dofollow &quot;&gt;&lt;img src=&quot;http://<?php echo $titler[13]; ?>/banner/<?php echo $r2[1]; ?>&quot; title=&quot;<?php echo $r2[0]; ?>&quot; alt=&quot;<?php echo $r2[0]; ?>&quot; border=&quot;0&quot;&gt;&lt;/a&gt;" size="50" onclick="this.focus();this.select()" /></td>
                                                 </tr>
                                                 <tr>
                                                   <td align="center"><table width="280" border="0" cellspacing="0" cellpadding="0">
                                                       <tr>
                                                         <td width="110" align="right"><strong><font color="#0000FF" size="2">Text Link</font></strong></td>
                                                         <td width="10">&nbsp;</td>
-                                                        <td width="160" align="left"><font size="2"><strong><a href="http://<?=$titler[13];?>" title="<?=$r1[0];?>" target="_blank"  rel="dofollow "><strong>
-                                                          <?=$r1[0];?>
+                                                        <td width="160" align="left"><font size="2"><strong><a href="http://<?php echo $titler[13]; ?>" title="<?php echo $r1[0]; ?>" target="_blank"  rel="dofollow "><strong>
+                                                          <?php echo $r1[0]; ?>
                                                         </strong></a></strong></font></td>
                                                       </tr>
                                                   </table></td>
                                                 </tr>
                                                 <tr>
-                                                  <td align="center"><input name="code2" type="text" id="code2" readonly="readonly" value="&lt;a href=&quot;http://<?=$titler[13];?>&quot; title=&quot;<?=$r1[0];?>&quot; target=&quot;_blank&quot;  rel=&quot;dofollow &quot;&gt;&lt;strong&gt;<?=$r1[0];?>&lt;/strong&gt;&lt;/a&gt;" size="50" onclick="this.focus();this.select()" /></td>
+                                                  <td align="center"><input name="code2" type="text" id="code2" readonly="readonly" value="&lt;a href=&quot;http://<?php echo $titler[13]; ?>&quot; title=&quot;<?php echo $r1[0]; ?>&quot; target=&quot;_blank&quot;  rel=&quot;dofollow &quot;&gt;&lt;strong&gt;<?php echo $r1[0]; ?>&lt;/strong&gt;&lt;/a&gt;" size="50" onclick="this.focus();this.select()" /></td>
                                                 </tr>
                                             </table></td>
                                           </tr>
@@ -244,7 +244,7 @@ $r2=mysql_fetch_row($re2);
                                                           </tr>
                                                           <tr>
                                                             <td width="100" height="25" align="left"><font size="2">หาผลบวกของ
-                                                              <?
+                                                              <?php
 $a=rand(0,9);
 $b=rand(0,9);
 $s=$a+$b;
@@ -253,7 +253,7 @@ echo "$a+$b";
                                                             </font></td>
                                                             <td width="220" height="25" align="left"><input name="ans" type="text" id="ans" size="5" maxlength="2" />
                                                                 <font color="#FF0000" size="2">&lt;==ใส่คำตอบ</font>
-                                                                <input type="hidden" id="ask" name="ask" value="<?=$s;?>" /></td>
+                                                                <input type="hidden" id="ask" name="ask" value="<?php echo $s; ?>" /></td>
                                                           </tr>
                                                           <tr>
                                                             <td height="25" align="center"><label></label></td>
@@ -303,7 +303,7 @@ alert("กรุณากรอกคำตอบด้วยตัวเลข�
 document.checkForm.ans.focus() ;
 return false ;
 }
-else if(document.checkForm.ans.value != <?=$s;?>) {
+else if(document.checkForm.ans.value != <?php echo $s; ?>) {
 alert("คุณบวกเลขไม่ถูกต้องครับ") ;
 document.checkForm.ans.focus() ;
 return false ;
@@ -347,7 +347,7 @@ return true ;
                               <tr>
                                 <td align="center"><table width="710" border="0" align="center" cellpadding="0" cellspacing="0">
                                     <tr>
-                                      <td align="center"><?
+                                      <td align="center"><?php
 		$strSQL1="SELECT code FROM link_exchange WHERE type='2' AND actived='1' ORDER BY id ASC";
 		$objQuery1 = mysql_query($strSQL1) or die("ERROR บรรทัด 281");
 		echo"<table border=\"0\"  cellspacing=\"1\" cellpadding=\"1\"><tr>";
@@ -359,10 +359,10 @@ return true ;
 	?>
                                           <table width="90" border="0" align="center" cellpadding="0" cellspacing="0">
                                             <tr>
-                                              <td height="35" align="center"><?=$objResult1[0];?></td>
+                                              <td height="35" align="center"><?php echo $objResult1[0]; ?></td>
                                             </tr>
                                           </table>
-                                        <?
+                                        <?php
 			echo"</td>";
 			if(($intRows1)%7==0)
 			{
@@ -390,7 +390,7 @@ return true ;
                                 <td><table width="710" border="0" align="center" cellpadding="0" cellspacing="0">
                                     <tr>
                                       <td><table border="0" align="left" cellpadding="0" cellspacing="0">
-                                          <?
+                                          <?php
 		$strSQL="SELECT code FROM link_exchange WHERE type='1' AND actived='1' ORDER BY id ASC";
 		$objQuery = mysql_query($strSQL) or die("ERROR บรรทัด 317");
 		$x=1;
@@ -398,12 +398,12 @@ return true ;
 	?>
                                           <tr>
                                             <td align="left"><font size="2">
-                                              <?=$x;?>
+                                              <?php echo $x; ?>
                                               .
-                                              <?=$objResult[0];?>
+                                              <?php echo $objResult[0]; ?>
                                             </font></td>
                                           </tr>
-                                          <? $x++;} ?>
+                                          <?php $x++;} ?>
                                       </table></td>
                                     </tr>
                                 </table></td>
@@ -419,9 +419,9 @@ return true ;
       </table></td>
   </tr>
   <tr>
-    <td align="center"><? include "top-footer.php"; ?></td>
+    <td align="center"><?php include "top-footer.php"; ?></td>
   </tr>
 </table>
-<? include "footer.php"; ?>
+<?php include "footer.php"; ?>
 </body>
 </html>

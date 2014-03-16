@@ -1,5 +1,5 @@
-<?
-@session_start();
+<?php 
+@session_start(); 
 include "../inc/config.inc.php";
 if(!isset($_SESSION[mod_login])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
@@ -46,8 +46,8 @@ a:active {
     <td><div align="center">
       <table width="980" border="0" cellspacing="1" cellpadding="1">
         <tr valign="top">
-          <td width="490"><div align="left"><font color="#000000" size="2">:: ยินดีต้อนรับเข้าสู่ ระบบจัดการ<font color="#333333">ข้อมูลวิเคราะห์บอล</font> :: |
-				<?
+          <td width="490"><div align="left"><font color="#000000" size="2">:: ยินดีต้อนรับเข้าสู่ ระบบจัดการ<font color="#333333">ข้อมูลวิเคราะห์บอล</font> :: | 
+				<?php
 				$dm=date("d/m");
 				$y=date("Y")+543;
 				$date="$dm/$y";
@@ -93,8 +93,8 @@ a:active {
                   <td height="5"></td>
                 </tr>
               </table>
-<?
-$id=$_GET[id];
+<?php
+$id=$_GET["id"];
 $spost="select * from `analyze` where id='$id'";
 $repost=mysql_query($spost) or die("ERROR $spost");
 $rpost=mysql_fetch_row($repost);
@@ -104,26 +104,26 @@ $rpost=mysql_fetch_row($repost);
                   <td width="100" height="30" align="right" valign="top"><strong><font color="#000000" size="2">หัวข้อ</font></strong></td>
                   <td width="10" height="30">&nbsp;</td>
                   <td width="620" height="30" valign="top">
-				  <input name="title" type="text" id="title" style="width:600px;" value="<?=$rpost[2];?>" />
-				  <input type="hidden" name="id" id="id" value="<?=$id;?>" />
+				  <input name="title" type="text" id="title" style="width:600px;" value="<?php echo $rpost[2]; ?>" />
+				  <input type="hidden" name="id" id="id" value="<?php echo $id; ?>" />
 				  </td>
                 </tr>
 
                 <tr>
                   <td width="100" height="455" align="right" valign="top"><strong><font color="#000000" size="2">รายละเอียด</font></strong></td>
                   <td width="10" height="455">&nbsp;</td>
-                  <td width="620" height="455" valign="top"><textarea class="cleditorMain" id="input" name="input" style="width:600px; height:450px;"><?=$rpost[3];?></textarea></td>
+                  <td width="620" height="455" valign="top"><textarea class="cleditorMain" id="input" name="input" style="width:600px; height:450px;"><?php echo $rpost[3]; ?></textarea></td>
                 </tr>
 
                 <tr>
                   <td width="100" height="30" align="right" valign="top"><strong><font color="#000000" size="2">สถานะ</font></strong></td>
                   <td width="10" height="30">&nbsp;</td>
                   <td width="620" height="30" align="left" valign="top">
-				  <input name="status_comment" type="radio" value="1" <? if($rpost[4]==1){ ?>checked="checked"<? } ?> />
+				  <input name="status_comment" type="radio" value="1" <?php if($rpost[4]==1){ ?>checked="checked"<?php } ?> />
                       <font color="#000000" size="2">Comment ได้ทุกคน
-                        <input name="status_comment" type="radio" value="2" <? if($rpost[4]==2){ ?>checked="checked"<? } ?> />
+                        <input name="status_comment" type="radio" value="2" <?php if($rpost[4]==2){ ?>checked="checked"<?php } ?> />
                         เฉพาะสมาชิก
-                        <input name="status_comment" type="radio" value="3" <? if($rpost[4]==3){ ?>checked="checked"<? } ?> />
+                        <input name="status_comment" type="radio" value="3" <?php if($rpost[4]==3){ ?>checked="checked"<?php } ?> />
                         ไม่ให้ Comment </font></td>
                 </tr>
 

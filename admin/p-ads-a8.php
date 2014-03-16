@@ -1,8 +1,8 @@
-<?
+<?php
 session_start();
 include "../inc/config.inc.php";
-//echo "$_SESSION[m_login]<br>$_SESSION[m_id]";
-if(!isset($_SESSION[admin_login])) {
+//echo "$_SESSION[m_login]<br>$_SESSION["m_id"]";
+if(!isset($_SESSION["admin_login"])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
 exit() ;
 }
@@ -26,8 +26,8 @@ $finish_date=$_POST[finish_date];
 $name=$_POST[name];
 $tel=$_POST[tel];
 $email=$_POST[email];
-$file1=$_FILES[file1][name];
-$tmp1=$_FILES[file1][tmp_name];
+$file1=$_FILES["file1"]["name"];
+$tmp1=$_FILES["file1"]["tmp_name"];
 
 if($file1!=""){ 
 $part1="../ads-img/$op";

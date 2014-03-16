@@ -1,9 +1,10 @@
-<?
-@session_start();
+<?php 
+@session_start(); 
 include "../inc/config.inc.php";
 include "../function/datethai.php";
-if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
+if(!isset($_SESSION["admin_login"])) {
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+
 exit() ;
 }
 ?>
@@ -50,7 +51,7 @@ body {
             <table width="960" border="0" cellspacing="1" cellpadding="1">
               <tr valign="top">
                 <td width="690"><div align="left"><font color="#ffffff" size="4">.:: ยินดีต้อนรับเข้าสู่ ระบบจัดการข้อมูลเว็บไซต์ ::
-                  <?
+                  <?php
 				$dm=date("d/m");
 				$y=date("Y")+543;
 				$date="$dm/$y";
@@ -66,21 +67,21 @@ body {
       <tr>
         <td bgcolor="#CCCCCC"><table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
-              <td width="220" align="center" valign="top"><? include "menu.php"; ?></td>
+              <td width="220" align="center" valign="top"><?php include "menu.php"; ?></td>
               <td width="760" align="center" valign="top" bgcolor="#FFFFFF"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
                   <tr>
                     <td height="25"><strong><font size="2">
-<?
+<?php
 $zean_id=$_GET[zean_id];
-$id=$_GET[id];
+$id=$_GET["id"];
 $szn="SELECT * FROM `zean_name` WHERE id='$zean_id'";
 $rezn=mysql_query($szn) or die("ERROR $szn");
 $rzn=mysql_fetch_row($rezn);
-?>
-                      <img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> <a href="tded-zean.php?zean_id=<?=$zean_id;?>">จัดการข้อมูลทีเด็ด <?=$rzn[1];?></a> <img src="images/arrow.gif" width="7" height="11" /> แก้ไขข้อมูลทีเด็ด
-                      <?=$rzn[1];?>
-                      วันที่
-<?
+?> 
+                      <img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> <a href="tded-zean.php?zean_id=<?php echo $zean_id; ?>">จัดการข้อมูลทีเด็ด <?php echo $rzn[1]; ?></a> <img src="images/arrow.gif" width="7" height="11" /> แก้ไขข้อมูลทีเด็ด 
+                      <?php echo $rzn[1]; ?> 
+                      วันที่ 
+<?php
 $spost="SELECT * FROM `tded_zean` WHERE id='$id'";
 $repost=mysql_query($spost) or die("ERROR $spost");
 $rpost=mysql_fetch_row($repost);
@@ -105,39 +106,39 @@ echo DateThai($postDate);
                                     <td width="150" align="right"><span class="style4">วันที่แข่งขัน</span></td>
                                     <td width="10">&nbsp;</td>
                                     <td width="390"><select name="days" id="days">
-                                      <?
+                                      <?php
 								  $a=1;
 								  while($a<=31){
 								  ?>
-                                      <option value="<?=$a;?>" <? if($a==$rpost[8]){ ?>selected="selected" <? } ?> >
-                                      <?=$a;?>
+                                      <option value="<?php echo $a; ?>" <?php if($a==$rpost[8]){ ?>selected="selected" <?php } ?> >
+                                      <?php echo $a; ?>
                                       </option>
-                                      <? $a++;} ?>
+                                      <?php $a++;} ?>
                                     </select>
                                     <select name="months" id="months">
-                                      <option value="01" <? if($rpost[9]==1){ ?>selected="selected" <? } ?> >มกราคม</option>
-                                      <option value="02" <? if($rpost[9]==2){ ?>selected="selected" <? } ?> >กุมภาพันธ์</option>
-                                      <option value="03" <? if($rpost[9]==3){ ?>selected="selected" <? } ?> >มีนาคม</option>
-                                      <option value="04" <? if($rpost[9]==4){ ?>selected="selected" <? } ?> >เมษายน</option>
-                                      <option value="05" <? if($rpost[9]==5){ ?>selected="selected" <? } ?> >พฤษภาคม</option>
-                                      <option value="06" <? if($rpost[9]==6){ ?>selected="selected" <? } ?> >มิถุนายน</option>
-                                      <option value="07" <? if($rpost[9]==7){ ?>selected="selected" <? } ?> >กรกฏาคม</option>
-                                      <option value="08" <? if($rpost[9]==8){ ?>selected="selected" <? } ?> >สิงหาคม</option>
-                                      <option value="09" <? if($rpost[9]==9){ ?>selected="selected" <? } ?> >กันยายน</option>
-                                      <option value="10" <? if($rpost[9]==10){ ?>selected="selected" <? } ?> >ตุลาคม</option>
-                                      <option value="11" <? if($rpost[9]==11){ ?>selected="selected" <? } ?> >พฤศจิกายน</option>
-                                      <option value="12" <? if($rpost[9]==12){ ?>selected="selected" <? } ?> >ธันวาคม</option>
+                                      <option value="01" <?php if($rpost[9]==1){ ?>selected="selected" <?php } ?> >มกราคม</option>
+                                      <option value="02" <?php if($rpost[9]==2){ ?>selected="selected" <?php } ?> >กุมภาพันธ์</option>
+                                      <option value="03" <?php if($rpost[9]==3){ ?>selected="selected" <?php } ?> >มีนาคม</option>
+                                      <option value="04" <?php if($rpost[9]==4){ ?>selected="selected" <?php } ?> >เมษายน</option>
+                                      <option value="05" <?php if($rpost[9]==5){ ?>selected="selected" <?php } ?> >พฤษภาคม</option>
+                                      <option value="06" <?php if($rpost[9]==6){ ?>selected="selected" <?php } ?> >มิถุนายน</option>
+                                      <option value="07" <?php if($rpost[9]==7){ ?>selected="selected" <?php } ?> >กรกฏาคม</option>
+                                      <option value="08" <?php if($rpost[9]==8){ ?>selected="selected" <?php } ?> >สิงหาคม</option>
+                                      <option value="09" <?php if($rpost[9]==9){ ?>selected="selected" <?php } ?> >กันยายน</option>
+                                      <option value="10" <?php if($rpost[9]==10){ ?>selected="selected" <?php } ?> >ตุลาคม</option>
+                                      <option value="11" <?php if($rpost[9]==11){ ?>selected="selected" <?php } ?> >พฤศจิกายน</option>
+                                      <option value="12" <?php if($rpost[9]==12){ ?>selected="selected" <?php } ?> >ธันวาคม</option>
                                     </select>
                                     <select name="years" id="years">
-                                      <?
+                                      <?php
 								  $y=date("Y");
 								  $ny=date("Y")+1;
 								  while($y<=$ny){
 								  ?>
-                                      <option value="<?=$y;?>" <? if($y==$rpost[10]){ ?>selected="selected" <? } ?> >
-                                      <?=$y;?>
+                                      <option value="<?php echo $y; ?>" <?php if($y==$rpost[10]){ ?>selected="selected" <?php } ?> >
+                                      <?php echo $y; ?>
                                       </option>
-                                      <? $y++;} ?>
+                                      <?php $y++;} ?>
                                     </select></td>
                                   </tr>
 
@@ -147,8 +148,8 @@ echo DateThai($postDate);
                                 <td align="center"><table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
                                   <tr>
                                     <td width="90" height="25" align="right" bgcolor="#CCCCCC">
-									<input type="hidden" name="id" id="id" value="<?=$id;?>" />
-									<input type="hidden" name="zean_id" id="zean_id" value="<?=$zean_id;?>" />
+									<input type="hidden" name="id" id="id" value="<?php echo $id; ?>" />
+									<input type="hidden" name="zean_id" id="zean_id" value="<?php echo $zean_id; ?>" />
 									</td>
                                     <td width="170" height="25" align="center" bgcolor="#999999"><span class="style4">ทีมที่ 1 </span></td>
                                     <td width="170" height="25" align="center" bgcolor="#CCCCCC"><span class="style4">ทีมที่ 2 </span></td>
@@ -156,23 +157,23 @@ echo DateThai($postDate);
                                     </tr>
                                   <tr>
                                     <td width="90" height="20" align="center" bgcolor="#CCCCCC"><span class="style4">ชื่อทีม</span></td>
-                                    <td width="170" height="20" align="center" bgcolor="#999999"><input name="team1" type="text" id="team1" style="width:120px;" value="<?=$rpost[2];?>" /></td>
-                                    <td width="170" height="20" align="center" bgcolor="#CCCCCC"><input name="team2" type="text" id="team2" style="width:120px;" value="<?=$rpost[4];?>" /></td>
-                                    <td width="170" height="20" align="center" bgcolor="#999999"><input name="team3" type="text" id="team3" style="width:120px;" value="<?=$rpost[6];?>" /></td>
+                                    <td width="170" height="20" align="center" bgcolor="#999999"><input name="team1" type="text" id="team1" style="width:120px;" value="<?php echo $rpost[2]; ?>" /></td>
+                                    <td width="170" height="20" align="center" bgcolor="#CCCCCC"><input name="team2" type="text" id="team2" style="width:120px;" value="<?php echo $rpost[4]; ?>" /></td>
+                                    <td width="170" height="20" align="center" bgcolor="#999999"><input name="team3" type="text" id="team3" style="width:120px;" value="<?php echo $rpost[6]; ?>" /></td>
                                     </tr>
                                   <tr>
                                     <td width="90" height="20" align="center" bgcolor="#CCCCCC"><span class="style4">ทีเด็ด</span></td>
-                                    <td width="170" height="20" align="center" bgcolor="#999999"><input name="t_ded1" type="radio" value="1" <? if($rpost[3]==1){ ?> checked="checked" <? } ?>>
+                                    <td width="170" height="20" align="center" bgcolor="#999999"><input name="t_ded1" type="radio" value="1" <?php if($rpost[3]==1){ ?> checked="checked" <?php } ?>>
                                         <span class="style5">ถูก
-                                          <input name="t_ded1" type="radio" value="0" <? if($rpost[3]==0){ ?> checked="checked" <? } ?>>
+                                          <input name="t_ded1" type="radio" value="0" <?php if($rpost[3]==0){ ?> checked="checked" <?php } ?>>
                                           ผิด</span></td>
-                                    <td width="170" height="20" align="center" bgcolor="#CCCCCC"><input name="t_ded2" type="radio" value="1" <? if($rpost[5]==1){ ?> checked="checked" <? } ?> />
+                                    <td width="170" height="20" align="center" bgcolor="#CCCCCC"><input name="t_ded2" type="radio" value="1" <?php if($rpost[5]==1){ ?> checked="checked" <?php } ?> />
                                         <span class="style5">ถูก
-                                          <input name="t_ded2" type="radio" value="0" <? if($rpost[5]==0){ ?> checked="checked" <? } ?> />
+                                          <input name="t_ded2" type="radio" value="0" <?php if($rpost[5]==0){ ?> checked="checked" <?php } ?> />
                                           ผิด</span></td>
-                                    <td width="170" height="20" align="center" bgcolor="#999999"><input name="t_ded3" type="radio" value="1" <? if($rpost[7]==1){ ?> checked="checked" <? } ?> />
+                                    <td width="170" height="20" align="center" bgcolor="#999999"><input name="t_ded3" type="radio" value="1" <?php if($rpost[7]==1){ ?> checked="checked" <?php } ?> />
                                         <span class="style5">ถูก
-                                          <input name="t_ded3" type="radio" value="0" <? if($rpost[7]==0){ ?> checked="checked" <? } ?> />
+                                          <input name="t_ded3" type="radio" value="0" <?php if($rpost[7]==0){ ?> checked="checked" <?php } ?> />
                                           ผิด</span></td>
                                   </tr>
                                 </table></td>
