@@ -1,13 +1,13 @@
-<?
+<?php
 session_start();
 include "../inc/config.inc.php";
 include "../function/function.php";
 ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<?
+<?php
 $id=$_POST[id];
 $title=$_POST[title];
-$detail=addslashes($_POST[input]);
+$detail=addslashes($_POST["input"]);
 $status_comment=$_POST[status_comment];
 
 $insert=mysql_query("UPDATE `analyze` SET `title`='$title' ,`detail`='$detail' ,`status_comment`='$status_comment' WHERE id='$id'") or die("ERROR $insert บรรทัดที่ 12");

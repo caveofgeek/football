@@ -1,12 +1,13 @@
-<?
-@session_start();
+<?php 
+@session_start(); 
 include "../inc/config.inc.php";
 include "../function/datethai.php";
-if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
+if(!isset($_SESSION["admin_login"])) {
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+
 exit() ;
 }
-$id=$_GET[id];
+$id=$_GET["id"];
 $sql="SELECT * FROM `t_ded` where id='$id'";
 $result=mysql_query($sql) or die("ERROR $sql");
 $row=mysql_fetch_row($result);
@@ -57,7 +58,7 @@ body {
             <table width="960" border="0" cellspacing="1" cellpadding="1">
               <tr valign="top">
                 <td width="690"><div align="left"><font color="#ffffff" size="4">.:: ยินดีต้อนรับเข้าสู่ ระบบจัดการข้อมูลเว็บไซต์ ::
-                  <?
+                  <?php
 				$dm=date("d/m");
 				$y=date("Y")+543;
 				$date="$dm/$y";
@@ -73,11 +74,11 @@ body {
       <tr>
         <td bgcolor="#CCCCCC"><table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
-              <td width="220" align="center" valign="top"><? include "menu.php"; ?></td>
+              <td width="220" align="center" valign="top"><?php include "menu.php"; ?></td>
               <td width="760" align="center" valign="top" bgcolor="#FFFFFF"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
                   <tr>
-                    <td height="25"><strong><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> <a href="t-ded.php?l_id=<?=$row[1];?>">จัดการข้อมูลทีเด็ด<?=$r[1];?>
-                    </a>                          <img src="images/arrow.gif" width="7" height="11" /> แก้ไขข้อมูลทีเด็ด<?=$r[1];?></font></strong></td>
+                    <td height="25"><strong><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> <a href="t-ded.php?l_id=<?php echo $row[1]; ?>">จัดการข้อมูลทีเด็ด<?php echo $r[1]; ?>
+                    </a>                          <img src="images/arrow.gif" width="7" height="11" /> แก้ไขข้อมูลทีเด็ด<?php echo $r[1]; ?></font></strong></td>
                   </tr>
                   <tr>
                     <td><table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -93,87 +94,87 @@ body {
                                 <td width="150" align="right"><span class="style4">วันที่แข่งขัน</span></td>
                                 <td width="10">&nbsp;</td>
                                 <td width="350"><select name="days" id="days">
-                                  <?
+                                  <?php
 								  $a=1;
 								  while($a<=31){
 								  ?>
-                                  <option value="<?=$a;?>" <? if($a==$row[10]){ ?>selected="selected" <? } ?> >
-                                  <?=$a;?>
+                                  <option value="<?php echo $a; ?>" <?php if($a==$row[10]){ ?>selected="selected" <?php } ?> >
+                                  <?php echo $a; ?>
                                   </option>
-                                  <? $a++;} ?>
+                                  <?php $a++;} ?>
                                 </select>
                                   <select name="months" id="months">
-                                    <option value="1" <? if($row[11]==1){ ?>selected="selected" <? } ?> >มกราคม</option>
-                                    <option value="2" <? if($row[11]==2){ ?>selected="selected" <? } ?> >กุมภาพันธ์</option>
-                                    <option value="3" <? if($row[11]==3){ ?>selected="selected" <? } ?> >มีนาคม</option>
-                                    <option value="4" <? if($row[11]==4){ ?>selected="selected" <? } ?> >เมษายน</option>
-                                    <option value="5" <? if($row[11]==5){ ?>selected="selected" <? } ?> >พฤษภาคม</option>
-                                    <option value="6" <? if($row[11]==6){ ?>selected="selected" <? } ?> >มิถุนายน</option>
-                                    <option value="7" <? if($row[11]==7){ ?>selected="selected" <? } ?> >กรกฏาคม</option>
-                                    <option value="8" <? if($row[11]==8){ ?>selected="selected" <? } ?> >สิงหาคม</option>
-                                    <option value="9" <? if($row[11]==9){ ?>selected="selected" <? } ?> >กันยายน</option>
-                                    <option value="10" <? if($row[11]==10){ ?>selected="selected" <? } ?> >ตุลาคม</option>
-                                    <option value="11" <? if($row[11]==11){ ?>selected="selected" <? } ?> >พฤศจิกายน</option>
-                                    <option value="12" <? if($row[11]==12){ ?>selected="selected" <? } ?> >ธันวาคม</option>
+                                    <option value="1" <?php if($row[11]==1){ ?>selected="selected" <?php } ?> >มกราคม</option>
+                                    <option value="2" <?php if($row[11]==2){ ?>selected="selected" <?php } ?> >กุมภาพันธ์</option>
+                                    <option value="3" <?php if($row[11]==3){ ?>selected="selected" <?php } ?> >มีนาคม</option>
+                                    <option value="4" <?php if($row[11]==4){ ?>selected="selected" <?php } ?> >เมษายน</option>
+                                    <option value="5" <?php if($row[11]==5){ ?>selected="selected" <?php } ?> >พฤษภาคม</option>
+                                    <option value="6" <?php if($row[11]==6){ ?>selected="selected" <?php } ?> >มิถุนายน</option>
+                                    <option value="7" <?php if($row[11]==7){ ?>selected="selected" <?php } ?> >กรกฏาคม</option>
+                                    <option value="8" <?php if($row[11]==8){ ?>selected="selected" <?php } ?> >สิงหาคม</option>
+                                    <option value="9" <?php if($row[11]==9){ ?>selected="selected" <?php } ?> >กันยายน</option>
+                                    <option value="10" <?php if($row[11]==10){ ?>selected="selected" <?php } ?> >ตุลาคม</option>
+                                    <option value="11" <?php if($row[11]==11){ ?>selected="selected" <?php } ?> >พฤศจิกายน</option>
+                                    <option value="12" <?php if($row[11]==12){ ?>selected="selected" <?php } ?> >ธันวาคม</option>
                                   </select>
                                   <select name="years" id="years">
-                                    <?
+                                    <?php
 								  $y=date("Y");
 								  $ny=date("Y")+1;
 								  while($y<=$ny){
 								  ?>
-                                    <option value="<?=$y;?>" <? if($y==$row[12]){ ?>selected="selected" <? } ?> >
-                                    <?=$y;?>
+                                    <option value="<?php echo $y; ?>" <?php if($y==$row[12]){ ?>selected="selected" <?php } ?> >
+                                    <?php echo $y; ?>
                                     </option>
-                                    <? $y++;} ?>
+                                    <?php $y++;} ?>
                                   </select>
-                                  <input type="hidden" name="id" id="id" value="<?=$id;?>" />
-								<input type="hidden" name="l_id" id="l_id" value="<?=$row[1];;?>" /></td>
+                                  <input type="hidden" name="id" id="id" value="<?php echo $id; ?>" />
+								<input type="hidden" name="l_id" id="l_id" value="<?php echo $row[1];; ?>" /></td>
                               </tr>
                               <tr>
                                 <td align="right"><span class="style4">ทีมเจ้าบ้าน</span></td>
                                 <td>&nbsp;</td>
-                                <td><input name="home" type="text" id="home" value="<?=$row[2];?>" /></td>
+                                <td><input name="home" type="text" id="home" value="<?php echo $row[2]; ?>" /></td>
                               </tr>
                               <tr>
                                 <td width="150" align="right"><span class="style4">ทีมเยือน</span></td>
                                 <td width="10">&nbsp;</td>
-                                <td width="350"><input name="away" type="text" id="away" value="<?=$row[3];?>" /></td>
+                                <td width="350"><input name="away" type="text" id="away" value="<?php echo $row[3]; ?>" /></td>
                               </tr>
                               <tr>
                                 <td width="150" align="right"><span class="style4">ราคาบอล</span></td>
                                 <td width="10">&nbsp;</td>
-                                <td><input name="odds_ball" type="text" id="odds_ball" value="<?=$row[4];?>" /></td>
+                                <td><input name="odds_ball" type="text" id="odds_ball" value="<?php echo $row[4]; ?>" /></td>
                               </tr>
                               <tr>
                                 <td width="150" align="right"><span class="style4">ทีมที่ต่อ</span></td>
                                 <td width="10">&nbsp;</td>
-                                <td><input name="t_ded" type="radio" value="1" <? if($row[5]==1){ echo "checked"; } ?> />
+                                <td><input name="t_ded" type="radio" value="1" <?php if($row[5]==1){ echo "checked"; } ?> />
                                   <span class="style5">ทีมเจ้าบ้าน
-                                  <input name="t_ded" type="radio" value="2" <? if($row[5]==2){ echo "checked"; } ?> />
-ทีมเยือน
-<input name="t_ded" type="radio" value="0" <? if($row[5]==0){ echo "checked"; } ?>  />
+                                  <input name="t_ded" type="radio" value="2" <?php if($row[5]==2){ echo "checked"; } ?> />
+ทีมเยือน 
+<input name="t_ded" type="radio" value="0" <?php if($row[5]==0){ echo "checked"; } ?>  />
 เสมอ </span></td>
                               </tr>
                               <tr>
                                 <td width="150" align="right"><span class="style4">ทีเด็ด</span></td>
                                 <td width="10">&nbsp;</td>
-                                <td><input name="detail" type="text" id="detail" value="<?=$row[6];?>" size="50" /></td>
+                                <td><input name="detail" type="text" id="detail" value="<?php echo $row[6]; ?>" size="50" /></td>
                               </tr>
                               <tr>
                                 <td width="150" align="right"><span class="style4">เวลาแข่งขัน</span></td>
                                 <td width="10">&nbsp;</td>
-                                <td><input name="time_live" type="text" id="time_live" value="<?=$row[7];?>" /></td>
+                                <td><input name="time_live" type="text" id="time_live" value="<?php echo $row[7]; ?>" /></td>
                               </tr>
                               <tr>
                                 <td width="150" align="right"><span class="style4">ช่องที่ถ่ายทอดสด</span></td>
                                 <td width="10">&nbsp;</td>
-                                <td><input name="ch_live" type="text" id="ch_live" value="<?=$row[8];?>" /></td>
+                                <td><input name="ch_live" type="text" id="ch_live" value="<?php echo $row[8]; ?>" /></td>
                               </tr>
                               <tr>
                                 <td width="150" align="right"><span class="style4">ผลบอล</span></td>
                                 <td width="10">&nbsp;</td>
-                                <td><input name="score" type="text" id="score" value="<?=$row[9];?>" /></td>
+                                <td><input name="score" type="text" id="score" value="<?php echo $row[9]; ?>" /></td>
                               </tr>
                               <tr>
                                 <td width="150">&nbsp;</td>

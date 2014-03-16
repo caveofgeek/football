@@ -1,9 +1,10 @@
-<?
-@session_start();
+<?php 
+@session_start(); 
 include "../inc/config.inc.php";
 include "../function/datethai.php";
-if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
+if(!isset($_SESSION["admin_login"])) {
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+
 exit() ;
 }
 ?>
@@ -48,7 +49,7 @@ body {
             <table width="960" border="0" cellspacing="1" cellpadding="1">
               <tr valign="top">
                 <td width="690"><div align="left"><font color="#ffffff" size="4">.:: ยินดีต้อนรับเข้าสู่ ระบบจัดการข้อมูลเว็บไซต์ ::
-                  <?
+                  <?php
 				$dm=date("d/m");
 				$y=date("Y")+543;
 				$date="$dm/$y";
@@ -64,7 +65,7 @@ body {
       <tr>
         <td bgcolor="#CCCCCC"><table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
-              <td width="220" align="center" valign="top"><? include "menu.php"; ?></td>
+              <td width="220" align="center" valign="top"><?php include "menu.php"; ?></td>
               <td width="760" align="center" valign="top" bgcolor="#FFFFFF"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
                   <tr>
                     <td height="25"><strong><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> จัดการข้อมูลทีมงานวิเคราะห์บอล </font></strong></td>
@@ -78,8 +79,8 @@ body {
                                 <td></td>
                               </tr>
                             </table>
-<?
-$id=$_GET[id];
+<?php
+$id=$_GET["id"];
 $sql="SELECT * FROM `admin_analyze` WHERE id='$id'";
 $result=mysql_query($sql) or die("ERROR $sql");
 $row=mysql_fetch_row($result);
@@ -89,9 +90,9 @@ $row=mysql_fetch_row($result);
                                 <td width="130" height="20" align="right"><font size="2">ชื่อที่ใช้เรียก / ฉายา </font></td>
                                 <td width="10" height="20" align="center"><font size="2">:</font></td>
                                 <td width="580" height="20" align="left">
-								<input name="name" type="text" id="name" style="width:250px;" value="<?=$row[1];?>" />
-								<input type="hidden" name="id" id="id" value="<?=$id;?>" />
-								<input type="hidden" name="op" id="op" value="<?=$row[2];?>" />
+								<input name="name" type="text" id="name" style="width:250px;" value="<?php echo $row[1]; ?>" /> 
+								<input type="hidden" name="id" id="id" value="<?php echo $id; ?>" />
+								<input type="hidden" name="op" id="op" value="<?php echo $row[2]; ?>" />
 								<font size="2" color="#FF0000">*</font>
 								</td>
                               </tr>
@@ -99,19 +100,19 @@ $row=mysql_fetch_row($result);
                                 <td height="20" align="right"><font size="2">รูป Avatar </font></td>
                                 <td height="20" align="center"><font size="2">:</font></td>
                                 <td height="20" align="left"><input name="file1" type="file" id="file1" />
-                                    <? if($row[2]!=""){ ?><img src="../mod/avatar/<?=$row[2];?>" width="110" height="17" /><? } ?>
+                                    <?php if($row[2]!=""){ ?><img src="../mod/avatar/<?php echo $row[2]; ?>" width="110" height="17" /><?php } ?>
 <font size="2" color="#FF0000">* ขนาด 110x17 px ไม่เกิน 50kb </font></td>
                               </tr>
                               <tr>
                                 <td height="20" align="right" valign="top"><font size="2">ชื่อผู้ใช้</font></td>
                                 <td height="20" align="center" valign="top"><font size="2">:</font></td>
-                                <td height="20" align="left"><input name="user" type="text" id="user" style="width:200px;" value="<?=$row[3];?>" />
+                                <td height="20" align="left"><input name="user" type="text" id="user" style="width:200px;" value="<?php echo $row[3]; ?>" />
                                     <font size="2" color="#FF0000">*</font></td>
                               </tr>
                               <tr>
                                 <td height="20" align="right" valign="top"><font size="2">รหัสผ่าน</font></td>
                                 <td height="20" align="center" valign="top"><font size="2">:</font></td>
-                                <td height="20" align="left"><input name="pass" type="text" id="pass" style="width:200px;" value="<?=$row[4];?>" />
+                                <td height="20" align="left"><input name="pass" type="text" id="pass" style="width:200px;" value="<?php echo $row[4]; ?>" />
                                     <font size="2" color="#FF0000">*</font></td>
                               </tr>
 
@@ -161,32 +162,32 @@ return true ;
                                 <td width="120" height="30" align="center" valign="middle" bgcolor="#EFEFED"><span class="style4">วันที่ลงทะเบียน</span></td>
                                 <td width="150" height="30" align="center" valign="middle" bgcolor="#EFEFED"><span class="style4">การกระทำ</span></td>
                               </tr>
-<?
+<?php
 $s="SELECT * FROM `admin_analyze` ORDER BY id ASC";
 $re=mysql_query($s) or die("ERROR $s");
 while($r=mysql_fetch_row($re)){
 ?>
                               <tr>
                                 <td width="150" height="25" align="center" valign="middle"><font size="2">
-                                  <?=$r[1];?>
+                                  <?php echo $r[1]; ?>
                                 </font> </td>
                                 <td width="130" height="25" align="center" valign="middle"><font size="2">
-                                  <? if($r[2]==""){ echo "ไม่มีรูป Avatar"; }else{ ?>
-                                  <img src="../mod/avatar/<?=$r[2];?>" width="110" height="17" /></font>
-								  <? } ?>
+                                  <?php if($r[2]==""){ echo "ไม่มีรูป Avatar"; }else{ ?>
+                                  <img src="../mod/avatar/<?php echo $r[2]; ?>" width="110" height="17" /></font>
+								  <?php } ?>
 								</td>
                                 <td width="100" height="25" align="center" valign="middle"><font size="2">
-                                  <?=$r[3];?>
+                                  <?php echo $r[3]; ?>
                                 </font></td>
                                 <td width="100" height="25" align="center" valign="middle"><font size="2">
-                                  <?=$r[4];?>
+                                  <?php echo $r[4]; ?>
                                 </font> </td>
                                 <td width="120" height="25" align="center" valign="middle"><font size="2">
-                                  <?=DateThai($r[5]);?>
+                                  <?php echo DateThai($r[5]); ?>
                                 </font> </td>
-                                <td width="150" height="25" align="center" valign="middle"><font size="2"><a href="all-post-analyze.php?id=<?=$r[0];?>"><img src="images/post.jpg" width="40" height="15" border="0" /></a> <a href="edit-admin-analyze.php?id=<?=$r[0];?>"><img src="images/edit.gif" width="40" height="15" border="0" /></a> <a href="del-admin-analyze.php?id=<?=$r[0];?>&img=<?=$r[2];?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"> <img src="images/del.gif" width="40" height="15" border="0" /></a> </font> </td>
+                                <td width="150" height="25" align="center" valign="middle"><font size="2"><a href="all-post-analyze.php?id=<?php echo $r[0]; ?>"><img src="images/post.jpg" width="40" height="15" border="0" /></a> <a href="edit-admin-analyze.php?id=<?php echo $r[0]; ?>"><img src="images/edit.gif" width="40" height="15" border="0" /></a> <a href="del-admin-analyze.php?id=<?php echo $r[0]; ?>&img=<?php echo $r[2]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"> <img src="images/del.gif" width="40" height="15" border="0" /></a> </font> </td>
                               </tr>
-                              <? } ?>
+                              <?php } ?>
                           </table></td>
                       </tr>
                     </table></td>

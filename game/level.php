@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 include "../inc/config.inc.php";
 include "../function/datethai.php";
@@ -32,37 +32,37 @@ $rgame=mysql_fetch_row($regame);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>อันดับคะแนนสมาชิก | <?=$titler[1];?></title>
-<META NAME="keywords" CONTENT="<?=$rgame[6];?>">
-<META NAME="description" CONTENT="<?=$titler[1];?> อันดับคะแนนสมาชิก <?=$rgame[5];?>">
+<title>อันดับคะแนนสมาชิก | <?php echo $titler[1]; ?></title>
+<META NAME="keywords" CONTENT="<?php echo $rgame[6]; ?>"> 
+<META NAME="description" CONTENT="<?php echo $titler[1]; ?> อันดับคะแนนสมาชิก <?php echo $rgame[5]; ?>">
 <meta name="robots"  content="index,follow">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {
-	background-color: #<?=$bgr[1];?>;
-	<? if($bgr[2]!=""){ ?>background-image: url(http://<?=$titler[13];?>/bg-img/<?=$bgr[2];?>);
-	background-repeat: <?=$bgr[3];?>;
-	<? }if($bgr[4]==1){ ?>
+	background-color: #<?php echo $bgr[1]; ?>;
+	<?php if($bgr[2]!=""){ ?>background-image: url(http://<?php echo $titler[13]; ?>/bg-img/<?php echo $bgr[2]; ?>);
+	background-repeat: <?php echo $bgr[3]; ?>;
+	<?php }if($bgr[4]==1){ ?>	
 	background-attachment:fixed;
-	<? } ?>
+	<?php } ?>
 }
 a:link {
-	color: #<?=$linkr[1];?>;
+	color: #<?php echo $linkr[1]; ?>;
 	text-decoration: none;
 }
 a:visited {
 	text-decoration: none;
-	color: #<?=$linkr[2];?>;
+	color: #<?php echo $linkr[2]; ?>;
 }
 a:hover {
 	text-decoration: underline;
-	color: #<?=$linkr[3];?>;
+	color: #<?php echo $linkr[3]; ?>;
 }
 a:active {
 	text-decoration: none;
-	color: #<?=$linkr[4];?>;
+	color: #<?php echo $linkr[4]; ?>;
 }
 .style6 {font-size: small; font-weight: bold; color: #FFFFFF; }
 -->
@@ -72,7 +72,7 @@ a:active {
 <body>
 <table width="995" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
-    <td align="center" valign="top"><? include "../header.php"; ?></td>
+    <td align="center" valign="top"><?php include "../header.php"; ?></td>
   </tr>
   <tr>
     <td style="background-color:#FFFFFF;"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -82,7 +82,7 @@ a:active {
     </table>
       <table width="985" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
-          <td width="250" align="center" valign="top"><? include "../menu.php"; ?></td>
+          <td width="250" align="center" valign="top"><?php include "../menu.php"; ?></td>
           <td width="7" align="center" valign="top">&nbsp;</td>
           <td width="728" align="center" valign="top"><table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
@@ -97,14 +97,16 @@ a:active {
                     </tr>
                   </table>
                     <table width="500" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#FFFFFF">
-                      <tr style="background-image:url(http://<?=$titler[13];?>/img/bg-tab-login.png); background-repeat:repeat-x;">
+                      <tr style="background-image:url(http://<?php echo $titler[13]; ?>/img/bg-tab-login.png); background-repeat:repeat-x;">
                         <td width="75" height="30" align="center"><span class="style6">อันดับ</span></td>
                         <td width="200" height="30" align="center"><span class="style6">ชื่อที่ใช้เรียก / ฉายา </span></td>
                         <td width="75" height="30" align="center"><span class="style6">ถูก</span></td>
                         <td width="75" height="30" align="center"><span class="style6">ผิด</span></td>
                         <td width="75" height="30" align="center"><span class="style6">คะแนน</span></td>
                       </tr>
-<?
+<?php	
+
+
 $strSQL = "SELECT member_id, SUM(yes), SUM(no), SUM(point) FROM `game_member_score` GROUP BY member_id ORDER BY SUM(point) DESC, member_id DESC LIMIT 0,100";
 $objQuery = mysql_query($strSQL) or die("ERROR $strSQL");
 $i=1;
@@ -112,30 +114,30 @@ while($objResult = mysql_fetch_row($objQuery)){
 ?>
                       <tr>
                         <td width="75" height="22" align="center" bgcolor="#CCCCCC"><font size="2">
-                          <?=$i;?>
+                          <?php echo $i; ?>
                         </font></td>
                         <td width="200" height="22" align="center" bgcolor="#CCCCCC"><font size="2">
-                          <?
+                          <?php 
 $smem = "SELECT name, img FROM `member` WHERE id='$objResult[0]'";
 $remem = mysql_query($smem) or die("ERROR $smem");
 $rmem = mysql_fetch_row($remem);
 if($rmem[1]!=""){ ?>
-                          <img src="http://<?=$titler[13];?>/member/avatar/<?=$rmem[1];?>" width="120" height="19" />
-                          <? }else{ ?>
-                          <?=$rmem[0];?>
-                          <? } ?>
+                          <img src="http://<?php echo $titler[13]; ?>/member/avatar/<?php echo $rmem[1]; ?>" width="120" height="19" />
+                          <?php }else{ ?>
+                          <?php echo $rmem[0]; ?>
+                          <?php } ?>
                         </font> </td>
                         <td width="75" height="22" align="center" bgcolor="#CCCCCC"><font size="2">
-                          <?=$objResult[1];?>
+                          <?php echo $objResult[1]; ?>
                         </font></td>
                         <td width="75" height="22" align="center" bgcolor="#CCCCCC"><font size="2">
-                          <?=$objResult[2];?>
+                          <?php echo $objResult[2]; ?>
                         </font></td>
                         <td width="75" height="22" align="center" bgcolor="#CCCCCC"><font size="2">
-                          <?=$objResult[3];?>
+                          <?php echo $objResult[3]; ?>
                         </font></td>
                       </tr>
-                      <? $i++; } ?>
+                      <?php $i++; } ?>
                     </table></td>
                 </tr>
               </table></td>
@@ -145,9 +147,9 @@ if($rmem[1]!=""){ ?>
       </table></td>
   </tr>
   <tr>
-    <td align="center"><? include "../top-footer.php"; ?></td>
+    <td align="center"><?php include "../top-footer.php"; ?></td>
   </tr>
 </table>
-<? include "../footer.php"; ?>
+<?php include "../footer.php"; ?>
 </body>
 </html>

@@ -1,15 +1,15 @@
-<?
+<?php
 session_start();
 include "../inc/config.inc.php";
 ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<?
-//echo "$_SESSION[m_login]<br>$_SESSION[m_id]";
-if(!isset($_SESSION[admin_login])) {
+<?php
+//echo "$_SESSION[m_login]<br>$_SESSION["m_id"]";
+if(!isset($_SESSION["admin_login"])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
 exit() ;
 }
-$cate_id=$_POST[cate_id];
+$cate_id=$_POST["cate_id"];
 $cate_name=$_POST[cate_name];
 $title=$_POST[title];
 $description=$_POST[description];
@@ -26,7 +26,7 @@ if($cate_name!=""&&$title!=""&&$description!=""&&$keyword!=""){
 	alert('ขอโทษครับ ท่านกรอกข้อมูลไม่ครบครับ'); 	
 	history.back();
 </script>
-<?
+<?php
 exit();
 }
 ?>

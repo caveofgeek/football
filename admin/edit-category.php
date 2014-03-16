@@ -1,8 +1,9 @@
-<?
-@session_start();
+<?php 
+@session_start(); 
 include "../inc/config.inc.php";
-if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
+if(!isset($_SESSION["admin_login"])) {
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+
 exit() ;
 }
 ?>
@@ -46,7 +47,7 @@ body {
             <table width="960" border="0" cellspacing="1" cellpadding="1">
               <tr valign="top">
                 <td width="690"><div align="left"><font color="#ffffff" size="4">.:: ยินดีต้อนรับเข้าสู่ ระบบจัดการข้อมูลเว็บไซต์ ::
-                  <?
+                  <?php
 				$dm=date("d/m");
 				$y=date("Y")+543;
 				$date="$dm/$y";
@@ -62,24 +63,24 @@ body {
       <tr>
         <td bgcolor="#CCCCCC"><table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
-              <td width="220" align="center" valign="top"><? include "menu.php"; ?></td>
+              <td width="220" align="center" valign="top"><?php include "menu.php"; ?></td>
               <td width="760" align="center" valign="top" bgcolor="#FFFFFF"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
                   <tr>
                     <td height="25">
-<?
-$cate_id=$_GET[cate_id];
+<?php
+$cate_id=$_GET["cate_id"];
 $scate="SELECT * FROM `category` WHERE id='$cate_id'";
 $recate=mysql_query($scate) or die("ERROR $scate");
 $rcate=mysql_fetch_row($recate);
 ?>
 					<strong><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" />
-					<? if($cate_id>33){ ?>
-					<a href="all-other-category.php?cate_id=<?=$cate_id;?>">
-					<? }else if($cate_id<=33){ ?>
-					<a href="all-main-category.php?cate_id=<?=$cate_id;?>">
-					<? } ?>
-					จัดการข้อมูลหมวดหมู่<?=$rcate[1];?>
-					</a> <img src="images/arrow.gif" width="7" height="11" /> </font><font color="#000000" size="2">แก้ไขข้อมูลหมวดหมู่<?=$rcate[1];?>
+					<?php if($cate_id>33){ ?>
+					<a href="all-other-category.php?cate_id=<?php echo $cate_id; ?>">
+					<?php }else if($cate_id<=33){ ?>
+					<a href="all-main-category.php?cate_id=<?php echo $cate_id; ?>">
+					<?php } ?>
+					จัดการข้อมูลหมวดหมู่<?php echo $rcate[1]; ?> 
+					</a> <img src="images/arrow.gif" width="7" height="11" /> </font><font color="#000000" size="2">แก้ไขข้อมูลหมวดหมู่<?php echo $rcate[1]; ?>
 					</font></strong></td>
                   </tr>
                   <tr>
@@ -89,23 +90,23 @@ $rcate=mysql_fetch_row($recate);
                           <td width="100" align="right"><strong><font size="2">ชื่อหมวดหมู่</font></strong></td>
                           <td width="10" align="center">&nbsp;</td>
                           <td width="350" align="left">
-						  <input name="cate_name" type="text" id="cate_name" style="width:200px;" value="<?=$rcate[1];?>" />
-						  <input type="hidden" name="cate_id" id="cate_id" value="<?=$cate_id;?>" />						  </td>
+						  <input name="cate_name" type="text" id="cate_name" style="width:200px;" value="<?php echo $rcate[1]; ?>" />
+						  <input type="hidden" name="cate_id" id="cate_id" value="<?php echo $cate_id; ?>" />						  </td>
                         </tr>
                         <tr>
                           <td width="100" height="105" align="right" valign="top"><strong><font size="2">Title</font></strong></td>
                           <td width="10" height="105" align="center" valign="top">&nbsp;</td>
-                          <td width="350" height="105" align="left" valign="top"><textarea name="title" id="title" style="width:330px; height:100px;"><?=$rcate[2];?></textarea></td>
+                          <td width="350" height="105" align="left" valign="top"><textarea name="title" id="title" style="width:330px; height:100px;"><?php echo $rcate[2]; ?></textarea></td>
                         </tr>
                         <tr>
                           <td width="100" height="105" align="right" valign="top"><strong><font size="2">Description</font></strong></td>
                           <td width="10" height="105" align="center" valign="top">&nbsp;</td>
-                          <td width="350" height="105" align="left" valign="top"><textarea name="description" id="description" style="width:330px; height:100px;"><?=$rcate[3];?></textarea></td>
+                          <td width="350" height="105" align="left" valign="top"><textarea name="description" id="description" style="width:330px; height:100px;"><?php echo $rcate[3]; ?></textarea></td>
                         </tr>
                         <tr>
                           <td width="100" height="105" align="right" valign="top"><strong><font size="2">Keyword</font></strong></td>
                           <td width="10" height="105" align="center" valign="top">&nbsp;</td>
-                          <td width="350" height="105" align="left" valign="top"><textarea name="keyword" id="keyword" style="width:330px; height:100px;"><?=$rcate[4];?></textarea></td>
+                          <td width="350" height="105" align="left" valign="top"><textarea name="keyword" id="keyword" style="width:330px; height:100px;"><?php echo $rcate[4]; ?></textarea></td>
                         </tr>
                         <tr>
                           <td width="100" align="right">&nbsp;</td>

@@ -1,9 +1,9 @@
-<?
+<?php
 session_start();
 include "../inc/config.inc.php";
-//echo "$_SESSION[m_login]<br>$_SESSION[m_id]";
-if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
+//echo "$_SESSION[m_login]<br>$_SESSION["m_id"]";
+if(!isset($_SESSION["admin_login"])) {
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
 exit() ;
 }
 ?>
@@ -33,7 +33,7 @@ a:active {
 </style></head>
 
 <body>
-<?
+<?php
 $img=$_GET[img];
 $part1="../bg-img/$img";
 @unlink ($part1);

@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 include "inc/config.inc.php";
 include "function/datethai.php";
@@ -29,37 +29,37 @@ $str=mysql_fetch_row($stre);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>ติดต่อเรา ติดต่อลงโฆษณา | <?=$titler[1];?></title>
-<META NAME="keywords" CONTENT="<?=$titler[12];?>">
-<META NAME="description" CONTENT="<?=$titler[1];?> ติดต่อเรา ติดต่อลงโฆษณา <?=$titler[11];?>">
+<title>ติดต่อเรา ติดต่อลงโฆษณา | <?php echo $titler[1]; ?></title>
+<META NAME="keywords" CONTENT="<?php echo $titler[12]; ?>"> 
+<META NAME="description" CONTENT="<?php echo $titler[1]; ?> ติดต่อเรา ติดต่อลงโฆษณา <?php echo $titler[11]; ?>">
 <meta name="robots"  content="index,follow">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {
-	background-color: #<?=$bgr[1];?>;
-	<? if($bgr[2]!=""){ ?>background-image: url(http://<?=$titler[13];?>/bg-img/<?=$bgr[2];?>);
-	background-repeat: <?=$bgr[3];?>;
-	<? }if($bgr[4]==1){ ?>
+	background-color: #<?php echo $bgr[1]; ?>;
+	<?php if($bgr[2]!=""){ ?>background-image: url(http://<?php echo $titler[13]; ?>/bg-img/<?php echo $bgr[2]; ?>);
+	background-repeat: <?php echo $bgr[3]; ?>;
+	<?php }if($bgr[4]==1){ ?>	
 	background-attachment:fixed;
-	<? } ?>
+	<?php } ?>
 }
 a:link {
-	color: #<?=$linkr[1];?>;
+	color: #<?php echo $linkr[1]; ?>;
 	text-decoration: none;
 }
 a:visited {
 	text-decoration: none;
-	color: #<?=$linkr[2];?>;
+	color: #<?php echo $linkr[2]; ?>;
 }
 a:hover {
 	text-decoration: underline;
-	color: #<?=$linkr[3];?>;
+	color: #<?php echo $linkr[3]; ?>;
 }
 a:active {
 	text-decoration: none;
-	color: #<?=$linkr[4];?>;
+	color: #<?php echo $linkr[4]; ?>;
 }
 -->
 </style>
@@ -68,7 +68,7 @@ a:active {
 <body>
 <table width="995" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
-    <td align="center" valign="top"><? include "header.php"; ?></td>
+    <td align="center" valign="top"><?php include "header.php"; ?></td>
   </tr>
   <tr>
     <td style="background-color:#FFFFFF;"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -78,14 +78,14 @@ a:active {
     </table>
       <table width="985" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
-          <td width="250" align="center" valign="top"><? include "menu.php"; ?></td>
+          <td width="250" align="center" valign="top"><?php include "menu.php"; ?></td>
           <td width="7" align="center" valign="top">&nbsp;</td>
           <td width="728" align="center" valign="top"><table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
               <td align="center"><table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
                 <tr>
                   <td align="center">
-<?
+<?php
 $sads8="SELECT * FROM `ads_a8` ORDER BY id ASC";
 $reads8=mysql_query($sads8) or die("Error $sads8");
 while($rads8=mysql_fetch_row($reads8)){
@@ -93,22 +93,22 @@ while($rads8=mysql_fetch_row($reads8)){
                     <table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tr>
                           <td align="center" valign="middle">
-						  <?
-						  if($rads8[1]==1){
-						  $ads8=stripslashes($rads8[3]);
+						  <?php 
+						  if($rads8[1]==1){ 
+						  $ads8=stripslashes($rads8[3]); 
 						  echo $ads8;
 						  }else if($rads8[1]==2){
 						  ?>
-                              <a href="<?=$rads8[7];?>" title="<?=$rads8[8];?>" target="_blank">
-                              <? if($rads8[2]==1){  ?>
-                              <img src="http://<?=$titler[13];?>/ads-img/<?=$rads8[9];?>" alt="<?=$rads8[8];?>" width="728" border="0" title="<?=$rads8[8];?>" />
-                              <? }else if($rads8[2]==2){ ?>
+                              <a href="<?php echo $rads8[7]; ?>" title="<?php echo $rads8[8]; ?>" target="_blank">
+                              <?php if($rads8[2]==1){  ?>
+                              <img src="http://<?php echo $titler[13]; ?>/ads-img/<?php echo $rads8[9]; ?>" alt="<?php echo $rads8[8]; ?>" width="728" border="0" title="<?php echo $rads8[8]; ?>" />
+                              <?php }else if($rads8[2]==2){ ?>
                               <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="728" border="0">
-                                <param name="movie" value="http://<?=$titler[13];?>/ads-img/<?=$rads8[9];?>" />
+                                <param name="movie" value="http://<?php echo $titler[13]; ?>/ads-img/<?php echo $rads8[9]; ?>" />
                                 <param name="quality" value="high" />
-                                <embed src="http://<?=$titler[13];?>/ads-img/<?=$rads8[9];?>" width="728" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"></embed>
+                                <embed src="http://<?php echo $titler[13]; ?>/ads-img/<?php echo $rads8[9]; ?>" width="728" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"></embed>
                               </object>
-                              <? }} ?>
+                              <?php }} ?>
                             </a></td>
                         </tr>
                       </table>
@@ -117,7 +117,7 @@ while($rads8=mysql_fetch_row($reads8)){
                         <td height="5"></td>
                       </tr>
                     </table>
-<? } ?>
+<?php } ?>
 				  </td>
                 </tr>
               </table></td>
@@ -140,7 +140,7 @@ while($rads8=mysql_fetch_row($reads8)){
                               <td height="30" align="left"><font size="2"><strong>หากท่านต้องการแนะนำ ติชม แจ้งปัญหาการใช้งาน ติดต่อลงโฆษณา หรือสอบถามข้อมูลการให้บริการ ท่านสามารถติดต่อเราผ่านช่องทาง ดังต่อไปนี้</strong></font></td>
                             </tr>
                             <tr>
-                              <td><?
+                              <td><?php
 $s9="SELECT * FROM `web_detail`";
 $re9=mysql_query($s9)or die("Err $s9 บรรทัด103");
 $r9=mysql_fetch_row($re9);
@@ -151,12 +151,12 @@ $r9=mysql_fetch_row($re9);
                                     </tr>
                                     <tr>
                                       <td align="left"><font size="2" color="#0000FF"><strong>
-                                        <?=$r9[1];?>
+                                        <?php echo $r9[1]; ?>
                                       </strong></font></td>
                                     </tr>
                                     <tr>
                                       <td align="left"><font size="2">ที่อยู่
-                                        <?=$r9[2];?>
+                                        <?php echo $r9[2]; ?>
                                       </font></td>
                                     </tr>
                                     <tr>
@@ -164,13 +164,13 @@ $r9=mysql_fetch_row($re9);
                                     </tr>
                                     <tr>
                                       <td align="left"><font size="2">เบอร์โทรศัพท์
-                                        <?=$r9[3];?>
-                                            <? if($r9[5]!=""){ echo "แฟกซ์ $r9[5]";} ?>
+                                        <?php echo $r9[3]; ?>
+                                            <?php if($r9[5]!=""){ echo "แฟกซ์ $r9[5]";} ?>
                                       </font></td>
                                     </tr>
                                     <tr>
                                       <td align="left"><font size="2">Email :
-                                        <?=$r9[4];?>
+                                        <?php echo $r9[4]; ?>
                                       </font></td>
                                     </tr>
                                     <tr>
@@ -232,7 +232,7 @@ $r9=mysql_fetch_row($re9);
                                             </tr>
                                             <tr>
                                               <td width="100" height="25" align="left"><font size="2">หาผลบวกของ
-                                                <?
+                                                <?php
 $a=rand(0,9);
 $b=rand(0,9);
 $s=$a+$b;
@@ -241,7 +241,7 @@ echo "$a+$b";
                                               </font></td>
                                               <td width="220" height="25" align="left"><input name="ans" type="text" id="ans" size="5" maxlength="2" />
                                                   <font color="#FF0000" size="2">&lt;==ใส่คำตอบ</font>
-                                                  <input type="hidden" id="ask" name="ask" value="<?=$s;?>" /></td>
+                                                  <input type="hidden" id="ask" name="ask" value="<?php echo $s; ?>" /></td>
                                             </tr>
                                             <tr>
                                               <td height="25" colspan="2" align="center"><label>
@@ -297,7 +297,7 @@ alert("กรุณากรอกคำตอบด้วยตัวเลข�
 document.checkForm.ans.focus() ;
 return false ;
 }
-else if(document.checkForm.ans.value != <?=$s;?>) {
+else if(document.checkForm.ans.value != <?php echo $s; ?>) {
 alert("คุณบวกเลขไม่ถูกต้องครับ") ;
 document.checkForm.ans.focus() ;
 return false ;
@@ -327,9 +327,9 @@ return true ;
       </table></td>
   </tr>
   <tr>
-    <td align="center"><? include "top-footer.php"; ?></td>
+    <td align="center"><?php include "top-footer.php"; ?></td>
   </tr>
 </table>
-<? include "footer.php"; ?>
+<?php include "footer.php"; ?>
 </body>
 </html>

@@ -1,8 +1,8 @@
-<?
-@session_start();
+<?php 
+@session_start(); 
 include "../inc/config.inc.php";
-if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
+if(!isset($_SESSION["admin_login"])) {
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
 exit() ;
 }
 
@@ -48,7 +48,7 @@ body {
             <table width="960" border="0" cellspacing="1" cellpadding="1">
               <tr valign="top">
                 <td width="690"><div align="left"><font color="#ffffff" size="4">.:: ยินดีต้อนรับเข้าสู่ ระบบจัดการข้อมูลเว็บไซต์ ::
-                  <?
+                  <?php
 				$dm=date("d/m");
 				$y=date("Y")+543;
 				$date="$dm/$y";
@@ -64,7 +64,7 @@ body {
       <tr>
         <td bgcolor="#CCCCCC"><table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
-              <td width="220" align="center" valign="top"><? include "menu.php"; ?></td>
+              <td width="220" align="center" valign="top"><?php include "menu.php"; ?></td>
               <td width="760" align="center" valign="top" bgcolor="#FFFFFF"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
                   <tr>
                     <td height="25"><strong><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /></font><font color="#000000" size="2"> <a href="ads-a8.php">จัดการข้อมูลพื้นที่โฆษณาตำแหน่ง A8 ขนาด 728 px</a></font><font size="2">  <img src="images/arrow.gif" width="7" height="11" /> เพิ่มข้อมูล </font><font color="#000000" size="2">พื้นที่โฆษณาตำแหน่ง A8</font></strong></td>
@@ -77,13 +77,13 @@ body {
                           <td width="10">&nbsp;</td>
                           <td width="500"><select name="type" id="type" onchange="window.open(this.options[this.selectedIndex].value,'_self')">
                               <option value="">- เลือกประเภทโฆษณา -</option>
-                              <option value="add-ads-a8.php?type=1" <? if($type==1){ echo "selected"; }?>>HTML CODE</option>
-                              <option value="add-ads-a8.php?type=2" <? if($type==2){ echo "selected"; }?>>ผู้ลงโฆษณาทั่วไป</option>
+                              <option value="add-ads-a8.php?type=1" <?php if($type==1){ echo "selected"; } ?>>HTML CODE</option>
+                              <option value="add-ads-a8.php?type=2" <?php if($type==2){ echo "selected"; } ?>>ผู้ลงโฆษณาทั่วไป</option>
                             </select>
                           </td>
                         </tr>
                       </table>
-<?
+<?php 
 if(isset($_GET[type])){
 if($type==1){
 ?>
@@ -104,7 +104,7 @@ if($type==1){
                           <td align="center"><input type="submit" name="Submit2" value="บันทึกข้อมูล" /></td>
                         </tr>
                       </table>
-                      <? }else if($type==2){ ?>
+                      <?php }else if($type==2){ ?>
                       <table width="660" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tr>
                           <td width="150" align="right"><font color="#000000" size="2">เลือกประเภท</font></td>
@@ -161,7 +161,7 @@ if($type==1){
                           <td width="500" align="left"><input name="Submit" type="submit" id="Submit" value="บันทึกข้อมูล" /></td>
                         </tr>
                       </table>
-                      <? }}else{ echo "<br>เลือกประเภทโฆษณาก่อนนะครับ";} ?>
+                      <?php }}else{ echo "<br>เลือกประเภทโฆษณาก่อนนะครับ";} ?>
                     </form></td>
                   </tr>
                 </table></td>

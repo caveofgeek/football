@@ -1,8 +1,9 @@
-<?
-@session_start();
+<?php 
+@session_start(); 
 include "../inc/config.inc.php";
-if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
+if(!isset($_SESSION["admin_login"])) {
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+
 exit() ;
 }
 $s="select * from bg where id=1";
@@ -50,7 +51,7 @@ body {
             <table width="960" border="0" cellspacing="1" cellpadding="1">
               <tr valign="top">
                 <td width="690"><div align="left"><font color="#ffffff" size="4">.:: ยินดีต้อนรับเข้าสู่ ระบบจัดการข้อมูลเว็บไซต์ ::
-                  <?
+                  <?php
 				$dm=date("d/m");
 				$y=date("Y")+543;
 				$date="$dm/$y";
@@ -66,7 +67,7 @@ body {
       <tr>
         <td bgcolor="#CCCCCC"><table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
-              <td width="220" align="center" valign="top"><? include "menu.php"; ?></td>
+              <td width="220" align="center" valign="top"><?php include "menu.php"; ?></td>
               <td width="760" align="center" valign="top" bgcolor="#FFFFFF"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
                   <tr>
                     <td height="25"><strong><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> จัดการข้อมูลพื้นหลังเว็บไซต์ </font></strong></td>
@@ -78,29 +79,29 @@ body {
                           <td><table width="580" border="0" cellspacing="0" cellpadding="0">
                               <tr>
                                 <td width="250" align="left" valign="top"><font size="2" color="#333333"><strong>สีพื้นหลัง
-                                  <input name="color" class="color" id="color" value="<?=$r[1];?>" maxlength="6" />
+                                  <input name="color" class="color" id="color" value="<?php echo $r[1]; ?>" maxlength="6" />
                                 </strong></font></td>
                                 <td width="330" align="left" valign="top"><font size="2" color="#333333"><strong>ภาพพื้นหลัง</strong></font>
                                     <input name="file1" type="file" id="file1" />
                                     <br />
                                     <font size="2" color="#333333"><strong>เลื่อนตาม Scrollbar
-                                    <input name="fix" type="radio" value="2" <? if($r[4]==2){ echo "checked";} ?> />
+                                    <input name="fix" type="radio" value="2" <?php if($r[4]==2){ echo "checked";} ?> />
                                     </strong>เลื่อน
-                                    <input name="fix" type="radio" value="1" <? if($r[4]==1){ echo "checked";} ?> />
+                                    <input name="fix" type="radio" value="1" <?php if($r[4]==1){ echo "checked";} ?> />
 ไม่เลื่อน</font>                                    <br />
                                     <font size="2" color="#333333"><strong>repeat
                                       <select name="repeat" id="repeat">
-                                      <option value="no-repeat" <? if($r[3]=="no-repeat"){ echo "selected";} ?>>no-repeat</option>
-                                      <option value="repeat" <? if($r[3]=="repeat"){ echo "selected";} ?>>repeat</option>
-                                      <option value="repeat-x" <? if($r[3]=="repeat-x"){ echo "selected";} ?>>repeat-x</option>
-                                      <option value="repeat-y" <? if($r[3]=="repeat-y"){ echo "selected";} ?>>repeat-y</option>
+                                      <option value="no-repeat" <?php if($r[3]=="no-repeat"){ echo "selected";} ?>>no-repeat</option>
+                                      <option value="repeat" <?php if($r[3]=="repeat"){ echo "selected";} ?>>repeat</option>
+                                      <option value="repeat-x" <?php if($r[3]=="repeat-x"){ echo "selected";} ?>>repeat-x</option>
+                                      <option value="repeat-y" <?php if($r[3]=="repeat-y"){ echo "selected";} ?>>repeat-y</option>
                                     </select>
                                     </strong></font>
-                                    <input type="hidden" id="op" name="op" value="<?=$r[2];?>" />
+                                    <input type="hidden" id="op" name="op" value="<?php echo $r[2]; ?>" />
                                     <br />
-                                    <? if($r[2]!=""){ ?>
-                                    <font size="2" color="#333333"><strong><a href="../bg-img/<?=$r[2];?>" target="_blank">คลิกที่นี่</a> เพื่อดูภาพพื้นหลัง หรือ <a href="del-bg.php?img=<?=$r[2];?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}">ลบภาพพื้นหลัง</a> </strong></font>
-                                    <? } ?></td>
+                                    <?php if($r[2]!=""){ ?>
+                                    <font size="2" color="#333333"><strong><a href="../bg-img/<?php echo $r[2]; ?>" target="_blank">คลิกที่นี่</a> เพื่อดูภาพพื้นหลัง หรือ <a href="del-bg.php?img=<?php echo $r[2]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}">ลบภาพพื้นหลัง</a> </strong></font>
+                                    <?php } ?></td>
                               </tr>
                           </table></td>
                         </tr>

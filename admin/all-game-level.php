@@ -1,9 +1,10 @@
-<?
-@session_start();
+<?php 
+@session_start(); 
 include "../inc/config.inc.php";
 include "../function/datethai.php";
-if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
+if(!isset($_SESSION["admin_login"])) {
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+
 exit() ;
 }
 ?>
@@ -12,7 +13,8 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
-<?
+<?php 
+
 class Paginator{
 	var $items_per_page;
 	var $items_total;
@@ -84,8 +86,8 @@ class Paginator{
 			}
 		}
 		$this->low = ($this->current_page-1) * $this->items_per_page;
-		$this->high = ($_GET['ipp'] == 'All') ? $this->items_total:($this->current_page * $this->items_per_page)-1;
-		$this->limit = ($_GET['ipp'] == 'All') ? "":" LIMIT $this->low,$this->items_per_page";
+		$this->high = (isset($_GET['ipp']) == 'All') ? $this->items_total:($this->current_page * $this->items_per_page)-1;
+		$this->limit = (isset($_GET['ipp']) == 'All') ? "":" LIMIT $this->low,$this->items_per_page";
 	}
 
 	function display_pages()
@@ -186,7 +188,7 @@ body {
             <table width="960" border="0" cellspacing="1" cellpadding="1">
               <tr valign="top">
                 <td width="690"><div align="left"><font color="#ffffff" size="4">.:: ยินดีต้อนรับเข้าสู่ ระบบจัดการข้อมูลเว็บไซต์ ::
-                  <?
+                  <?php
 				$dm=date("d/m");
 				$y=date("Y")+543;
 				$date="$dm/$y";
@@ -202,7 +204,7 @@ body {
       <tr>
         <td bgcolor="#CCCCCC"><table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
-              <td width="220" align="center" valign="top"><? include "menu.php"; ?></td>
+              <td width="220" align="center" valign="top"><?php include "menu.php"; ?></td>
               <td width="760" align="center" valign="top" bgcolor="#FFFFFF"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
                   <tr>
                     <td height="25"><strong><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> จัดการข้อมูลอันดับสมาชิก</font></strong></td>
@@ -226,7 +228,9 @@ body {
                             <td width="75" height="30" align="center" bgcolor="#990000"><span class="style6">ผิด</span></td>
                             <td width="75" height="30" align="center" bgcolor="#990000"><span class="style6">คะแนน</span></td>
                           </tr>
-<?
+<?php	
+
+
 $strSQL = "SELECT member_id, SUM(yes), SUM(no), SUM(point) FROM `game_member_score` GROUP BY member_id ORDER BY SUM(point) DESC";
 $objQuery = mysql_query($strSQL) or die("ERROR $strSQL");
 $i=1;
@@ -234,30 +238,30 @@ while($objResult = mysql_fetch_row($objQuery)){
 ?>
                           <tr>
                             <td width="75" height="22" align="center" bgcolor="#CCCCCC"><font size="2">
-                              <?=$i;?>
+                              <?php echo $i; ?>
                             </font></td>
                             <td width="200" height="22" align="center" bgcolor="#CCCCCC"><font size="2">
-                              <?
+                              <?php
 $smem = "SELECT name, img FROM `member` WHERE id='$objResult[0]'";
 $remem = mysql_query($smem) or die("ERROR $smem");
 $rmem = mysql_fetch_row($remem);
 if($rmem[1]!=""){ ?>
-                              <img src="../member/avatar/<?=$rmem[1];?>" width="80" height="18" />
-                              <? }else{ ?>
-                              <?=$rmem[0];?>
-                              <? } ?>
+                              <img src="../member/avatar/<?php echo $rmem[1]; ?>" width="80" height="18" />
+                              <?php }else{ ?>
+                              <?php echo $rmem[0]; ?>
+                              <?php } ?>
                             </font> </td>
                             <td width="75" height="22" align="center" bgcolor="#CCCCCC"><font size="2">
-                              <?=$objResult[1];?>
+                              <?php echo $objResult[1]; ?>
                             </font></td>
                             <td width="75" height="22" align="center" bgcolor="#CCCCCC"><font size="2">
-                              <?=$objResult[2];?>
+                              <?php echo $objResult[2]; ?>
                             </font></td>
                             <td width="75" height="22" align="center" bgcolor="#CCCCCC"><font size="2">
-                              <?=$objResult[3];?>
+                              <?php echo $objResult[3]; ?>
                             </font></td>
                           </tr>
-                          <? $i++; } ?>
+                          <?php $i++; } ?>
                         </table></td>
                       </tr>
                     </table></td>

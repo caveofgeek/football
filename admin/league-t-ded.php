@@ -1,13 +1,14 @@
-<?
-@session_start();
+<?php 
+@session_start(); 
 include "../inc/config.inc.php";
 include "../function/datethai.php";
-if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
+if(!isset($_SESSION["admin_login"])) {
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+
 exit() ;
 }
-$l_id=$_GET[l_id];
-$tdate=$_GET[tdate];
+$l_id=$_GET["l_id"];
+$tdate=$_GET["tDate"];
 $s="SELECT * FROM `league` where id='$l_id'";
 $re=mysql_query($s) or die("ERROR $s");
 $r=mysql_fetch_row($re);
@@ -52,7 +53,7 @@ body {
             <table width="960" border="0" cellspacing="1" cellpadding="1">
               <tr valign="top">
                 <td width="690"><div align="left"><font color="#ffffff" size="4">.:: ยินดีต้อนรับเข้าสู่ ระบบจัดการข้อมูลเว็บไซต์ ::
-                  <?
+                  <?php
 				$dm=date("d/m");
 				$y=date("Y")+543;
 				$date="$dm/$y";
@@ -68,22 +69,21 @@ body {
       <tr>
         <td bgcolor="#CCCCCC"><table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
-              <td width="220" align="center" valign="top"><? include "menu.php"; ?></td>
+              <td width="220" align="center" valign="top"><?php include "menu.php"; ?></td>
               <td width="760" align="center" valign="top" bgcolor="#FFFFFF"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
                   <tr>
-                    <td height="25"><strong><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> <a href="t-ded.php?l_id=<?=$l_id;?>">จัดการข้อมูลทีเด็ด<?=$r[1];?>
-                    </a> <img src="images/arrow.gif" width="7" height="11" /> รายการข้อมูลทีเด็ด<?=$r[1];?> วันที่ <? $postDate=$tdate; echo DateThai($postDate); ?></font></strong></td>
+                    <td height="25"><strong><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> <a href="t-ded.php?l_id=<?php echo $l_id; ?>">จัดการข้อมูลทีเด็ด<?php echo $r[1]; ?>
+                    </a> <img src="images/arrow.gif" width="7" height="11" /> รายการข้อมูลทีเด็ด<?php echo $r[1]; ?> วันที่ <?php $postDate=$tdate; echo DateThai($postDate); ?></font></strong></td>
                   </tr>
                   <tr>
                     <td><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
                       <tr>
                         <td><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
                           <tr>
-                            <td width="375" align="left"><font size="2" color="#333333"><strong>:: รายการข้อมูลทีเด็ด<?=$r[1];?> วันที่ <? $postDate=$tdate; echo DateThai($postDate); ?>
+                            <td width="375" align="left"><font size="2" color="#333333"><strong>:: รายการข้อมูลทีเด็ด<?php echo $r[1]; ?> วันที่ <?php $postDate=$tdate; echo DateThai($postDate); ?>
                               :: </strong></font></td>
                             <td width="375" align="right"><font size="2" color="#333333"><strong>
-							[ <a href="add-t-ded.php?l_id=<?=$l_id;?>">เพิ่มข้อมูลข้อมูลทีเด็ด<?=$r[1];?></a> ]
-
+							[ <a href="add-t-ded.php?l_id=<?php echo $l_id; ?>">เพิ่มข้อมูลข้อมูลทีเด็ด<?php echo $r[1]; ?></a> ]
 							</strong></font></td>
                           </tr>
                         </table></td>
@@ -100,36 +100,36 @@ body {
                             <td width="100" height="25" align="center" bgcolor="#CCCCCC"><strong><font size="2">ถ่ายทอดสด</font></strong></td>
                             <td width="100" height="25" align="center" bgcolor="#CCCCCC"><strong><font size="2">การการทำ</font></strong></td>
                           </tr>
-<?
+<?php
 $sql="SELECT * FROM `t_ded` where l_id='$l_id' AND post_date='$tdate' ORDER BY id ASC";
 $result=mysql_query($sql) or die("ERROR $sql");
 while($row=mysql_fetch_row($result)){
 ?>
                           <tr>
-                            <td width="50" height="20" align="center" bgcolor="#E6E6E6"><font size="2"><?=$row[7];?></font></td>
+                            <td width="50" height="20" align="center" bgcolor="#E6E6E6"><font size="2"><?php echo $row[7]; ?></font></td>
                             <td width="100" height="20" align="center" bgcolor="#E6E6E6">
-							<? if($row[5]==1){ ?><font size="2" color="#FF0000"><strong><?=$row[2];?></strong></font>
-							<? }else{ ?><font size="2"><?=$row[2];?></font><? } ?>
+							<?php if($row[5]==1){ ?><font size="2" color="#FF0000"><strong><?php echo $row[2]; ?></strong></font>
+							<?php }else{ ?><font size="2"><?php echo $row[2]; ?></font><?php } ?>
 							</td>
                             <td width="50" height="20" align="center" bgcolor="#E6E6E6">
-							<font size="2"><?=$row[9];?></font>
+							<font size="2"><?php echo $row[9]; ?></font>
 							</td>
                             <td width="100" height="20" align="center" bgcolor="#E6E6E6">
-							<? if($row[5]==2){ ?><font size="2" color="#FF0000"><strong><?=$row[3];?></strong></font>
-							<? }else{ ?><font size="2"><?=$row[3];?></font><? } ?>
+							<?php if($row[5]==2){ ?><font size="2" color="#FF0000"><strong><?php echo $row[3]; ?></strong></font>
+							<?php }else{ ?><font size="2"><?php echo $row[3]; ?></font><?php } ?>
 							</td>
                             <td width="100" height="20" align="center" bgcolor="#E6E6E6"><font size="2">
-                              <?=$row[4];?>
+                              <?php echo $row[4]; ?>
                             </font></td>
                             <td width="150" height="20" align="left" bgcolor="#E6E6E6"><font size="2">
-                              &nbsp;&nbsp;<?=$row[6];?>
+                              &nbsp;&nbsp;<?php echo $row[6]; ?>
                             </font></td>
                             <td width="100" height="20" align="center" bgcolor="#E6E6E6"><font size="2">
-                              <?=$row[8];?>
+                              <?php echo $row[8]; ?>
                             </font></td>
-                            <td width="100" height="20" align="center" valign="middle" bgcolor="#E6E6E6"><font size="2"><a href="edit-t-ded.php?id=<?=$row[0];?>"><img src="images/edit.gif" width="40" height="15" border="0" /></a> <a href="del-ball-ded.php?id=<?=$row[0];?>&l_id=<?=$l_id;?>&tdate=<?=$tdate;?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"> <img src="images/del.gif" width="40" height="15" border="0" /></a></font></td>
+                            <td width="100" height="20" align="center" valign="middle" bgcolor="#E6E6E6"><font size="2"><a href="edit-t-ded.php?id=<?php echo $row[0]; ?>"><img src="images/edit.gif" width="40" height="15" border="0" /></a> <a href="del-ball-ded.php?id=<?php echo $row[0]; ?>&l_id=<?php echo $l_id; ?>&tdate=<?php echo $tdate; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"> <img src="images/del.gif" width="40" height="15" border="0" /></a></font></td>
                           </tr>
-<? } ?>
+<?php } ?>
                         </table></td>
                       </tr>
                     </table></td>

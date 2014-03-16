@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 include "../inc/config.inc.php";
 ?>
@@ -28,12 +28,12 @@ a:active {
 </style></head>
 
 <body>
-<?
-$id=$_GET[id];
-$topic_id=$_GET[topic_id];
-$cate_id=$_GET[cate_id];
-$topic=$_GET[topic];
-//select img ans_webboard
+<?php
+$id=$_GET["id"];
+$topic_id=$_GET["topic_id"];
+$cate_id=$_GET["cate_id"];
+$topic=$_GET["topic"];
+//select img ans_webboard   
 $sql6="SELECT img FROM `ans_webboard` WHERE id='$id'";
 $re6=mysql_query($sql6) or die("ERROR $sql6");
 while($r6=mysql_fetch_row($re6)){

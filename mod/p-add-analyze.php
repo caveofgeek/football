@@ -1,11 +1,11 @@
-<?
+<?php
 session_start();
 include "../inc/config.inc.php";
 ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<?
+<?php
 $title=$_POST[title];
-$detail=addslashes($_POST[input]);
+$detail=addslashes($_POST["input"]);
 $status_comment=$_POST[status_comment];
 $date=date("Y-m-d H:i:s");
 

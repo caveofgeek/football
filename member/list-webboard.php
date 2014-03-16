@@ -1,7 +1,7 @@
-<?
+<?php
 session_start();
-if(!isset($_SESSION[member_login])) {
-echo "<meta http-equiv='refresh' content='0;url=../index.php'>" ;
+if(!isset($_SESSION["member_login"])) {
+echo "<meta http-equiv='refresh' content='0;url=../index.php'>" ; 
 exit() ;
 }
 include "../inc/config.inc.php";
@@ -34,39 +34,40 @@ $str=mysql_fetch_row($stre);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>ระบบจัดการข้อมูลสมาชิก | <?=$titler[1];?></title>
+<title>ระบบจัดการข้อมูลสมาชิก | <?php echo $titler[1]; ?></title>
 <meta name="robots"  content="index,nofollow">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {
-	background-color: #<?=$bgr[1];?>;
-	<? if($bgr[2]!=""){ ?>background-image: url(http://<?=$titler[13];?>/bg-img/<?=$bgr[2];?>);
-	background-repeat: <?=$bgr[3];?>;
-	<? }if($bgr[4]==1){ ?>
+	background-color: #<?php echo $bgr[1]; ?>;
+	<?php if($bgr[2]!=""){ ?>background-image: url(http://<?php echo $titler[13]; ?>/bg-img/<?php echo $bgr[2]; ?>);
+	background-repeat: <?php echo $bgr[3]; ?>;
+	<?php }if($bgr[4]==1){ ?>	
 	background-attachment:fixed;
-	<? } ?>
+	<?php } ?>
 }
 a:link {
-	color: #<?=$linkr[1];?>;
+	color: #<?php echo $linkr[1]; ?>;
 	text-decoration: none;
 }
 a:visited {
 	text-decoration: none;
-	color: #<?=$linkr[2];?>;
+	color: #<?php echo $linkr[2]; ?>;
 }
 a:hover {
 	text-decoration: underline;
-	color: #<?=$linkr[3];?>;
+	color: #<?php echo $linkr[3]; ?>;
 }
 a:active {
 	text-decoration: none;
-	color: #<?=$linkr[4];?>;
+	color: #<?php echo $linkr[4]; ?>;
 }
 -->
 </style>
-<?
+<?php 
+
 class Paginator{
 	var $items_per_page;
 	var $items_total;
@@ -138,8 +139,8 @@ class Paginator{
 			}
 		}
 		$this->low = ($this->current_page-1) * $this->items_per_page;
-		$this->high = ($_GET['ipp'] == 'All') ? $this->items_total:($this->current_page * $this->items_per_page)-1;
-		$this->limit = ($_GET['ipp'] == 'All') ? "":" LIMIT $this->low,$this->items_per_page";
+		$this->high = (isset($_GET['ipp']) == 'All') ? $this->items_total:($this->current_page * $this->items_per_page)-1;
+		$this->limit = (isset($_GET['ipp']) == 'All') ? "":" LIMIT $this->low,$this->items_per_page";
 	}
 
 	function display_pages()
@@ -205,7 +206,7 @@ class Paginator{
 <body>
 <table width="995" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
-    <td align="center" valign="top"><? include "../header.php"; ?></td>
+    <td align="center" valign="top"><?php include "../header.php"; ?></td>
   </tr>
   <tr>
     <td style="background-color:#FFFFFF;"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -215,7 +216,7 @@ class Paginator{
     </table>
       <table width="985" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
-          <td width="250" align="center" valign="top"><? include "../menu.php"; ?></td>
+          <td width="250" align="center" valign="top"><?php include "../menu.php"; ?></td>
           <td width="7" align="center" valign="top">&nbsp;</td>
           <td width="728" align="center" valign="top"><table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
@@ -236,19 +237,23 @@ class Paginator{
                         <td width="75" height="30" align="center" bgcolor="#CCCCCC"><font size="2"><strong>อ่าน</strong></font></td>
                         <td width="75" height="30" align="center" bgcolor="#CCCCCC"><font size="2"><strong>ตอบ</strong></font></td>
                       </tr>
-<?
+<?php
 $strSQL="SELECT webboard.id, webboard.title, webboard.date, webboard.view, member.name, webboard.upd_date, webboard.status, ";
 $strSQL.="webboard.cate_id, webboard.member_id FROM `webboard` ";
 $strSQL.="INNER JOIN member ON webboard.member_id=member.id ";
-$strSQL.="WHERE webboard.member_id=$_SESSION[m_id] ";
+$strSQL.="WHERE webboard.member_id=$_SESSION["m_id"] ";
 $objQuery=mysql_query($strSQL) or die("ERROR บรรทัด 344");
 $Num_Rows = mysql_num_rows($objQuery);
 		$Per_Page = 50;   // Per Page
 
-		$Page = $_GET["Page"];
-		if(!$_GET["Page"])
+		
+		if(!isset($_GET["Page"]))
 		{
 			$Page=1;
+		}
+		else
+		{
+			$Page = $_GET["Page"];
 		}
 
 		$Prev_Page = $Page-1;
@@ -280,7 +285,7 @@ $Num_Rows = mysql_num_rows($objQuery);
                             <tr>
                               <td height="20" align="left"><table width="430" border="0" cellspacing="0" cellpadding="0">
                                   <tr>
-                                    <td width="30" align="center"><?
+                                    <td width="30" align="center"><?php
 $strWB2="SELECT member.name, ans_webboard.date FROM `ans_webboard` ";
 $strWB2.="INNER JOIN member ON ans_webboard.member_id=member.id ";
 $strWB2.="WHERE ans_webboard.topic_id='$objResult[0]' ORDER BY ans_webboard.id DESC ";
@@ -289,15 +294,15 @@ $WBResult2=mysql_fetch_row($WBQuery2);
 $NumWB2=mysql_num_rows($WBQuery2);
 if($NumWB2<=0){
 ?>
-                                        <img src="http://<?=$titler[13];?>/webboard/img/boardans.gif" width="16" height="11" />
-                                        <? }else{ ?>
-                                        <img src="http://<?=$titler[13];?>/webboard/img/boardunans.gif" width="16" height="11" />
-                                        <? } ?></td>
-                                    <td width="400" align="left"><font size="2"><a href="http://<?=$titler[13];?>/board-<?=$objResult[0];?>-<?=$objResult[7];?>/<?=$url;?>.html" title="<?=$objResult[1];?>" target="_blank">
-                                      <?=$objResult[1];?>
-                                      </a> <img src="http://<?=$titler[13];?>/webboard/img/Logout.gif" width="16" height="16" />
-                                      <?=$objResult[4];?>
-                                      <?
+                                        <img src="http://<?php echo $titler[13]; ?>/webboard/img/boardans.gif" width="16" height="11" />
+                                        <?php }else{ ?>
+                                        <img src="http://<?php echo $titler[13]; ?>/webboard/img/boardunans.gif" width="16" height="11" />
+                                        <?php } ?></td>
+                                    <td width="400" align="left"><font size="2"><a href="http://<?php echo $titler[13]; ?>/board-<?php echo $objResult[0]; ?>-<?php echo $objResult[7]; ?>/<?php echo $url; ?>.html" title="<?php echo $objResult[1]; ?>" target="_blank">
+                                      <?php echo $objResult[1]; ?>
+                                      </a> <img src="http://<?php echo $titler[13]; ?>/webboard/img/Logout.gif" width="16" height="16" />
+                                      <?php echo $objResult[4]; ?>
+                                      <?php
 $today=date("Y-n-j H:i:s");
 $yesterday=date("Y-m-d H:i:s",strtotime("- 1 day"));
 //echo $objResult[5];
@@ -305,12 +310,12 @@ if($objResult[5]>=$yesterday){
 //echo "yes";
 	if($objResult[6]==1){
 ?>
-                                      <img src="http://<?=$titler[13];?>/webboard/img/new_icon.gif" width="21" height="9" />
-                                      <?
+                                      <img src="http://<?php echo $titler[13]; ?>/webboard/img/new_icon.gif" width="21" height="9" />
+                                      <?php
 	}else if($objResult[6]==2){
 ?>
-                                      <img src="http://<?=$titler[13];?>/webboard/img/icon_update.gif" width="42" height="12" />
-                                      <?
+                                      <img src="http://<?php echo $titler[13]; ?>/webboard/img/icon_update.gif" width="42" height="12" />
+                                      <?php	
 	}
 }else{
 //echo "no";
@@ -323,11 +328,11 @@ if($objResult[5]>=$yesterday){
                             <tr>
                               <td height="20" align="left"><table width="370" border="0" align="center" cellpadding="0" cellspacing="0">
                                   <tr>
-                                    <td width="10" align="left"><img src="http://<?=$titler[13];?>/webboard/img/arrow.gif" width="11" height="8" /></td>
+                                    <td width="10" align="left"><img src="http://<?php echo $titler[13]; ?>/webboard/img/arrow.gif" width="11" height="8" /></td>
                                     <td width="360" align="left"><font size="1">ตอบล่าสุดโดย
-                                      <? if($NumWB2<=0){ echo "ยังไม่มีผู้ตอบ"; }else{ echo $WBResult2[0];?>
+                                      <?php if($NumWB2<=0){ echo "ยังไม่มีผู้ตอบ"; }else{ echo $WBResult2[0]; ?>
                                       เมื่อ
-                                      <? $replyDate = $WBResult2[1];
+                                      <?php $replyDate = $WBResult2[1];
 echo DateTime($replyDate);
 }
 ?>
@@ -337,19 +342,19 @@ echo DateTime($replyDate);
                             </tr>
                         </table></td>
                         <td width="130" height="40" align="center" bgcolor="#FFFFFF"><font size="2">
-                          <?
+                          <?php
 								$postDate = $objResult[2];
 								echo DateTime($postDate);
 								?>
                         </font></td>
                         <td width="75" height="40" align="center" bgcolor="#FFFFFF"><font size="2">
-                          <?=$objResult[3];?>
+                          <?php echo $objResult[3]; ?>
                         </font></td>
                         <td width="75" height="40" align="center" bgcolor="#FFFFFF"><font size="2">
-                          <?=$NumWB2;?>
+                          <?php echo $NumWB2; ?>
                         </font></td>
                       </tr>
-                      <? } ?>
+                      <?php } ?>
                     </table>
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                       <tr>
@@ -358,7 +363,7 @@ echo DateTime($replyDate);
                     </table>
                     <table width="640" border="0" align="center" cellpadding="0" cellspacing="0">
                       <tr>
-                        <td height="30" align="center" valign="middle"><?
+                        <td height="30" align="center" valign="middle"><?php 
 $pages = new Paginator;
 $pages->items_total = $Num_Rows;
 $pages->mid_range = 10;
@@ -380,9 +385,9 @@ echo $pages->display_pages()
       </table></td>
   </tr>
   <tr>
-    <td align="center"><? include "../top-footer.php"; ?></td>
+    <td align="center"><?php include "../top-footer.php"; ?></td>
   </tr>
 </table>
-<? include "../footer.php"; ?>
+<?php include "../footer.php"; ?>
 </body>
 </html>

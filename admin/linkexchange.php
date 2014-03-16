@@ -1,8 +1,9 @@
-<?
-@session_start();
+<?php 
+@session_start(); 
 include "../inc/config.inc.php";
-if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
+if(!isset($_SESSION["admin_login"])) {
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+
 exit() ;
 }
 $shop="select url from web_detail where id=1";
@@ -20,7 +21,8 @@ $r2=mysql_fetch_row($re2);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
-<?
+<?php 
+
 class Paginator{
 	var $items_per_page;
 	var $items_total;
@@ -92,8 +94,8 @@ class Paginator{
 			}
 		}
 		$this->low = ($this->current_page-1) * $this->items_per_page;
-		$this->high = ($_GET['ipp'] == 'All') ? $this->items_total:($this->current_page * $this->items_per_page)-1;
-		$this->limit = ($_GET['ipp'] == 'All') ? "":" LIMIT $this->low,$this->items_per_page";
+		$this->high = (isset($_GET['ipp']) == 'All') ? $this->items_total:($this->current_page * $this->items_per_page)-1;
+		$this->limit = (isset($_GET['ipp']) == 'All') ? "":" LIMIT $this->low,$this->items_per_page";
 	}
 
 	function display_pages()
@@ -187,7 +189,7 @@ body {
             <table width="960" border="0" cellspacing="1" cellpadding="1">
               <tr valign="top">
                 <td width="690"><div align="left"><font color="#ffffff" size="4">.:: ยินดีต้อนรับเข้าสู่ ระบบจัดการข้อมูลเว็บไซต์ ::
-                  <?
+                  <?php
 				$dm=date("d/m");
 				$y=date("Y")+543;
 				$date="$dm/$y";
@@ -203,7 +205,7 @@ body {
       <tr>
         <td bgcolor="#CCCCCC"><table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
-              <td width="220" align="center" valign="top"><? include "menu.php"; ?></td>
+              <td width="220" align="center" valign="top"><?php include "menu.php"; ?></td>
               <td width="760" align="center" valign="top" bgcolor="#FFFFFF"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
                   <tr>
                     <td height="25"><strong><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> จัดการข้อมูลเว็บเพื่อนบ้าน</font></strong></td>
@@ -220,12 +222,12 @@ body {
                                 </table>
                                   <table width="360" border="0" align="center" cellpadding="0" cellspacing="0">
                                     <tr>
-                                      <td align="left"><font size="2" color="#333333"><strong>Text Link =&gt; <a href="http://<?=$shopr[0];?>" title="<?=$r1[0];?>" target="_blank"  rel="dofollow "><strong>
-                                        <?=$r1[0];?>
+                                      <td align="left"><font size="2" color="#333333"><strong>Text Link =&gt; <a href="http://<?php echo $shopr[0]; ?>" title="<?php echo $r1[0]; ?>" target="_blank"  rel="dofollow "><strong>
+                                        <?php echo $r1[0]; ?>
                                       </strong></a></strong></font></td>
                                     </tr>
                                     <tr>
-                                      <td align="center"><input name="code" type="text" id="code" readonly="readonly" value="&lt;a href=&quot;http://<?=$shopr[0];?>&quot; title=&quot;<?=$r1[0];?>&quot; target=&quot;_blank&quot;  rel=&quot;dofollow &quot;&gt;&lt;strong&gt;<?=$r1[0];?>&lt;/strong&gt;&lt;/a&gt;" size="45" onclick="this.focus();this.select()" /></td>
+                                      <td align="center"><input name="code" type="text" id="code" readonly="readonly" value="&lt;a href=&quot;http://<?php echo $shopr[0]; ?>&quot; title=&quot;<?php echo $r1[0]; ?>&quot; target=&quot;_blank&quot;  rel=&quot;dofollow &quot;&gt;&lt;strong&gt;<?php echo $r1[0]; ?>&lt;/strong&gt;&lt;/a&gt;" size="45" onclick="this.focus();this.select()" /></td>
                                     </tr>
                                     <tr>
                                       <td><form id="form1" name="form1" method="post" action="p-link-exchange.php">
@@ -233,7 +235,7 @@ body {
                                             <tr>
                                               <td width="90" align="right"><font size="2" color="#333333"><strong>ข้อความ</strong></font></td>
                                               <td width="10">&nbsp;</td>
-                                              <td width="260" align="left"><input name="data" type="text" id="data" value="<?=$r1[0];?>" />
+                                              <td width="260" align="left"><input name="data" type="text" id="data" value="<?php echo $r1[0]; ?>" />
                                                   <input type="hidden" id="links" name="links" value="1" /></td>
                                             </tr>
                                             <tr>
@@ -247,10 +249,10 @@ body {
                                 </table></td>
                               <td width="450" valign="top"><table width="360" border="0" align="center" cellpadding="0" cellspacing="0">
                                   <tr>
-                                    <td align="left"><font size="2" color="#333333"><strong>Banner Link =&gt; <a href="http://<?=$shopr[0];?>" title="<?=$r2[0];?>" target="_blank"><img src="http://<?=$shopr[0];?>/banner/<?=$r2[1];?>" alt="<?=$r2[0];?>" width="88" height="31" border="0" title="<?=$r2[0];?>" /></a></strong></font></td>
+                                    <td align="left"><font size="2" color="#333333"><strong>Banner Link =&gt; <a href="http://<?php echo $shopr[0]; ?>" title="<?php echo $r2[0]; ?>" target="_blank"><img src="http://<?php echo $shopr[0]; ?>/banner/<?php echo $r2[1]; ?>" alt="<?php echo $r2[0]; ?>" width="88" height="31" border="0" title="<?php echo $r2[0]; ?>" /></a></strong></font></td>
                                   </tr>
                                   <tr>
-                                    <td align="center"><input name="code" type="text" id="code" readonly="readonly" value="&lt;a href=&quot;http://<?=$shopr[0];?>&quot; title=&quot;<?=$r2[0];?>&quot; target=&quot;_blank&quot;  rel=&quot;dofollow &quot;&gt;&lt;img src=&quot;http://<?=$shopr[0];?>/banner/<?=$r2[1];?>&quot; title=&quot;<?=$r2[0];?>&quot; alt=&quot;<?=$r2[0];?>&quot; border=&quot;0&quot;&gt;&lt;/a&gt;" size="45" onclick="this.focus();this.select()" /></td>
+                                    <td align="center"><input name="code" type="text" id="code" readonly="readonly" value="&lt;a href=&quot;http://<?php echo $shopr[0]; ?>&quot; title=&quot;<?php echo $r2[0]; ?>&quot; target=&quot;_blank&quot;  rel=&quot;dofollow &quot;&gt;&lt;img src=&quot;http://<?php echo $shopr[0]; ?>/banner/<?php echo $r2[1]; ?>&quot; title=&quot;<?php echo $r2[0]; ?>&quot; alt=&quot;<?php echo $r2[0]; ?>&quot; border=&quot;0&quot;&gt;&lt;/a&gt;" size="45" onclick="this.focus();this.select()" /></td>
                                   </tr>
                                   <tr>
                                     <td><form action="p-link-exchange.php" method="post" enctype="multipart/form-data" name="form1" id="form1">
@@ -258,14 +260,14 @@ body {
                                           <tr>
                                             <td width="90" align="right"><font size="2" color="#333333"><strong>ข้อความ</strong></font></td>
                                             <td width="10">&nbsp;</td>
-                                            <td width="260" align="left"><input name="data" type="text" id="data" value="<?=$r2[0];?>" />
+                                            <td width="260" align="left"><input name="data" type="text" id="data" value="<?php echo $r2[0]; ?>" />
                                                 <input type="hidden" id="links" name="links" value="2" /></td>
                                           </tr>
                                           <tr>
                                             <td width="90" align="right"><font size="2" color="#333333"><strong>ภาพ Banner </strong></font></td>
                                             <td width="10">&nbsp;</td>
                                             <td width="260" align="left"><input name="file1" type="file" id="file1" />
-                                                <input type="hidden" id="op" name="op" value="<?=$r2[1];?>" />                                            </td>
+                                                <input type="hidden" id="op" name="op" value="<?php echo $r2[1]; ?>" />                                            </td>
                                           </tr>
                                           <tr>
                                             <td width="90" align="right">&nbsp;</td>
@@ -345,7 +347,7 @@ body {
                             <td width="100" height="30" align="center" bgcolor="#cccccc"><font size="2" color="#333333"><strong>วันที่ติดต่อ</strong></font></td>
                             <td width="100" height="30" align="center" bgcolor="#cccccc"><font size="2" color="#333333"><strong>การกระทำ</strong></font></td>
                           </tr>
-                          <?
+                          <?php
 $s="SELECT * FROM `link_exchange` WHERE actived='0'";
 $re=mysql_query($s) or die("ERROR $s");
 $x=1;
@@ -353,35 +355,35 @@ while($r=mysql_fetch_row($re)){
 ?>
                           <tr>
                             <td width="25" height="25" align="center" bgcolor="#FFFFFF"><font color="#333333" size="2">
-                              <?=$x;?>
+                              <?php echo $x; ?>
                             </font></td>
                             <td width="75" height="25" align="center" bgcolor="#FFFFFF"><font color="#333333" size="2">
-                              <? if($r[5]==1){ echo "Text Link";}else if($r[5]==2){ echo "Banner Link";}?>
+                              <?php if($r[5]==1){ echo "Text Link";}else if($r[5]==2){ echo "Banner Link";} ?>
                             </font></td>
                             <td width="100" height="25" align="center" bgcolor="#FFFFFF"><font color="#333333" size="2">
-                              <?=$r[4];?>
+                              <?php echo $r[4]; ?>
                             </font></td>
-                            <td width="100" height="25" align="center" bgcolor="#FFFFFF"><font color="#333333" size="2"><a href="http://<?=$r[3];?>" target="_blank">
-                              <?=$r[3];?>
+                            <td width="100" height="25" align="center" bgcolor="#FFFFFF"><font color="#333333" size="2"><a href="http://<?php echo $r[3]; ?>" target="_blank">
+                              <?php echo $r[3]; ?>
                             </a></font></td>
                             <td width="220" height="45" align="center" bgcolor="#FFFFFF"><table width="200" border="0" align="center" cellpadding="0" cellspacing="0">
                                 <tr>
                                   <td align="left"><font size="2" color="#333333"><strong>ชื่อ-สกุล</strong>
-                                        <?=$r[1];?>
+                                        <?php echo $r[1]; ?>
                                   </font></td>
                                 </tr>
                                 <tr>
-                                  <td align="left"><font color="#333333" size="2"><strong>Email</strong> <a href="mailto:<?=$r[2];?>">
-                                    <?=$r[2];?>
+                                  <td align="left"><font color="#333333" size="2"><strong>Email</strong> <a href="mailto:<?php echo $r[2]; ?>">
+                                    <?php echo $r[2]; ?>
                                   </a></font></td>
                                 </tr>
                             </table></td>
                             <td width="100" height="25" align="center" bgcolor="#FFFFFF"><font color="#333333" size="2">
-                              <?=$r[6];?>
+                              <?php echo $r[6]; ?>
                             </font></td>
-                            <td width="100" height="25" align="center" bgcolor="#FFFFFF"><font size="2"> <a href="active-link-exchange.php?id=<?=$r[0];?>"><img src="images/actived.jpg" width="42" height="15" border="0" /></a> <a href="del-link-exchange.php?id=<?=$r[0];?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"><img src="images/del.gif" width="40" height="15" border="0" /></a></font></td>
+                            <td width="100" height="25" align="center" bgcolor="#FFFFFF"><font size="2"> <a href="active-link-exchange.php?id=<?php echo $r[0]; ?>"><img src="images/actived.jpg" width="42" height="15" border="0" /></a> <a href="del-link-exchange.php?id=<?php echo $r[0]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"><img src="images/del.gif" width="40" height="15" border="0" /></a></font></td>
                           </tr>
-                          <? $x++;} ?>
+                          <?php $x++;} ?>
                         </table></td>
                       </tr>
                       <tr>
@@ -398,17 +400,21 @@ while($r=mysql_fetch_row($re)){
                               <td width="100" height="30" align="center" bgcolor="#cccccc"><font size="2" color="#333333"><strong>วันที่ติดต่อ</strong></font></td>
                               <td width="100" height="30" align="center" bgcolor="#cccccc"><font size="2" color="#333333"><strong>การกระทำ</strong></font></td>
                             </tr>
-                            <?
+                            <?php
 		$strSQL = "SELECT * FROM link_exchange WHERE actived='1'";
 		$objQuery = mysql_query($strSQL);
 		$Num_Rows = mysql_num_rows($objQuery);
 
 		$Per_Page = 10;   // Per Page
 
-		$Page = $_GET["Page"];
-		if(!$_GET["Page"])
+		
+		if(!isset($_GET["Page"]))
 		{
 			$Page=1;
+		}
+		else
+		{
+			$Page = $_GET["Page"];
 		}
 
 		$Prev_Page = $Page-1;
@@ -436,35 +442,35 @@ while($r=mysql_fetch_row($re)){
 ?>
                             <tr>
                               <td width="25" height="25" align="center" bgcolor="#FFFFFF"><font color="#333333" size="2">
-                                <?=$a;?>
+                                <?php echo $a; ?>
                               </font></td>
                               <td width="75" height="25" align="center" bgcolor="#FFFFFF"><font color="#333333" size="2">
-                                <? if($objResult[5]==1){ echo "Text Link";}else if($objResult[5]==2){ echo "Banner Link";}?>
+                                <?php if($objResult[5]==1){ echo "Text Link";}else if($objResult[5]==2){ echo "Banner Link";} ?>
                               </font></td>
                               <td width="100" height="25" align="center" bgcolor="#FFFFFF"><font color="#333333" size="2">
-                                <?=$objResult[4];?>
+                                <?php echo $objResult[4]; ?>
                               </font></td>
-                              <td width="100" height="25" align="center" bgcolor="#FFFFFF"><font color="#333333" size="2"><a href="http://<?=$objResult[3];?>" target="_blank">
-                                <?=$objResult[3];?>
+                              <td width="100" height="25" align="center" bgcolor="#FFFFFF"><font color="#333333" size="2"><a href="http://<?php echo $objResult[3]; ?>" target="_blank">
+                                <?php echo $objResult[3]; ?>
                               </a></font></td>
                               <td width="220" height="45" align="center" bgcolor="#FFFFFF"><table width="200" border="0" align="center" cellpadding="0" cellspacing="0">
                                   <tr>
                                     <td align="left"><font size="2" color="#333333"><strong>ชื่อ-สกุล</strong>
-                                          <?=$objResult[1];?>
+                                          <?php echo $objResult[1]; ?>
                                     </font></td>
                                   </tr>
                                   <tr>
-                                    <td align="left"><font color="#333333" size="2"><strong>Email</strong> <a href="mailto:<?=$objResult[2];?>">
-                                      <?=$objResult[2];?>
+                                    <td align="left"><font color="#333333" size="2"><strong>Email</strong> <a href="mailto:<?php echo $objResult[2]; ?>">
+                                      <?php echo $objResult[2]; ?>
                                     </a></font></td>
                                   </tr>
                               </table></td>
                               <td width="100" height="25" align="center" bgcolor="#FFFFFF"><font color="#333333" size="2">
-                                <?=$objResult[6];?>
+                                <?php echo $objResult[6]; ?>
                               </font></td>
-                              <td width="100" height="25" align="center" bgcolor="#FFFFFF"><font size="2"><a href="del-link-exchange.php?id=<?=$objResult[0];?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"><img src="images/del.gif" width="40" height="15" border="0" /></a></font></td>
+                              <td width="100" height="25" align="center" bgcolor="#FFFFFF"><font size="2"><a href="del-link-exchange.php?id=<?php echo $objResult[0]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"><img src="images/del.gif" width="40" height="15" border="0" /></a></font></td>
                             </tr>
-                            <? $a++;} ?>
+                            <?php $a++;} ?>
                         </table></td>
                       </tr>
                       <tr>
@@ -478,21 +484,23 @@ while($r=mysql_fetch_row($re)){
                                 <td align="center"><font size="2" color="#000000">รายการเว็บเพื่อนบ้านที่อนุมัติแล้ว
 
                                   ทั้งหมด
-                                  <?=$Num_Rows;?>
+                                  <?php echo $Num_Rows; ?>
                                   รายการ : แสดงผลหน้าละ
-                                  <?=$Per_Page;?>
+                                  <?php echo $Per_Page; ?>
                                   รายการ จำนวนทั้งหมด
-                                  <?=$Num_Pages;?>
+                                  <?php echo $Num_Pages; ?>
                                   หน้า</font></td>
                               </tr>
                               <tr>
-                                <td height="30" align="center" valign="middle"><?
+                                <td height="30" align="center" valign="middle"><?php
+
+
 $pages = new Paginator;
 $pages->items_total = $Num_Rows;
 $pages->mid_range = 10;
 $pages->current_page = $Page;
 $pages->default_ipp = $Per_Page;
-$pages->url_next = $_SERVER["PHP_SELF"]."?QueryString=value&id=$id&Page=";
+$pages->url_next = $_SERVER["PHP_SELF"]."?QueryString=value&Page=";
 
 $pages->paginate();
 

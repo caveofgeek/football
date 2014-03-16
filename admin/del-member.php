@@ -1,7 +1,7 @@
-<?
+<?php
 session_start();
 include "../inc/config.inc.php";
-if(!isset($_SESSION[admin_login])) {
+if(!isset($_SESSION["admin_login"])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
 exit() ;
 }
@@ -14,7 +14,7 @@ exit() ;
 </head>
 
 <body>
-<?
+<?php
 $member_id=$_GET[member_id];
 
 //select img

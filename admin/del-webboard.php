@@ -1,9 +1,9 @@
-<?
+<?php
 session_start();
 include "../inc/config.inc.php";
-//echo "$_SESSION[m_login]<br>$_SESSION[m_id]";
-if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
+//echo "$_SESSION[m_login]<br>$_SESSION["m_id"]";
+if(!isset($_SESSION["admin_login"])) {
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
 exit() ;
 }
 ?>
@@ -33,9 +33,9 @@ a:active {
 </style></head>
 
 <body>
-<?
-$id=$_GET[id];
-//select img webboard
+<?php
+$id=$_GET["id"];
+//select img webboard   
 $sql5="SELECT img FROM `webboard` WHERE id='$id'";
 $re5=mysql_query($sql5) or die("ERROR $sql5");
 while($r5=mysql_fetch_row($re5)){

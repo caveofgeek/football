@@ -1,14 +1,14 @@
-<?
+<?php
 session_start();
 include "../inc/config.inc.php";
 ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<?
+<?php
 $id=$_POST[id];
-$cate_id=$_POST[cate_id];
+$cate_id=$_POST["cate_id"];
 $title=$_POST[title];
 $short_detail=$_POST[short_detail];
-$detail=addslashes($_POST[input]);
+$detail=addslashes($_POST["input"]);
 $status_comment=$_POST[status_comment];
 $tag1=$_POST[tag1];
 $tag2=$_POST[tag2];
@@ -17,9 +17,9 @@ $tag4=$_POST[tag4];
 $tag5=$_POST[tag5];
 $tag6=$_POST[tag6];
 $op=$_POST[op];
-$file1=$_FILES[file1][name];
-$tmp1=$_FILES[file1][tmp_name];
-$size1=$_FILES[file1][size];
+$file1=$_FILES["file1"]["name"];
+$tmp1=$_FILES["file1"]["tmp_name"];
+$size1=$_FILES["file1"]["size"];
 $date=date("Y-n-j H:i:s");
 if(isset($file1)&&$file1!=""){
 	if($size1<=50000){
@@ -40,7 +40,7 @@ if(isset($file1)&&$file1!=""){
 		alert('ขอโทษครับ ขนาดไฟล์ภาพของท่านมีขนาดเกิน 50kb ครับ'); 	
 		history.back();
 	</script> 
-<? 		
+<?php 		
 	}
 }else{
 	//update

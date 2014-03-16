@@ -1,8 +1,8 @@
-<?
+<?php
 session_start();
 include "../inc/config.inc.php";
-if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
+if(!isset($_SESSION["admin_login"])) {
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
 exit() ;
 }
 ?>
@@ -32,7 +32,7 @@ a:active {
 </style></head>
 
 <body>
-<?
+<?php
 $l_id=$_POST[l_id];
 $home=htmlspecialchars($_POST[home]);
 $away=htmlspecialchars($_POST[away]);
@@ -58,8 +58,8 @@ echo "<meta http-equiv='refresh' content='0;url=league-t-ded.php?l_id=$l_id&tdat
 <script language="JavaScript">
 	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ');
 	history.back();
-</script>
-<?
+</script> 
+<?php
 }
 ?>
 </body>

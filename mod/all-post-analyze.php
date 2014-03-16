@@ -1,5 +1,5 @@
-<?
-@session_start();
+<?php 
+@session_start(); 
 include "../inc/config.inc.php";
 include "../function/function.php";
 include "../function/datetime.php";
@@ -31,7 +31,8 @@ a:active {
 }
 -->
 </style>
-<?
+<?php 
+
 class Paginator{
 	var $items_per_page;
 	var $items_total;
@@ -103,8 +104,8 @@ class Paginator{
 			}
 		}
 		$this->low = ($this->current_page-1) * $this->items_per_page;
-		$this->high = ($_GET['ipp'] == 'All') ? $this->items_total:($this->current_page * $this->items_per_page)-1;
-		$this->limit = ($_GET['ipp'] == 'All') ? "":" LIMIT $this->low,$this->items_per_page";
+		$this->high = (isset($_GET['ipp']) == 'All') ? $this->items_total:($this->current_page * $this->items_per_page)-1;
+		$this->limit = (isset($_GET['ipp']) == 'All') ? "":" LIMIT $this->low,$this->items_per_page";
 	}
 
 	function display_pages()
@@ -173,8 +174,8 @@ class Paginator{
     <td><div align="center">
       <table width="980" border="0" cellspacing="1" cellpadding="1">
         <tr valign="top">
-          <td width="490"><div align="left"><font color="#000000" size="2">:: ยินดีต้อนรับเข้าสู่ ระบบจัดการ<font color="#333333">ข้อมูลวิเคราะห์บอล</font> :: |
-				<?
+          <td width="490"><div align="left"><font color="#000000" size="2">:: ยินดีต้อนรับเข้าสู่ ระบบจัดการ<font color="#333333">ข้อมูลวิเคราะห์บอล</font> :: | 
+				<?php
 				$dm=date("d/m");
 				$y=date("Y")+543;
 				$date="$dm/$y";
@@ -226,17 +227,21 @@ class Paginator{
                   <td width="150" height="30" align="center" bgcolor="#CCCCCC"><span style="font-family:'Times New Roman', Times, serif; font-size:12px; font-weight:bold;">วันที่โพสต์</span></td>
                   <td width="100" height="30" align="center" bgcolor="#CCCCCC"><span style="font-family:'Times New Roman', Times, serif; font-size:12px; font-weight:bold;">การกระทำ</span></td>
                 </tr>
-<?
+<?php
 		$strSQL = "SELECT * FROM `analyze` WHERE mod_id='$_SESSION[mod_id]'";
 		$objQuery = mysql_query($strSQL);
 		$Num_Rows = mysql_num_rows($objQuery);
 
 		$Per_Page = 20;   // Per Page
 
-		$Page = $_GET["Page"];
-		if(!$_GET["Page"])
+		
+		if(!isset($_GET["Page"]))
 		{
 			$Page=1;
+		}
+		else
+		{
+			$Page = $_GET["Page"];
 		}
 
 		$Prev_Page = $Page-1;
@@ -272,19 +277,19 @@ class Paginator{
 		$bg="#EEEEEE";
 		}
 ?>
-                <tr bgcolor="<?=$bg;?>">
-                  <td width="75" height="25" align="center" style="font-family:'Times New Roman', Times, serif; font-size:12px;"><?=$objResult[0];?></td>
+                <tr bgcolor="<?php echo $bg; ?>">
+                  <td width="75" height="25" align="center" style="font-family:'Times New Roman', Times, serif; font-size:12px;"><?php echo $objResult[0]; ?></td>
                   <td width="405" height="25" align="left"><table width="400" border="0" align="center" cellpadding="0" cellspacing="0">
                     <tr>
-                      <td align="left"><a href="../post-<?=$objResult[0];?>/<?=$url;?>.html" style="font-family:'Times New Roman', Times, serif; font-size:12px; color:#000000;" target="_blank"><?=$objResult[2];?></a> <span style="font-family:'Times New Roman', Times, serif; font-size:12px; color:#666666;">[เข้าชม <?=$objResult[6];?> ครั้ง]</span></td>
+                      <td align="left"><a href="../post-<?php echo $objResult[0]; ?>/<?php echo $url; ?>.html" style="font-family:'Times New Roman', Times, serif; font-size:12px; color:#000000;" target="_blank"><?php echo $objResult[2]; ?></a> <span style="font-family:'Times New Roman', Times, serif; font-size:12px; color:#666666;">[เข้าชม <?php echo $objResult[6]; ?> ครั้ง]</span></td>
                     </tr>
                   </table></td>
                   <td width="150" height="25" align="center"><span style="font-family:'Times New Roman', Times, serif; font-size:12px;">
-                    <?=DateTime($objResult[5]);?>
+                    <?php echo DateTime($objResult[5]); ?>
                   </span></td>
-                  <td width="100" height="25" align="center"><font size="2"><a href="edit-post-analyze.php?id=<?=$objResult[0];?>"><img src="img/edit.gif" width="40" height="15" border="0" /></a> <a href="del-post-analyze.php?id=<?=$objResult[0];?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"> <img src="img/del.gif" width="40" height="15" border="0" /></a></font></td>
+                  <td width="100" height="25" align="center"><font size="2"><a href="edit-post-analyze.php?id=<?php echo $objResult[0]; ?>"><img src="img/edit.gif" width="40" height="15" border="0" /></a> <a href="del-post-analyze.php?id=<?php echo $objResult[0]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"> <img src="img/del.gif" width="40" height="15" border="0" /></a></font></td>
                 </tr>
-<? } ?>
+<?php } ?>
               </table>
               <table width="100%" height="10" border="0" cellpadding="0" cellspacing="0">
                 <tr>
@@ -295,15 +300,15 @@ class Paginator{
                 <tr>
                   <td align="center"><font size="2" color="#000000">รายการบทวิเคราะห์
                     ทั้งหมด
-                    <?=$Num_Rows;?>
+                    <?php echo $Num_Rows; ?>
                     รายการ : แสดงผลหน้าละ
-                    <?=$Per_Page;?>
+                    <?php echo $Per_Page; ?>
                     รายการ จำนวนทั้งหมด
-                    <?=$Num_Pages;?>
+                    <?php echo $Num_Pages; ?>
                     หน้า</font></td>
                 </tr>
                 <tr>
-                  <td height="30" align="center" valign="middle"><?
+                  <td height="30" align="center" valign="middle"><?php 
 $pages = new Paginator;
 $pages->items_total = $Num_Rows;
 $pages->mid_range = 10;

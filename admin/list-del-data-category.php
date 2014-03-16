@@ -1,10 +1,10 @@
-<?
-@session_start();
+<?php 
+@session_start(); 
 include "../inc/config.inc.php";
 include "../function/function.php";
 include "../function/datetime.php";
-if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
+if(!isset($_SESSION["admin_login"])) {
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
 exit() ;
 }
 ?>
@@ -13,7 +13,8 @@ exit() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
-<?
+<?php 
+
 class Paginator{
 	var $items_per_page;
 	var $items_total;
@@ -85,8 +86,8 @@ class Paginator{
 			}
 		}
 		$this->low = ($this->current_page-1) * $this->items_per_page;
-		$this->high = ($_GET['ipp'] == 'All') ? $this->items_total:($this->current_page * $this->items_per_page)-1;
-		$this->limit = ($_GET['ipp'] == 'All') ? "":" LIMIT $this->low,$this->items_per_page";
+		$this->high = (isset($_GET['ipp']) == 'All') ? $this->items_total:($this->current_page * $this->items_per_page)-1;
+		$this->limit = (isset($_GET['ipp']) == 'All') ? "":" LIMIT $this->low,$this->items_per_page";
 	}
 
 	function display_pages()
@@ -180,7 +181,7 @@ body {
             <table width="960" border="0" cellspacing="1" cellpadding="1">
               <tr valign="top">
                 <td width="690"><div align="left"><font color="#ffffff" size="4">.:: ยินดีต้อนรับเข้าสู่ ระบบจัดการข้อมูลเว็บไซต์ ::
-                  <?
+                  <?php
 				$dm=date("d/m");
 				$y=date("Y")+543;
 				$date="$dm/$y";
@@ -196,7 +197,7 @@ body {
       <tr>
         <td bgcolor="#CCCCCC"><table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
-              <td width="220" align="center" valign="top"><? include "menu.php"; ?></td>
+              <td width="220" align="center" valign="top"><?php include "menu.php"; ?></td>
               <td width="760" align="center" valign="top" bgcolor="#FFFFFF"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
                   <tr>
                     <td height="25"><strong><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> จัดการข้อมูลรายการแจ้งลบข่าวสาร</font></strong>					</td>
@@ -208,7 +209,7 @@ body {
                         <td width="120" height="25" align="center" bgcolor="#E9E9E6"><strong><font size="2">แจ้งเมื่อ</font></strong></td>
                         <td width="100" height="25" align="center" bgcolor="#E9E9E6"><strong><font size="2">การกระทำ</font></strong></td>
                       </tr>
-<?
+<?php
 		$strSQL = "SELECT contact_del_post.date, post.id, post.title, post.img, post.view, contact_del_post.id  FROM contact_del_post ";
 		$strSQL .= "INNER JOIN post ON contact_del_post.post_id=post.id ";
 		$objQuery = mysql_query($strSQL);
@@ -216,10 +217,14 @@ body {
 
 		$Per_Page = 50;   // Per Page
 
-		$Page = $_GET["Page"];
-		if(!$_GET["Page"])
+		
+		if(!isset($_GET["Page"]))
 		{
 			$Page=1;
+		}
+		else
+		{
+			$Page = $_GET["Page"];
 		}
 
 		$Prev_Page = $Page-1;
@@ -253,13 +258,13 @@ body {
                           </table>
                             <table width="480" border="0" align="center" cellpadding="0" cellspacing="0">
                               <tr>
-                                <td align="left"><font size="2"><a href="../topic-<?=$objResult[1];?>/<?=$url;?>.html" style="color:#000000" target="_blank">
-                                  <?=$objResult[2];?>
+                                <td align="left"><font size="2"><a href="../topic-<?php echo $objResult[1]; ?>/<?php echo $url; ?>.html" style="color:#000000" target="_blank">
+                                  <?php echo $objResult[2]; ?>
                                 </a></font></td>
                               </tr>
                               <tr>
                                 <td align="left"><font size="2" color="#999999">เข้าชม
-                                  <?=$objResult[4];?>
+                                  <?php echo $objResult[4]; ?>
                                   ครั้ง</font></td>
                               </tr>
                           </table></td>
@@ -271,7 +276,7 @@ body {
                             <table width="120" border="0" align="center" cellpadding="0" cellspacing="0">
                               <tr>
                                 <td align="center"><font size="2" color="#000000">
-                                  <? $postDate=$objResult[0]; echo DateTime($postDate); ?>
+                                  <?php $postDate=$objResult[0]; echo DateTime($postDate); ?>
                                 </font></td>
                               </tr>
                           </table></td>
@@ -282,11 +287,11 @@ body {
                           </table>
                             <table width="100" border="0" align="center" cellpadding="0" cellspacing="0">
                               <tr>
-                                <td align="center"><font size="2"><a href="del-contact-del-post.php?id=<?=$objResult[1];?>&amp;op=<?=$objResult[3];?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"><img src="images/del.gif" width="40" height="15" border="0" /></a> <a href="cancel-contact-del-post.php?id=<?=$objResult[5];?>" onclick="javascript:if(!confirm('ท่านต้องการยกเลิกจริงหรือไม่')){return false;}"><img src="images/cancel.gif" width="40" height="15" border="0" /></a></font></td>
+                                <td align="center"><font size="2"><a href="del-contact-del-post.php?id=<?php echo $objResult[1]; ?>&amp;op=<?php echo $objResult[3]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"><img src="images/del.gif" width="40" height="15" border="0" /></a> <a href="cancel-contact-del-post.php?id=<?php echo $objResult[5]; ?>" onclick="javascript:if(!confirm('ท่านต้องการยกเลิกจริงหรือไม่')){return false;}"><img src="images/cancel.gif" width="40" height="15" border="0" /></a></font></td>
                               </tr>
                             </table></td>
                       </tr>
-                      <? } ?>
+                      <?php } ?>
                     </table>
                       <table width="100%" height="10" border="0" cellpadding="0" cellspacing="0">
                         <tr>
@@ -297,21 +302,21 @@ body {
                         <tr>
                           <td align="center"><font size="2" color="#000000">รายการข้อมูลรายการแจ้งลบข่าวสาร
                             ทั้งหมด
-                            <?=$Num_Rows;?>
+                            <?php echo $Num_Rows; ?>
                             รายการ : แสดงผลหน้าละ
-                            <?=$Per_Page;?>
+                            <?php echo $Per_Page; ?>
                             รายการ จำนวนทั้งหมด
-                            <?=$Num_Pages;?>
+                            <?php echo $Num_Pages; ?>
                             หน้า</font></td>
                         </tr>
                         <tr>
-                          <td height="30" align="center" valign="middle"><?
+                          <td height="30" align="center" valign="middle"><?php 
 $pages = new Paginator;
 $pages->items_total = $Num_Rows;
 $pages->mid_range = 10;
 $pages->current_page = $Page;
 $pages->default_ipp = $Per_Page;
-$pages->url_next = $_SERVER["PHP_SELF"]."?QueryString=value&cate_id=$cate_id&Page=";
+$pages->url_next = $_SERVER["PHP_SELF"]."?QueryString=value&Page=";
 
 $pages->paginate();
 

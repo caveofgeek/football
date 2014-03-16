@@ -1,8 +1,8 @@
-<?
+<?php
 session_start();
 include "../inc/config.inc.php";
-if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
+if(!isset($_SESSION["admin_login"])) {
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
 exit() ;
 }
 ?>
@@ -32,7 +32,7 @@ a:active {
 </style></head>
 
 <body>
-<?
+<?php
 $Submit=$_POST[Submit];
 $brand=htmlspecialchars($_POST[brand]);
 $title=htmlspecialchars($_POST[title]);
@@ -46,8 +46,8 @@ if($num>=1){
 <script language="JavaScript">
 	alert('ขอโทษครับ หมวดหมู่เว็บบอร์ดนี้มีอยู่แล้วครับ');
 	history.back();
-</script>
-<?
+</script> 
+<?php
 }else{
 if($brand!=""&&$title!=""&&$description!=""&&$keyword!=""){
 $sql=mysql_query("INSERT INTO `webboard_category` (`cate_name`, `title`, `description`, `keyword`)VALUES ('$brand', '$title', '$description', '$keyword')")or die("ERROR $sql บรรทัด 51");
@@ -57,8 +57,8 @@ echo "<meta http-equiv='refresh' content='0;url=webboard-category.php'>";
 <script language="JavaScript">
 	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ');
 	history.back();
-</script>
-<?
+</script> 
+<?php
 }
 }
 ?>

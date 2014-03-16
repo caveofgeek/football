@@ -1,18 +1,18 @@
-<? @session_start();  ?>
+<?php @session_start();  ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<?
+<?php
 include "../inc/config.inc.php";
 include "../function/function.php";
-$user=$_POST[user];
-$pass=$_POST[pass];
+$user=$_POST["user"];
+$pass=$_POST["pass"];
 $title=$_POST[title];
 $cate=$_POST[cate];
-$detail=addslashes($_POST[input]);
-$file1=$_FILES[file1][name];
-$tmp1=$_FILES[file1][tmp_name];
-$size1=$_FILES[file1][size];
-$capcha=$_POST[capcha];
-$rands=$_POST[rands];
+$detail=addslashes($_POST["input"]);
+$file1=$_FILES["file1"]["name"];
+$tmp1=$_FILES["file1"]["tmp_name"];
+$size1=$_FILES["file1"]["size"];
+$capcha=$_POST["capcha"];
+$rands=$_POST["rands"];
 $date=date("Y-n-j H:i:s");
 $ip=$_SERVER['REMOTE_ADDR'];
 //check ค่าว่าง
@@ -30,7 +30,7 @@ if(isset($rands)&&isset($capcha)&&$rands==$capcha){
 		alert('ขออภัยครับ ท่านกรอก ชื่อผู้ใช้ และ/หรือ รหัสผ่าน ไม่ถูกต้องครับ'); 	
 		history.back();
 	</script>
-<?
+<?php
 	}else{
 			//check ขนาดไฟล์ภาพ
 			if(isset($file1)&&$file1!=""){
@@ -51,7 +51,7 @@ if(isset($rands)&&isset($capcha)&&$rands==$capcha){
 			alert('ขอโทษครับ ขนาดไฟล์ภาพของท่านมีขนาดเกิน 200kb ครับ'); 	
 			history.back();
 		</script> 
-<? 		
+<?php 		
 			}
 			}else{
 			$scate="SELECT * FROM `webboard_category` WHERE id='$cate'";
@@ -69,7 +69,7 @@ if(isset($rands)&&isset($capcha)&&$rands==$capcha){
 		alert('ขอโทษครับ คุณกรอกรหัสยืนยันไม่ถูกต้องครับ'); 	
 		history.back();
 	</script> 
-<? 
+<?php 
 } 
 }else{
 ?>
@@ -77,6 +77,6 @@ if(isset($rands)&&isset($capcha)&&$rands==$capcha){
 		alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ'); 	
 		history.back();
 	</script> 
-<? 
+<?php 
 } 
 ?>

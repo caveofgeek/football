@@ -1,9 +1,9 @@
-<?
+<?php
 session_start();
 include "../inc/config.inc.php";
-//echo "$_SESSION[m_login]<br>$_SESSION[m_id]";
-if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
+//echo "$_SESSION[m_login]<br>$_SESSION["m_id"]";
+if(!isset($_SESSION["admin_login"])) {
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
 exit() ;
 }
 ?>
@@ -33,10 +33,10 @@ a:active {
 </style></head>
 
 <body>
-<?
+<?php
 $Submit=$_POST[Submit];
-$user=htmlspecialchars($_POST[user]);
-$pass=htmlspecialchars($_POST[pass]);
+$user=htmlspecialchars($_POST["user"]);
+$pass=htmlspecialchars($_POST["pass"]);
 if($user!=""&&$pass!=""){
 $sql=mysql_query("INSERT INTO `admin` (`user` ,`pass`)VALUES ('$user',  '$pass')")or die("ERROR $sql");
 echo "<meta http-equiv='refresh' content='0;url=admin.php'>";
@@ -45,8 +45,8 @@ echo "<meta http-equiv='refresh' content='0;url=admin.php'>";
 <script language="JavaScript">
 	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ');
 	history.back();
-</script>
-<?
+</script> 
+<?php
 }
 ?>
 </body>

@@ -1,9 +1,9 @@
-<?
+<?php
 session_start();
 include "../inc/config.inc.php";
-//echo "$_SESSION[m_login]<br>$_SESSION[m_id]";
-if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
+//echo "$_SESSION[m_login]<br>$_SESSION["m_id"]";
+if(!isset($_SESSION["admin_login"])) {
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
 exit() ;
 }
 ?>
@@ -33,8 +33,8 @@ a:active {
 </style></head>
 
 <body>
-<?
-$id=$_GET[id];
+<?php
+$id=$_GET["id"];
 
 //del game_play
 $sql3=mysql_query("delete from game_play where game_id='$id'")or die("ERROR $sql3");

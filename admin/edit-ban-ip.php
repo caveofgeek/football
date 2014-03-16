@@ -1,11 +1,12 @@
-<?
-@session_start();
+<?php 
+@session_start(); 
 include "../inc/config.inc.php";
-if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
+if(!isset($_SESSION["admin_login"])) {
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+
 exit() ;
 }
-$id=$_GET[id];
+$id=$_GET["id"];
 $s="SELECT * FROM `ban_ip` where id='$id'";
 $re=mysql_query($s) or die("ERROR $s");
 $r=mysql_fetch_row($re);
@@ -15,7 +16,8 @@ $r=mysql_fetch_row($re);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
-<?
+<?php 
+
 class Paginator{
 	var $items_per_page;
 	var $items_total;
@@ -87,8 +89,8 @@ class Paginator{
 			}
 		}
 		$this->low = ($this->current_page-1) * $this->items_per_page;
-		$this->high = ($_GET['ipp'] == 'All') ? $this->items_total:($this->current_page * $this->items_per_page)-1;
-		$this->limit = ($_GET['ipp'] == 'All') ? "":" LIMIT $this->low,$this->items_per_page";
+		$this->high = (isset($_GET['ipp']) == 'All') ? $this->items_total:($this->current_page * $this->items_per_page)-1;
+		$this->limit = (isset($_GET['ipp']) == 'All') ? "":" LIMIT $this->low,$this->items_per_page";
 	}
 
 	function display_pages()
@@ -183,7 +185,7 @@ body {
             <table width="960" border="0" cellspacing="1" cellpadding="1">
               <tr valign="top">
                 <td width="690"><div align="left"><font color="#ffffff" size="4">.:: ยินดีต้อนรับเข้าสู่ ระบบจัดการข้อมูลเว็บไซต์ ::
-                  <?
+                  <?php
 				$dm=date("d/m");
 				$y=date("Y")+543;
 				$date="$dm/$y";
@@ -199,7 +201,7 @@ body {
       <tr>
         <td bgcolor="#CCCCCC"><table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
-              <td width="220" align="center" valign="top"><? include "menu.php"; ?></td>
+              <td width="220" align="center" valign="top"><?php include "menu.php"; ?></td>
               <td width="760" align="center" valign="top" bgcolor="#FFFFFF"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
                   <tr>
                     <td height="25"><strong><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> <a href="ban-ip.php">จัดการข้อมูลแบนไอพี</a> <img src="images/arrow.gif" width="7" height="11" /> </font><font size="2" color="#333333"><strong>แก้ไขข้อมูลแบนไอพี</strong></font></strong></td>
@@ -217,8 +219,8 @@ body {
                                     <tr>
                                       <td align="right"><font size="2" color="#333333"><strong>ไอพี</strong></font></td>
                                       <td width="10">&nbsp;</td>
-                                      <td width="300" align="left"><input name="brand" type="text" id="brand" value="<?=$r[1];?>" />
-                                          <input type="hidden" name="id" id="id" value="<?=$id;?>" /></td>
+                                      <td width="300" align="left"><input name="brand" type="text" id="brand" value="<?php echo $r[1]; ?>" />
+                                          <input type="hidden" name="id" id="id" value="<?php echo $id; ?>" /></td>
                                     </tr>
                                     <tr>
                                       <td width="150" align="right">&nbsp;</td>
@@ -252,17 +254,23 @@ return true ;
                               <td width="250" height="30" align="center" valign="middle" bgcolor="#EFEFED"><font size="2" color="#333333"><strong>ไอพี</strong></font></td>
                               <td width="100" height="30" align="center" valign="middle" bgcolor="#EFEFED"><span class="style4">การกระทำ</span></td>
                             </tr>
-                            <?
+                          <?php
+
+
 		$strSQL = "SELECT * FROM ban_ip";
 		$objQuery = mysql_query($strSQL);
 		$Num_Rows = mysql_num_rows($objQuery);
 
 		$Per_Page = 10;   // Per Page
 
-		$Page = $_GET["Page"];
-		if(!$_GET["Page"])
+		
+		if(!isset($_GET["Page"]))
 		{
 			$Page=1;
+		}
+		else
+		{
+			$Page = $_GET["Page"];
 		}
 
 		$Prev_Page = $Page-1;
@@ -289,11 +297,11 @@ return true ;
 ?>
                             <tr>
                               <td width="250" height="25" align="left" valign="middle">&nbsp;&nbsp;<font size="2">
-                                <?=$objResult[1];?>
+                                <?php echo $objResult[1]; ?>
                               </font></td>
-                              <td width="100" height="25" align="center" valign="middle"><font size="2"><a href="edit-ban-ip.php?id=<?=$objResult[0];?>"><img src="images/edit.gif" width="40" height="15" border="0" /> </a><a href="del-ban-ip.php?id=<?=$objResult[0];?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"> <img src="images/del.gif" width="40" height="15" border="0" /></a></font></td>
+                              <td width="100" height="25" align="center" valign="middle"><font size="2"><a href="edit-ban-ip.php?id=<?php echo $objResult[0]; ?>"><img src="images/edit.gif" width="40" height="15" border="0" /> </a><a href="del-ban-ip.php?id=<?php echo $objResult[0]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"> <img src="images/del.gif" width="40" height="15" border="0" /></a></font></td>
                             </tr>
-                            <? } ?>
+                            <?php } ?>
                         </table></td>
                       </tr>
                       <tr>
@@ -306,21 +314,23 @@ return true ;
                               <tr>
                                 <td align="center"><font size="2" color="#000000">รายการข้อมูลแบนไอพี
                                   ทั้งหมด
-                                  <?=$Num_Rows;?>
+                                  <?php echo $Num_Rows; ?>
                                   รายการ : แสดงผลหน้าละ
-                                  <?=$Per_Page;?>
+                                  <?php echo $Per_Page; ?>
                                   รายการ จำนวนทั้งหมด
-                                  <?=$Num_Pages;?>
+                                  <?php echo $Num_Pages; ?>
                                   หน้า</font></td>
                               </tr>
                               <tr>
-                                <td height="30" align="center" valign="middle"><?
+                                <td height="30" align="center" valign="middle"><?php
+
+
 $pages = new Paginator;
 $pages->items_total = $Num_Rows;
 $pages->mid_range = 10;
 $pages->current_page = $Page;
 $pages->default_ipp = $Per_Page;
-$pages->url_next = $_SERVER["PHP_SELF"]."?QueryString=value&id=$id&Page=";
+$pages->url_next = $_SERVER["PHP_SELF"]."?QueryString=value&Page=";
 
 $pages->paginate();
 
