@@ -1,16 +1,9 @@
-<?php 
-@session_start(); 
-include "../inc/config.inc.php";
-if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
-=======
-<?
+<?php
 @session_start();
 include "../inc/config.inc.php";
-if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
->>>>>>> develop
-exit() ;
+if(!isset($_SESSION["admin_login"])) {
+  echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
+  exit() ;
 }
 $s="SELECT * FROM `ads_a1` WHERE id='1'";
 $re=mysql_query($s) or die("Error $s");
@@ -107,7 +100,7 @@ body {
                       <table width="729" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tr>
                           <td align="center">
-						  <?php 
+						  <?php
 						  $ads=stripslashes($r[3]);
 						  echo $ads;
 						  ?>

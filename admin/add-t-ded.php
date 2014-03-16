@@ -1,18 +1,10 @@
-<?php 
-@session_start(); 
-include "../inc/config.inc.php";
-include "../function/datethai.php";
-if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
-=======
-<?
+<?php
 @session_start();
 include "../inc/config.inc.php";
 include "../function/datethai.php";
-if(!isset($_SESSION[admin_login])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
->>>>>>> develop
-exit() ;
+if(!isset($_SESSION["admin_login"])) {
+  echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
+  exit() ;
 }
 $l_id=$_GET["l_id"];
 $s="SELECT * FROM `league` where id='$l_id'";

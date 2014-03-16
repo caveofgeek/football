@@ -97,7 +97,7 @@ a:active {
                               <td><?php
 $sp="select member.*, province.PROVINCE_NAME from member ";
 $sp.="inner join province on member.province_id=province.PROVINCE_ID ";
-$sp.="where id='$_SESSION["m_id"]'";
+$sp.="where id='$_SESSION[m_id]'";
 $rep=mysql_query($sp) or die("ERROR $sp");
 $rp=mysql_fetch_row($rep);
 ?>

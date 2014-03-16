@@ -35,20 +35,20 @@ $id=$_GET["id"];
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>เล่นเกมส์ทายผลบอล | <?php echo $titler[1]; ?></title>
-<META NAME="keywords" CONTENT="<?php echo $rgame[6]; ?>"> 
+<META NAME="keywords" CONTENT="<?php echo $rgame[6]; ?>">
 <META NAME="description" CONTENT="<?php echo $titler[1]; ?> เล่นเกมส์ทายผลบอล <?php echo $rgame[5]; ?>">
 <meta name="robots"  content="index,follow">
 <?php
 //เช็คทายผลรายคู่
-$s="SELECT * FROM `game_play` WHERE member_id='$_SESSION["m_id"]' AND game_id='$id'";
+$s="SELECT * FROM `game_play` WHERE member_id='$_SESSION[m_id]' AND game_id='$id'";
 $re=mysql_query($s) or die("ERROR $s");
 $n=mysql_num_rows($re);
 if($n>=1){
 ?>
-	<script language="JavaScript"> 	
-		alert('ขอโทษครับ ท่านได้ทำการทายผลคู่นี้ไปแล้วครับ'); 	
-		window.location = 'index.php'; 
-	</script> 
+	<script language="JavaScript">
+		alert('ขอโทษครับ ท่านได้ทำการทายผลคู่นี้ไปแล้วครับ');
+		window.location = 'index.php';
+	</script>
 <?php
 exit();
 }
@@ -59,24 +59,24 @@ $re3=mysql_query($s3) or die("ERROR $s3");
 $r3=mysql_fetch_row($re3);
 if($time>$r3[0]){
 ?>
-	<script language="JavaScript"> 	
-		alert('ขอโทษครับ หมดเวลาทายผลแล้วครับ'); 	
-		window.location = 'index.php'; 
-	</script> 
+	<script language="JavaScript">
+		alert('ขอโทษครับ หมดเวลาทายผลแล้วครับ');
+		window.location = 'index.php';
+	</script>
 <?php
 exit();
 }
 //เช็คจำนวนทายผลรายวัน
 $today_date=date("Y-m-d");
-$s2="SELECT * FROM `game_play` WHERE member_id='$_SESSION["m_id"]' AND dategame='$today_date'";
+$s2="SELECT * FROM `game_play` WHERE member_id='$_SESSION[m_id]' AND dategame='$today_date'";
 $re2=mysql_query($s2) or die("ERROR $s2");
 $n2=mysql_num_rows($re2);
 if($n2>=5){
 ?>
-	<script language="JavaScript"> 	
-		alert('ขอโทษครับ ท่านได้ทำการทายผลเกิน 5 คู่ต่อวันแล้ว ร่วมสนุกใหม่วันพรุ่งนี้นะครับ'); 	
-		window.location = 'index.php'; 
-	</script> 
+	<script language="JavaScript">
+		alert('ขอโทษครับ ท่านได้ทำการทายผลเกิน 5 คู่ต่อวันแล้ว ร่วมสนุกใหม่วันพรุ่งนี้นะครับ');
+		window.location = 'index.php';
+	</script>
 <?php
 exit();
 }
@@ -90,7 +90,7 @@ body {
 	background-color: #<?php echo $bgr[1]; ?>;
 	<?php if($bgr[2]!=""){ ?>background-image: url(http://<?php echo $titler[13]; ?>/bg-img/<?php echo $bgr[2]; ?>);
 	background-repeat: <?php echo $bgr[3]; ?>;
-	<?php }if($bgr[4]==1){ ?>	
+	<?php }if($bgr[4]==1){ ?>
 	background-attachment:fixed;
 	<?php } ?>
 }

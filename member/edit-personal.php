@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION["member_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=../index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=../index.php'>" ;
 exit() ;
 }
 include "../inc/config.inc.php";
@@ -44,7 +44,7 @@ body {
 	background-color: #<?php echo $bgr[1]; ?>;
 	<?php if($bgr[2]!=""){ ?>background-image: url(http://<?php echo $titler[13]; ?>/bg-img/<?php echo $bgr[2]; ?>);
 	background-repeat: <?php echo $bgr[3]; ?>;
-	<?php }if($bgr[4]==1){ ?>	
+	<?php }if($bgr[4]==1){ ?>
 	background-attachment:fixed;
 	<?php } ?>
 }
@@ -94,7 +94,7 @@ a:active {
                       <table width="720" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tr>
                           <td><?php
-$sp="select * from member where id='$_SESSION["m_id"]'";
+$sp="select * from member where id='$_SESSION[m_id]'";
 $rep=mysql_query($sp) or die("ERROR $sp");
 $rp=mysql_fetch_row($rep);
 ?>
