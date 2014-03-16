@@ -10,7 +10,7 @@
   <tr>
     <td height="25" align="center" span="span" style="font-family:'Times New Roman', Times, serif; font-size:12px; color:#FFFFFF;">Copyright &copy; 2013
       <?=$titler[1];?>
-      All right reserved. Design By <a href="http://www.scriptweb2u.com" target="_blank" style="color:#FFFFFF;" title="ScriptWeb2U">ScriptWeb2U</a>
+      All right reserved. Design By <a href="#" target="_blank" style="color:#FFFFFF;" title="Ruk-Com Develop">Ruk-Com Develop</a>
       <? if($str[2]==1){ echo $str[1]; } ?></td>
   </tr>
 </table>
