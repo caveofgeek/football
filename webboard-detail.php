@@ -45,20 +45,20 @@ $upd_view=mysql_query("UPDATE webboard SET view='$new_view' WHERE id='$topic_id'
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><?php echo $rBOARD[3]; ?> | <?php echo $titler[1]; ?></title>
-<META NAME="keywords" CONTENT="<?php echo $titler[12]; ?>"> 
+<META NAME="keywords" CONTENT="<?php echo $titler[12]; ?>">
 <META NAME="description" CONTENT="<?php echo $titler[1]; ?> <?php echo $rBOARD[3]; ?> <?php echo $titler[11]; ?>">
 <meta name="robots"  content="index,follow">
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/font-awesome.min.css" rel="stylesheet">
-<link href="css/justified-nav.css" rel="stylesheet">
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/font-awesome.min.css" rel="stylesheet">
+<link href="../css/justified-nav.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {
 	background-color: #<?php echo $bgr[1]; ?>;
 	<?php if($bgr[2]!=""){ ?>background-image: url(http://<?php echo $titler[13]; ?>/bg-img/<?php echo $bgr[2]; ?>);
 	background-repeat: <?php echo $bgr[3]; ?>;
-	<?php }if($bgr[4]==1){ ?>	
+	<?php }if($bgr[4]==1){ ?>
 	background-attachment:fixed;
 	<?php } ?>
 }
@@ -80,7 +80,7 @@ a:active {
 }
 -->
 </style>
-<?php 
+<?php
 class Paginator{
 	var $items_per_page;
 	var $items_total;
@@ -321,10 +321,10 @@ echo $Num_Rows;
           </table></td>
         </tr>
         <tr>
-          <td><?php		
+          <td><?php
 		$Per_Page = 20;   // Per Page
 
-		
+
 		if(!isset($_GET["Page"]))
 		{
 			$Page=1;
@@ -443,7 +443,7 @@ echo $Num_Rows;
               </table>
             <table width="950" border="0" align="center" cellpadding="0" cellspacing="0">
                 <tr>
-                  <td align="center"><?php 
+                  <td align="center"><?php
 $pages = new Paginator;
 $pages->items_total = $Num_Rows;
 $pages->mid_range = 10;
