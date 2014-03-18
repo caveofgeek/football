@@ -73,15 +73,21 @@ body {
                     <td height="25"><strong><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> ข้อมูลเว็บไซต์ </font></strong></td>
                   </tr>
                   <tr>
-                    <td><form id="form1" name="form1" method="post" action="p-data.php">
+                    <td><form id="form1" name="form1" method="post" action="p-data.php" class="form-horizontal" role="form">
+                      <div class="form-group">
+                        <label for="nameweb" class="col-sm-2 control-label">ชื่อเว็บไซต</label>
+                        <div class="col-sm-10">
+                          <input name="name" type="text" id="name" value="<?php echo $r[1]; ?>" size="50" />
+                        </div>
+                      </div>
                       <table width="480" border="0" align="center" cellpadding="0" cellspacing="0">
 
                         <tr>
                           <td><table width="460" border="0" align="center" cellpadding="0" cellspacing="0">
                               <tr>
-                                <td width="100" height="25" align="left"><font color="#000000" size="2">ชื่อเว็บไซต</font>์</td>
+                                <td width="100" height="25" align="left"><font color="#000000" size="2"></font>์</td>
                                 <td width="10" height="25">&nbsp;</td>
-                                <td width="350" height="25" align="left"><input name="name" type="text" id="name" value="<?php echo $r[1]; ?>" size="50" /></td>
+                                <td width="350" height="25" align="left">/td>
                               </tr>
                               <tr>
                                 <td width="100" height="11" align="left"><font color="#000000" size="2">ที่อยู่</font></td>
@@ -168,7 +174,7 @@ body {
                         <tr>
                           <td><table width="460" border="0" align="center" cellpadding="0" cellspacing="0">
                               <tr>
-                                <td align="right"><input type="submit" name="Submit" value="บันทึกข้อมูล" /></td>
+                                <td align="right"><input type="submit" name="Submit" value="บันทึกข้อมูล" class="btn btn-success" /></td>
                               </tr>
                           </table></td>
                         </tr>
