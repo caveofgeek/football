@@ -92,6 +92,7 @@ a:active {
                   <td width="250" align="center" valign="top">
                     <div class="masthead">
                       <ul class="nav sidebar-justified">
+                        <li class="time"><?php echo DateThai(date("Y-m-d")); ?></li>
 <?php
   $scate="select id, cate_name from category order by id asc";
   $recate=mysql_query($scate) or die("ERROR $scate");
