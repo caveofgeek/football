@@ -37,20 +37,20 @@ $rct=mysql_fetch_row($rect);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><?php echo $rct[2]; ?> | <?php echo $titler[1]; ?></title>
-<META NAME="keywords" CONTENT="<?php echo $rct[4]; ?>"> 
+<META NAME="keywords" CONTENT="<?php echo $rct[4]; ?>">
 <META NAME="description" CONTENT="<?php echo $titler[1]; ?> <?php echo $rct[3]; ?>">
 <meta name="robots"  content="index,follow">
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/font-awesome.min.css" rel="stylesheet">
-<link href="css/justified-nav.css" rel="stylesheet">
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/font-awesome.min.css" rel="stylesheet">
+<link href="../css/justified-nav.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {
 	background-color: #<?php echo $bgr[1]; ?>;
 	<?php if($bgr[2]!=""){ ?>background-image: url(http://<?php echo $titler[13]; ?>/bg-img/<?php echo $bgr[2]; ?>);
 	background-repeat: <?php echo $bgr[3]; ?>;
-	<?php }if($bgr[4]==1){ ?>	
+	<?php }if($bgr[4]==1){ ?>
 	background-attachment:fixed;
 	<?php } ?>
 }
@@ -72,7 +72,7 @@ a:active {
 }
 -->
 </style>
-<?php 
+<?php
 class Paginator{
 	var $items_per_page;
 	var $items_total;
@@ -154,9 +154,6 @@ class Paginator{
 	}
 }
 ?>
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/font-awesome.min.css" rel="stylesheet">
-<link href="css/justified-nav.css" rel="stylesheet">
 <style type="text/css">
 <!--
 	.paginate {
@@ -237,9 +234,9 @@ while($rads8=mysql_fetch_row($reads8)){
                     <table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tr>
                           <td align="center" valign="middle">
-						  <?php 
-						  if($rads8[1]==1){ 
-						  $ads8=stripslashes($rads8[3]); 
+						  <?php
+						  if($rads8[1]==1){
+						  $ads8=stripslashes($rads8[3]);
 						  echo $ads8;
 						  }else if($rads8[1]==2){
 						  ?>
@@ -278,7 +275,7 @@ while($rads8=mysql_fetch_row($reads8)){
                 </tr>
                 <tr>
                   <td align="center">
-<?php	
+<?php
 $strSQL="SELECT id, title, img, short_detail, view FROM `post` WHERE cate_id='$cate_id' ";
 		/*$strSQL1="SELECT category.*, sub_category.sub_cate_name FROM category ";
 		$strSQL1.="INNER JOIN sub_category ON category.id=sub_category.cate_id";*/
@@ -380,7 +377,7 @@ $strSQL="SELECT id, title, img, short_detail, view FROM `post` WHERE cate_id='$c
                     </table>
                     <table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
                       <tr>
-                        <td height="30" align="center" valign="middle"><?php 
+                        <td height="30" align="center" valign="middle"><?php
 $pages = new Paginator;
 $pages->items_total = $Num_Rows;
 $pages->mid_range = 10;

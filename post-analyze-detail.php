@@ -40,20 +40,20 @@ $upd_view=mysql_query("UPDATE `analyze` SET view='$new_view' WHERE id='$topic_id
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><?php echo $rpost[2]; ?> | <?php echo $titler[1]; ?></title>
-<META NAME="keywords" CONTENT="วิเคราะห์บอล,วิเคราะห์บอลวันนี้,ผลบอล,7m,ผลบอลมีเสียง,polball,ทีเด็ดฟุตบอล,ผลฟุตบอล,ทีเด็ด,ผลบอลสด,ฟุตบอล,ล้มโต๊ะ,ทีเด็ดฟุตบอลวันนี้,ราคาบอล,lomtoe,ราคาบอลวันนี้,คลิปฟุตบอล,คลิปบอล"> 
+<META NAME="keywords" CONTENT="วิเคราะห์บอล,วิเคราะห์บอลวันนี้,ผลบอล,7m,ผลบอลมีเสียง,polball,ทีเด็ดฟุตบอล,ผลฟุตบอล,ทีเด็ด,ผลบอลสด,ฟุตบอล,ล้มโต๊ะ,ทีเด็ดฟุตบอลวันนี้,ราคาบอล,lomtoe,ราคาบอลวันนี้,คลิปฟุตบอล,คลิปบอล">
 <META NAME="description" CONTENT="<?php echo $titler[1]; ?> วิเคราะห์บอล วิเคราะห์ฟุตบอล วิเคราะห์บอลวันนี้ ผลบอล ผลบอลสด 7M livescore ผลบอลมีเสียง เกมส์ฟุตบอล เกมส์ทายผลฟุตบอล ทีเด็ด ทีเด็ดวันนี้ ราคาบอล">
 <meta name="robots"  content="index,follow">
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/font-awesome.min.css" rel="stylesheet">
-<link href="css/justified-nav.css" rel="stylesheet">
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/font-awesome.min.css" rel="stylesheet">
+<link href="../css/justified-nav.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {
 	background-color: #<?php echo $bgr[1]; ?>;
 	<?php if($bgr[2]!=""){ ?>background-image: url(http://<?php echo $titler[13]; ?>/bg-img/<?php echo $bgr[2]; ?>);
 	background-repeat: <?php echo $bgr[3]; ?>;
-	<?php }if($bgr[4]==1){ ?>	
+	<?php }if($bgr[4]==1){ ?>
 	background-attachment:fixed;
 	<?php } ?>
 }
@@ -105,9 +105,9 @@ while($rads8=mysql_fetch_row($reads8)){
                     <table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tr>
                           <td align="center" valign="middle">
-						  <?php 
-						  if($rads8[1]==1){ 
-						  $ads8=stripslashes($rads8[3]); 
+						  <?php
+						  if($rads8[1]==1){
+						  $ads8=stripslashes($rads8[3]);
 						  echo $ads8;
 						  }else if($rads8[1]==2){
 						  ?>
