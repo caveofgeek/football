@@ -87,7 +87,27 @@ a:active {
         <tr>
           <td><table width="985" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
-              <td width="250" align="center" valign="top"><table width="250" border="0" align="center" cellpadding="0" cellspacing="0">
+              <td width="250" align="center" valign="top">
+                <table width="250" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <td width="250" align="center" valign="top">
+                    <div class="masthead">
+                      <ul class="nav sidebar-justified">
+<?php
+  $scate="select id, cate_name from category order by id asc";
+  $recate=mysql_query($scate) or die("ERROR $scate");
+  while($rcate=mysql_fetch_row($recate)){
+  $urlcate=rewrite($rcate[1]);
+?>
+                        <li>
+                          <a href="http://<?php echo $titler[13]; ?>/cate-<?php echo $rcate[0]; ?>/<?php echo $urlcate; ?>" title="<?php echo $rcate[1]; ?>">
+                            <?php echo $rcate[1]; ?>
+                          </a>
+                        </li>
+<?php } ?>
+                        <li><a href="http://<?php echo $titler[13]; ?>/webboard" title="เว็บบอร์ด">เว็บบอร์ด</a></li>
+                      </ul>
+                    </div>
+                <!--
                   <tr>
                     <td align="center"><table width="250" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tr>
@@ -140,6 +160,7 @@ $urlcate=rewrite($rcate[1]);
                         </tr>
                     </table></td>
                   </tr>
+                -->
                   <tr>
                     <td align="center"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tr>
