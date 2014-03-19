@@ -34,9 +34,9 @@ $str=mysql_fetch_row($stre);
 <META NAME="description" CONTENT="<?php echo $titler[1]; ?> แหล่งร่วม ทีเด็ด ทีเด็ดบอล ทีเด็ดบอลวันนี้ ทีเด็ดฟุตบอล ทีเด็ดย้อนหลัง ทีเด็ดบอลฟรี">
 <meta name="robots"  content="index,follow">
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-<link href="../css/bootstrap.min.css" rel="stylesheet">
-<link href="../css/font-awesome.min.css" rel="stylesheet">
-<link href="../css/justified-nav.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="css/justified-nav.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {
