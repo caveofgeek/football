@@ -1,5 +1,5 @@
-<?php 
-@session_start(); 
+<?php
+@session_start();
 include "../inc/config.inc.php";
 if(!isset($_SESSION[mod_login])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
@@ -46,7 +46,7 @@ a:active {
     <td><div align="center">
       <table width="980" border="0" cellspacing="1" cellpadding="1">
         <tr valign="top">
-          <td width="490"><div align="left"><font color="#000000" size="2">:: ยินดีต้อนรับเข้าสู่ ระบบจัดการ<font color="#333333">ข้อมูลวิเคราะห์บอล</font> :: | 
+          <td width="490"><div align="left"><font color="#000000" size="2">:: ยินดีต้อนรับเข้าสู่ ระบบจัดการ<font color="#333333">ข้อมูลวิเคราะห์บอล</font> :: |
 				<?php
 				$dm=date("d/m");
 				$y=date("Y")+543;
@@ -120,7 +120,7 @@ a:active {
                 <tr>
                   <td width="100" height="30" align="right" valign="top">&nbsp;</td>
                   <td width="10" height="30">&nbsp;</td>
-                  <td width="620" height="30" align="left" valign="top"><input type="submit" name="Submit" value="บันทึกข้อมูล" /></td>
+                  <td width="620" height="30" align="left" valign="top"><input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' /></td>
                 </tr>
               </table>
               <script language="JavaScript" type="text/javascript">

@@ -1,9 +1,9 @@
-<?php 
-@session_start(); 
+<?php
+@session_start();
 include "../inc/config.inc.php";
 include "../function/datethai.php";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 
 exit() ;
 }
@@ -153,7 +153,7 @@ body {
                                 <td><input name="t_ded" type="radio" value="1" <?php if($row[5]==1){ echo "checked"; } ?> />
                                   <span class="style5">ทีมเจ้าบ้าน
                                   <input name="t_ded" type="radio" value="2" <?php if($row[5]==2){ echo "checked"; } ?> />
-ทีมเยือน 
+ทีมเยือน
 <input name="t_ded" type="radio" value="0" <?php if($row[5]==0){ echo "checked"; } ?>  />
 เสมอ </span></td>
                               </tr>
@@ -181,7 +181,7 @@ body {
                                 <td width="150">&nbsp;</td>
                                 <td width="10">&nbsp;</td>
                                 <td width="350"><label>
-                                  <input type="submit" name="Submit" value="บันทึกข้อมูล" />
+                                  <input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' />
                                 </label></td>
                               </tr>
                             </table>

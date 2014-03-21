@@ -14,26 +14,27 @@ if(!isset($_SESSION["admin_login"])) {
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/font-awesome.min.css" rel="stylesheet">
 <link href="../css/justified-nav.css" rel="stylesheet">
+<link href="./css/admin.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
-	text-decoration: none;
-	color: #000000;
+  text-decoration: none;
+  color: #000000;
 }
 a:visited {
-	text-decoration: none;
-	color: #000000;
+  text-decoration: none;
+  color: #000000;
 }
 a:hover {
-	text-decoration: underline;
-	color: #FFFFFF;
+  text-decoration: underline;
+  color: #FFFFFF;
 }
 a:active {
-	text-decoration: none;
-	color: #000000;
+  text-decoration: none;
+  color: #000000;
 }
 body {
-	background-color: #888888;
+  background-color: #888888;
 }
 .style4 {font-size: small; font-weight: bold; }
 -->
@@ -49,12 +50,12 @@ body {
               <tr valign="top">
                 <td width="690"><div align="left"><font color="#ffffff" size="4">.:: ยินดีต้อนรับเข้าสู่ ระบบจัดการข้อมูลเว็บไซต์ ::
                   <?php
-				$dm=date("d/m");
-				$y=date("Y")+543;
-				$date="$dm/$y";
-				$time=date("H:i:s");
-				echo "$date $time";
-				?>
+        $dm=date("d/m");
+        $y=date("Y")+543;
+        $date="$dm/$y";
+        $time=date("H:i:s");
+        echo "$date $time";
+        ?>
                   ::.</font></div></td>
                 <td width="270"><div align="right"><font color="#ffffff" size="4"><a href="../index.php" target="_blank"><font color="#ffffff">ไปยังหน้าเว็บไซต์</font></a> | <a href="logout.php"><font color="#ffffff">ออกจากระบบ</font></a></font></div></td>
               </tr>
@@ -72,31 +73,27 @@ body {
                   <tr>
                     <td><table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
                       <tr>
-                        <td><form action="p-admin.php" method="post" enctype="multipart/form-data" name ="checkForm" id="checkForm" onsubmit="return check1()">
-                            <table width="100%" height="10" border="0" align="center" cellpadding="0" cellspacing="0">
-                              <tr>
-                                <td></td>
-                              </tr>
-                            </table>
-                          <table width="510" border="0" align="center" cellpadding="0" cellspacing="0">
-                              <tr>
-                                <td width="150" align="right"><span class="style4">ชื่อผู้ใช้</span></td>
-                                <td width="10">&nbsp;</td>
-                                <td width="350"><input name="user" type="text" id="user" /></td>
-                              </tr>
-                              <tr>
-                                <td width="150" align="right"><span class="style4">รหัสผ่าน</span></td>
-                                <td width="10">&nbsp;</td>
-                                <td width="350"><input name="pass" type="password" id="pass" /></td>
-                              </tr>
-                              <tr>
-                                <td width="150">&nbsp;</td>
-                                <td width="10">&nbsp;</td>
-                                <td width="350"><label>
-                                  <input type="submit" name="Submit" value="บันทึกข้อมูล" />
-                                </label></td>
-                              </tr>
-                            </table>
+                        <td>
+
+                          <form action="p-admin.php" method="post" enctype="multipart/form-data" name ="checkForm" id="checkForm" class="form-horizontal" role="form" onsubmit="return check1()">
+                            <div class="form-group">
+                              <label for="user" class="col-sm-2 control-label">ชื่อผู้ใช้</label>
+                              <div class="col-sm-5">
+                                <input name="user" class="form-control" type="text" id="user" />
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label for="pass" class="col-sm-2 control-label">รหัสผ่าน</label>
+                              <div class="col-sm-5">
+                                <input name="pass" class="form-control" type="password" id="pass" />
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="col-sm-offset-2 col-sm-10">
+                                <input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' />
+                              </div>
+                            </div>
+
                           <script language="JavaScript" type="text/javascript">
 
 function check1() {
@@ -116,7 +113,7 @@ return true ;
                         </form></td>
                       </tr>
                       <tr>
-                        <td><table width="100%" height="10" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <td><table width="100%" height="10" border="0" align="center" cellpadding="0" cellspacing="0" >
                             <tr>
                               <td></td>
                             </tr>
@@ -144,7 +141,12 @@ while($r=mysql_fetch_row($re)){
                                 <td height="25" align="center" valign="middle"><font size="2">
                                   <?php echo $r[2]; ?>
                                 </font> </td>
-                                <td width="100" height="25" align="center" valign="middle"><font size="2"><a href="edit-admin.php?id=<?php echo $r[0]; ?>"><img src="images/edit.gif" width="40" height="15" border="0" /> </a><a href="del-admin.php?id=<?php echo $r[0]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"> <img src="images/del.gif" width="40" height="15" border="0" /></a> </font> </td>
+                                <td width="100" height="25" align="center" valign="middle"><font size="2">
+                                  <a href="edit-admin.php?id=<?php echo $r[0]; ?>" class='btn btn-warning btn-xs white'> <span class="glyphicon glyphicon-pencil"></span>แก้ไข</a>
+                                  <a href="del-admin.php?id=<?php echo $r[0]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}" class='btn btn-danger btn-xs white'>
+                                    <span class="glyphicon glyphicon-remove"></span> ลบ
+                                  </a> </font>
+                                </td>
                               </tr>
                               <?php $x++;} ?>
                           </table></td>

@@ -1,8 +1,8 @@
-<?php 
-@session_start(); 
+<?php
+@session_start();
 include "../inc/config.inc.php";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 
 exit() ;
 }
@@ -114,7 +114,7 @@ $rcate=mysql_fetch_row($recate);
                         <tr>
                           <td width="100" align="right">&nbsp;</td>
                           <td width="10" align="center">&nbsp;</td>
-                          <td width="590" align="left"><input type="submit" name="Submit" value="บันทึกข้อมูล" /></td>
+                          <td width="590" align="left"><input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' /></td>
                         </tr>
                       </table>
 <script language="JavaScript" type="text/javascript">

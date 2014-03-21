@@ -1,8 +1,8 @@
-<?php 
-@session_start(); 
+<?php
+@session_start();
 include "../inc/config.inc.php";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 
 exit() ;
 }
@@ -86,7 +86,7 @@ body {
                           <td align="center"><textarea name="detail" rows="10" id="detail" style="width:700px"><?php echo $r[1]; ?></textarea></td>
                         </tr>
                         <tr>
-                          <td align="center"><input type="submit" name="Submit" value="บันทึกข้อมูล" /></td>
+                          <td align="center"><input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' /></td>
                         </tr>
                       </table>
                     </form></td>

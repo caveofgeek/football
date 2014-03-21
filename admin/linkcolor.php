@@ -1,8 +1,8 @@
-<?php 
-@session_start(); 
+<?php
+@session_start();
 include "../inc/config.inc.php";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 
 exit() ;
 }
@@ -19,6 +19,7 @@ $r=mysql_fetch_row($re);
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/font-awesome.min.css" rel="stylesheet">
 <link href="../css/justified-nav.css" rel="stylesheet">
+<link href="./css/admin.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -77,39 +78,43 @@ body {
                   <tr>
                     <td><table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
                       <tr>
-                        <td height="20"><font size="2"><strong><span class="style1">:: ตัวอย่าง ::</span></strong></font><font size="2" color="#333333"><strong> <a href="#">ลิงค์ของท่าน</a></strong></font></td>
+                        <td height="20"><font size="2"><strong></td>
                       </tr>
                       <tr>
-                        <td><form id="form1" name="form1" method="post" action="p-linkcolor.php">
-                            <table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
-                              <tr>
-                                <td><table width="600" border="0" cellspacing="0" cellpadding="0">
-                                    <tr>
-                                      <td width="295" align="left"><font size="2" color="#333333"><strong>Link Color</strong></font>
-                                          <input name="color" class="color" id="color" value="<?php echo $r[1]; ?>" maxlength="6" /></td>
-                                      <td width="10" align="left">&nbsp;</td>
-                                      <td width="295" align="left"><font size="2" color="#333333"><strong>Rollover Link
-                                        <input name="rollover" class="color" id="rollover" value="<?php echo $r[3]; ?>" maxlength="6" />
-                                      </strong></font></td>
-                                    </tr>
-                                    <tr>
-                                      <td width="295" align="left"><font size="2" color="#333333"><strong>Visited Link
-                                        <input name="visit" class="color" id="visit" value="<?php echo $r[2]; ?>" maxlength="6" />
-                                      </strong></font></td>
-                                      <td width="10" align="left">&nbsp;</td>
-                                      <td width="295" align="left"><font size="2" color="#333333"><strong>Active Link
-                                        <input name="active" class="color" id="active" value="<?php echo $r[4]; ?>" maxlength="6" />
-                                      </strong></font></td>
-                                    </tr>
-                                </table></td>
-                              </tr>
-                              <tr>
-                                <td align="center"><label>
-                                  <input type="submit" name="Submit" value="บันทึกข้อมูล" />
-                                </label></td>
-                              </tr>
-                            </table>
-                        </form></td>
+                        <td>
+                          <form id="form1" name="form1" method="post" action="p-linkcolor.php" class="form-horizontal" role="form">
+                            <span class="style1">:: ตัวอย่าง ::</span></strong></font><font size="2" color="#333333"><strong> <a href="#">ลิงค์ของท่าน</a></strong></font><br/><br/>
+                            <div class="form-group">
+                              <label class="col-sm-3 control-label" for="color">Link Color</label>
+                              <div class="col-sm-8">
+                                <input name="color" class="color form-control" id="color" value="<?php echo $r[1]; ?>" maxlength="6" />
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-sm-3 control-label" for="rollover">Rollover Link</label>
+                              <div class="col-sm-8">
+                                <input name="rollover" class="color form-control" id="rollover" value="<?php echo $r[3]; ?>" maxlength="6" />
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-sm-3 control-label" for="visit">Visited Link</label>
+                              <div class="col-sm-8">
+                                <input name="visit" class="color form-control" id="visit" value="<?php echo $r[2]; ?>" maxlength="6" />
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-sm-3 control-label" for="active">Active Link</label>
+                              <div class="col-sm-8">
+                                <input name="active" class="color form-control" id="active" value="<?php echo $r[4]; ?>" maxlength="6" />
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="col-sm-offset-3 col-sm-8">
+                                <input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' />
+                              </div>
+                            </div>
+                          </form>
+                        </td>
                       </tr>
                     </table></td>
                   </tr>

@@ -176,7 +176,7 @@ body {
                                 <td width="150">&nbsp;</td>
                                 <td width="10">&nbsp;</td>
                                 <td width="350"><label>
-                                  <input type="submit" name="Submit" value="บันทึกข้อมูล" />
+                                  <input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' />
                                 </label></td>
                               </tr>
                             </table>

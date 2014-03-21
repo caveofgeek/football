@@ -1,9 +1,9 @@
-<?php 
-@session_start(); 
+<?php
+@session_start();
 include "../inc/config.inc.php";
 include "../function/datethai.php";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 ?>
@@ -75,7 +75,7 @@ $zean_id=$_GET[zean_id];
 $szn="SELECT * FROM `zean_name` WHERE id='$zean_id'";
 $rezn=mysql_query($szn) or die("ERROR $szn");
 $rzn=mysql_fetch_row($rezn);
-?> 
+?>
                       <img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> <a href="tded-zean.php?zean_id=<?php echo $zean_id; ?>">จัดการข้อมูลทีเด็ด <?php echo $rzn[1]; ?></a> <img src="images/arrow.gif" width="7" height="11" /> เพิ่มข้อมูลทีเด็ด <?php echo $rzn[1]; ?></font></strong></td>
                   </tr>
                   <tr>
@@ -166,7 +166,7 @@ $rzn=mysql_fetch_row($rezn);
                                 </table></td>
                               </tr>
                               <tr>
-                                <td align="center" bgcolor="#CCCCCC"><input type="submit" name="Submit" value="บันทึกข้อมูล" /></td>
+                                <td align="center" bgcolor="#CCCCCC"><input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' /></td>
                               </tr>
                             </table>
                         </form></td>
