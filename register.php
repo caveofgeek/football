@@ -41,10 +41,10 @@ if($check!=1){
 	alert('ขอโทษครับ ท่านยังไม่ได้ยอมรับเงื่อนไขข้อตกลงในการสมัครสมาชิกครับ');
 	window.location = 'member-condition.php';
 </script>
+<?php exit(); } ?>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/font-awesome.min.css" rel="stylesheet">
 <link href="css/justified-nav.css" rel="stylesheet">
-<?php exit(); } ?>
 <style type="text/css">
 <!--
 body {
