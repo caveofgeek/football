@@ -30,7 +30,7 @@ $str=mysql_fetch_row($stre);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>ทีเด็ดบอล ทีเด็ดบอลวันนี้ ทีเด็ดฟุตบอล ทีเด็ดย้อนหลัง | <?php echo $titler[1]; ?></title>
-<META NAME="keywords" CONTENT="ทีเด็ดบอล, ทีเด็ดฟุตบอล, ทีเด็ดบอลวันนี้ ทีเด็ดบอลฟรี, ทีเด็ดบอลลีก, ทีเด็ดย้อนหลัง"> 
+<META NAME="keywords" CONTENT="ทีเด็ดบอล, ทีเด็ดฟุตบอล, ทีเด็ดบอลวันนี้ ทีเด็ดบอลฟรี, ทีเด็ดบอลลีก, ทีเด็ดย้อนหลัง">
 <META NAME="description" CONTENT="<?php echo $titler[1]; ?> แหล่งร่วม ทีเด็ด ทีเด็ดบอล ทีเด็ดบอลวันนี้ ทีเด็ดฟุตบอล ทีเด็ดย้อนหลัง ทีเด็ดบอลฟรี">
 <meta name="robots"  content="index,follow">
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
@@ -43,7 +43,7 @@ body {
 	background-color: #<?php echo $bgr[1]; ?>;
 	<?php if($bgr[2]!=""){ ?>background-image: url(http://<?php echo $titler[13]; ?>/bg-img/<?php echo $bgr[2]; ?>);
 	background-repeat: <?php echo $bgr[3]; ?>;
-	<?php }if($bgr[4]==1){ ?>	
+	<?php }if($bgr[4]==1){ ?>
 	background-attachment:fixed;
 	<?php } ?>
 }
@@ -65,7 +65,7 @@ a:active {
 }
 -->
 </style>
-<?php 
+<?php
 class Paginator{
 	var $items_per_page;
 	var $items_total;
@@ -101,7 +101,7 @@ class Paginator{
 
 		if($this->num_pages > 10)
 		{
-			$this->return .= (($this->current_page != 1 And $this->items_total >= 10)) ? "<a class=\"paginate\" href=\"".$this->url_next.$prev_page."\">&laquo; ก่อนหน้า</a>\n":"<span class=\"inactive\" href=\"#\">&laquo; ก่อนหน้า</span>\n";
+			$this->return .= (($this->current_page != 1 And $this->items_total >= 10)) ? "<li><a href=\"".$this->url_next.$prev_page."\">&laquo; ก่อนหน้า</a></li>\n":"<li class=\"disabled\"><a href=\"#\">&laquo; ก่อนหน้า</a></li>\n";
 
 			$this->start_range = $this->current_page - floor($this->mid_range/2);
 			$this->end_range = $this->current_page + floor($this->mid_range/2);
@@ -120,20 +120,20 @@ class Paginator{
 
 			for($i=1;$i<=$this->num_pages;$i++)
 			{
-				if($this->range[0] > 2 And $i == $this->range[0]) $this->return .= " ... ";
+				if($this->range[0] > 2 And $i == $this->range[0]) $this->return .= "<li class=\"disabled\"><a href=\"#\">...</a></li>";
 				if($i==1 Or $i==$this->num_pages Or in_array($i,$this->range))
 				{
-					$this->return .= ($i == $this->current_page And $_GET['Page'] != 'All') ? "<a title=\"หน้า $i จาก $this->num_pages\" class=\"current\" href=\"#\">$i</a> ":"<a class=\"paginate\" title=\"ไปที่หน้า $i จาก $this->num_pages\" href=\"".$this->url_next.$i."\">$i</a> ";
+					$this->return .= ($i == $this->current_page And $_GET['Page'] != 'All') ? "<li class=\"active\"><a title=\"หน้า $i จาก $this->num_pages\"href=\"#\">$i</a></li> ":"<li><a title=\"ไปที่หน้า $i จาก $this->num_pages\" href=\"".$this->url_next.$i."\">$i</a></li> ";
 				}
-				if($this->range[$this->mid_range-1] < $this->num_pages-1 And $i == $this->range[$this->mid_range-1]) $this->return .= " ... ";
+				if($this->range[$this->mid_range-1] < $this->num_pages-1 And $i == $this->range[$this->mid_range-1]) $this->return .= "<li class=\"disabled\"><a href=\"#\">...</a></li>";
 			}
-			$this->return .= (($this->current_page != $this->num_pages And $this->items_total >= 10) And ($_GET['Page'] != 'All')) ? "<a class=\"paginate\" href=\"".$this->url_next.$next_page."\">ถัดไป &raquo;</a>\n":"<span class=\"inactive\" href=\"#\">ถัดไป &raquo;</span>\n";
+			$this->return .= (($this->current_page != $this->num_pages And $this->items_total >= 10) And ($_GET['Page'] != 'All')) ? "<li><a href=\"".$this->url_next.$next_page."\">ถัดไป &raquo;</a></li>\n":"<li class=\"disabled\"><a href=\"#\">ถัดไป &raquo;</a></li>\n";
 		}
 		else
 		{
 			for($i=1;$i<=$this->num_pages;$i++)
 			{
-				$this->return .= ($i == $this->current_page) ? "<a class=\"current\" href=\"#\">$i</a> ":"<a class=\"paginate\" href=\"".$this->url_next.$i."\">$i</a> ";
+				$this->return .= ($i == $this->current_page) ? "<li class=\"active\"><a href=\"#\">$i</a></li> ":"<li><a href=\"".$this->url_next.$i."\">$i</a></li> ";
 			}
 		}
 		$this->low = ($this->current_page-1) * $this->items_per_page;
@@ -230,9 +230,9 @@ while($rads8=mysql_fetch_row($reads8)){
                     <table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tr>
                           <td align="center" valign="middle">
-						  <?php 
-						  if($rads8[1]==1){ 
-						  $ads8=stripslashes($rads8[3]); 
+						  <?php
+						  if($rads8[1]==1){
+						  $ads8=stripslashes($rads8[3]);
 						  echo $ads8;
 						  }else if($rads8[1]==2){
 						  ?>
@@ -276,7 +276,7 @@ while($rads8=mysql_fetch_row($reads8)){
                       <td height="5"></td>
                     </tr>
                   </table>
-<?php	
+<?php
 		$strSQL = "SELECT post_date FROM t_ded GROUP BY post_date";
 		$objQuery = mysql_query($strSQL);
 		$Num_Rows = mysql_num_rows($objQuery);
@@ -335,7 +335,7 @@ while($rads8=mysql_fetch_row($reads8)){
                 <tr>
                   <td align="center"><table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
                       <tr>
-                        <td height="30" align="center" valign="middle"><?php 
+                        <td height="30" align="center" valign="middle"><ul class="pagination  pagination-sm"><?php
 $pages = new Paginator;
 $pages->items_total = $Num_Rows;
 $pages->mid_range = 10;
@@ -346,7 +346,7 @@ $pages->url_next = $_SERVER["PHP_SELF"]."?QueryString=value&Page=";
 $pages->paginate();
 
 echo $pages->display_pages()
-?></td>
+?></ul></td>
                       </tr>
                     </table></td>
                 </tr>

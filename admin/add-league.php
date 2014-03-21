@@ -79,7 +79,7 @@ class Paginator{
 		{
 			for($i=1;$i<=$this->num_pages;$i++)
 			{
-				$this->return .= ($i == $this->current_page) ? "<li class=\"active\"><ahref=\"#\">$i</a></li> ":"<li><a href=\"".$this->url_next.$i."\">$i</a></li> ";
+				$this->return .= ($i == $this->current_page) ? "<li class=\"active\"><a href=\"#\">$i</a></li> ":"<li><a href=\"".$this->url_next.$i."\">$i</a></li> ";
 			}
 		}
 		$this->low = ($this->current_page-1) * $this->items_per_page;
@@ -262,7 +262,7 @@ body {
 		$objQuery = mysql_query($strSQL);
 		$Num_Rows = mysql_num_rows($objQuery);
 
-		$Per_Page = 1;   // Per Page
+		$Per_Page = 10;   // Per Page
 
 
 		if(!isset($_GET["Page"]))
@@ -333,7 +333,7 @@ body {
                               </tr>
                               <tr>
                                 <td height="30" align="center" valign="middle">
-                                  <ul class="pagination  pagination-sm">
+<ul class="pagination  pagination-sm">
 <?php
 $pages = new Paginator;
 $pages->items_total = $Num_Rows;
