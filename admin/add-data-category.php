@@ -1,8 +1,8 @@
-<?php 
-@session_start(); 
+<?php
+@session_start();
 include "../inc/config.inc.php";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 ?>
@@ -81,7 +81,7 @@ $scate="SELECT cate_name FROM `category` WHERE id='$cate_id'";
 $recate=mysql_query($scate) or die("ERROR $scate");
 $rcate=mysql_fetch_row($recate);
 ?>
-                      <strong><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> 
+                      <strong><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" />
 <?php if($cate_id>21){ ?><a href="all-other-category.php?cate_id=<?php echo $cate_id; ?>"><?php }else if($cate_id<=21){ ?><a href="all-main-category.php?cate_id=<?php echo $cate_id; ?>"><?php } ?>จัดการข้อมูลหมวดหมู่<?php echo $rcate[0]; ?></a>
                       <img src="images/arrow.gif" width="7" height="11" /> </font><font color="#000000" size="2">เพิ่มข้อมูลหมวดหมู่<?php echo $rcate[0]; ?></font></strong></td>
                   </tr>
@@ -147,7 +147,7 @@ $rcate=mysql_fetch_row($recate);
                       <tr>
                         <td width="100" height="30" align="right" valign="top">&nbsp;</td>
                         <td width="10" height="30">&nbsp;</td>
-                        <td width="620" height="30" align="left" valign="top"><input type="submit" name="Submit" value="บันทึกข้อมูล" /></td>
+                        <td width="620" height="30" align="left" valign="top"><input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' /></td>
                       </tr>
                     </table>
 <script language="JavaScript" type="text/javascript">

@@ -157,7 +157,7 @@ while($row=mysql_fetch_row($result)){
                                   <tr>
                                     <td align="right">&nbsp;</td>
                                     <td>&nbsp;</td>
-                                    <td><input type="submit" name="Submit" value="บันทึกข้อมูล" /></td>
+                                    <td><input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' /></td>
                                   </tr>
 
                                 </table></td>

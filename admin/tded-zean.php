@@ -1,9 +1,9 @@
-<?php 
-@session_start(); 
+<?php
+@session_start();
 include "../inc/config.inc.php";
 include "../function/datethai.php";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 
 exit() ;
 }
@@ -19,7 +19,7 @@ $zean_name="เซียนบังหลังวัง";
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
-<?php 
+<?php
 
 class Paginator{
 	var $items_per_page;
@@ -56,7 +56,7 @@ class Paginator{
 
 		if($this->num_pages > 10)
 		{
-			$this->return .= (($this->current_page != 1 And $this->items_total >= 10)) ? "<a class=\"paginate\" href=\"".$this->url_next.$prev_page."\">&laquo; ก่อนหน้า</a>\n":"<span class=\"inactive\" href=\"#\">&laquo; ก่อนหน้า</span>\n";
+			$this->return .= (($this->current_page != 1 And $this->items_total >= 10)) ? "<li><a href=\"".$this->url_next.$prev_page."\">&laquo; ก่อนหน้า</a></li>\n":"<li class=\"disabled\"><a href=\"#\">&laquo; ก่อนหน้า</a></li>\n";
 
 			$this->start_range = $this->current_page - floor($this->mid_range/2);
 			$this->end_range = $this->current_page + floor($this->mid_range/2);
@@ -75,20 +75,20 @@ class Paginator{
 
 			for($i=1;$i<=$this->num_pages;$i++)
 			{
-				if($this->range[0] > 2 And $i == $this->range[0]) $this->return .= " ... ";
+				if($this->range[0] > 2 And $i == $this->range[0]) $this->return .= "<li class=\"disabled\"><a href=\"#\">...</a></li>";
 				if($i==1 Or $i==$this->num_pages Or in_array($i,$this->range))
 				{
-					$this->return .= ($i == $this->current_page And $_GET['Page'] != 'All') ? "<a title=\"หน้า $i จาก $this->num_pages\" class=\"current\" href=\"#\">$i</a> ":"<a class=\"paginate\" title=\"ไปที่หน้า $i จาก $this->num_pages\" href=\"".$this->url_next.$i."\">$i</a> ";
+					$this->return .= ($i == $this->current_page And $_GET['Page'] != 'All') ? "<li class=\"active\"><a title=\"หน้า $i จาก $this->num_pages\"href=\"#\">$i</a></li> ":"<li><a title=\"ไปที่หน้า $i จาก $this->num_pages\" href=\"".$this->url_next.$i."\">$i</a></li> ";
 				}
-				if($this->range[$this->mid_range-1] < $this->num_pages-1 And $i == $this->range[$this->mid_range-1]) $this->return .= " ... ";
+				if($this->range[$this->mid_range-1] < $this->num_pages-1 And $i == $this->range[$this->mid_range-1]) $this->return .= "<li class=\"disabled\"><a href=\"#\">...</a></li>";
 			}
-			$this->return .= (($this->current_page != $this->num_pages And $this->items_total >= 10) And ($_GET['Page'] != 'All')) ? "<a class=\"paginate\" href=\"".$this->url_next.$next_page."\">ถัดไป &raquo;</a>\n":"<span class=\"inactive\" href=\"#\">ถัดไป &raquo;</span>\n";
+			$this->return .= (($this->current_page != $this->num_pages And $this->items_total >= 10) And ($_GET['Page'] != 'All')) ? "<li><a href=\"".$this->url_next.$next_page."\">ถัดไป &raquo;</a></li>\n":"<li class=\"disabled\"><a href=\"#\">ถัดไป &raquo;</a></li>\n";
 		}
 		else
 		{
 			for($i=1;$i<=$this->num_pages;$i++)
 			{
-				$this->return .= ($i == $this->current_page) ? "<a class=\"current\" href=\"#\">$i</a> ":"<a class=\"paginate\" href=\"".$this->url_next.$i."\">$i</a> ";
+				$this->return .= ($i == $this->current_page) ? "<li class=\"active\"><a href=\"#\">$i</a></li> ":"<li><a href=\"".$this->url_next.$i."\">$i</a></li> ";
 			}
 		}
 		$this->low = ($this->current_page-1) * $this->items_per_page;
@@ -182,62 +182,62 @@ body {
 
 <body>
 <table width="980" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#000000">
-  <tr>
-    <td><table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
-      <tr>
-        <td height="90" bgcolor="#666666"><div align="center">
-            <table width="960" border="0" cellspacing="1" cellpadding="1">
-              <tr valign="top">
-                <td width="690"><div align="left"><font color="#ffffff" size="4">.:: ยินดีต้อนรับเข้าสู่ ระบบจัดการข้อมูลเว็บไซต์ ::
-                  <?php
+	<tr>
+		<td><table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
+			<tr>
+				<td height="90" bgcolor="#666666"><div align="center">
+						<table width="960" border="0" cellspacing="1" cellpadding="1">
+							<tr valign="top">
+								<td width="690"><div align="left"><font color="#ffffff" size="4">.:: ยินดีต้อนรับเข้าสู่ ระบบจัดการข้อมูลเว็บไซต์ ::
+									<?php
 				$dm=date("d/m");
 				$y=date("Y")+543;
 				$date="$dm/$y";
 				$time=date("H:i:s");
 				echo "$date $time";
 				?>
-                  ::.</font></div></td>
-                <td width="270"><div align="right"><font color="#ffffff" size="4"><a href="../index.php" target="_blank"><font color="#ffffff">ไปยังหน้าเว็บไซต์</font></a> | <a href="logout.php"><font color="#ffffff">ออกจากระบบ</font></a></font></div></td>
-              </tr>
-            </table>
-        </div></td>
-      </tr>
-      <tr>
-        <td bgcolor="#CCCCCC"><table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
-            <tr>
-              <td width="220" align="center" valign="top"><?php include "menu.php"; ?></td>
-              <td width="760" align="center" valign="top" bgcolor="#FFFFFF"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td height="25"><strong><font size="2">
+									::.</font></div></td>
+								<td width="270"><div align="right"><font color="#ffffff" size="4"><a href="../index.php" target="_blank"><font color="#ffffff">ไปยังหน้าเว็บไซต์</font></a> | <a href="logout.php"><font color="#ffffff">ออกจากระบบ</font></a></font></div></td>
+							</tr>
+						</table>
+				</div></td>
+			</tr>
+			<tr>
+				<td bgcolor="#CCCCCC"><table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
+						<tr>
+							<td width="220" align="center" valign="top"><?php include "menu.php"; ?></td>
+							<td width="760" align="center" valign="top" bgcolor="#FFFFFF"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
+									<tr>
+										<td height="25"><strong><font size="2">
 <?php
 $zean_id=$_GET[zean_id];
 $szn="SELECT * FROM `zean_name` WHERE id='$zean_id'";
 $rezn=mysql_query($szn) or die("ERROR $szn");
 $rzn=mysql_fetch_row($rezn);
-?> 
-                      <img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> จัดการข้อมูลทีเด็ด <?php echo $rzn[1]; ?></font></strong></td>
-                  </tr>
-                  <tr>
-                    <td><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
-                      <tr>
-                        <td height="30"><table width="720" border="0" align="center" cellpadding="0" cellspacing="0">
-                            <tr>
-                              <td width="420" align="left"><font size="2" color="#333333"><strong>:: รายการข้อมูลทีเด็ด <?php echo $rzn[1]; ?> :: [ <a href="edit-zean-name.php?zean_id=<?php echo $zean_id; ?>">เปลี่ยนชื่อเซียน</a> ]</strong></font></td>
-                              <td width="300" align="right"><font size="2" color="#333333"><strong>[ <a href="add-tded-zean.php?zean_id=<?php echo $zean_id; ?>">เพิ่มข้อมูลข้อมูลทีเด็ด</a> ]
+?>
+											<img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> จัดการข้อมูลทีเด็ด <?php echo $rzn[1]; ?></font></strong></td>
+									</tr>
+									<tr>
+										<td><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
+											<tr>
+												<td height="30"><table width="720" border="0" align="center" cellpadding="0" cellspacing="0">
+														<tr>
+															<td width="420" align="left"><font size="2" color="#333333"><strong>:: รายการข้อมูลทีเด็ด <?php echo $rzn[1]; ?> :: [ <a href="edit-zean-name.php?zean_id=<?php echo $zean_id; ?>">เปลี่ยนชื่อเซียน</a> ]</strong></font></td>
+															<td width="300" align="right"><font size="2" color="#333333"><strong>[ <a href="add-tded-zean.php?zean_id=<?php echo $zean_id; ?>">เพิ่มข้อมูลข้อมูลทีเด็ด</a> ]
 </strong></font></td>
-                            </tr>
-                          </table></td>
-                      </tr>
-                      <tr>
-                        <td><table width="720" border="1" align="center" cellpadding="0" cellspacing="0" bordercolor="#E9E9E6">
-                            <tr>
-                              <td width="170" align="center" valign="middle" bgcolor="#EFEFED"><strong><font color="#333333" size="2">วัน เดือน ปี </font></strong></td>
-                              <td width="150" align="center" valign="middle" bgcolor="#EFEFED"><strong><font color="#333333" size="2">ทีมที่ 1 </font></strong></td>
-                              <td width="150" align="center" valign="middle" bgcolor="#EFEFED"><strong><font color="#333333" size="2">ทีมที่ 2 </font></strong></td>
-                              <td width="150" align="center" valign="middle" bgcolor="#EFEFED"><strong><font color="#333333" size="2">ทีมที่ 3 </font></strong></td>
-                              <td width="100" height="30" align="center" valign="middle" bgcolor="#EFEFED"><span class="style4">การกระทำ</span></td>
-                            </tr>
-<?php	
+														</tr>
+													</table></td>
+											</tr>
+											<tr>
+												<td><table width="720" border="1" align="center" cellpadding="0" cellspacing="0" bordercolor="#E9E9E6">
+														<tr>
+															<td width="170" align="center" valign="middle" bgcolor="#EFEFED"><strong><font color="#333333" size="2">วัน เดือน ปี </font></strong></td>
+															<td width="150" align="center" valign="middle" bgcolor="#EFEFED"><strong><font color="#333333" size="2">ทีมที่ 1 </font></strong></td>
+															<td width="150" align="center" valign="middle" bgcolor="#EFEFED"><strong><font color="#333333" size="2">ทีมที่ 2 </font></strong></td>
+															<td width="150" align="center" valign="middle" bgcolor="#EFEFED"><strong><font color="#333333" size="2">ทีมที่ 3 </font></strong></td>
+															<td width="100" height="30" align="center" valign="middle" bgcolor="#EFEFED"><span class="style4">การกระทำ</span></td>
+														</tr>
+<?php
 
 
 		$strSQL = "SELECT * FROM tded_zean WHERE zean_id='$zean_id'";
@@ -246,7 +246,7 @@ $rzn=mysql_fetch_row($rezn);
 
 		$Per_Page = 20;   // Per Page
 
-		
+
 		if(!isset($_GET["Page"]))
 		{
 			$Page=1;
@@ -278,55 +278,64 @@ $rzn=mysql_fetch_row($rezn);
 		$objQuery  = mysql_query($strSQL);
 		while($objResult = mysql_fetch_row($objQuery)){
 ?>
-                            <tr>
-                              <td width="170" height="25" align="center" valign="middle"><font size="2" color="#000000"><?php echo DateThai($objResult[11]); ?></font></td>
-                              <td width="150" height="25" align="center" valign="middle">
-							  <font size="2" color="#000000"><?php echo $objResult[2]; ?></font>
-							  <?php if($objResult[3]==0){ ?>
-							  <img src="../img/icon-false.gif" width="16" />
-							  <?php }else if($objResult[3]==1){ ?>
-							  <img src="../img/icon-true.gif" width="16" />
-							  <?php } ?>
-							  </td>
-                              <td width="150" height="25" align="center" valign="middle">
-							  <font size="2" color="#000000"><?php echo $objResult[4]; ?></font>
-							  <?php if($objResult[5]==0){ ?>
-							  <img src="../img/icon-false.gif" width="16" />
-							  <?php }else if($objResult[5]==1){ ?>
-							  <img src="../img/icon-true.gif" width="16" />
-							  <?php } ?>
-							  </td>
-                              <td width="150" height="25" align="center" valign="middle">
-							  <font size="2" color="#000000"><?php echo $objResult[6]; ?></font>
-							  <?php if($objResult[7]==0){ ?>
-							  <img src="../img/icon-false.gif" width="16" />
-							  <?php }else if($objResult[7]==1){ ?>
-							  <img src="../img/icon-true.gif" width="16" />
-							  <?php } ?>
-							  </td>
-                              <td width="100" height="25" align="center" valign="middle"><font size="2"><a href="edit-tded-zean.php?id=<?php echo $objResult[0]; ?>&zean_id=<?php echo $zean_id; ?>"><img src="images/edit.gif" width="40" height="15" border="0" /></a> <a href="del-tded-zean.php?id=<?php echo $objResult[0]; ?>&zean_id=<?php echo $zean_id; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"> <img src="images/del.gif" width="40" height="15" border="0" /></a></font></td>
-                            </tr>
-                            <?php } ?>
-                        </table></td>
-                      </tr>
-                      <tr>
-                        <td><table width="100%" height="10" border="0" cellpadding="0" cellspacing="0">
-                            <tr>
-                              <td></td>
-                            </tr>
-                          </table>
-                            <table width="650" border="0" align="center" cellpadding="0" cellspacing="0">
-                              <tr>
-                                <td align="center"><font size="2" color="#000000">รายการข้อมูลทีเด็ดจากเซียน <?php echo $r[1]; ?> ทั้งหมด
-                                  <?php echo $Num_Rows; ?>
-                                  รายการ : แสดงผลหน้าละ
-                                  <?php echo $Per_Page; ?>
-                                  รายการ จำนวนทั้งหมด
-                                  <?php echo $Num_Pages; ?>
-                                  หน้า</font></td>
-                              </tr>
-                              <tr>
-                                <td height="30" align="center" valign="middle"><?php
+														<tr>
+															<td width="170" height="25" align="center" valign="middle"><font size="2" color="#000000"><?php echo DateThai($objResult[11]); ?></font></td>
+																<td width="150" height="25" align="center" valign="middle">
+																	<font size="2" color="#000000"><?php echo $objResult[2]; ?></font>
+																	<?php if($objResult[3]==0){ ?>
+																		<img src="../img/icon-false.gif" width="16" />
+																	<?php }else if($objResult[3]==1){ ?>
+																		<img src="../img/icon-true.gif" width="16" />
+																	<?php } ?>
+																</td>
+															<td width="150" height="25" align="center" valign="middle">
+																<font size="2" color="#000000"><?php echo $objResult[4]; ?></font>
+																<?php if($objResult[5]==0){ ?>
+																	<img src="../img/icon-false.gif" width="16" />
+																<?php }else if($objResult[5]==1){ ?>
+																	<img src="../img/icon-true.gif" width="16" />
+																<?php } ?>
+															</td>
+															<td width="150" height="25" align="center" valign="middle">
+																<font size="2" color="#000000"><?php echo $objResult[6]; ?></font>
+																<?php if($objResult[7]==0){ ?>
+																	<img src="../img/icon-false.gif" width="16" />
+																<?php }else if($objResult[7]==1){ ?>
+																	<img src="../img/icon-true.gif" width="16" />
+																<?php } ?>
+															</td>
+															<td width="100" height="25" align="center" valign="middle">
+																<font size="2">
+																	<a href="edit-tded-zean.php?id=<?php echo $objResult[0]; ?>&zean_id=<?php echo $zean_id; ?>" class='btn btn-warning btn-xs white'>
+																		<i class="glyphicon glyphicon-pencil"></i> แก้ไข
+																	</a>
+																	<a href="del-tded-zean.php?id=<?php echo $objResult[0]; ?>&zean_id=<?php echo $zean_id; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}" class='btn btn-danger btn-xs white'>
+																		<i class="glyphicon glyphicon-remove"></i> ลบ
+																	</a>
+																</font>
+															</td>
+														</tr>
+														<?php } ?>
+												</table></td>
+											</tr>
+											<tr>
+												<td><table width="100%" height="10" border="0" cellpadding="0" cellspacing="0">
+														<tr>
+															<td></td>
+														</tr>
+													</table>
+														<table width="650" border="0" align="center" cellpadding="0" cellspacing="0">
+															<tr>
+																<td align="center"><font size="2" color="#000000">รายการข้อมูลทีเด็ดจากเซียน <?php echo $r[1]; ?> ทั้งหมด
+																	<?php echo $Num_Rows; ?>
+																	รายการ : แสดงผลหน้าละ
+																	<?php echo $Per_Page; ?>
+																	รายการ จำนวนทั้งหมด
+																	<?php echo $Num_Pages; ?>
+																	หน้า</font></td>
+															</tr>
+															<tr>
+																<td height="30" align="center" valign="middle"><ul class="pagination  pagination-sm"><?php
 
 
 $pages = new Paginator;
@@ -339,21 +348,21 @@ $pages->url_next = $_SERVER["PHP_SELF"]."?QueryString=value&zean_id=$zean_id&Pag
 $pages->paginate();
 
 echo $pages->display_pages()
-?></td>
-                              </tr>
-                          </table></td>
-                      </tr>
-                    </table></td>
-                  </tr>
-                </table></td>
-            </tr>
-        </table></td>
-      </tr>
-      <tr>
-        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2012 &copy; ScritpWeb2U </font></strong></td>
-      </tr>
-    </table></td>
-  </tr>
+?></ul></td>
+															</tr>
+													</table></td>
+											</tr>
+										</table></td>
+									</tr>
+								</table></td>
+						</tr>
+				</table></td>
+			</tr>
+			<tr>
+				<td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2012 &copy; ScritpWeb2U </font></strong></td>
+			</tr>
+		</table></td>
+	</tr>
 </table>
 </body>
 </html>

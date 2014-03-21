@@ -1,8 +1,8 @@
-<?php 
-@session_start(); 
+<?php
+@session_start();
 include "../inc/config.inc.php";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 
 exit() ;
 }
@@ -77,71 +77,73 @@ $rcate=mysql_fetch_row($recate);
 					<strong><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> จัดการข้อมูล<?php echo $rcate[1]; ?></font></strong></td>
                   </tr>
                   <tr>
-                    <td><form action="p-football.php" method="post" enctype="multipart/form-data" name ="checkForm" id="checkForm" onsubmit="return check1()">
-                      <table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
-                        <tr>
-                          <td width="100" align="right"><strong><font size="2">ชื่อหมวดหมู่</font></strong></td>
-                          <td width="10" align="center">&nbsp;</td>
-                          <td width="590" align="left">
-						  <input name="cate_name" type="text" id="cate_name" style="width:200px;" value="<?php echo $rcate[1]; ?>" />
-						  <input type="hidden" name="id" id="id" value="<?php echo $id; ?>" />						  </td>
-                        </tr>
-                        <tr>
-                          <td width="100" align="right" valign="top"><strong><font size="2">Code</font></strong></td>
-                          <td width="10" align="center" valign="top">&nbsp;</td>
-                          <td width="590" align="left" valign="top"><textarea name="code" id="code" style="width:550px; height:100px;"><?php echo $rcate[5]; ?></textarea></td>
-                        </tr>
-                        <tr>
-                          <td width="100" align="right">&nbsp;</td>
-                          <td width="10" align="center">&nbsp;</td>
-                          <td width="590" align="left">&nbsp;</td>
-                        </tr>
-                        <tr>
-                          <td width="100" height="105" align="right" valign="top"><strong><font size="2">Title</font></strong></td>
-                          <td width="10" height="105" align="center" valign="top">&nbsp;</td>
-                          <td width="590" height="105" align="left" valign="top"><textarea name="title" id="title" style="width:550px; height:100px;"><?php echo $rcate[2]; ?></textarea></td>
-                        </tr>
-                        <tr>
-                          <td width="100" height="105" align="right" valign="top"><strong><font size="2">Description</font></strong></td>
-                          <td width="10" height="105" align="center" valign="top">&nbsp;</td>
-                          <td width="590" height="105" align="left" valign="top"><textarea name="description" id="description" style="width:550px; height:100px;"><?php echo $rcate[3]; ?></textarea></td>
-                        </tr>
-                        <tr>
-                          <td width="100" height="105" align="right" valign="top"><strong><font size="2">Keyword</font></strong></td>
-                          <td width="10" height="105" align="center" valign="top">&nbsp;</td>
-                          <td width="590" height="105" align="left" valign="top"><textarea name="keyword" id="keyword" style="width:550px; height:100px;"><?php echo $rcate[4]; ?></textarea></td>
-                        </tr>
-                        <tr>
-                          <td width="100" align="right">&nbsp;</td>
-                          <td width="10" align="center">&nbsp;</td>
-                          <td width="590" align="left"><input type="submit" name="Submit" value="บันทึกข้อมูล" /></td>
-                        </tr>
-                      </table>
-<script language="JavaScript" type="text/javascript">
+                    <td>
+                      <form class="form-horizontal" role="form" action="p-football.php" method="post" enctype="multipart/form-data" name ="checkForm" id="checkForm" onsubmit="return check1()">
+                        <div class="form-group">
+                          <label for="name" class="col-sm-2 control-label">ชื่อหมวดหมู่</label>
+                          <div class="col-sm-8">
+                            <input class="form-control"  name="cate_name" type="text" id="cate_name" value="<?php echo $rcate[1]; ?>" />
+                            <input type="hidden" name="id" id="id" value="<?php echo $id; ?>" />
+                          </div>
+                        </div>
 
-function check1() {
-if(document.checkForm.cate_name.value=="") {
-alert("กรุณากรอกชื่อหมวดหมู่ด้วยนะครับ") ;
-document.checkForm.cate_name.focus() ;
-return false ;
-}else if(document.checkForm.title.value=="") {
-alert("กรุณากรอก Title ด้วยนะครับ") ;
-document.checkForm.title.focus() ;
-return false ;
-}else if(document.checkForm.description.value=="") {
-alert("กรุณากรอก Description ด้วยนะครับ") ;
-document.checkForm.description.focus() ;
-return false ;
-}else if(document.checkForm.keyword.value=="") {
-alert("กรุณากรอก Keyword ด้วยนะครับ") ;
-document.checkForm.keyword.focus() ;
-return false ;
-}
-else
-return true ;
-}
-</script>
-</form>
+                        <div class="form-group">
+                          <label for="name" class="col-sm-2 control-label">Code</label>
+                          <div class="col-sm-8">
+                            <textarea class="form-control" name="code" id="code" rows="5"><?php echo $rcate[5]; ?></textarea>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label for="name" class="col-sm-2 control-label">Title</label>
+                          <div class="col-sm-8">
+                            <textarea class="form-control" name="title" id="title" rows="5"><?php echo $rcate[2]; ?></textarea>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label for="name" class="col-sm-2 control-label">Description</label>
+                          <div class="col-sm-8">
+                            <textarea class="form-control" name="description" id="description" rows="5"><?php echo $rcate[3]; ?></textarea>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label for="name" class="col-sm-2 control-label">Keyword</label>
+                          <div class="col-sm-8">
+                            <textarea class="form-control" name="keyword" id="keyword" rows="5"><?php echo $rcate[4]; ?></textarea>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <div class="col-sm-offset-2 col-sm-10">
+                            <input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' />
+                          </div>
+                        </div>
+
+                        <script language="JavaScript" type="text/javascript">
+                          function check1() {
+                            if(document.checkForm.cate_name.value=="") {
+                              alert("กรุณากรอกชื่อหมวดหมู่ด้วยนะครับ") ;
+                              document.checkForm.cate_name.focus() ;
+                              return false ;
+                            }else if(document.checkForm.title.value=="") {
+                              alert("กรุณากรอก Title ด้วยนะครับ") ;
+                              document.checkForm.title.focus() ;
+                              return false ;
+                            }else if(document.checkForm.description.value=="") {
+                              alert("กรุณากรอก Description ด้วยนะครับ") ;
+                              document.checkForm.description.focus() ;
+                              return false ;
+                            }else if(document.checkForm.keyword.value=="") {
+                              alert("กรุณากรอก Keyword ด้วยนะครับ") ;
+                              document.checkForm.keyword.focus() ;
+                              return false ;
+                            }
+                            else return true ;
+                          }
+                        </script>
+                      </form>
                     </td>
                   </tr>
                 </table></td>

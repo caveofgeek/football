@@ -1,8 +1,8 @@
-<?php 
-@session_start(); 
+<?php
+@session_start();
 include "../inc/config.inc.php";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 
 exit() ;
 }
@@ -74,48 +74,66 @@ body {
                     <td height="25"><strong><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> จัดการข้อมูลพื้นหลังเว็บไซต์ </font></strong></td>
                   </tr>
                   <tr>
-                    <td><form action="p-bg.php" method="post" enctype="multipart/form-data" name="form1" id="form1">
-                      <table width="580" border="0" align="center" cellpadding="0" cellspacing="0">
-                        <tr>
-                          <td><table width="580" border="0" cellspacing="0" cellpadding="0">
-                              <tr>
-                                <td width="250" align="left" valign="top"><font size="2" color="#333333"><strong>สีพื้นหลัง
-                                  <input name="color" class="color" id="color" value="<?php echo $r[1]; ?>" maxlength="6" />
-                                </strong></font></td>
-                                <td width="330" align="left" valign="top"><font size="2" color="#333333"><strong>ภาพพื้นหลัง</strong></font>
-                                    <input name="file1" type="file" id="file1" />
-                                    <br />
-                                    <font size="2" color="#333333"><strong>เลื่อนตาม Scrollbar
-                                    <input name="fix" type="radio" value="2" <?php if($r[4]==2){ echo "checked";} ?> />
-                                    </strong>เลื่อน
-                                    <input name="fix" type="radio" value="1" <?php if($r[4]==1){ echo "checked";} ?> />
-ไม่เลื่อน</font>                                    <br />
-                                    <font size="2" color="#333333"><strong>repeat
-                                      <select name="repeat" id="repeat">
-                                      <option value="no-repeat" <?php if($r[3]=="no-repeat"){ echo "selected";} ?>>no-repeat</option>
-                                      <option value="repeat" <?php if($r[3]=="repeat"){ echo "selected";} ?>>repeat</option>
-                                      <option value="repeat-x" <?php if($r[3]=="repeat-x"){ echo "selected";} ?>>repeat-x</option>
-                                      <option value="repeat-y" <?php if($r[3]=="repeat-y"){ echo "selected";} ?>>repeat-y</option>
-                                    </select>
-                                    </strong></font>
-                                    <input type="hidden" id="op" name="op" value="<?php echo $r[2]; ?>" />
-                                    <br />
-                                    <?php if($r[2]!=""){ ?>
-                                    <font size="2" color="#333333"><strong><a href="../bg-img/<?php echo $r[2]; ?>" target="_blank">คลิกที่นี่</a> เพื่อดูภาพพื้นหลัง หรือ <a href="del-bg.php?img=<?php echo $r[2]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}">ลบภาพพื้นหลัง</a> </strong></font>
-                                    <?php } ?></td>
-                              </tr>
-                          </table></td>
-                        </tr>
-                        <tr>
-                          <td><table width="580" border="0" cellspacing="0" cellpadding="0">
-                              <tr>
-                                <td width="250" align="left">&nbsp;</td>
-                                <td width="330" align="left"><input type="submit" name="Submit" value="บันทึกข้อมูล" /></td>
-                              </tr>
-                          </table></td>
-                        </tr>
-                      </table>
-                    </form></td>
+                    <td>
+                      <form action="p-bg.php" class="form-horizontal" role="form" method="post" enctype="multipart/form-data" name="form1" id="form1">
+                        <div class="form-group">
+                          <label for="color" class="col-sm-2 control-label">สีพื้นหลัง</label>
+                          <div class="col-sm-8 form-inline">
+                            <input name="color" class="color form-control" id="color" value="<?php echo $r[1]; ?>" maxlength="6" />
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="file1" class="col-sm-2 control-label">ภาพพื้นหลัง</label>
+                          <div class="col-sm-8 form-inline">
+                            <input name="file1" type="file" class="form-control" id="file1" />
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label for="file1" class="col-sm-2 control-label">เลื่อนตาม Scrollbar</label>
+                          <div class="col-sm-8 form-inline">
+                            <div class="radio">
+                              <label>
+                                <input name="fix" type="radio" value="2" <?php if($r[4]==2){ echo "checked";} ?> /> เลื่อน
+                                <input name="fix" type="radio" value="1" <?php if($r[4]==1){ echo "checked";} ?> /> ไม่เลื่อน
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label for="file1" class="col-sm-2 control-label">repeat</label>
+                          <div class="col-sm-8 form-inline">
+                            <div class="checkbox">
+                              <label>
+                                <select name="repeat" id="repeat">
+                                  <option value="no-repeat" <?php if($r[3]=="no-repeat"){ echo "selected";} ?>>no-repeat</option>
+                                  <option value="repeat" <?php if($r[3]=="repeat"){ echo "selected";} ?>>repeat</option>
+                                  <option value="repeat-x" <?php if($r[3]=="repeat-x"){ echo "selected";} ?>>repeat-x</option>
+                                  <option value="repeat-y" <?php if($r[3]=="repeat-y"){ echo "selected";} ?>>repeat-y</option>
+                                </select>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <div class="col-sm-8 form-inline">
+                            <input type="hidden" id="op" name="op" value="<?php echo $r[2]; ?>" />
+                            <br />
+                            <?php if($r[2]!=""){ ?>
+                            <font size="2" color="#333333"><strong><a href="../bg-img/<?php echo $r[2]; ?>" target="_blank">คลิกที่นี่</a> เพื่อดูภาพพื้นหลัง หรือ <a href="del-bg.php?img=<?php echo $r[2]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}">ลบภาพพื้นหลัง</a> </strong></font>
+                            <?php } ?>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <div class="col-sm-offset-2 col-sm-10">
+                            <input type="submit" name="Submit" value="บันทึกข้อมูล" class="btn btn-success" />
+                          </div>
+                        </div>
+                      </form>
+                    </td>
                   </tr>
                 </table></td>
             </tr>

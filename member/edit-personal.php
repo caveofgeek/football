@@ -181,7 +181,7 @@ $rp=mysql_fetch_row($rep);
                                     <tr>
                                       <td width="130" height="20" align="right" valign="top">&nbsp;</td>
                                       <td width="10" height="20" align="center" valign="top">&nbsp;</td>
-                                      <td width="580" height="20" align="right"><input type="submit" name="Submit" value="บันทึกข้อมูล" /></td>
+                                      <td width="580" height="20" align="right"><input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' /></td>
                                     </tr>
                                 </table></td>
                               </tr>

@@ -30,7 +30,7 @@ $str=mysql_fetch_row($stre);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>เว็บเพื่อนบ้าน | <?php echo $titler[1]; ?></title>
-<META NAME="keywords" CONTENT="<?php echo $titler[12]; ?>"> 
+<META NAME="keywords" CONTENT="<?php echo $titler[12]; ?>">
 <META NAME="description" CONTENT="<?php echo $titler[1]; ?> เว็บเพื่อนบ้าน <?php echo $titler[11]; ?>">
 <meta name="robots"  content="index,follow">
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -42,7 +42,7 @@ body {
 	background-color: #<?php echo $bgr[1]; ?>;
 	<?php if($bgr[2]!=""){ ?>background-image: url(http://<?php echo $titler[13]; ?>/bg-img/<?php echo $bgr[2]; ?>);
 	background-repeat: <?php echo $bgr[3]; ?>;
-	<?php }if($bgr[4]==1){ ?>	
+	<?php }if($bgr[4]==1){ ?>
 	background-attachment:fixed;
 	<?php } ?>
 }
@@ -94,9 +94,9 @@ while($rads8=mysql_fetch_row($reads8)){
                     <table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tr>
                           <td align="center" valign="middle">
-						  <?php 
-						  if($rads8[1]==1){ 
-						  $ads8=stripslashes($rads8[3]); 
+						  <?php
+						  if($rads8[1]==1){
+						  $ads8=stripslashes($rads8[3]);
 						  echo $ads8;
 						  }else if($rads8[1]==2){
 						  ?>
@@ -257,7 +257,7 @@ echo "$a+$b";
                                                           </tr>
                                                           <tr>
                                                             <td height="25" align="center"><label></label></td>
-                                                            <td height="25" align="left"><input type="submit" name="Submit" value="บันทึกข้อมูล" /></td>
+                                                            <td height="25" align="left"><input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' /></td>
                                                           </tr>
                                                         </table>
                                                       <script language="JavaScript" type="text/javascript">

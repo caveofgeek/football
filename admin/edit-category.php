@@ -1,8 +1,8 @@
-<?php 
-@session_start(); 
+<?php
+@session_start();
 include "../inc/config.inc.php";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 
 exit() ;
 }
@@ -80,7 +80,7 @@ $rcate=mysql_fetch_row($recate);
 					<?php }else if($cate_id<=33){ ?>
 					<a href="all-main-category.php?cate_id=<?php echo $cate_id; ?>">
 					<?php } ?>
-					จัดการข้อมูลหมวดหมู่<?php echo $rcate[1]; ?> 
+					จัดการข้อมูลหมวดหมู่<?php echo $rcate[1]; ?>
 					</a> <img src="images/arrow.gif" width="7" height="11" /> </font><font color="#000000" size="2">แก้ไขข้อมูลหมวดหมู่<?php echo $rcate[1]; ?>
 					</font></strong></td>
                   </tr>
@@ -112,7 +112,7 @@ $rcate=mysql_fetch_row($recate);
                         <tr>
                           <td width="100" align="right">&nbsp;</td>
                           <td width="10" align="center">&nbsp;</td>
-                          <td width="350" align="left"><input type="submit" name="Submit" value="บันทึกข้อมูล" /></td>
+                          <td width="350" align="left"><input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' /></td>
                         </tr>
                       </table>
 <script language="JavaScript" type="text/javascript">
