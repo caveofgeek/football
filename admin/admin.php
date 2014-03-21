@@ -140,11 +140,15 @@ while($r=mysql_fetch_row($re)){
                                 <td height="25" align="center" valign="middle"><font size="2">
                                   <?php echo $r[2]; ?>
                                 </font> </td>
-                                <td width="100" height="25" align="center" valign="middle"><font size="2">
-                                  <a href="edit-admin.php?id=<?php echo $r[0]; ?>" class='btn btn-warning btn-xs white'> <span class="glyphicon glyphicon-pencil"></span>แก้ไข</a>
-                                  <a href="del-admin.php?id=<?php echo $r[0]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}" class='btn btn-danger btn-xs white'>
-                                    <span class="glyphicon glyphicon-remove"></span> ลบ
-                                  </a> </font>
+                                <td width="100" height="25" align="center" valign="middle">
+                                  <font size="2">
+                                    <a href="edit-admin.php?id=<?php echo $r[0]; ?>" class='btn btn-warning btn-xs white'>
+                                      <i class="glyphicon glyphicon-pencil"></i> แก้ไข
+                                    </a>
+                                    <a href="del-admin.php?id=<?php echo $r[0]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}" class='btn btn-danger btn-xs white'>
+                                      <i class="glyphicon glyphicon-remove"></i> ลบ
+                                    </a>
+                                  </font>
                                 </td>
                               </tr>
                               <?php $x++;} ?>

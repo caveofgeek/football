@@ -1,9 +1,9 @@
-<?php 
-@session_start(); 
+<?php
+@session_start();
 include "../inc/config.inc.php";
 include "../function/datethai.php";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 
 exit() ;
 }
@@ -17,7 +17,7 @@ $r=mysql_fetch_row($re);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>.:: ระบบจัดการข้อมูลเว็บไซต์ ::.</title>
-<?php 
+<?php
 
 class Paginator{
 	var $items_per_page;
@@ -236,7 +236,7 @@ body {
 
 		$Per_Page = 10;   // Per Page
 
-		
+
 		if(!isset($_GET["Page"]))
 		{
 			$Page=1;
@@ -269,10 +269,19 @@ body {
 		while($objResult = mysql_fetch_row($objQuery)){
 ?>
                             <tr>
-                              <td width="500" height="25" align="left" valign="middle"><font size="2">&nbsp;&nbsp;<a href="league-t-ded.php?l_id=<?php echo $l_id; ?>&amp;tdate=<?php echo $objResult[0]; ?>">ทีเด็ดฟุตบอล วิเคราะห์บอล ราคาบอล ประจำวันที่ 
+                              <td width="500" height="25" align="left" valign="middle"><font size="2">&nbsp;&nbsp;<a href="league-t-ded.php?l_id=<?php echo $l_id; ?>&amp;tdate=<?php echo $objResult[0]; ?>">ทีเด็ดฟุตบอล วิเคราะห์บอล ราคาบอล ประจำวันที่
                                 <?php $postDate=$objResult[0]; echo DateThai($postDate); ?></a>
                               </font></td>
-                              <td width="100" height="25" align="center" valign="middle"><font size="2"><a href="league-t-ded.php?l_id=<?php echo $l_id; ?>&amp;tdate=<?php echo $objResult[0]; ?>"><img src="images/edit.gif" width="40" height="15" border="0" /></a> <a href="del-t-ded.php?l_id=<?php echo $l_id; ?>&tdate=<?php echo $objResult[0]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"> <img src="images/del.gif" width="40" height="15" border="0" /></a></font></td>
+                              <td width="100" height="25" align="center" valign="middle">
+                                <font size="2">
+                                  <a href="league-t-ded.php?l_id=<?php echo $l_id; ?>&amp;tdate=<?php echo $objResult[0]; ?>" class='btn btn-warning btn-xs white'>
+                                    <i class="glyphicon glyphicon-pencil"></i> แก้ไข
+                                  </a>
+                                  <a href="del-t-ded.php?l_id=<?php echo $l_id; ?>&tdate=<?php echo $objResult[0]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}" class='btn btn-danger btn-xs white'>
+                                    <i class="glyphicon glyphicon-remove"></i> ลบ
+                                  </a>
+                                </font>
+                              </td>
                             </tr>
                             <?php } ?>
                         </table></td>
