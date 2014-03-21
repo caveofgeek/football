@@ -1,5 +1,28 @@
 <table width="250" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
+    <td>
+      <div class="masthead">
+        <ul class="nav sidebar-justified">
+          <li class="time"><?php echo DateThai(date("Y-m-d")); ?></li>
+<?php
+  $scate="select id, cate_name from category order by id asc";
+  $recate=mysql_query($scate) or die("ERROR $scate");
+  while($rcate=mysql_fetch_row($recate)){
+  $urlcate=rewrite($rcate[1]);
+?>
+          <li>
+            <a href="http://<?php echo $titler[13]; ?>/cate-<?php echo $rcate[0]; ?>/<?php echo $urlcate; ?>" title="<?php echo $rcate[1]; ?>">
+              <?php echo $rcate[1]; ?>
+            </a>
+          </li>
+<?php } ?>
+          <li><a href="http://<?php echo $titler[13]; ?>/webboard" title="เว็บบอร์ด">เว็บบอร์ด</a></li>
+        </ul>
+      </div>
+    </td>
+  </tr>
+<!--
+  <tr>
     <td align="center"><table width="250" border="0" align="center" cellpadding="0" cellspacing="0">
       <tr>
         <td height="40" style="background-image:url(http://<?php echo $titler[13]; ?>/img/bg-menu-left.png); border-top-right-radius:5px; border-top-left-radius:5px; -moz-border-radius-topright:5px; -moz-border-radius-topleft:5px; -webkit-border-top-right-radius:5px; -webkit-border-top-left-radius:5px;"><table width="240" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -23,7 +46,8 @@ $urlcate=rewrite($rcate[1]);
                 <tr>
                   <td width="10" height="20" align="left"><img src="http://<?php echo $titler[13]; ?>/img/icon-arrow.png" width="10" height="9" /></td>
                   <td width="5" height="20" align="left">&nbsp;</td>
-                  <td width="225" height="20" align="left"><a href="http://<?php echo $titler[13]; ?>/cate-<?php echo $rcate[0]; ?>/<?php echo $urlcate; ?>" title="<?php echo $rcate[1]; ?>" style="font-family:'Times New Roman', Times, serif; font-size:12px; color:#FFFFFF;">
+                  <td width="225" height="20" align="left">
+                  <a href="http://<?php echo $titler[13]; ?>/cate-<?php echo $rcate[0]; ?>/<?php echo $urlcate; ?>" title="<?php echo $rcate[1]; ?>" style="font-family:'Times New Roman', Times, serif; font-size:12px; color:#FFFFFF;">
                     <?php echo $rcate[1]; ?>
                   </a></td>
                 </tr>
@@ -34,7 +58,7 @@ $urlcate=rewrite($rcate[1]);
                   </tr>
               </table></td>
           </tr>
-          <?php } ?>
+<?php } ?>
           <tr>
             <td><table width="240" border="0" align="center" cellpadding="0" cellspacing="0">
                 <tr>
@@ -53,6 +77,7 @@ $urlcate=rewrite($rcate[1]);
       </tr>
     </table></td>
   </tr>
+-->
   <tr>
     <td align="center"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
       <tr>
@@ -88,7 +113,7 @@ $urlcate=rewrite($rcate[1]);
                 </tr>
             </table></td>
           </tr>
-<?php	
+<?php
 $slevel = "SELECT member_id, SUM(point) FROM `game_member_score` GROUP BY member_id ORDER BY SUM(point) DESC, member_id DESC LIMIT 0, 10";
 $relevel = mysql_query($slevel) or die("ERROR $slevel");
 $i=1;
@@ -106,11 +131,11 @@ $bgscore="bgcolor='#d1b36c'";
             <td><table width="250" border="0" align="center" cellpadding="0" cellspacing="0">
                 <tr>
                   <td width="35" height="25" align="center" style="font-family:'Times New Roman', Times, serif; font-size:12px; font-weight:bold; color:#232323;"><?php echo $i; ?></td>
-                  <td width="150" height="25" align="center" style="font-family:'Times New Roman', Times, serif; font-size:12px; font-weight:bold; color:#232323;"><?php 
+                  <td width="150" height="25" align="center" style="font-family:'Times New Roman', Times, serif; font-size:12px; font-weight:bold; color:#232323;"><?php
 $smem = "SELECT name, img FROM `member` WHERE id='$rlevel[0]'";
 $remem = mysql_query($smem) or die("ERROR $smem");
 $rmem = mysql_fetch_row($remem);
-if($rmem[1]!=""){ 
+if($rmem[1]!=""){
 ?>
                       <img src="http://<?php echo $titler[13]; ?>/member/avatar/<?php echo $rmem[1]; ?>" width="120" height="19" />
                       <?php }else{ ?>
@@ -124,7 +149,7 @@ if($rmem[1]!=""){
           <?php $i++;} ?>
       </table></td>
   </tr>
-<?php 
+<?php
 $sads9="SELECT * FROM `ads_a9` ORDER BY id ASC";
 $reads9=mysql_query($sads9) or die("Error $sads9");
 while($rads9=mysql_fetch_row($reads9)){
@@ -136,10 +161,10 @@ while($rads9=mysql_fetch_row($reads9)){
       </tr>
     </table>
         <?php
-if($rads9[1]==1){ 
+if($rads9[1]==1){
 $ads9=stripslashes($rads9[3]);
 echo $ads9;
-}else if($rads9[1]==2){ 
+}else if($rads9[1]==2){
 ?>
         <a href="<?php echo $rads9[7]; ?>" title="<?php echo $rads9[8]; ?>" target="_blank">
         <?php if($rads9[2]==1){  ?>

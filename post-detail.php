@@ -48,20 +48,20 @@ $url=rewrite($rct[1]);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><?php echo $rpost[2]; ?> | <?php echo $titler[1]; ?></title>
-<META NAME="keywords" CONTENT="<?php if($rpost[11]!=""){ echo "$rpost[11], ";} if($rpost[12]!=""){ echo "$rpost[12], ";} if($rpost[13]!=""){ echo "$rpost[13], ";} if($rpost[14]!=""){ echo "$rpost[14], ";} if($rpost[15]!=""){ echo "$rpost[15], ";} if($rpost[16]!=""){ echo "$rpost[16], ";} ?>"> 
+<META NAME="keywords" CONTENT="<?php if($rpost[11]!=""){ echo "$rpost[11], ";} if($rpost[12]!=""){ echo "$rpost[12], ";} if($rpost[13]!=""){ echo "$rpost[13], ";} if($rpost[14]!=""){ echo "$rpost[14], ";} if($rpost[15]!=""){ echo "$rpost[15], ";} if($rpost[16]!=""){ echo "$rpost[16], ";} ?>">
 <META NAME="description" CONTENT="<?php echo $titler[1]; ?> <?php echo $rpost[3]; ?>">
 <meta name="robots"  content="index,follow">
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/font-awesome.min.css" rel="stylesheet">
-<link href="css/justified-nav.css" rel="stylesheet">
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/font-awesome.min.css" rel="stylesheet">
+<link href="../css/justified-nav.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {
 	background-color: #<?php echo $bgr[1]; ?>;
 	<?php if($bgr[2]!=""){ ?>background-image: url(http://<?php echo $titler[13]; ?>/bg-img/<?php echo $bgr[2]; ?>);
 	background-repeat: <?php echo $bgr[3]; ?>;
-	<?php }if($bgr[4]==1){ ?>	
+	<?php }if($bgr[4]==1){ ?>
 	background-attachment:fixed;
 	<?php } ?>
 }
@@ -113,9 +113,9 @@ while($rads8=mysql_fetch_row($reads8)){
                     <table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tr>
                           <td align="center" valign="middle">
-						  <?php 
-						  if($rads8[1]==1){ 
-						  $ads8=stripslashes($rads8[3]); 
+						  <?php
+						  if($rads8[1]==1){
+						  $ads8=stripslashes($rads8[3]);
 						  echo $ads8;
 						  }else if($rads8[1]==2){
 						  ?>
@@ -188,12 +188,12 @@ while($rads8=mysql_fetch_row($reads8)){
                       </tr>
                       <tr>
                         <td height="30" align="left" style="font-family:'Times New Roman', Times, serif; font-size:12px; color:232323;"><strong>TAG : </strong>
-<?php 
-if($rpost[12]!=""){ $tag2=rewrite($rpost[12]); echo "<a href='http://$titler[13]/search-tag.php?tag=$tag2' style='color:#000000'>$rpost[12]</a>, ";} 
-if($rpost[13]!=""){ $tag3=rewrite($rpost[13]); echo "<a href='http://$titler[13]/search-tag.php?tag=$tag3' style='color:#000000'>$rpost[13]</a>, ";} 
+<?php
+if($rpost[12]!=""){ $tag2=rewrite($rpost[12]); echo "<a href='http://$titler[13]/search-tag.php?tag=$tag2' style='color:#000000'>$rpost[12]</a>, ";}
+if($rpost[13]!=""){ $tag3=rewrite($rpost[13]); echo "<a href='http://$titler[13]/search-tag.php?tag=$tag3' style='color:#000000'>$rpost[13]</a>, ";}
 if($rpost[14]!=""){ $tag4=rewrite($rpost[14]); echo "<a href='http://$titler[13]/search-tag.php?tag=$tag4' style='color:#000000'>$rpost[14]</a>, ";}
-if($rpost[15]!=""){ $tag5=rewrite($rpost[15]); echo "<a href='http://$titler[13]/search-tag.php?tag=$tag5' style='color:#000000'>$rpost[15]</a>, ";} 
-if($rpost[16]!=""){ $tag6=rewrite($rpost[16]); echo "<a href='http://$titler[13]/search-tag.php?tag=$tag6' style='color:#000000'>$rpost[16]</a>, ";} 
+if($rpost[15]!=""){ $tag5=rewrite($rpost[15]); echo "<a href='http://$titler[13]/search-tag.php?tag=$tag5' style='color:#000000'>$rpost[15]</a>, ";}
+if($rpost[16]!=""){ $tag6=rewrite($rpost[16]); echo "<a href='http://$titler[13]/search-tag.php?tag=$tag6' style='color:#000000'>$rpost[16]</a>, ";}
 ?>
                         </font></td>
                       </tr>
@@ -230,7 +230,7 @@ if($rpost[16]!=""){ $tag6=rewrite($rpost[16]); echo "<a href='http://$titler[13]
                             <td height="5"></td>
                           </tr>
                         </table>
-<?php	
+<?php
 $strSQL="SELECT id, title, img, short_detail, view FROM `post` WHERE cate_id='$rpost[1]' ORDER BY RAND() LIMIT 0, 4";
 $objQuery = mysql_query($strSQL) or die("ERROR $strSQ1");
 echo"<table border=\"0\"  cellspacing=\"1\" cellpadding=\"1\"><tr>";
@@ -320,8 +320,8 @@ $url=rewrite($objResult[1]);
                             <div class="fb-comments" data-href="http://<?php echo $titler[13]; ?>/topic-<?php echo $topic_id; ?>/<?php echo $topic; ?>.html" data-num-posts="10" data-width="720"></div></td>
                       </tr>
                     </table>
-                    <?php 
-			}else if($rpost[6]==2){ 
+                    <?php
+			}else if($rpost[6]==2){
 				if(isset($_SESSION["member_login"])){
 			?>
                     <table width="720" border="0" align="center" cellpadding="0" cellspacing="0">

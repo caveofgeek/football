@@ -32,9 +32,9 @@ $rgame=mysql_fetch_row($regame);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title><?php=$rgame[4];?> | <?php=$titler[1];?></title>
-<META NAME="keywords" CONTENT="<?php=$rgame[6];?>">
-<META NAME="description" CONTENT="<?php=$titler[1];?> <?php=$rgame[5];?>">
+<title><?php echo $rgame[4];?> | <?php echo $titler[1];?></title>
+<META NAME="keywords" CONTENT="<?php echo $rgame[6];?>">
+<META NAME="description" CONTENT="<?php echo $titler[1];?> <?php echo $rgame[5];?>">
 <meta name="robots"  content="index,follow">
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/font-awesome.min.css" rel="stylesheet">
@@ -42,28 +42,28 @@ $rgame=mysql_fetch_row($regame);
 <style type="text/css">
 <!--
 body {
-  background-color: #<?php=$bgr[1];?>;
-	<?php if($bgr[2]!=""){ ?>background-image: url(http://<?php=$titler[13];?>/bg-img/<?php=$bgr[2];?>);
-	background-repeat: <?php=$bgr[3];?>;
+  background-color: #<?php echo $bgr[1];?>;
+	<?php if($bgr[2]!=""){ ?>background-image: url(http://<?php echo $titler[13];?>/bg-img/<?php echo $bgr[2];?>);
+	background-repeat: <?php echo $bgr[3];?>;
 	<?php }if($bgr[4]==1){ ?>
 	background-attachment:fixed;
 	<?php } ?>
 }
 a:link {
-	color: #<?php=$linkr[1];?>;
+	color: #<?php echo $linkr[1];?>;
 	text-decoration: none;
 }
 a:visited {
 	text-decoration: none;
-	color: #<?php=$linkr[2];?>;
+	color: #<?php echo $linkr[2];?>;
 }
 a:hover {
 	text-decoration: underline;
-	color: #<?php=$linkr[3];?>;
+	color: #<?php echo $linkr[3];?>;
 }
 a:active {
 	text-decoration: none;
-	color: #<?php=$linkr[4];?>;
+	color: #<?php echo $linkr[4];?>;
 }
 -->
 </style>
@@ -101,13 +101,13 @@ a:active {
                       <tr>
                         <td><div align="center" style="font-family:'Times New Roman', Times, serif; font-size:12px; color:#FF0000;">**
                           สมาชิกสามารถที่จะทายผลบอลวันต่อวันก่อนเวลา
-                          <?php=$rgame[1];?>
+                          <?php echo $rgame[1];?>
                           น.เท่านั้น **<br />
                           ท่านสามารถทายผลได้ไม่เกินวันละ 5 คู่ และเมื่อทายแล้วในคู่นั้น จะไม่สามารถเปลี่ยนการทายผลได้<br />
                           ทายถูกจะได้
-                          <?php=$rgame[2];?>
+                          <?php echo $rgame[2];?>
                           คะแนน ทายผิดจะได้
-                          <?php=$rgame[3];?>
+                          <?php echo $rgame[3];?>
                           คะแนน</div></td>
                       </tr>
                       <tr>
@@ -116,13 +116,13 @@ a:active {
                             <td width="50%" align="left"><div align="left"><span style="font-family:'Times New Roman', Times, serif; font-size:12px; color:#FF0000; font-weight:bold;">ทายผลประจำวันที่</span> <span style="font-family:'Times New Roman', Times, serif; font-size:12px; color:#232323; font-weight:bold;">
                                 <?php $today_date=date("Y-m-d"); $game_date=DateThai($today_date); echo $game_date; ?>
                             </span></div></td>
-                            <td width="50%" align="right"><div align="right" style="font-family:'Times New Roman', Times, serif; font-size:12px; color:#232323; font-weight:bold;">[ <a href="http://<?php=$titler[13];?>/game/level.php" title="อันดับคะแนนสมาชิก">อันดับคะแนนสมาชิก</a> ]</div></td>
+                            <td width="50%" align="right"><div align="right" style="font-family:'Times New Roman', Times, serif; font-size:12px; color:#232323; font-weight:bold;">[ <a href="http://<?php echo $titler[13];?>/game/level.php" title="อันดับคะแนนสมาชิก">อันดับคะแนนสมาชิก</a> ]</div></td>
                           </tr>
                         </table></td>
                       </tr>
                       <tr>
                         <td><table width="100%" border="0" cellpadding="1" cellspacing="1" bgcolor="#FFFFFF">
-                            <tr style="background-image:url(http://<?php=$titler[13];?>/img/bg-tab-login.png); background-repeat:repeat-x;">
+                            <tr style="background-image:url(http://<?php echo $titler[13];?>/img/bg-tab-login.png); background-repeat:repeat-x;">
                               <td width="7%" height="29"><div align="center"></div></td>
                               <td width="12%"><div align="center"><font color="#FFFFFF" size="2">เวลา</font></div></td>
                               <td width="21%"><div align="center"><font color="#FFFFFF" size="2">เจ้าบ้าน</font></div></td>
@@ -144,19 +144,19 @@ if($i%2==0){
 	$bg="#999999";
 }
 ?>
-                            <tr bgcolor="<?php=$bg;?>">
+                            <tr bgcolor="<?php echo $bg;?>">
                               <td align="center"><img src="images/pinn.gif" width="14" height="14" /></td>
                               <td align="center"><font color="#000000" size="2">
-                                <?php=$rgm[10];?>
+                                <?php echo $rgm[10];?>
                               </font></td>
                               <td align="center"><font color="#ff0000" size="2">
-                                <?php=$rgm[2];?>
+                                <?php echo $rgm[2];?>
                               </font></td>
                               <td align="center"><font color="#000000" size="2">
-                                <?php=$rgm[4];?>
+                                <?php echo $rgm[4];?>
                               </font></td>
                               <td align="center"><font color="#ff0000" size="2">
-                                <?php=$rgm[3];?>
+                                <?php echo $rgm[3];?>
                               </font></td>
                               <td align="center"><font color="#000033" size="2">
                                 <?php

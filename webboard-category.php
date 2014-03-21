@@ -40,9 +40,9 @@ $rCATE=mysql_fetch_row($reCATE);
 <META NAME="keywords" CONTENT="<?php echo $rCATE[4]; ?>">
 <META NAME="description" CONTENT="<?php echo $titler[1]; ?> <?php echo $rCATE[3]; ?>">
 <meta name="robots"  content="index,follow">
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/font-awesome.min.css" rel="stylesheet">
-<link href="css/justified-nav.css" rel="stylesheet">
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/font-awesome.min.css" rel="stylesheet">
+<link href="../css/justified-nav.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {

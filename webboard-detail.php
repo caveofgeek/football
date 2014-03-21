@@ -49,9 +49,9 @@ $upd_view=mysql_query("UPDATE webboard SET view='$new_view' WHERE id='$topic_id'
 <META NAME="description" CONTENT="<?php echo $titler[1]; ?> <?php echo $rBOARD[3]; ?> <?php echo $titler[11]; ?>">
 <meta name="robots"  content="index,follow">
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/font-awesome.min.css" rel="stylesheet">
-<link href="css/justified-nav.css" rel="stylesheet">
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/font-awesome.min.css" rel="stylesheet">
+<link href="../css/justified-nav.css" rel="stylesheet">
 <style type="text/css">
 <!--
 body {

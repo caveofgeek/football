@@ -147,9 +147,6 @@ class Paginator{
 	}
 }
 ?>
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/font-awesome.min.css" rel="stylesheet">
-<link href="css/justified-nav.css" rel="stylesheet">
 <style type="text/css">
 <!--
 	.paginate {
@@ -336,6 +333,7 @@ while($rads8=mysql_fetch_row($reads8)){
                   <td align="center"><table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
                       <tr>
                         <td height="30" align="center" valign="middle"><ul class="pagination  pagination-sm"><?php
+
 $pages = new Paginator;
 $pages->items_total = $Num_Rows;
 $pages->mid_range = 10;
