@@ -130,6 +130,7 @@ class Paginator{
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/font-awesome.min.css" rel="stylesheet">
 <link href="../css/justified-nav.css" rel="stylesheet">
+<link href="./css/admin.css" rel="stylesheet">
 <style type="text/css">
 <!--
 	.paginate {
@@ -289,7 +290,9 @@ class Paginator{
                           <td width="150" height="25" align="center"><span style="font-family:'Times New Roman', Times, serif; font-size:12px;">
                             <?php echo DateTime($objResult[5]); ?>
                           </span></td>
-                          <td width="100" height="25" align="center"><font size="2"><a href="del-post-analyze.php?id=<?php echo $objResult[0]; ?>&mod_id=<?php echo $objResult[1]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"> <img src="images/del.gif" width="40" height="15" border="0" /></a></font></td>
+                          <td width="100" height="25" align="center"><font size="2"><a href="del-post-analyze.php?id=<?php echo $objResult[0]; ?>&mod_id=<?php echo $objResult[1]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}" class='btn btn-danger btn-xs white'>
+                                      <i class="glyphicon glyphicon-remove"></i> ลบ
+                                    </a></td>
                         </tr>
                         <?php } ?>
                       </table>

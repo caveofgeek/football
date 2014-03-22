@@ -15,6 +15,7 @@ if(!isset($_SESSION["admin_login"])) {
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/font-awesome.min.css" rel="stylesheet">
 <link href="../css/justified-nav.css" rel="stylesheet">
+<link href="./css/admin.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -73,44 +74,44 @@ body {
                   <tr>
                     <td><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
                       <tr>
-                        <td><form action="p-admin-analyze.php" method="post" enctype="multipart/form-data" name ="checkForm" id="checkForm" onsubmit="return check1()">
-                            <table width="100%" height="10" border="0" align="center" cellpadding="0" cellspacing="0">
-                              <tr>
-                                <td></td>
-                              </tr>
-                            </table>
-                            <table width="720" border="0" align="center" cellpadding="0" cellspacing="0">
-                              <tr>
-                                <td width="130" height="20" align="right"><font size="2">ชื่อที่ใช้เรียก / ฉายา </font></td>
-                                <td width="10" height="20" align="center"><font size="2">:</font></td>
-                                <td width="580" height="20" align="left"><input name="name" type="text" id="name" style="width:250px;" />
-                                    <font size="2" color="#FF0000">*</font></td>
-                              </tr>
-                              <tr>
-                                <td height="20" align="right"><font size="2">รูป Avatar </font></td>
-                                <td height="20" align="center"><font size="2">:</font></td>
-                                <td height="20" align="left"><input name="file1" type="file" id="file1" />
-                                    <font size="2" color="#FF0000">* ขนาด 110x18 px ไม่เกิน 50kb </font></td>
-                              </tr>
-                              <tr>
-                                <td height="20" align="right" valign="top"><font size="2">ชื่อผู้ใช้</font></td>
-                                <td height="20" align="center" valign="top"><font size="2">:</font></td>
-                                <td height="20" align="left"><input name="user" type="text" id="user" style="width:200px;" />
-                                    <font size="2" color="#FF0000">*</font></td>
-                              </tr>
-                              <tr>
-                                <td height="20" align="right" valign="top"><font size="2">รหัสผ่าน</font></td>
-                                <td height="20" align="center" valign="top"><font size="2">:</font></td>
-                                <td height="20" align="left"><input name="pass" type="password" id="pass" style="width:200px;" />
-                                    <font size="2" color="#FF0000">*</font></td>
-                              </tr>
+                        <td>
+                          <form class="form-horizontal" role="form" action="p-admin-analyze.php" method="post" enctype="multipart/form-data" name ="checkForm" id="checkForm" onsubmit="return check1()">
+                            <div class="form-group">
+                              <label for="name" class="col-sm-3 control-label">ชื่อที่ใช้เรียก / ฉายา <font size="2" color="#FF0000">*</font></label>
+                              <div class="col-sm-5">
+                                <input name="name" class="form-control" type="text" id="name" />
+                              </div>
+                            </div>
 
-                              <tr>
-                                <td width="130" height="20" align="right">&nbsp;</td>
-                                <td width="10" height="20" align="center">&nbsp;</td>
-                                <td width="580" height="20" align="left"><input type="submit" name="Submit" value="บันทึกข้อมูล" style="width:100px;" /></td>
-                              </tr>
-                            </table>
+                            <div class="form-group">
+                              <label for="file1" class="col-sm-3 control-label">รูป Avatar <font size="2" color="#FF0000">*</font></label>
+                              <div class="col-sm-5">
+                                <input name="file1" class="form-control" type="file" id="file1" />
+                                <span class="help-block"><font size="2" color="#FF0000">* ขนาด 110x18 px ไม่เกิน 50kb </font></span>
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="user" class="col-sm-3 control-label">ชื่อผู้ใช้<font size="2" color="#FF0000">*</font></label>
+                              <div class="col-sm-5">
+                                <input name="user" class="form-control" type="text" id="user" />
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="pass" class="col-sm-3 control-label">รหัสผ่าน<font size="2" color="#FF0000">*</font></label>
+                              <div class="col-sm-5">
+                                <input name="pass" class="form-control" type="password" id="pass" />
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <div class="col-sm-offset-3 col-sm-10">
+                                <input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' />
+                              </div>
+                            </div>
+                          </form>
+
 <script language="JavaScript" type="text/javascript">
 
 function check1() {
@@ -134,7 +135,7 @@ return true ;
 }
 
 </script>
-                        </form></td>
+                        </td>
                       </tr>
                       <tr>
                         <td><table width="100%" height="10" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -173,8 +174,18 @@ while($r=mysql_fetch_row($re)){
                                 <td width="120" height="25" align="center" valign="middle"><font size="2">
                                   <?php echo DateThai($r[5]); ?>
                                 </font> </td>
-                                <td width="150" height="25" align="center" valign="middle"><font size="2"><a href="all-post-analyze.php?id=<?php echo $r[0]; ?>"><img src="images/post.jpg" width="40" height="15" border="0" /></a> <a href="edit-admin-analyze.php?id=<?php echo $r[0]; ?>"><img src="images/edit.gif" width="40" height="15" border="0" /></a> <a href="del-admin-analyze.php?id=<?php echo $r[0]; ?>&img=<?php echo $r[2]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"> <img src="images/del.gif" width="40" height="15" border="0" /></a> </font> </td>
-                              </tr>
+                                <td width="200" height="25" align="center" valign="middle">
+                                  <font size="2">
+                                    <a href="all-post-analyze.php?id=<?php echo $r[0]; ?>" class='btn btn-primary btn-xs white'>ดูโพสต์</a>
+                                    <a href="edit-admin-analyze.php?id=<?php echo $r[0]; ?>" class='btn btn-warning btn-xs white'>
+                                      <i class="glyphicon glyphicon-pencil"></i> แก้ไข
+                                    </a>
+                                    <a href="del-admin-analyze.php?id=<?php echo $r[0]; ?>&img=<?php echo $r[2]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}" class='btn btn-danger btn-xs white'>
+                                      <i class="glyphicon glyphicon-remove"></i> ลบ
+                                    </a>
+                                  </font>
+                                </td>
+                                </tr>
                               <?php } ?>
                           </table></td>
                       </tr>

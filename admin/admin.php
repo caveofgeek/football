@@ -14,6 +14,7 @@ if(!isset($_SESSION["admin_login"])) {
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/font-awesome.min.css" rel="stylesheet">
 <link href="../css/justified-nav.css" rel="stylesheet">
+<link href="./css/admin.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {

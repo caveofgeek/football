@@ -99,6 +99,7 @@ class Paginator{
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/font-awesome.min.css" rel="stylesheet">
 <link href="../css/justified-nav.css" rel="stylesheet">
+<link href="./css/admin.css" rel="stylesheet">
 <style type="text/css">
 <!--
 	.paginate {
@@ -309,8 +310,17 @@ $rcate=mysql_fetch_row($recate);
                           </table>
                             <table width="100" border="0" align="center" cellpadding="0" cellspacing="0">
                               <tr>
-                                <td align="center"><font size="2"><a href="edit-data-category.php?id=<?php echo $objResult[0]; ?>&cate_id=<?php echo $cate_id; ?>"><img src="images/edit.gif" width="40" height="15" border="0" /> </a><a href="del-data-category.php?id=<?php echo $objResult[0]; ?>&cate_id=<?php echo $cate_id; ?>&op=<?php echo $objResult[5]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"> <img src="images/del.gif" width="40" height="15" border="0" /></a></font></td>
-                              </tr>
+                              	<td width="100" height="25" align="center" valign="middle">
+                                  <font size="2">
+                                    <a href="edit-data-category.php?id=<?php echo $objResult[0]; ?>&cate_id=<?php echo $cate_id; ?>" class='btn btn-warning btn-xs white'>
+                                      <i class="glyphicon glyphicon-pencil"></i> แก้ไข
+                                    </a>
+                                    <a href="del-data-category.php?id=<?php echo $objResult[0]; ?>&cate_id=<?php echo $cate_id; ?>&op=<?php echo $objResult[5]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}" class='btn btn-danger btn-xs white'>
+                                      <i class="glyphicon glyphicon-remove"></i> ลบ
+                                    </a>
+                                  </font>
+                                </td>
+                                </tr>
                           </table></td>
                       </tr>
                       <?php } ?>
