@@ -86,7 +86,7 @@ body {
                           <td align="center"><textarea name="detail" rows="10" id="detail" style="width:700px"><?php echo $r[1]; ?></textarea></td>
                         </tr>
                         <tr>
-                          <td align="center"><input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' /></td>
+                          <td align="center"><br/><input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' /></td>
                         </tr>
                       </table>
                     </form></td>
