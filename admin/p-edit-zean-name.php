@@ -3,7 +3,7 @@ session_start();
 include "../inc/config.inc.php";
 //echo "$_SESSION[m_login]<br>$_SESSION["m_id"]";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 ?>
@@ -35,8 +35,8 @@ a:active {
 
 <body>
 <?php
-$id=$_POST[id];
-$name=htmlspecialchars($_POST[name]);
+$id=$_POST['id'];
+$name=htmlspecialchars($_POST['name']);
 if($name!=""){
 $sql=mysql_query("update `zean_name` set `name`='$name' where id='$id'")or die("ERROR $sql");
 echo "<meta http-equiv='refresh' content='0;url=tded-zean.php?zean_id=$id'>";
@@ -45,7 +45,7 @@ echo "<meta http-equiv='refresh' content='0;url=tded-zean.php?zean_id=$id'>";
 <script language="JavaScript">
 	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ');
 	history.back();
-</script> 
+</script>
 <?php
 }
 ?>

@@ -3,7 +3,7 @@ session_start();
 include "../inc/config.inc.php";
 //echo "$_SESSION[m_login]<br>$_SESSION["m_id"]";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 ?>
@@ -35,13 +35,13 @@ a:active {
 
 <body>
 <?php
-$Submit=$_POST[Submit];
+$Submit=$_POST['Submit'];
 $gametime=htmlspecialchars($_POST[gametime]);
 $win=htmlspecialchars($_POST[win]);
 $lost=htmlspecialchars($_POST[lost]);
-$title=htmlspecialchars($_POST[title]);
-$description=htmlspecialchars($_POST[description]);
-$keyword=htmlspecialchars($_POST[keyword]);
+$title=htmlspecialchars($_POST['title']);
+$description=htmlspecialchars($_POST['description']);
+$keyword=htmlspecialchars($_POST['keyword']);
 if($gametime!=""&&$win!=""&&$lost!=""){
 $sql=mysql_query("UPDATE `game_config` SET `gametime`='$gametime' ,`yes`='$win' ,`no`='$lost',`title`='$title',`description`='$description',`keyword`='$keyword' WHERE `id`=1")or die("ERROR $sql");
 echo "<meta http-equiv='refresh' content='0;url=game-setting.php'>";
@@ -50,7 +50,7 @@ echo "<meta http-equiv='refresh' content='0;url=game-setting.php'>";
 <script language="JavaScript">
 	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ');
 	history.back();
-</script> 
+</script>
 <?php
 }
 ?>

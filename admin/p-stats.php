@@ -3,7 +3,7 @@ session_start();
 include "../inc/config.inc.php";
 //echo "$_SESSION[m_login]<br>$_SESSION["m_id"]";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 ?>
@@ -35,9 +35,9 @@ a:active {
 
 <body>
 <?php
-$Submit=$_POST[Submit];
+$Submit=$_POST['Submit'];
 $online=$_POST[online];
-$detail=$_POST[detail];
+$detail=$_POST['detail'];
 if($detail!=""){
 $sql=mysql_query("UPDATE `stats` SET  `code` =  '$detail', online='$online' WHERE `id` =1 LIMIT 1")or die("ERROR $sql");
 echo "<meta http-equiv='refresh' content='0;url=stats.php'>";
@@ -46,7 +46,7 @@ echo "<meta http-equiv='refresh' content='0;url=stats.php'>";
 <script language="JavaScript">
 	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ');
 	history.back();
-</script> 
+</script>
 <?php
 }
 ?>

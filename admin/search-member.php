@@ -218,20 +218,20 @@ body {
                       </table>
                     </form>
 <?php
-if(isset($_POST[Submit])){
-$Submit=$_POST[Submit];
-}else if(isset($_GET[Submit])){
-$Submit=$_GET[Submit];
+if(isset($_POST['Submit'])){
+$Submit=$_POST['Submit'];
+}else if(isset($_GET['Submit'])){
+$Submit=$_GET['Submit'];
 }
-if(isset($_POST[keys])){
-$keys=$_POST[keys];
-}else if(isset($_GET[keys])){
-$keys=$_GET[keys];
+if(isset($_GET['keys'])){
+$keys=$_GET['keys'];
+}else if(isset($_GET['keys'])){
+$keys=$_GET['keys'];
 }
-if(isset($_POST[type])){
-$type=$_POST[type];
-}else if(isset($_GET[type])){
-$type=$_GET[type];
+if(isset($_POST['type'])){
+$type=$_POST['type'];
+}else if(isset($_GET['type'])){
+$type=$_GET['type'];
 }
 if(isset($Submit)){
 	if($type==1){

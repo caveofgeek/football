@@ -1,7 +1,7 @@
 <?php
 @session_start();
 include "../inc/config.inc.php";
-if(!isset($_SESSION[mod_login])) {
+if(!isset($_SESSION['mod_login'])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }

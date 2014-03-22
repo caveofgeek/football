@@ -3,7 +3,7 @@ session_start();
 include "../inc/config.inc.php";
 //echo "$_SESSION[m_login]<br>$_SESSION["m_id"]";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 ?>
@@ -37,7 +37,7 @@ a:active {
 <?php
 $id=$_GET["id"];
 $cate_id=$_GET["cate_id"];
-$op=$_GET[op];
+$op=$_GET['op'];
 //del img
 $part1="../post-s-img/$op";
 @unlink ($part1);

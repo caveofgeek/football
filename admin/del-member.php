@@ -2,7 +2,7 @@
 session_start();
 include "../inc/config.inc.php";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 ?>
@@ -15,7 +15,7 @@ exit() ;
 
 <body>
 <?php
-$member_id=$_GET[member_id];
+$member_id=$_GET['member_id'];
 
 //select img
 $sql="SELECT img FROM `member` WHERE id='$member_id'";
@@ -36,7 +36,7 @@ while($r1=mysql_fetch_row($re1)){
 	$partimgshow2="../webboard/board-img/$r1[0]";
 	@unlink ($partimgshow2);
 }
-//del webboard 
+//del webboard
 $del_webboard=mysql_query("DELETE FROM `webboard` WHERE `member_id`='$member_id'") or die ("ERROR del_auction_tab");
 
 //select ans_webboard
@@ -48,18 +48,18 @@ while($r2=mysql_fetch_row($re2)){
 	@unlink ($partimgshow2);
 }
 
-//del ans_webboard 
+//del ans_webboard
 $del_ans_webboard=mysql_query("DELETE FROM `ans_webboard` WHERE `member_id`='$member_id'") or die ("ERROR del_auction_tab");
 
-//del game_play 
+//del game_play
 $del_game_play=mysql_query("DELETE FROM `game_play` WHERE `member_id`='$member_id'") or die ("ERROR del_auction_tab");
 
-//del game_member_score 
+//del game_member_score
 $del_game_member_score=mysql_query("DELETE FROM `game_member_score` WHERE `member_id`='$member_id'") or die ("ERROR del_auction_tab");
 
 
-echo "<meta http-equiv=refresh content=0;URL=all-member.php>"; 
-exit(); 
+echo "<meta http-equiv=refresh content=0;URL=all-member.php>";
+exit();
 ?>
 </body>
 </html>

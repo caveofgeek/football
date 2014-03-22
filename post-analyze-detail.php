@@ -182,7 +182,7 @@ while($rads8=mysql_fetch_row($reads8)){
                           <td height="30" align="right" style="font-family:'Times New Roman', Times, serif; font-size:12px;"><font size="2">
                           <?php if(isset($_SESSION["admin_login"])){ ?>
                           <a href="http://<?php echo $titler[13]; ?>/admin/del-post-analyze.php?id=<?php echo $rpost[0]; ?>&mod_id=<?php echo $rpost[1]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"><img src="http://<?php echo $titler[13]; ?>/webboard/img/Delete.gif" width="16" height="16" border="0" />ลบ</a>
-                          <?php }else if(isset($_SESSION[mod_login])&&$_SESSION[mod_id]==$rpost[1]){ ?>
+                          <?php }else if(isset($_SESSION['mod_login'])&&$_SESSION['mod_id']==$rpost[1]){ ?>
                           <a href="http://<?php echo $titler[13]; ?>/mod/del-post-analyze.php?id=<?php echo $rpost[0]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"><img src="http://<?php echo $titler[13]; ?>/webboard/img/Delete.gif" width="16" height="16" border="0" />ลบ</a>
                           <?php }else{ ?>
                           <a href="http://<?php echo $titler[13]; ?>/confirm-del-post-analyze.php?topic_id=<?php echo $topic_id; ?>" onclick="javascript:if(!confirm('ต้องการแจ้งลบข่าวสาร')){return false;}">แจ้งลบ</a>

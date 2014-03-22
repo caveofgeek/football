@@ -227,16 +227,16 @@ while($rcate=mysql_fetch_row($recate)){
                       </table>
                     </form>
                       <?php
-$Submit=$_POST[Submit];
-if(isset($_POST[category])){
-$cate_id=$_POST[category];
-}else if(isset($_GET[category])){
-$cate_id=$_GET[category];
+$Submit=$_POST['Submit'];
+if(isset($_POST['category'])){
+$cate_id=$_POST['category'];
+}else if(isset($_GET['category'])){
+$cate_id=$_GET['category'];
 }
-if(isset($_POST[keys])){
-$keys=$_POST[keys];
-}else if(isset($_GET[keys])){
-$keys=$_GET[keys];
+if(isset($_POST['keys'])){
+$keys=$_POST['keys'];
+}else if(isset($_GET['keys'])){
+$keys=$_GET['keys'];
 }
 if(isset($Submit)){
 	if($cate_id==""&&$keys=="ระบุคำค้นหา"){

@@ -38,14 +38,14 @@ $r=mysql_fetch_row($re);
 
 if($num<=0){
 ?>
-	<script language="JavaScript"> 	
-		alert("ขออภัยครับ ข้อมูลของท่านไม่มีอยู่ในระบบครับ"); 	
-		window.location = 'index.php'; 
-	</script> 
+	<script language="JavaScript">
+		alert("ขออภัยครับ ข้อมูลของท่านไม่มีอยู่ในระบบครับ");
+		window.location = 'index.php';
+	</script>
 <?php
 }else {
-$_SESSION[mod_login]="mod_login";
-$_SESSION[mod_id]=$r[0];
+$_SESSION['mod_login']="mod_login";
+$_SESSION['mod_id']=$r[0];
 
 echo "<meta http-equiv=refresh content=0;URL=main.php>";
 }

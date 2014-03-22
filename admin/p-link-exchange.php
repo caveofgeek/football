@@ -3,7 +3,7 @@ session_start();
 include "../inc/config.inc.php";
 //echo "$_SESSION[m_login]<br>$_SESSION["m_id"]";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 ?>
@@ -35,16 +35,16 @@ a:active {
 
 <body>
 <?php
-$links=$_POST[links];
-$data=$_POST[data];
-$op=$_POST[op];
+$links=$_POST['links'];
+$data=$_POST['data'];
+$op=$_POST['op'];
 $file1=$_FILES["file1"]["name"];
 $tmp1=$_FILES["file1"]["tmp_name"];
-$name=$_POST[name];
-$email=$_POST[email];
-$url=$_POST[url];
-$code=$_POST[code];
-$type=$_POST[type];
+$name=$_POST['name'];
+$email=$_POST['email'];
+$url=$_POST['url'];
+$code=$_POST['code'];
+$type=$_POST['type'];
 $dm=date("d-m");
 $y=date("Y")+543;
 $date="$dm-$y";

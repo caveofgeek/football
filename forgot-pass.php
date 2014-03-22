@@ -30,7 +30,7 @@ $str=mysql_fetch_row($stre);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>ลืมรหัสผ่าน | <?php echo $titler[1]; ?></title>
-<META NAME="keywords" CONTENT="<?php echo $titler[12]; ?>"> 
+<META NAME="keywords" CONTENT="<?php echo $titler[12]; ?>">
 <META NAME="description" CONTENT="<?php echo $titler[1]; ?> ลืมรหัสผ่าน <?php echo $titler[11]; ?>">
 <meta name="robots"  content="index,follow">
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -42,7 +42,7 @@ body {
 	background-color: #<?php echo $bgr[1]; ?>;
 	<?php if($bgr[2]!=""){ ?>background-image: url(http://<?php echo $titler[13]; ?>/bg-img/<?php echo $bgr[2]; ?>);
 	background-repeat: <?php echo $bgr[3]; ?>;
-	<?php }if($bgr[4]==1){ ?>	
+	<?php }if($bgr[4]==1){ ?>
 	background-attachment:fixed;
 	<?php } ?>
 }
@@ -63,6 +63,9 @@ a:active {
 	color: #<?php echo $linkr[4]; ?>;
 }
 -->
+#email{
+  width:400px !important;
+}
 </style>
 </head>
 
@@ -94,9 +97,9 @@ while($rads8=mysql_fetch_row($reads8)){
                     <table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tr>
                           <td align="center" valign="middle">
-						  <?php 
-						  if($rads8[1]==1){ 
-						  $ads8=stripslashes($rads8[3]); 
+						  <?php
+						  if($rads8[1]==1){
+						  $ads8=stripslashes($rads8[3]);
 						  echo $ads8;
 						  }else if($rads8[1]==2){
 						  ?>
@@ -134,30 +137,13 @@ while($rads8=mysql_fetch_row($reads8)){
                       <td height="5"></td>
                     </tr>
                   </table>
-                    <form action="p-forgot-pass.php" method="post" enctype="multipart/form-data" name ="checkForm1" id="checkForm1" onsubmit="return check2()">
-                      <table width="650" border="0" align="center" cellpadding="0" cellspacing="0">
-                        <tr>
-                          <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                              <tr>
-                                <td height="5"></td>
-                              </tr>
-                            </table>
-                              <table width="650" border="0" align="center" cellpadding="0" cellspacing="0">
-                                <tr>
-                                  <td width="100" align="right"><font size="2">Email</font></td>
-                                  <td width="10">&nbsp;</td>
-                                  <td width="440" align="left"><input name="email" type="text" id="email" style="width:440px;"/></td>
-                                  <td width="10" align="right">&nbsp;</td>
-                                  <td width="90" align="left"><input type="submit" name="Submit" value="ส่งคำร้อง" /></td>
-                                </tr>
-                              </table>
-                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                <tr>
-                                  <td height="5"></td>
-                                </tr>
-                            </table></td>
-                        </tr>
-                      </table>
+                    <form class="form-inline" role="form" action="p-forgot-pass.php" method="post" enctype="multipart/form-data" name ="checkForm1" id="checkForm1" onsubmit="return check2()">
+                      <div class="form-group">
+                        <label class="col-" for="email">Email</label>
+                        <input type="text" name="email" class="form-control" id="email" placeholder="Enter email">
+                      </div>
+                      <input type="submit" name="Submit"  class='btn btn-success' value="ส่งคำร้อง" />
+                    </form>
                       <script language="JavaScript" type="text/javascript">
 
 function check2() {
@@ -181,7 +167,7 @@ return true ;
 }
 
                         </script>
-                    </form></td>
+                   </td>
                 </tr>
               </table></td>
             </tr>

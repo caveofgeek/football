@@ -34,7 +34,7 @@ $str=mysql_fetch_row($stre);
 <META NAME="description" CONTENT="<?php echo $titler[1]; ?> ลงทะเบียนสมัครสมาชิก <?php echo $titler[11]; ?>">
 <meta name="robots"  content="index,follow">
 <?php
-$check=$_POST[check];
+$check=$_POST['check'];
 if($check!=1){
 ?>
 <script language="JavaScript" type="text/javascript">
@@ -138,119 +138,115 @@ while($rads8=mysql_fetch_row($reads8)){
                   <td align="left" style="font-family:'Times New Roman', Times, serif; font-size:16px; font-weight:bold; color:#020202; border-bottom:2px solid #333333;">ลงทะเบียนสมัครสมาชิก</td>
                 </tr>
                 <tr>
-                  <td align="center"><form action="p-register.php" method="post" enctype="multipart/form-data" name ="checkForm1" id="checkForm1" onsubmit="return check2()">
-                      <table width="725" border="0" align="center" cellpadding="0" cellspacing="0">
-                        <tr>
-                          <td><table width="720" border="0" align="center" cellpadding="0" cellspacing="0">
-                              <tr>
-                                <td height="30" align="left"><font size="2" color="#0066FF"><strong>:: ข้อมูลการติดต่อ :: </strong></font></td>
-                              </tr>
-                              <tr>
-                                <td><table width="720" border="0" align="center" cellpadding="0" cellspacing="0">
-                                    <tr>
-                                      <td width="130" height="20" align="right"><font size="2">ชื่อที่ใช้เรียก / ฉายา </font></td>
-                                      <td width="10" height="20" align="center"><font size="2">:</font></td>
-                                      <td width="580" height="20" align="left"><input name="name" type="text" id="name" style="width:250px;" />
-                                          <font size="2" color="#FF0000">*</font></td>
-                                    </tr>
-                                    <tr>
-                                      <td width="130" height="20" align="right"><font size="2">ที่อยู่</font></td>
-                                      <td width="10" height="20" align="center"><font size="2">:</font></td>
-                                      <td width="580" height="20" align="left"><input name="add" type="text" id="add" style="width:480px;" />
-                                          <font size="2" color="#FF0000">*</font></td>
-                                    </tr>
-                                    <tr>
-                                      <td width="130" height="20" align="right"><font size="2">จังหวัด</font></td>
-                                      <td width="10" height="20" align="center"><font size="2">:</font></td>
-                                      <td width="580" height="20" align="left"><select id="province" name="province" onchange = "list_province(this.value)" style="width:200px">
+                  <td>
+                    <form class="form-horizontal" role="form" action="p-register.php" method="post" enctype="multipart/form-data" name ="checkForm1" id="checkForm1" onsubmit="return check2()">
+                      <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-3 control-label">:: ข้อมูลการติดต่อ :: </label>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="name" class="col-sm-3 control-label">ชื่อที่ใช้เรียก / ฉายา <font size="2" color="#FF0000">*</font></label>
+                        <div class="col-sm-5">
+                          <input name="name" class="form-control" type="text" id="name"/>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-3 control-label">ที่อยู่ </label>
+                        <div class="col-sm-5">
+                          <textarea class="form-control" name="add" id="add" row="3" col="3"></textarea>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="province" class="col-sm-3 control-label">จังหวัด <font size="2" color="#FF0000">*</font></label>
+                        <div class="col-sm-5">
+                          <select class="form-control" id="province" name="province" onchange = "list_province(this.value)" >
                                           <option selected="selected" value="">- กรุณาเลือกจังหวัด -</option>
                                           <?php
-	$strSQL = "SELECT * FROM province ORDER BY CONVERT(PROVINCE_NAME USING TIS620) ASC ";
-	$objQuery = mysql_query($strSQL) or die ("Error Query [".$strSQL."]");
-	while($objResult = mysql_fetch_array($objQuery))
-	{
-	?>
+  $strSQL = "SELECT * FROM province ORDER BY CONVERT(PROVINCE_NAME USING TIS620) ASC ";
+  $objQuery = mysql_query($strSQL) or die ("Error Query [".$strSQL."]");
+  while($objResult = mysql_fetch_array($objQuery))
+  {
+  ?>
                                           <option value="<?php echo $objResult["PROVINCE_ID"]; ?>">
                                           <?php echo $objResult["PROVINCE_NAME"]; ?>
                                           </option>
                                           <?php
-	}
-	?>
-                                        </select>
-                                          <font size="2" color="#FF0000">*</font></td>
-                                    </tr>
-                                    <tr>
-                                      <td width="130" height="20" align="right"><font size="2">เบอร์โทรศัพท์</font></td>
-                                      <td width="10" height="20" align="center"><font size="2">:</font></td>
-                                      <td width="580" height="20" align="left"><input name="tel" type="text" id="tel" style="width:250px;" />
-                                          <font size="2" color="#FF0000">*</font></td>
-                                    </tr>
-                                    <tr>
-                                      <td width="130" height="20" align="right"><font size="2">Email</font></td>
-                                      <td width="10" height="20" align="center"><font size="2">:</font></td>
-                                      <td width="580" height="20" align="left"><input name="email" type="text" id="email" style="width:250px;" />
-                                          <font size="2" color="#FF0000">*</font></td>
-                                    </tr>
-                                    <tr>
-                                      <td height="20" align="right"><font size="2">รูป Avatar </font></td>
-                                      <td height="20" align="center"><font size="2">:</font></td>
-                                      <td width="580" height="20" align="left"><input name="file1" type="file" id="file1" />
-                                          <font size="2" color="#FF0000">* ขนาด 120x19 px ไม่เกิน 50kb </font></td>
-                                    </tr>
-                                </table></td>
-                              </tr>
-                          </table></td>
-                        </tr>
-                        <tr>
-                          <td><table width="720" border="0" align="center" cellpadding="0" cellspacing="0">
-                              <tr>
-                                <td height="30" align="left"><font size="2" color="#0066FF"><strong>:: ข้อมูลการเข้าสู่ระบบ :: </strong></font></td>
-                              </tr>
-                              <tr>
-                                <td><table width="720" border="0" align="center" cellpadding="0" cellspacing="0">
-                                    <tr>
-                                      <td width="130" height="20" align="right" valign="top"><font size="2">ชื่อผู้ใช้</font></td>
-                                      <td width="10" height="20" align="center" valign="top"><font size="2">:</font></td>
-                                      <td width="580" height="20" align="left"><input name="user" type="text" id="user" style="width:200px;" />
-                                          <font size="2" color="#FF0000">*</font></td>
-                                    </tr>
-                                    <tr>
-                                      <td width="130" height="20" align="right" valign="top"><font size="2">รหัสผ่าน</font></td>
-                                      <td width="10" height="20" align="center" valign="top"><font size="2">:</font></td>
-                                      <td width="580" height="20" align="left"><input name="pass" type="password" id="pass" style="width:200px;" />
-                                          <font size="2" color="#FF0000">*</font></td>
-                                    </tr>
-                                    <tr>
-                                      <td width="130" height="20" align="right" valign="top"><font size="2">ยืนยันรหัสผ่าน</font></td>
-                                      <td width="10" height="20" align="center" valign="top"><font size="2">:</font></td>
-                                      <td width="580" height="20" align="left"><input name="repass" type="password" id="repass" style="width:200px;" />
-                                          <font size="2" color="#FF0000">*</font></td>
-                                    </tr>
-                                    <tr>
-                                      <td width="130" height="20" align="right"><table width="100" border="0" align="right" cellpadding="0" cellspacing="0" bgcolor="#CCCCCC">
-                                          <tr>
-                                            <td align="center"><strong><font size="3" color="#B00D0E">
-                                              <?php
+  }
+  ?>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="tel" class="col-sm-3 control-label">เบอร์โทรศัพท์ <font size="2" color="#FF0000">*</font></label>
+                        <div class="col-sm-5">
+                          <input name="tel" type="text" id="tel" class="form-control"/>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="email" class="col-sm-3 control-label">Email <font size="2" color="#FF0000">*</font></label>
+                        <div class="col-sm-5">
+                          <input name="email" type="text" id="email" class="form-control"/>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="file1" class="col-sm-3 control-label">รูป Avatar <font size="2" color="#FF0000">*</font></label>
+                        <div class="col-sm-5">
+                          <input name="file1" type="file" id="file1" class="form-control"/>
+                          <span class="help-block"><font size="2" color="#FF0000">* ขนาด 120x19 px ไม่เกิน 50kb </font></span>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="file1" class="col-sm-3 control-label">:: ข้อมูลการเข้าสู่ระบบ ::</label>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="user" class="col-sm-3 control-label">ชื่อผู้ใช้ <font size="2" color="#FF0000">*</font></label>
+                        <div class="col-sm-5">
+                          <input name="user" type="text" id="user" class="form-control"/>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="pass" class="col-sm-3 control-label">รหัสผ่าน <font size="2" color="#FF0000">*</font></label>
+                        <div class="col-sm-5">
+                          <input name="pass" type="password" id="pass" class="form-control"/>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="repass" class="col-sm-3 control-label">ยืนยันรหัสผ่าน <font size="2" color="#FF0000">*</font></label>
+                        <div class="col-sm-5">
+                          <input name="repass" type="password" id="repass" class="form-control"/>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="capcha" class="col-sm-3 control-label">
+<?php
 $rand = substr(str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789'),0,4);
 echo $rand;
-?>
-                                            </font></strong></td>
-                                          </tr>
-                                      </table></td>
-                                      <td width="10" height="20" align="center"><font size="2">:</font></td>
-                                      <td width="580" height="20" align="left"><input name="capcha" type="text" id="capcha" style="width:100px;" />
-                                          <font size="2" color="#FF0000">* &lt;= กรอกรหัสยืนยัน</font>
-                                          <input type="hidden" name="rands" id="rands" value="<?php echo $rand; ?>" /></td>
-                                    </tr>
-                                    <tr>
-                                      <td width="130" height="20" align="right" valign="top">&nbsp;</td>
-                                      <td width="10" height="20" align="center" valign="top">&nbsp;</td>
-                                      <td width="580" height="20" align="left"><input type="submit" name="Submit" value="สมัครสมาชิก" style="width:100px;" />
-                                          <input type="reset" name="Submit2" value="ยกเลิก" style="width:100px;" /></td>
-                                    </tr>
-                                </table></td>
-                              </tr>
-                          </table></td>
+?> <font size="2" color="#FF0000">*</font></label>
+                        <div class="col-sm-3">
+                          <input name="capcha" type="text" id="capcha" class="form-control"/>
+                          <span class="help-block"><font size="2" color="#FF0000">* กรอกรหัสยืนยัน</font></span>
+                          <input type="hidden" name="rands" id="rands" value="<?php echo $rand; ?>" />
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-10">
+                          <input class="btn btn-success" type="submit" name="Submit" value="สมัครสมาชิก" />
+                          <input class="btn btn-danger" type="reset" name="Submit2" value="ยกเลิก"  />
+                        </div>
+                      </div>
+
+                    </form>
+                      </td>
                         </tr>
                       </table>
                       <script language="JavaScript" type="text/javascript">
@@ -326,7 +322,7 @@ return true ;
 }
 
                     </script>
-                    </form></td>
+                  </td>
                 </tr>
               </table></td>
             </tr>

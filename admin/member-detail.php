@@ -1,13 +1,13 @@
-<?php 
-@session_start(); 
+<?php
+@session_start();
 include "../inc/config.inc.php";
 include "../function/datethai.php";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 
 exit() ;
 }
-$member_id=$_GET[member_id];
+$member_id=$_GET['member_id'];
 $s5="SELECT member.*, province.PROVINCE_NAME FROM member ";
 $s5.="INNER JOIN province ON member.province_id = province.PROVINCE_ID ";
 $s5.="WHERE member.id='$member_id'";

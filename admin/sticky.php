@@ -3,7 +3,7 @@ session_start();
 include "../inc/config.inc.php";
 //echo "$_SESSION[m_login]<br>$_SESSION["m_id"]";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 ?>
@@ -36,7 +36,7 @@ a:active {
 <body>
 <?php
 $id=$_GET["id"];
-$type=$_GET[type];
+$type=$_GET['type'];
 if($type==1){
 $sql2=mysql_query("update webboard set sticky='0' where id='$id'")or die("ERROR $sql2");
 }else if($type==2){

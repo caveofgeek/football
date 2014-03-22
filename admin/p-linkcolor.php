@@ -3,7 +3,7 @@ session_start();
 include "../inc/config.inc.php";
 //echo "$_SESSION[m_login]<br>$_SESSION["m_id"]";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 ?>
@@ -35,11 +35,11 @@ a:active {
 
 <body>
 <?php
-$Submit=$_POST[Submit];
-$color=$_POST[color];
-$visit=$_POST[visit];
-$rollover=$_POST[rollover];
-$active=$_POST[active];
+$Submit=$_POST['Submit'];
+$color=$_POST['color'];
+$visit=$_POST['visit'];
+$rollover=$_POST['rollover'];
+$active=$_POST['active'];
 //echo "$color=[color]<br>$visit=[visit]<br>$rollover=[rollover]<br>$active=[active]";
 
 $sql=mysql_query("update `link` set `color`='$color' ,`visit`='$visit' ,`rollover`='$rollover' ,`active`='$active' where id='1'")or die("ERROR $sql บรรทัด46");

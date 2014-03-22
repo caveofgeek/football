@@ -1,8 +1,8 @@
-<?php 
-@session_start(); 
+<?php
+@session_start();
 include "../inc/config.inc.php";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 
 exit() ;
 }
@@ -10,8 +10,8 @@ $id=$_GET["id"];
 $s="SELECT * FROM `ads_a3` WHERE id='$id'";
 $re=mysql_query($s) or die("Error $s");
 $r=mysql_fetch_row($re);
-if(isset($_GET[type])){
-$type=$_GET[type];
+if(isset($_GET['type'])){
+$type=$_GET['type'];
 }else{
 $type=$r[1];
 }

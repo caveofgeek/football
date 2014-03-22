@@ -8,8 +8,8 @@ if(!isset($_SESSION["admin_login"])) {
 $s="SELECT * FROM `ads_a1` WHERE id='1'";
 $re=mysql_query($s) or die("Error $s");
 $r=mysql_fetch_row($re);
-if(isset($_GET[type])){
-$type=$_GET[type];
+if(isset($_GET['type'])){
+$type=$_GET['type'];
 }else{
 $type=$r[1];
 }

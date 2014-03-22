@@ -73,7 +73,7 @@ body {
                     <td height="25"><strong><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> <a href="all-game-match.php">จัดการข้อมูลรายการแข่งขัน</a> <img src="images/arrow.gif" width="7" height="11" /> แก้ไขข้อมูลรายการแข่งขัน</font></strong>
 <?php
 $id=$_GET["id"];
-$type=$_GET[type];
+$type=$_GET['type'];
 $spost="SELECT * FROM `game_match` WHERE id='$id'";
 $repost=mysql_query($spost) or die("ERROR $spost");
 $rpost=mysql_fetch_row($repost);

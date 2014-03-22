@@ -6,14 +6,14 @@ include "../inc/config.inc.php";
 <?php
 //echo "$_SESSION[m_login]<br>$_SESSION["m_id"]";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 $cate_id=$_POST["cate_id"];
-$cate_name=$_POST[cate_name];
-$title=$_POST[title];
-$description=$_POST[description];
-$keyword=$_POST[keyword];
+$cate_name=$_POST['cate_name'];
+$title=$_POST['title'];
+$description=$_POST['description'];
+$keyword=$_POST['keyword'];
 //echo "$cate_name=[cate_name]<br>$title=[title]<br>$description=[description]<br>$keyword=[keyword]<br>$file1=[file1][name]<br>$tmp1=[file1][tmp_name]";
 if($cate_name!=""&&$title!=""&&$description!=""&&$keyword!=""){
 	//update
@@ -22,8 +22,8 @@ if($cate_name!=""&&$title!=""&&$description!=""&&$keyword!=""){
 	print "<meta http-equiv=refresh content=0;URL=edit-category.php?cate_id=$cate_id>";
 }else{
 ?>
-<script language="JavaScript"> 	
-	alert('ขอโทษครับ ท่านกรอกข้อมูลไม่ครบครับ'); 	
+<script language="JavaScript">
+	alert('ขอโทษครับ ท่านกรอกข้อมูลไม่ครบครับ');
 	history.back();
 </script>
 <?php

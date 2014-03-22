@@ -2,7 +2,7 @@
 session_start();
 include "../inc/config.inc.php";
 //echo "$_SESSION[m_login]<br>$_SESSION["m_id"]";
-if(!isset($_SESSION[mod_login])) {
+if(!isset($_SESSION['mod_login'])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
@@ -35,14 +35,15 @@ a:active {
 
 <body>
 <?php
-$name=htmlspecialchars($_POST[name]);
-$op=$_POST[op];
+$name=htmlspecialchars($_POST['name']);
+$op=$_POST['op'];
 $file1=$_FILES["file1"]["name"];
 $tmp1=$_FILES["file1"]["tmp_name"];
 $size1=$_FILES["file1"]["size"];
 $user=htmlspecialchars($_POST["user"]);
 $pass=htmlspecialchars($_POST["pass"]);
 $date=date("Y-m-d");
+$modid = $_SESSION['mod_id'];
 if($name!=""&&$user!=""&&$pass!=""){
 	if(isset($file1)&&$file1!=""){
 		if($size1<=50000){
@@ -51,7 +52,7 @@ if($name!=""&&$user!=""&&$pass!=""){
 		$time=date("YnjHis");
 		$rename="$time-$file1";
 		@copy($tmp1,"avatar/$rename");
-		$sql=mysql_query("UPDATE `admin_analyze` SET `name`='$name' ,`img`='$rename' ,`user`='$user' ,`pass`='$pass' WHERE id='$_SESSION[mod_id]'")or die("ERROR $sql");
+		$sql=mysql_query("UPDATE `admin_analyze` SET `name`='$name' ,`img`='$rename' ,`user`='$user' ,`pass`='$pass' WHERE id='$modid'")or die("ERROR $sql");
 		echo "<meta http-equiv='refresh' content='0;url=main.php'>";
 		}else{
 ?>
@@ -63,7 +64,7 @@ if($name!=""&&$user!=""&&$pass!=""){
 
 		}
 	}else{
-	$sql=mysql_query("UPDATE `admin_analyze` SET `name`='$name' ,`user`='$user' ,`pass`='$pass' WHERE id='$_SESSION[mod_id]'")or die("ERROR $sql");
+	$sql=mysql_query("UPDATE `admin_analyze` SET `name`='$name' ,`user`='$user' ,`pass`='$pass' WHERE id='$modid'")or die("ERROR $sql");
 	echo "<meta http-equiv='refresh' content='0;url=main.php'>";
 	}
 }else{
@@ -71,7 +72,7 @@ if($name!=""&&$user!=""&&$pass!=""){
 <script language="JavaScript">
 	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ');
 	history.back();
-</script> 
+</script>
 <?php
 }
 ?>

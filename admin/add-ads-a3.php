@@ -1,12 +1,12 @@
-<?php 
-@session_start(); 
+<?php
+@session_start();
 include "../inc/config.inc.php";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 
-$type=$_GET[type];
+$type=$_GET['type'];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -84,8 +84,8 @@ body {
                           </td>
                         </tr>
                       </table>
-<?php 
-if(isset($_GET[type])){
+<?php
+if(isset($_GET['type'])){
 if($type==1){
 ?>
                       <table width="650" border="0" align="center" cellpadding="0" cellspacing="0">

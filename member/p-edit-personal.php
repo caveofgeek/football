@@ -9,15 +9,15 @@ exit() ;
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <?php
 include "../inc/config.inc.php";
-$name=htmlspecialchars($_POST[name]);
-$add=htmlspecialchars($_POST[add]);
-$province=$_POST[province];
-$tel=htmlspecialchars($_POST[tel]);
-$email=htmlspecialchars($_POST[email]);
+$name=htmlspecialchars($_POST['name']);
+$add=htmlspecialchars($_POST['add']);
+$province=$_POST['province'];
+$tel=htmlspecialchars($_POST['tel']);
+$email=htmlspecialchars($_POST['email']);
 $file1=$_FILES["file1"]["name"];
 $tmp1=$_FILES["file1"]["tmp_name"];
 $size1=$_FILES["file1"]["size"];
-$op=$_POST[op];
+$op=$_POST['op'];
 $user=htmlspecialchars($_POST["user"]);
 $pass=htmlspecialchars($_POST["pass"]);
 if(isset($file1)&&$file1!=""){

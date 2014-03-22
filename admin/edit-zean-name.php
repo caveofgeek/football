@@ -70,7 +70,7 @@ body {
                   <tr>
                     <td height="25"><strong><font size="2">
 <?php
-$zean_id=$_GET[zean_id];
+$zean_id=$_GET['zean_id'];
 $szn="SELECT * FROM `zean_name` WHERE id='$zean_id'";
 $rezn=mysql_query($szn) or die("ERROR $szn");
 $rzn=mysql_fetch_row($rezn);

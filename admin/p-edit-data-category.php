@@ -4,19 +4,19 @@ include "../inc/config.inc.php";
 ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <?php
-$id=$_POST[id];
+$id=$_POST['id'];
 $cate_id=$_POST["cate_id"];
-$title=$_POST[title];
-$short_detail=$_POST[short_detail];
+$title=$_POST['title'];
+$short_detail=$_POST['short_detail'];
 $detail=addslashes($_POST["input"]);
-$status_comment=$_POST[status_comment];
-$tag1=$_POST[tag1];
-$tag2=$_POST[tag2];
-$tag3=$_POST[tag3];
-$tag4=$_POST[tag4];
-$tag5=$_POST[tag5];
-$tag6=$_POST[tag6];
-$op=$_POST[op];
+$status_comment=$_POST['status_comment'];
+$tag1=$_POST['tag1'];
+$tag2=$_POST['tag2'];
+$tag3=$_POST['tag3'];
+$tag4=$_POST['tag4'];
+$tag5=$_POST['tag5'];
+$tag6=$_POST['tag6'];
+$op=$_POST['op'];
 $file1=$_FILES["file1"]["name"];
 $tmp1=$_FILES["file1"]["tmp_name"];
 $size1=$_FILES["file1"]["size"];
@@ -36,18 +36,18 @@ if(isset($file1)&&$file1!=""){
 	print "<meta http-equiv=refresh content=0;URL=all-main-category.php?cate_id=$cate_id>";
 	}else{
 ?>
-	<script language="JavaScript"> 	
-		alert('ขอโทษครับ ขนาดไฟล์ภาพของท่านมีขนาดเกิน 50kb ครับ'); 	
+	<script language="JavaScript">
+		alert('ขอโทษครับ ขนาดไฟล์ภาพของท่านมีขนาดเกิน 50kb ครับ');
 		history.back();
-	</script> 
-<?php 		
+	</script>
+<?php
 	}
 }else{
 	//update
 	$update=mysql_query("UPDATE `post` SET `title`='$title' ,`short_detail`='$short_detail' ,`detail`='$detail' ,`status_comment`='$status_comment' WHERE id='$id'") or die("ERROR $update");
 	//update tag
 	$update_tag=mysql_query("UPDATE `tag_post` SET `tag1`='$tag1' ,`tag2`='$tag2' ,`tag3`='$tag3' ,`tag4`='$tag4' ,`tag5`='$tag5' ,`tag6`='$tag6' WHERE post_id='$id'") or die("ERROR $update_tag");
-	mysql_close();	
+	mysql_close();
 	print "<meta http-equiv=refresh content=0;URL=all-main-category.php?cate_id=$cate_id>";
 }
 ?>

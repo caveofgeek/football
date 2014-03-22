@@ -3,7 +3,7 @@
 include "../inc/config.inc.php";
 include "../function/function.php";
 include "../function/datetime.php";
-if(!isset($_SESSION[mod_login])) {
+if(!isset($_SESSION['mod_login'])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
@@ -230,7 +230,8 @@ class Paginator{
                   <td width="100" height="30" align="center" bgcolor="#CCCCCC"><span style="font-family:'Times New Roman', Times, serif; font-size:12px; font-weight:bold;">การกระทำ</span></td>
                 </tr>
 <?php
-		$strSQL = "SELECT * FROM `analyze` WHERE mod_id='$_SESSION[mod_id]'";
+		$modid = $_SESSION['mod_id'];
+		$strSQL = "SELECT * FROM `analyze` WHERE mod_id='$modid'";
 		$objQuery = mysql_query($strSQL);
 		$Num_Rows = mysql_num_rows($objQuery);
 
