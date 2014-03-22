@@ -1,0 +1,8 @@
+div.navbar {
+    width: 99%;
+    margin: 0;
+}
+
+div.navbar form a {
+    color: white !important;
+}
