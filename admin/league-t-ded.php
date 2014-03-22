@@ -1,14 +1,17 @@
-<?php 
-@session_start(); 
+<?php
+@session_start();
 include "../inc/config.inc.php";
 include "../function/datethai.php";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 
 exit() ;
 }
 $l_id=$_GET["l_id"];
-$tdate=$_GET["tDate"];
+if(isset($_GET["tDate"]))
+{
+  $tdate=$_GET["tDate"];
+}
 $s="SELECT * FROM `league` where id='$l_id'";
 $re=mysql_query($s) or die("ERROR $s");
 $r=mysql_fetch_row($re);
