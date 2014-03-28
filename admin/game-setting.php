@@ -77,59 +77,51 @@ $r=mysql_fetch_row($re);
 					</td>
                   </tr>
                   <tr>
-                    <td><form action="p-game-setting.php" method="post" enctype="multipart/form-data" name ="checkForm" id="checkForm" onsubmit="return check1()">
-                      <table width="100%" height="10" border="0" align="center" cellpadding="0" cellspacing="0">
-                        <tr>
-                          <td></td>
-                        </tr>
-                      </table>
-                      <table width="510" border="0" align="center" cellpadding="0" cellspacing="0">
-                        <tr>
-                          <td><table width="510" border="0" align="center" cellpadding="0" cellspacing="0">
-                            <tr>
-                              <td width="200" align="right"><span class="style4">กำหนดทายผลก่อนเวลา</span></td>
-                              <td width="10">&nbsp;</td>
-                              <td width="300"><input name="gametime" type="text" id="gametime" value="<?php echo $r[1]; ?>" /></td>
-                            </tr>
-                            <tr>
-                              <td width="200" align="right"><span class="style4">กำหนดคะแนนทายถูก</span></td>
-                              <td width="10">&nbsp;</td>
-                              <td width="300"><input name="win" type="text" id="win" value="<?php echo $r[2]; ?>" /></td>
-                            </tr>
-                            <tr>
-                              <td align="right"><span class="style4">กำหนดคะแนนทายผิด</span></td>
-                              <td>&nbsp;</td>
-                              <td><input name="lost" type="text" id="lost" value="<?php echo $r[3]; ?>" /></td>
-                            </tr>
+                    <td>
+                      <form action="p-game-setting.php" method="post" enctype="multipart/form-data" class="form-horizontal" role="form"  name ="checkForm" id="checkForm" onsubmit="return check1()">
+                        <div class="form-group">
+                          <label for="gametime" class="col-sm-2 control-label">กำหนดทายผลก่อนเวลา</label>
+                          <div class="col-sm-5">
+                            <input name="gametime" class="form-control" type="text" id="gametime" value="<?php echo $r[1]; ?>" />
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="win" class="col-sm-2 control-label">กำหนดคะแนนทายถูก</label>
+                          <div class="col-sm-5">
+                            <input name="win" type="text" class="form-control" id="win" value="<?php echo $r[2]; ?>" />
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="lost" class="col-sm-2 control-label">กำหนดคะแนนทายผิด</label>
+                          <div class="col-sm-5">
+                            <input name="lost" type="text" class="form-control"  id="lost" value="<?php echo $r[3]; ?>" />
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="title" class="col-sm-2 control-label">Title</label>
+                          <div class="col-sm-5">
+                            <textarea name="title" cols="50" rows="3" id="title"><?php echo $r[4]; ?></textarea>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="description" class="col-sm-2 control-label">Description</label>
+                          <div class="col-sm-5">
+                            <textarea name="description" cols="50" rows="3" id="description"><?php echo $r[5]; ?></textarea>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="keyword" class="col-sm-2 control-label">Keyword</label>
+                          <div class="col-sm-5">
+                            <textarea name="keyword" cols="50" rows="3" id="keyword"><?php echo $r[6]; ?></textarea>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="col-sm-offset-2 col-sm-10">
+                            <input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' />
+                          </div>
+                        </div>
+                      </form>
 
-                          </table></td>
-                        </tr>
-                        <tr>
-                          <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                          <td><table width="460" border="0" align="center" cellpadding="0" cellspacing="0">
-                            <tr>
-                              <td width="100" align="left" valign="top"><font color="#000000" size="2">Title</font></td>
-                              <td width="10">&nbsp;</td>
-                              <td width="350" align="left"><textarea name="title" cols="50" rows="3" id="title"><?php echo $r[4]; ?></textarea></td>
-                            </tr>
-                            <tr>
-                              <td width="100" align="left" valign="top"><font color="#000000" size="2">Description</font></td>
-                              <td width="10">&nbsp;</td>
-                              <td width="350" align="left"><textarea name="description" cols="50" rows="3" id="description"><?php echo $r[5]; ?></textarea></td>
-                            </tr>
-                            <tr>
-                              <td width="100" align="left" valign="top"><font color="#000000" size="2">Keyword</font></td>
-                              <td width="10">&nbsp;</td>
-                              <td width="350" align="left"><textarea name="keyword" cols="50" rows="3" id="keyword"><?php echo $r[6]; ?></textarea></td>
-                            </tr>
-                          </table></td>
-                        </tr>
-                        <tr>
-                          <td height="30" align="center"><input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' /></td>
-                        </tr>
-                      </table>
                       <script language="JavaScript" type="text/javascript">
 
 function check1() {
@@ -146,7 +138,7 @@ else
 return true ;
 }
                       </script>
-                    </form></td>
+                    </td>
                   </tr>
                 </table></td>
             </tr>

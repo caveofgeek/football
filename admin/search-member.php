@@ -204,16 +204,16 @@ body {
                     <td height="25"><strong><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> <a href="all-member.php">จัดการข้อมูลรายชื่อสมาชิก</a> <img src="images/arrow.gif" width="7" height="11" /> </font><font color="#000000" size="2">ค้นหาข้อมูลสมาชิก</font></strong></td>
                   </tr>
                   <tr>
-                    <td><form id="form1" name="form1" method="post" action="">
+                    <td><form id="form1" name="form1" method="post" action="" role="form">
                       <table width="730" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tr>
-                          <td width="200" align="left"><select name="type" id="type" style="width:190px; height:25px;">
+                          <td width="200" align="left"><select class="form-control" name="type" id="type">
                             <option value="1" selected="selected">รหัสสมาชิก</option>
                             <option value="2">ชื่อที่ใช้เรียก / ฉายา</option>
                                                                                 </select>
                           </td>
-                          <td width="460" align="left"><input name="keys" type="text" id="keys" value="" style="width:450px; height:20px;" /></td>
-                          <td width="70" align="left"><input type="submit" name="Submit" value="Search" /></td>
+                          <td width="460" align="left"><div class="col-sm-12"><input class="form-control" name="keys" type="text" id="keys" value=""  /></div></td>
+                          <td width="70" align="left"><input class='btn btn-primary' type="submit" name="Submit" value="Search" /></td>
                         </tr>
                       </table>
                     </form>

@@ -90,7 +90,7 @@ body {
 						  </td>
                         </tr>
                         <tr>
-                          <td align="center"><input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' /></td>
+                          <td align="center"><br><input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' /></td>
                         </tr>
                       </table>
                     </form></td>
