@@ -1,8 +1,8 @@
-<?php 
-@session_start(); 
+<?php
+@session_start();
 include "../inc/config.inc.php";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 
 exit() ;
 }
@@ -78,7 +78,7 @@ body {
                       <table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tr>
                           <td width="260" align="left" valign="top">
-              <?php if($objResult1[1]==1){ 
+              <?php if($objResult1[1]==1){
 
 						  $ads=stripslashes($objResult1[3]);
 						  echo $ads;
@@ -165,7 +165,7 @@ body {
         </table></td>
       </tr>
       <tr>
-        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2012 &copy; ScritpWeb2U </font></strong></td>
+        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2014 &copy; Ruk-Com.in.th</font></strong></td>
       </tr>
     </table></td>
   </tr>

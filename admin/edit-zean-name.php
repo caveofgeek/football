@@ -127,7 +127,7 @@ return true ;
         </table></td>
       </tr>
       <tr>
-        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2012 &copy; ScritpWeb2U </font></strong></td>
+        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2014 &copy; Ruk-Com.in.th</font></strong></td>
       </tr>
     </table></td>
   </tr>

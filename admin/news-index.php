@@ -90,7 +90,7 @@ body {
 						  </td>
                         </tr>
                         <tr>
-                          <td align="center"><input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' /></td>
+                          <td align="center"><br><input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' /></td>
                         </tr>
                       </table>
                     </form></td>
@@ -100,7 +100,7 @@ body {
         </table></td>
       </tr>
       <tr>
-        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2012 &copy; ScritpWeb2U </font></strong></td>
+        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2014 &copy; Ruk-Com.in.th</font></strong></td>
       </tr>
     </table></td>
   </tr>
