@@ -9,21 +9,21 @@ if(!isset($_SESSION["admin_login"])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
-$type=$_POST[type_id];
+$type=mysql_real_escape_string($_POST['type_id']);
 if($type==1){
-$adsense=addslashes($_POST[adsense]);
+$adsense=addslashes(mysql_real_escape_string($_POST['adsense']));
 $upd=mysql_query("INSERT INTO `ads_a7` (`type` ,`type_ads` ,`adsense` ,`name` ,`tel` ,`email` ,`url` ,`keyword` ,`img` ,`start_date` ,`finish_date`)VALUES ('$type', '', '$adsense', '', '', '', '', '', '', '', '')") or die("Error $upd");
 mysql_close();
 }else if($type==2){
-$type_ads=$_POST[type_ads];
-$keyword=$_POST['keyword'];
-$url=$_POST['url'];
-$start_date=$_POST[start_date];
-$finish_date=$_POST[finish_date];
-$name=$_POST['name'];
-$tel=$_POST['tel'];
-$email=$_POST['email'];
-$file1=$_FILES["file1"]["name"];
+$type_ads=mysql_real_escape_string($_POST['type_ads']);
+$keyword=mysql_real_escape_string($_POST['keyword']);
+$url=mysql_real_escape_string($_POST['url']);
+$start_date=mysql_real_escape_string($_POST['start_date']);
+$finish_date=mysql_real_escape_string($_POST['finish_date']);
+$name=mysql_real_escape_string($_POST['name']);
+$tel=mysql_real_escape_string($_POST['tel']);
+$email=mysql_real_escape_string($_POST['email']);
+$file1=$_FILES["file1"]["name"]);
 $tmp1=$_FILES["file1"]["tmp_name"];
 
 if($file1==""){

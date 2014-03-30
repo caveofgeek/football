@@ -2,17 +2,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <?php
 include "inc/config.inc.php";
-$name=htmlspecialchars($_POST['name']);
-$add=htmlspecialchars($_POST['add']);
-$province=$_POST['province'];
-$tel=htmlspecialchars($_POST['tel']);
-$email=htmlspecialchars($_POST['email']);
+$name=htmlspecialchars(mysql_real_escape_string($_POST['name']));
+$add=htmlspecialchars(mysql_real_escape_string($_POST['add']));
+$province=mysql_real_escape_string(mysql_real_escape_string($_POST['province']));
+$tel=htmlspecialchars(mysql_real_escape_string($_POST['tel']));
+$email=htmlspecialchars(mysql_real_escape_string($_POST['email']));
 $file1=$_FILES["file1"]["name"];
 $tmp1=$_FILES["file1"]["tmp_name"];
 $size1=$_FILES["file1"]["size"];
-$user=htmlspecialchars($_POST["user"]);
-$pass=htmlspecialchars($_POST["pass"]);
-$capcha=htmlspecialchars($_POST["capcha"]);
+$user=htmlspecialchars(mysql_real_escape_string($_POST["user"]));
+$pass=htmlspecialchars(mysql_real_escape_string($_POST["pass"]));
+$capcha=htmlspecialchars(mysql_real_escape_string($_POST["capcha"]));
 $rands=$_POST["rands"];
 $date=date("Y-m-d");
 $ip=$_SERVER['REMOTE_ADDR'];

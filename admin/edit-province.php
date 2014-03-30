@@ -213,7 +213,7 @@ body {
                             <tr>
                               <td><form method="post" action="p-edit-province.php"  enctype="multipart/form-data" name ="checkForm" id="checkForm" onsubmit="return check1()">
                                   <?php
-$id=$_GET["id"];
+$id=mysql_real_escape_string($_GET["id"]);
 $s="select * from province where PROVINCE_ID='$id'";
 $re=mysql_query($s) or die("ERROR $s บรททัด209");
 $r=mysql_fetch_row($re);
@@ -382,7 +382,7 @@ echo $pages->display_pages()
         </table></td>
       </tr>
       <tr>
-        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2014 &copy; Ruk-Com.in.th</font></strong></td>
+        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2014 &copy; scriptweb2u  Modify By Ruk-Com.In.Th</font></strong></td>
       </tr>
     </table></td>
   </tr>

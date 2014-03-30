@@ -26,9 +26,9 @@ $st="select * from stats where id=1";
 $stre=mysql_query($st) or die("ERROR $st บรททัด19");
 $str=mysql_fetch_row($stre);
 
-$topic_id=$_GET["topic_id"];
-$cate_id=$_GET["cate_id"];
-$topic=$_GET["topic"];
+$topic_id=mysql_real_escape_string($_GET["topic_id"]);
+$cate_id=mysql_real_escape_string($_GET["cate_id"]);
+$topic=mysql_real_escape_string($_GET["topic"]);
 $sBOARD="SELECT webboard.*, member.name, webboard_category.cate_name, member.img FROM `webboard` ";
 $sBOARD.="INNER JOIN member ON webboard.member_id=member.id ";
 $sBOARD.="INNER JOIN webboard_category ON webboard.cate_id=webboard_category.id ";

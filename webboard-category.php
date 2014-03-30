@@ -26,8 +26,8 @@ $st="select * from stats where id=1";
 $stre=mysql_query($st) or die("ERROR $st บรททัด19");
 $str=mysql_fetch_row($stre);
 
-$cate_id=$_GET["cate_id"];
-$cate=$_GET["cate"];
+$cate_id=mysql_real_escape_string($_GET["cate_id"]);
+$cate=mysql_real_escape_string($_GET["cate"]);
 $sCATE="SELECT * FROM `webboard_category` WHERE id='$cate_id' ";
 $reCATE=mysql_query($sCATE) or die("ERROR $sCATE บรรทัด 264");
 $rCATE=mysql_fetch_row($reCATE);

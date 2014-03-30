@@ -1,0 +1,3979 @@
+Searching 291 files for "mysql_query"
+
+/Users/brio/Works/football/ads.php:
+    5  include "function/function.php";
+    6  $title="select * from web_detail where id=1";
+    7: $titlere=mysql_query($title) or die("ERROR $title บรททัด4");
+    8  $titler=mysql_fetch_row($titlere);
+    9  $link="select * from link where id=1";
+   10: $linkre=mysql_query($link) or die("ERROR $link บรททัด7");
+   11  $linkr=mysql_fetch_row($linkre);
+   12  $banner="select * from site_logo where id=1";
+   13: $bannerre=mysql_query($banner) or die("ERROR $banner บรททัด10");
+   14  $bannerr=mysql_fetch_row($bannerre);
+   15  $bg="select * from bg where id=1";
+   16: $bgre=mysql_query($bg) or die("ERROR $bg บรททัด13");
+   17  $bgr=mysql_fetch_row($bgre);
+   18  $footer="select * from footer_logo where id=1";
+   19: $refooter=mysql_query($footer) or die("ERROR $footer บรททัด10");
+   20  $rfooter=mysql_fetch_row($refooter);
+   21  $fb="select * from fanpage where id=1";
+   22: $fbre=mysql_query($fb) or die("ERROR $fb บรททัด16");
+   23  $fbr=mysql_fetch_row($fbre);
+   24  $st="select * from stats where id=1";
+   25: $stre=mysql_query($st) or die("ERROR $st บรททัด19");
+   26  $str=mysql_fetch_row($stre);
+   27  ?>
+   ..
+   89  <?php
+   90  $sads8="SELECT * FROM `ads_a8` ORDER BY id ASC";
+   91: $reads8=mysql_query($sads8) or die("Error $sads8");
+   92  while($rads8=mysql_fetch_row($reads8)){
+   93  ?>
+   ..
+  139                          <td><?php
+  140  					  $s="SELECT * FROM `ads` WHERE id='1'";
+  141: 					  $re=mysql_query($s) or die("Error $s");
+  142  					  $r=mysql_fetch_row($re);
+  143  					  $msg=stripslashes($r[1]);
+
+/Users/brio/Works/football/all-analyze.php:
+    6  include "function/function.php";
+    7  $title="select * from web_detail where id=1";
+    8: $titlere=mysql_query($title) or die("ERROR $title บรททัด4");
+    9  $titler=mysql_fetch_row($titlere);
+   10  $link="select * from link where id=1";
+   11: $linkre=mysql_query($link) or die("ERROR $link บรททัด7");
+   12  $linkr=mysql_fetch_row($linkre);
+   13  $banner="select * from site_logo where id=1";
+   14: $bannerre=mysql_query($banner) or die("ERROR $banner บรททัด10");
+   15  $bannerr=mysql_fetch_row($bannerre);
+   16  $bg="select * from bg where id=1";
+   17: $bgre=mysql_query($bg) or die("ERROR $bg บรททัด13");
+   18  $bgr=mysql_fetch_row($bgre);
+   19  $footer="select * from footer_logo where id=1";
+   20: $refooter=mysql_query($footer) or die("ERROR $footer บรททัด10");
+   21  $rfooter=mysql_fetch_row($refooter);
+   22  $fb="select * from fanpage where id=1";
+   23: $fbre=mysql_query($fb) or die("ERROR $fb บรททัด16");
+   24  $fbr=mysql_fetch_row($fbre);
+   25  $st="select * from stats where id=1";
+   26: $stre=mysql_query($st) or die("ERROR $st บรททัด19");
+   27  $str=mysql_fetch_row($stre);
+   28  ?>
+   ..
+  223  <?php
+  224  $sads8="SELECT * FROM `ads_a8` ORDER BY id ASC";
+  225: $reads8=mysql_query($sads8) or die("Error $sads8");
+  226  while($rads8=mysql_fetch_row($reads8)){
+  227  ?>
+  ...
+  277  <?php
+  278  		$strSQL = "SELECT * FROM `analyze` ";
+  279: 		$objQuery = mysql_query($strSQL);
+  280  		$Num_Rows = mysql_num_rows($objQuery);
+  281
+  ...
+  311
+  312  		$strSQL .=" ORDER BY id DESC LIMIT $Page_Start , $Per_Page";
+  313: 		$objQuery  = mysql_query($strSQL);
+  314  		$i=0;
+  315  		while($objResult = mysql_fetch_row($objQuery)){
+  ...
+  343                                <td width="125" height="25" align="center"><?php
+  344  $sql="SELECT name, img FROM `admin_analyze` WHERE id='$objResult[1]'";
+  345: $result=mysql_query($sql) or die("ERROR $sql");
+  346  $row=mysql_fetch_row($result);
+  347  if($row[1]==""){
+
+/Users/brio/Works/football/all-category.php:
+    6  include "function/function.php";
+    7  $title="select * from web_detail where id=1";
+    8: $titlere=mysql_query($title) or die("ERROR $title บรททัด4");
+    9  $titler=mysql_fetch_row($titlere);
+   10  $link="select * from link where id=1";
+   11: $linkre=mysql_query($link) or die("ERROR $link บรททัด7");
+   12  $linkr=mysql_fetch_row($linkre);
+   13  $banner="select * from site_logo where id=1";
+   14: $bannerre=mysql_query($banner) or die("ERROR $banner บรททัด10");
+   15  $bannerr=mysql_fetch_row($bannerre);
+   16  $bg="select * from bg where id=1";
+   17: $bgre=mysql_query($bg) or die("ERROR $bg บรททัด13");
+   18  $bgr=mysql_fetch_row($bgre);
+   19  $footer="select * from footer_logo where id=1";
+   20: $refooter=mysql_query($footer) or die("ERROR $footer บรททัด10");
+   21  $rfooter=mysql_fetch_row($refooter);
+   22  $fb="select * from fanpage where id=1";
+   23: $fbre=mysql_query($fb) or die("ERROR $fb บรททัด16");
+   24  $fbr=mysql_fetch_row($fbre);
+   25  $st="select * from stats where id=1";
+   26: $stre=mysql_query($st) or die("ERROR $st บรททัด19");
+   27  $str=mysql_fetch_row($stre);
+   28
+   ..
+   30  $cate=$_GET["cate"];
+   31  $sct="select * from category where id='$cate_id'";
+   32: $rect=mysql_query($sct) or die("ERROR $sct");
+   33  $rct=mysql_fetch_row($rect);
+   34  ?>
+   ..
+  229  <?php
+  230  $sads8="SELECT * FROM `ads_a8` ORDER BY id ASC";
+  231: $reads8=mysql_query($sads8) or die("Error $sads8");
+  232  while($rads8=mysql_fetch_row($reads8)){
+  233  ?>
+  ...
+  280  		/*$strSQL1="SELECT category.*, sub_category.sub_cate_name FROM category ";
+  281  		$strSQL1.="INNER JOIN sub_category ON category.id=sub_category.cate_id";*/
+  282: 		$objQuery = mysql_query($strSQL) or die("ERROR $strSQ1 บรรทัด 240-248");
+  283  		$Num_Rows = mysql_num_rows($objQuery);
+  284
+  ...
+  312  		}
+  313  		$strSQL .=" ORDER BY id DESC LIMIT $Page_Start , $Per_Page";
+  314: 		$objQuery  = mysql_query($strSQL);
+  315  		while($objResult = mysql_fetch_row($objQuery)){
+  316  		$url=rewrite($objResult[1]);
+
+/Users/brio/Works/football/all-football.php:
+    5  include "function/function.php";
+    6  $title="select * from web_detail where id=1";
+    7: $titlere=mysql_query($title) or die("ERROR $title บรททัด4");
+    8  $titler=mysql_fetch_row($titlere);
+    9  $link="select * from link where id=1";
+   10: $linkre=mysql_query($link) or die("ERROR $link บรททัด7");
+   11  $linkr=mysql_fetch_row($linkre);
+   12  $banner="select * from site_logo where id=1";
+   13: $bannerre=mysql_query($banner) or die("ERROR $banner บรททัด10");
+   14  $bannerr=mysql_fetch_row($bannerre);
+   15  $bg="select * from bg where id=1";
+   16: $bgre=mysql_query($bg) or die("ERROR $bg บรททัด13");
+   17  $bgr=mysql_fetch_row($bgre);
+   18  $footer="select * from footer_logo where id=1";
+   19: $refooter=mysql_query($footer) or die("ERROR $footer บรททัด10");
+   20  $rfooter=mysql_fetch_row($refooter);
+   21  $fb="select * from fanpage where id=1";
+   22: $fbre=mysql_query($fb) or die("ERROR $fb บรททัด16");
+   23  $fbr=mysql_fetch_row($fbre);
+   24  $st="select * from stats where id=1";
+   25: $stre=mysql_query($st) or die("ERROR $st บรททัด19");
+   26  $str=mysql_fetch_row($stre);
+   27
+   ..
+   29  $name=$_GET["name"];
+   30  $sct="select * from football where id='$id'";
+   31: $rect=mysql_query($sct) or die("ERROR $sct");
+   32  $rct=mysql_fetch_row($rect);
+   33  ?>
+   ..
+   96  <?php
+   97  $sads8="SELECT * FROM `ads_a8` ORDER BY id ASC";
+   98: $reads8=mysql_query($sads8) or die("Error $sads8");
+   99  while($rads8=mysql_fetch_row($reads8)){
+  100  ?>
+
+/Users/brio/Works/football/all-t-ded.php:
+    5  include "function/function.php";
+    6  $title="select * from web_detail where id=1";
+    7: $titlere=mysql_query($title) or die("ERROR $title บรททัด4");
+    8  $titler=mysql_fetch_row($titlere);
+    9  $link="select * from link where id=1";
+   10: $linkre=mysql_query($link) or die("ERROR $link บรททัด7");
+   11  $linkr=mysql_fetch_row($linkre);
+   12  $banner="select * from site_logo where id=1";
+   13: $bannerre=mysql_query($banner) or die("ERROR $banner บรททัด10");
+   14  $bannerr=mysql_fetch_row($bannerre);
+   15  $bg="select * from bg where id=1";
+   16: $bgre=mysql_query($bg) or die("ERROR $bg บรททัด13");
+   17  $bgr=mysql_fetch_row($bgre);
+   18  $footer="select * from footer_logo where id=1";
+   19: $refooter=mysql_query($footer) or die("ERROR $footer บรททัด10");
+   20  $rfooter=mysql_fetch_row($refooter);
+   21  $fb="select * from fanpage where id=1";
+   22: $fbre=mysql_query($fb) or die("ERROR $fb บรททัด16");
+   23  $fbr=mysql_fetch_row($fbre);
+   24  $st="select * from stats where id=1";
+   25: $stre=mysql_query($st) or die("ERROR $st บรททัด19");
+   26  $str=mysql_fetch_row($stre);
+   27  ?>
+   ..
+  222  <?php
+  223  $sads8="SELECT * FROM `ads_a8` ORDER BY id ASC";
+  224: $reads8=mysql_query($sads8) or die("Error $sads8");
+  225  while($rads8=mysql_fetch_row($reads8)){
+  226  ?>
+  ...
+  276  <?php
+  277  		$strSQL = "SELECT post_date FROM t_ded GROUP BY post_date";
+  278: 		$objQuery = mysql_query($strSQL);
+  279  		$Num_Rows = mysql_num_rows($objQuery);
+  280
+  ...
+  309
+  310  		$strSQL .=" order  by post_date DESC LIMIT $Page_Start , $Per_Page";
+  311: 		$objQuery  = mysql_query($strSQL);
+  312  		while($objResult = mysql_fetch_row($objQuery)){
+  313  ?>
+
+/Users/brio/Works/football/confirm-del-post-analyze.php:
+    5  include "function/function.php";
+    6  $title="select * from web_detail where id=1";
+    7: $titlere=mysql_query($title) or die("ERROR $title บรททัด4");
+    8  $titler=mysql_fetch_row($titlere);
+    9  $link="select * from link where id=1";
+   10: $linkre=mysql_query($link) or die("ERROR $link บรททัด7");
+   11  $linkr=mysql_fetch_row($linkre);
+   12  $banner="select * from site_logo where id=1";
+   13: $bannerre=mysql_query($banner) or die("ERROR $banner บรททัด10");
+   14  $bannerr=mysql_fetch_row($bannerre);
+   15  $bg="select * from bg where id=1";
+   16: $bgre=mysql_query($bg) or die("ERROR $bg บรททัด13");
+   17  $bgr=mysql_fetch_row($bgre);
+   18  $footer="select * from footer_logo where id=1";
+   19: $refooter=mysql_query($footer) or die("ERROR $footer บรททัด10");
+   20  $rfooter=mysql_fetch_row($refooter);
+   21  $fb="select * from fanpage where id=1";
+   22: $fbre=mysql_query($fb) or die("ERROR $fb บรททัด16");
+   23  $fbr=mysql_fetch_row($fbre);
+   24  $st="select * from stats where id=1";
+   25: $stre=mysql_query($st) or die("ERROR $st บรททัด19");
+   26  $str=mysql_fetch_row($stre);
+   27
+   28  $topic_id=$_GET["topic_id"];
+   29  $spost="select title from `analyze` where id='$topic_id'";
+   30: $repost=mysql_query($spost) or die("ERROR $spost");
+   31  $rpost=mysql_fetch_row($repost);
+   32  ?>
+
+/Users/brio/Works/football/confirm-del-post.php:
+    5  include "function/function.php";
+    6  $title="select * from web_detail where id=1";
+    7: $titlere=mysql_query($title) or die("ERROR $title บรททัด4");
+    8  $titler=mysql_fetch_row($titlere);
+    9  $link="select * from link where id=1";
+   10: $linkre=mysql_query($link) or die("ERROR $link บรททัด7");
+   11  $linkr=mysql_fetch_row($linkre);
+   12  $banner="select * from site_logo where id=1";
+   13: $bannerre=mysql_query($banner) or die("ERROR $banner บรททัด10");
+   14  $bannerr=mysql_fetch_row($bannerre);
+   15  $bg="select * from bg where id=1";
+   16: $bgre=mysql_query($bg) or die("ERROR $bg บรททัด13");
+   17  $bgr=mysql_fetch_row($bgre);
+   18  $footer="select * from footer_logo where id=1";
+   19: $refooter=mysql_query($footer) or die("ERROR $footer บรททัด10");
+   20  $rfooter=mysql_fetch_row($refooter);
+   21  $fb="select * from fanpage where id=1";
+   22: $fbre=mysql_query($fb) or die("ERROR $fb บรททัด16");
+   23  $fbr=mysql_fetch_row($fbre);
+   24  $st="select * from stats where id=1";
+   25: $stre=mysql_query($st) or die("ERROR $st บรททัด19");
+   26  $str=mysql_fetch_row($stre);
+   27
+   28  $topic_id=$_GET["topic_id"];
+   29  $spost="select title from post where id='$topic_id'";
+   30: $repost=mysql_query($spost) or die("ERROR $spost");
+   31  $rpost=mysql_fetch_row($repost);
+   32  ?>
+
+/Users/brio/Works/football/contact-del-post-analyze.php:
+   18  if(isset($rands)&&isset($capcha)&&$rands==$capcha){
+   19  //insert
+   20: $insert=mysql_query("INSERT INTO `contact_del_analyze_post` (`post_id` ,`date`)VALUES ('$topic_id', '$date')") or die("ERROR $insert");
+   21  ?>
+   22  <script language="JavaScript">
+
+/Users/brio/Works/football/contact-del-post.php:
+   18  if(isset($rands)&&isset($capcha)&&$rands==$capcha){
+   19  //insert
+   20: $insert=mysql_query("INSERT INTO `contact_del_post` (`post_id` ,`date`)VALUES ('$topic_id', '$date')") or die("ERROR $insert");
+   21  ?>
+   22  <script language="JavaScript">
+
+/Users/brio/Works/football/contact.php:
+    5  include "function/function.php";
+    6  $title="select * from web_detail where id=1";
+    7: $titlere=mysql_query($title) or die("ERROR $title บรททัด4");
+    8  $titler=mysql_fetch_row($titlere);
+    9  $link="select * from link where id=1";
+   10: $linkre=mysql_query($link) or die("ERROR $link บรททัด7");
+   11  $linkr=mysql_fetch_row($linkre);
+   12  $banner="select * from site_logo where id=1";
+   13: $bannerre=mysql_query($banner) or die("ERROR $banner บรททัด10");
+   14  $bannerr=mysql_fetch_row($bannerre);
+   15  $bg="select * from bg where id=1";
+   16: $bgre=mysql_query($bg) or die("ERROR $bg บรททัด13");
+   17  $bgr=mysql_fetch_row($bgre);
+   18  $footer="select * from footer_logo where id=1";
+   19: $refooter=mysql_query($footer) or die("ERROR $footer บรททัด10");
+   20  $rfooter=mysql_fetch_row($refooter);
+   21  $fb="select * from fanpage where id=1";
+   22: $fbre=mysql_query($fb) or die("ERROR $fb บรททัด16");
+   23  $fbr=mysql_fetch_row($fbre);
+   24  $st="select * from stats where id=1";
+   25: $stre=mysql_query($st) or die("ERROR $st บรททัด19");
+   26  $str=mysql_fetch_row($stre);
+   27  ?>
+   ..
+   89  <?php
+   90  $sads8="SELECT * FROM `ads_a8` ORDER BY id ASC";
+   91: $reads8=mysql_query($sads8) or die("Error $sads8");
+   92  while($rads8=mysql_fetch_row($reads8)){
+   93  ?>
+   ..
+  144                                <td><?php
+  145  $s9="SELECT * FROM `web_detail`";
+  146: $re9=mysql_query($s9)or die("Err $s9 บรรทัด103");
+  147  $r9=mysql_fetch_row($re9);
+  148  ?>
+
+/Users/brio/Works/football/forgot-pass.php:
+    5  include "function/function.php";
+    6  $title="select * from web_detail where id=1";
+    7: $titlere=mysql_query($title) or die("ERROR $title บรททัด4");
+    8  $titler=mysql_fetch_row($titlere);
+    9  $link="select * from link where id=1";
+   10: $linkre=mysql_query($link) or die("ERROR $link บรททัด7");
+   11  $linkr=mysql_fetch_row($linkre);
+   12  $banner="select * from site_logo where id=1";
+   13: $bannerre=mysql_query($banner) or die("ERROR $banner บรททัด10");
+   14  $bannerr=mysql_fetch_row($bannerre);
+   15  $bg="select * from bg where id=1";
+   16: $bgre=mysql_query($bg) or die("ERROR $bg บรททัด13");
+   17  $bgr=mysql_fetch_row($bgre);
+   18  $footer="select * from footer_logo where id=1";
+   19: $refooter=mysql_query($footer) or die("ERROR $footer บรททัด10");
+   20  $rfooter=mysql_fetch_row($refooter);
+   21  $fb="select * from fanpage where id=1";
+   22: $fbre=mysql_query($fb) or die("ERROR $fb บรททัด16");
+   23  $fbr=mysql_fetch_row($fbre);
+   24  $st="select * from stats where id=1";
+   25: $stre=mysql_query($st) or die("ERROR $st บรททัด19");
+   26  $str=mysql_fetch_row($stre);
+   27  ?>
+   ..
+   92  <?php
+   93  $sads8="SELECT * FROM `ads_a8` ORDER BY id ASC";
+   94: $reads8=mysql_query($sads8) or die("Error $sads8");
+   95  while($rads8=mysql_fetch_row($reads8)){
+   96  ?>
+
+/Users/brio/Works/football/header.php:
+   53  <?php
+   54  $sads1="SELECT * FROM `ads_a1` WHERE id='1'";
+   55: $reads1=mysql_query($sads1) or die("Error $sads1");
+   56  $rads1=mysql_fetch_row($reads1);
+   57  if($rads1[1]==1){
+
+/Users/brio/Works/football/header_bk.php:
+   29  <?php
+   30  $sads1="SELECT * FROM `ads_a1` WHERE id='1'";
+   31: $reads1=mysql_query($sads1) or die("Error $sads1");
+   32  $rads1=mysql_fetch_row($reads1);
+   33  if($rads1[1]==1){
+
+/Users/brio/Works/football/index.php:
+    6  include "function/function.php";
+    7  $title="select * from web_detail where id=1";
+    8: $titlere=mysql_query($title) or die("ERROR $title บรททัด4");
+    9  $titler=mysql_fetch_row($titlere);
+   10  $link="select * from link where id=1";
+   11: $linkre=mysql_query($link) or die("ERROR $link บรททัด7");
+   12  $linkr=mysql_fetch_row($linkre);
+   13  $banner="select * from site_logo where id=1";
+   14: $bannerre=mysql_query($banner) or die("ERROR $banner บรททัด10");
+   15  $bannerr=mysql_fetch_row($bannerre);
+   16  $bg="select * from bg where id=1";
+   17: $bgre=mysql_query($bg) or die("ERROR $bg บรททัด13");
+   18  $bgr=mysql_fetch_row($bgre);
+   19  $footer="select * from footer_logo where id=1";
+   20: $refooter=mysql_query($footer) or die("ERROR $footer บรททัด10");
+   21  $rfooter=mysql_fetch_row($refooter);
+   22  $fb="select * from fanpage where id=1";
+   23: $fbre=mysql_query($fb) or die("ERROR $fb บรททัด16");
+   24  $fbr=mysql_fetch_row($fbre);
+   25  $st="select * from stats where id=1";
+   26: $stre=mysql_query($st) or die("ERROR $st บรททัด19");
+   27  $str=mysql_fetch_row($stre);
+   28  ?>
+   ..
+   96  <?php
+   97    $scate="select id, cate_name from category order by id asc";
+   98:   $recate=mysql_query($scate) or die("ERROR $scate");
+   99    while($rcate=mysql_fetch_row($recate)){
+  100    $urlcate=rewrite($rcate[1]);
+  ...
+  125                                <?php
+  126  $scate="select id, cate_name from category order by id asc";
+  127: $recate=mysql_query($scate) or die("ERROR $scate");
+  128  while($rcate=mysql_fetch_row($recate)){
+  129  $urlcate=rewrite($rcate[1]);
+  ...
+  200                            <?php
+  201  $slevel = "SELECT member_id, SUM(point) FROM `game_member_score` GROUP BY member_id ORDER BY SUM(point) DESC, member_id DESC LIMIT 0, 10";
+  202: $relevel = mysql_query($slevel) or die("ERROR $slevel");
+  203  $i=1;
+  204  while($rlevel = mysql_fetch_row($relevel)){
+  ...
+  218                                    <td width="150" height="25" align="center" style="font-family:'Times New Roman', Times, serif; font-size:12px; font-weight:bold; color:#232323;"><?php
+  219  $smem = "SELECT name, img FROM `member` WHERE id='$rlevel[0]'";
+  220: $remem = mysql_query($smem) or die("ERROR $smem");
+  221  $rmem = mysql_fetch_row($remem);
+  222  if($rmem[1]!=""){
+  ...
+  254  <?php
+  255  $stab1="SELECT id, title, img, short_detail FROM `post` where cate_id='1' ORDER BY id DESC LIMIT 0,1";
+  256: $retab1=mysql_query($stab1) or die("ERROR $stab1");
+  257  $rtab1=mysql_fetch_row($retab1);
+  258  $urltab1=rewrite($rtab1[1]);
+  ...
+  297  <?php
+  298  $stab1_1="SELECT id, title, img, short_detail FROM `post` where cate_id='1' ORDER BY id DESC LIMIT 1,3";
+  299: $retab1_1=mysql_query($stab1_1) or die("Error $stab1_1");
+  300  while($rtab1_1=mysql_fetch_row($retab1_1)){
+  301  $urltab1_1=rewrite($rtab1_1[1]);
+  ...
+  353                        <td align="left"><?php
+  354  $stab1_2="SELECT id, title, img FROM `post` where cate_id='1' ORDER BY id DESC LIMIT 4,10";
+  355: $retab1_2=mysql_query($stab1_2) or die("Error $stab1_2");
+  356  echo"<table border=\"0\"  cellspacing=\"1\" cellpadding=\"1\"><tr>";
+  357  $intRows1_2=0;
+  ...
+  411            <td align="center"><?php
+  412  $sads2="SELECT * FROM `ads_a2`";
+  413: $reads2=mysql_query($sads2) or die("Error $sads2");
+  414  while($rads2=mysql_fetch_row($reads2)){
+  415  ?>
+  ...
+  481  <?php
+  482  $szn1="SELECT name FROM `zean_name` WHERE id=1";
+  483: $rezn1=mysql_query($szn1) or die("ERROR $szn1");
+  484  $rzn1=mysql_fetch_row($rezn1);
+  485  echo $rzn1[0];
+  ...
+  503  <?php
+  504  $stz1="SELECT * FROM `tded_zean` WHERE post_date='$today' AND zean_id=1";
+  505: $retz1=mysql_query($stz1) or die("ERROR $stz1");
+  506  $ntz1=mysql_num_rows($retz1);
+  507  $rtz1=mysql_fetch_row($retz1);
+  ...
+  573  <?php
+  574  $szn2="SELECT name FROM `zean_name` WHERE id=2";
+  575: $rezn2=mysql_query($szn2) or die("ERROR $szn2");
+  576  $rzn2=mysql_fetch_row($rezn2);
+  577  echo $rzn2[0];
+  ...
+  595  <?php
+  596  $stz2="SELECT * FROM `tded_zean` WHERE post_date='$today' AND zean_id=2";
+  597: $retz2=mysql_query($stz2) or die("ERROR $stz2");
+  598  $ntz2=mysql_num_rows($retz2);
+  599  $rtz2=mysql_fetch_row($retz2);
+  ...
+  690  $today1=date("Y-m-d",strtotime("- 1 day"));
+  691  $stz3="SELECT * FROM `tded_zean` WHERE post_date='$today1' AND zean_id=1";
+  692: $retz3=mysql_query($stz3) or die("ERROR $stz3");
+  693  $ntz3=mysql_num_rows($retz3);
+  694  $rtz3=mysql_fetch_row($retz3);
+  ...
+  733  $today2=date("Y-m-d",strtotime("- 2 day"));
+  734  $stz3="SELECT * FROM `tded_zean` WHERE post_date='$today2' AND zean_id=1";
+  735: $retz3=mysql_query($stz3) or die("ERROR $stz3");
+  736  $ntz3=mysql_num_rows($retz3);
+  737  $rtz3=mysql_fetch_row($retz3);
+  ...
+  790  $today1=date("Y-m-d",strtotime("- 1 day"));
+  791  $stz3="SELECT * FROM `tded_zean` WHERE post_date='$today1' AND zean_id=2";
+  792: $retz3=mysql_query($stz3) or die("ERROR $stz3");
+  793  $ntz3=mysql_num_rows($retz3);
+  794  $rtz3=mysql_fetch_row($retz3);
+  ...
+  833  $today2=date("Y-m-d",strtotime("- 2 day"));
+  834  $stz3="SELECT * FROM `tded_zean` WHERE post_date='$today2' AND zean_id=2";
+  835: $retz3=mysql_query($stz3) or die("ERROR $stz3");
+  836  $ntz3=mysql_num_rows($retz3);
+  837  $rtz3=mysql_fetch_row($retz3);
+  ...
+  912  				<?php
+  913  				$ssco="select code from football where id=4";
+  914: 				$resco=mysql_query($ssco) or die("ERROR $ssco");
+  915  				$rsco=mysql_fetch_row($resco);
+  916  				echo $rsco[0];
+  ...
+  933  <?php
+  934  $sads3="SELECT * FROM `ads_a3` ORDER BY id ASC";
+  935: $reads3=mysql_query($sads3) or die("Error $sads3");
+  936  while($rads3=mysql_fetch_row($reads3)){
+  937  ?>
+  ...
+  990  $date=date("Y-m-d");
+  991  $s="SELECT * FROM `t_ded` where post_date='$date'";
+  992: $re=mysql_query($s) or die("ERROR $s");
+  993  $n=mysql_num_rows($re);
+  994  if($n>=1){
+  ...
+ 1008  <?php
+ 1009  $slg="SELECT * FROM `league` order by id asc";
+ 1010: $relg=mysql_query($slg) or die("ERROR $slg");
+ 1011  while($rlg=mysql_fetch_row($relg)){
+ 1012
+ 1013  $std="SELECT * FROM `t_ded` WHERE l_id='$rlg[0]' AND post_date='$date' order by id asc";
+ 1014: $retd=mysql_query($std) or die("ERROR $std");
+ 1015  $ntd=mysql_num_rows($retd);
+ 1016  if($ntd>=1){
+ ....
+ 1094  <?php
+ 1095  $sads4="SELECT * FROM `ads_a4` ORDER BY id ASC";
+ 1096: $reads4=mysql_query($sads4) or die("Error $sads4");
+ 1097  while($rads4=mysql_fetch_row($reads4)){
+ 1098  ?>
+ ....
+ 1146  <?php
+ 1147  		$strSQL = "SELECT * FROM `analyze` ORDER BY id DESC LIMIT 0, 20";
+ 1148: 		$objQuery = mysql_query($strSQL) or die("ERROR $strSQL");
+ 1149  		$i=0;
+ 1150  		while($objResult = mysql_fetch_row($objQuery)){
+ ....
+ 1178                                          <td width="125" height="25" align="center"><?php
+ 1179  $sql="SELECT name, img FROM `admin_analyze` WHERE id='$objResult[1]'";
+ 1180: $result=mysql_query($sql) or die("ERROR $sql");
+ 1181  $row=mysql_fetch_row($result);
+ 1182  if($row[1]==""){
+ ....
+ 1218  <?php
+ 1219  $sads5="SELECT * FROM `ads_a5` ORDER BY id ASC";
+ 1220: $reads5=mysql_query($sads5) or die("Error $sads5");
+ 1221  while($rads5=mysql_fetch_row($reads5)){
+ 1222  ?>
+ ....
+ 1281  <?php
+ 1282  $spm="SELECT id, title, short_detail, img FROM `post` where cate_id='2' ORDER BY id DESC LIMIT 0,1";
+ 1283: $repm=mysql_query($spm) or die("ERROR $spm");
+ 1284  $rpm=mysql_fetch_row($repm);
+ 1285  $urlpm=rewrite($rpm[1]);
+ ....
+ 1320  <?php
+ 1321  $spm3="SELECT id, title FROM `post` where cate_id='2' ORDER BY id DESC LIMIT 5,5";
+ 1322: $repm3=mysql_query($spm3) or die("Error $spm3");
+ 1323  while($rpm3=mysql_fetch_row($repm3)){
+ 1324  $urlpm3=rewrite($rpm3[1]);
+ ....
+ 1342  <?php
+ 1343  $spm2="SELECT id, title, img, short_detail FROM `post` where cate_id='2' ORDER BY id DESC LIMIT 1,4";
+ 1344: $repm2=mysql_query($spm2) or die("Error $spm2");
+ 1345  while($rpm2=mysql_fetch_row($repm2)){
+ 1346  $urlpm2=rewrite($rpm2[1]);
+ ....
+ 1416  <?php
+ 1417  $slg="SELECT id, title, short_detail, img FROM `post` where cate_id='3' ORDER BY id DESC LIMIT 0,1";
+ 1418: $relg=mysql_query($slg) or die("ERROR $slg");
+ 1419  $rlg=mysql_fetch_row($relg);
+ 1420  $urllg=rewrite($rlg[1]);
+ ....
+ 1455  <?php
+ 1456  $slg2="SELECT id, title FROM `post` where cate_id='3' ORDER BY id DESC LIMIT 1,5";
+ 1457: $relg2=mysql_query($slg2) or die("Error $slg2");
+ 1458  while($rlg2=mysql_fetch_row($relg2)){
+ 1459  $urllg2=rewrite($rlg2[1]);
+ ....
+ 1504  <?php
+ 1505  $sgi="SELECT id, title, short_detail, img FROM `post` where cate_id='4' ORDER BY id DESC LIMIT 0,1";
+ 1506: $regi=mysql_query($sgi) or die("ERROR $sgi");
+ 1507  $rgi=mysql_fetch_row($regi);
+ 1508  $urlgi=rewrite($rgi[1]);
+ ....
+ 1543  <?php
+ 1544  $sgi2="SELECT id, title FROM `post` where cate_id='4' ORDER BY id DESC LIMIT 1,5";
+ 1545: $regi2=mysql_query($sgi2) or die("Error $sgi2");
+ 1546  while($rgi2=mysql_fetch_row($regi2)){
+ 1547  $urlgi2=rewrite($rgi2[1]);
+ ....
+ 1601                                        <td align="center"><?php
+ 1602  $sbd="SELECT id, title, short_detail, img FROM `post` where cate_id='5' ORDER BY id DESC LIMIT 0,1";
+ 1603: $rebd=mysql_query($sbd) or die("ERROR $sbd");
+ 1604  $rbd=mysql_fetch_row($rebd);
+ 1605  $urlbd=rewrite($rbd[1]);
+ ....
+ 1642                                            <?php
+ 1643  $sbd2="SELECT id, title FROM `post` where cate_id='5' ORDER BY id DESC LIMIT 1,5";
+ 1644: $rebd2=mysql_query($sbd2) or die("Error $sbd2");
+ 1645  while($rbd2=mysql_fetch_row($rebd2)){
+ 1646  $urlbd2=rewrite($rbd2[1]);
+ ....
+ 1695  <?php
+ 1696  $suf="SELECT id, title, short_detail, img FROM `post` where cate_id='6' ORDER BY id DESC LIMIT 0,1";
+ 1697: $reuf=mysql_query($suf) or die("ERROR $suf");
+ 1698  $ruf=mysql_fetch_row($reuf);
+ 1699  $urluf=rewrite($ruf[1]);
+ ....
+ 1734  <?php
+ 1735  $suf2="SELECT id, title FROM `post` where cate_id='6' ORDER BY id DESC LIMIT 1,5";
+ 1736: $reuf2=mysql_query($suf2) or die("Error $suf2");
+ 1737  while($ruf2=mysql_fetch_row($reuf2)){
+ 1738  $urluf2=rewrite($ruf2[1]);
+ ....
+ 1778  <?php
+ 1779  $sads6="SELECT * FROM `ads_a6` ORDER BY id ASC";
+ 1780: $reads6=mysql_query($sads6) or die("Error $sads6");
+ 1781  while($rads6=mysql_fetch_row($reads6)){
+ 1782  ?>
+ ....
+ 1841  <?php
+ 1842  $ssn="SELECT id, title, short_detail, img FROM `post` where cate_id='8' ORDER BY id DESC LIMIT 0,1";
+ 1843: $resn=mysql_query($ssn) or die("ERROR $ssn");
+ 1844  $rsn=mysql_fetch_row($resn);
+ 1845  $urlsn=rewrite($rsn[1]);
+ ....
+ 1880  <?php
+ 1881  $ssn3="SELECT id, title FROM `post` where cate_id='8' ORDER BY id DESC LIMIT 5,5";
+ 1882: $resn3=mysql_query($ssn3) or die("Error $ssn3");
+ 1883  while($rsn3=mysql_fetch_row($resn3)){
+ 1884  $urlsn3=rewrite($rsn3[1]);
+ ....
+ 1902  <?php
+ 1903  $ssn2="SELECT id, title, img, short_detail FROM `post` where cate_id='8' ORDER BY id DESC LIMIT 1,4";
+ 1904: $resn2=mysql_query($ssn2) or die("Error $ssn2");
+ 1905  while($rsn2=mysql_fetch_row($resn2)){
+ 1906  $urlsn2=rewrite($rsn2[1]);
+ ....
+ 2016  <?php
+ 2017  $sft="SELECT id, title, short_detail, img FROM `post` where cate_id='7' ORDER BY id DESC LIMIT 0,1";
+ 2018: $reft=mysql_query($sft) or die("ERROR $sft");
+ 2019  $rft=mysql_fetch_row($reft);
+ 2020  $urlft=rewrite($rft[1]);
+ ....
+ 2051  <?php
+ 2052  $strSQL4="SELECT id, title, img FROM `post` where cate_id='7' ORDER BY id DESC LIMIT 1,6";
+ 2053: 		$objQuery4=mysql_query($strSQL4) or die("ERROR $strSQL4 บรรทัด 240-248");
+ 2054  		echo"<table border=\"0\"  cellspacing=\"1\" cellpadding=\"1\"><tr>";
+ 2055  		$intRows4=0;
+ ....
+ 2145  <?php
+ 2146  $strSQL4="SELECT id, title, img FROM `post` where cate_id='10' ORDER BY id DESC LIMIT 0,10";
+ 2147: 		$objQuery4=mysql_query($strSQL4) or die("ERROR $strSQL4 บรรทัด 240-248");
+ 2148  		echo"<table border=\"0\"  cellspacing=\"1\" cellpadding=\"1\"><tr>";
+ 2149  		$intRows4=0;
+ ....
+ 2236  <?php
+ 2237  $strSQL4="SELECT id, title, img FROM `post` where cate_id='9' ORDER BY id DESC LIMIT 0,10";
+ 2238: 		$objQuery4=mysql_query($strSQL4) or die("ERROR $strSQL4 บรรทัด 240-248");
+ 2239  		echo"<table border=\"0\"  cellspacing=\"1\" cellpadding=\"1\"><tr>";
+ 2240  		$intRows4=0;
+ ....
+ 2303  <?php
+ 2304  $sads7="SELECT * FROM `ads_a7` ORDER BY id ASC";
+ 2305: $reads7=mysql_query($sads7) or die("Error $sads7");
+ 2306  while($rads7=mysql_fetch_row($reads7)){
+ 2307  ?>
+
+/Users/brio/Works/football/link-exchange.php:
+    5  include "function/function.php";
+    6  $title="select * from web_detail where id=1";
+    7: $titlere=mysql_query($title) or die("ERROR $title บรททัด4");
+    8  $titler=mysql_fetch_row($titlere);
+    9  $link="select * from link where id=1";
+   10: $linkre=mysql_query($link) or die("ERROR $link บรททัด7");
+   11  $linkr=mysql_fetch_row($linkre);
+   12  $banner="select * from site_logo where id=1";
+   13: $bannerre=mysql_query($banner) or die("ERROR $banner บรททัด10");
+   14  $bannerr=mysql_fetch_row($bannerre);
+   15  $bg="select * from bg where id=1";
+   16: $bgre=mysql_query($bg) or die("ERROR $bg บรททัด13");
+   17  $bgr=mysql_fetch_row($bgre);
+   18  $footer="select * from footer_logo where id=1";
+   19: $refooter=mysql_query($footer) or die("ERROR $footer บรททัด10");
+   20  $rfooter=mysql_fetch_row($refooter);
+   21  $fb="select * from fanpage where id=1";
+   22: $fbre=mysql_query($fb) or die("ERROR $fb บรททัด16");
+   23  $fbr=mysql_fetch_row($fbre);
+   24  $st="select * from stats where id=1";
+   25: $stre=mysql_query($st) or die("ERROR $st บรททัด19");
+   26  $str=mysql_fetch_row($stre);
+   27  ?>
+   ..
+   89  <?php
+   90  $sads8="SELECT * FROM `ads_a8` ORDER BY id ASC";
+   91: $reads8=mysql_query($sads8) or die("Error $sads8");
+   92  while($rads8=mysql_fetch_row($reads8)){
+   93  ?>
+   ..
+  167                                                    <td align="center"><?php
+  168  $s1="select data from link_admin where id=2";
+  169: $re1=mysql_query($s1) or die("ERROR $s1");
+  170  $r1=mysql_fetch_row($re1);
+  171  $s2="select data, img from link_admin where id=1";
+  172: $re2=mysql_query($s2) or die("ERROR $s2");
+  173  $r2=mysql_fetch_row($re2);
+  174  ?>
+  ...
+  350                                        <td align="center"><?php
+  351  		$strSQL1="SELECT code FROM link_exchange WHERE type='2' AND actived='1' ORDER BY id ASC";
+  352: 		$objQuery1 = mysql_query($strSQL1) or die("ERROR บรรทัด 281");
+  353  		echo"<table border=\"0\"  cellspacing=\"1\" cellpadding=\"1\"><tr>";
+  354  		$intRows1= 0;
+  ...
+  393                                            <?php
+  394  		$strSQL="SELECT code FROM link_exchange WHERE type='1' AND actived='1' ORDER BY id ASC";
+  395: 		$objQuery = mysql_query($strSQL) or die("ERROR บรรทัด 317");
+  396  		$x=1;
+  397  		while($objResult = mysql_fetch_row($objQuery)){
+
+/Users/brio/Works/football/login.php:
+    9  //login
+   10  $s="SELECT id, name, user, pass FROM `member` where user='$user' and pass='$pass'";
+   11: $re=mysql_query($s) or die("ERROR $s");
+   12  $num=mysql_num_rows($re);
+   13  $r=mysql_fetch_row($re);
+
+/Users/brio/Works/football/member-condition.php:
+    5  include "function/function.php";
+    6  $title="select * from web_detail where id=1";
+    7: $titlere=mysql_query($title) or die("ERROR $title บรททัด4");
+    8  $titler=mysql_fetch_row($titlere);
+    9  $link="select * from link where id=1";
+   10: $linkre=mysql_query($link) or die("ERROR $link บรททัด7");
+   11  $linkr=mysql_fetch_row($linkre);
+   12  $banner="select * from site_logo where id=1";
+   13: $bannerre=mysql_query($banner) or die("ERROR $banner บรททัด10");
+   14  $bannerr=mysql_fetch_row($bannerre);
+   15  $bg="select * from bg where id=1";
+   16: $bgre=mysql_query($bg) or die("ERROR $bg บรททัด13");
+   17  $bgr=mysql_fetch_row($bgre);
+   18  $footer="select * from footer_logo where id=1";
+   19: $refooter=mysql_query($footer) or die("ERROR $footer บรททัด10");
+   20  $rfooter=mysql_fetch_row($refooter);
+   21  $fb="select * from fanpage where id=1";
+   22: $fbre=mysql_query($fb) or die("ERROR $fb บรททัด16");
+   23  $fbr=mysql_fetch_row($fbre);
+   24  $st="select * from stats where id=1";
+   25: $stre=mysql_query($st) or die("ERROR $st บรททัด19");
+   26  $str=mysql_fetch_row($stre);
+   27  ?>
+   ..
+   98  <?php
+   99  $sads8="SELECT * FROM `ads_a8` ORDER BY id ASC";
+  100: $reads8=mysql_query($sads8) or die("Error $sads8");
+  101  while($rads8=mysql_fetch_row($reads8)){
+  102  ?>
+  ...
+  149                            <td><?php
+  150  					  $s="SELECT * FROM `mem_conditions` WHERE id='1'";
+  151: 					  $re=mysql_query($s) or die("Error $s");
+  152  					  $r=mysql_fetch_row($re);
+  153  					  $msg=stripslashes($r[1]);
+
+/Users/brio/Works/football/menu.php:
+    7  <?php
+    8    $scate="select id, cate_name from category order by id asc";
+    9:   $recate=mysql_query($scate) or die("ERROR $scate");
+   10    while($rcate=mysql_fetch_row($recate)){
+   11    $urlcate=rewrite($rcate[1]);
+   ..
+   38            <?php
+   39  $scate="select id, cate_name from category order by id asc";
+   40: $recate=mysql_query($scate) or die("ERROR $scate");
+   41  while($rcate=mysql_fetch_row($recate)){
+   42  $urlcate=rewrite($rcate[1]);
+   ..
+  116  <?php
+  117  $slevel = "SELECT member_id, SUM(point) FROM `game_member_score` GROUP BY member_id ORDER BY SUM(point) DESC, member_id DESC LIMIT 0, 10";
+  118: $relevel = mysql_query($slevel) or die("ERROR $slevel");
+  119  $i=1;
+  120  while($rlevel = mysql_fetch_row($relevel)){
+  ...
+  134                    <td width="150" height="25" align="center" style="font-family:'Times New Roman', Times, serif; font-size:12px; font-weight:bold; color:#232323;"><?php
+  135  $smem = "SELECT name, img FROM `member` WHERE id='$rlevel[0]'";
+  136: $remem = mysql_query($smem) or die("ERROR $smem");
+  137  $rmem = mysql_fetch_row($remem);
+  138  if($rmem[1]!=""){
+  ...
+  152  <?php
+  153  $sads9="SELECT * FROM `ads_a9` ORDER BY id ASC";
+  154: $reads9=mysql_query($sads9) or die("Error $sads9");
+  155  while($rads9=mysql_fetch_row($reads9)){
+  156  ?>
+
+/Users/brio/Works/football/p-contact.php:
+   17  	//check ผลบวก
+   18  	if(isset($ask)&&isset($ans)&&$ask==$ans){
+   19: 	$s=mysql_query("INSERT INTO `contact` (`title` ,`name` ,`email` ,`tel` ,`detail` ,`date`)VALUES ('$title',  '$name',  '$email',  '$tel',  '$detail',  '$date')") or die("ERROR INSERT บรรทัด22");
+   20  	mysql_close();
+   21  	?>
+
+/Users/brio/Works/football/p-forgot-pass.php:
+    6
+    7  $title="select * from web_detail where id=1";
+    8: $titlere=mysql_query($title) or die("ERROR $title บรททัด4");
+    9  $titler=mysql_fetch_row($titlere);
+   10
+   ..
+   19  	//check Email
+   20  	$s="select email from member where email='$email'";
+   21: 	$re=mysql_query($s) or die("ERROR $s");
+   22  	$n=mysql_num_rows($re);
+   23  	if($n==0){
+   ..
+   30  	}else{
+   31  	$s="select user, pass from member where email='$email'";
+   32: 	$re=mysql_query($s) or die("ERROR $s");
+   33  	$r=mysql_fetch_row($re);
+   34  		$strTo = "$email";
+
+/Users/brio/Works/football/p-link.php:
+   17  	//check ผลบวก
+   18  	if(isset($ask)&&isset($ans)&&$ask==$ans){
+   19: 	$sql=mysql_query("INSERT INTO `link_exchange` (`name` ,`email` ,`url` ,`code` ,`type` ,`date` ,`actived`)VALUES ('$name',  '$email',  '$url',  '$code',  '$type',  '$date',  '0'
+   20  )")or die("ERROR $sql บรรทัด18");
+   21  		mysql_close();
+
+/Users/brio/Works/football/p-register.php:
+   20  //check ban ip
+   21  $sip="SELECT * FROM `ban_ip` WHERE ip='$ip'";
+   22: $reip=mysql_query($sip) or die("ERROR $sip");
+   23  $nip=mysql_num_rows($reip);
+   24  if($nip>=1){
+   ..
+   33  //check block email
+   34  $sm="SELECT * FROM `block_email` WHERE email='$email'";
+   35: $rem=mysql_query($sm) or die("ERROR $sm");
+   36  $nm=mysql_num_rows($rem);
+   37  if($nm>=1){
+   ..
+   46  //check ชื่อผู้ใช้ และ email ว่ามีอยู่ในระบบหรือไม่
+   47  $s="SELECT * FROM `member` WHERE user='$user' OR email='$email'";
+   48: $re=mysql_query($s) or die("ERROR $s");
+   49  $n=mysql_num_rows($re);
+   50  if($n>=1){
+   ..
+   63  	@copy($tmp1,"member/avatar/$rename");
+   64
+   65: 	$insert_member=mysql_query("INSERT INTO `member` (`name` ,`add` ,`province_id` ,`tel` ,`email` ,`img` ,`user` ,`pass` ,`reg_date` )VALUES ('$name', '$add', '$province', '$tel', '$email', '$rename', '$user', '$pass', '$date')") or die ("ERROR $insert_member");
+   66
+   67  	$s="SELECT id, name, user, pass FROM `member` ORDER BY id DESC LIMIT 0,1";
+   68: 	$re=mysql_query($s) or die("ERROR $s");
+   69  	$r=mysql_fetch_row($re);
+   70
+   ..
+   84  	}
+   85  }else{
+   86: $insert_member=mysql_query("INSERT INTO `member` (`name` ,`add` ,`province_id` ,`tel` ,`email` ,`user` ,`pass` ,`reg_date` )VALUES ('$name', '$add', '$province', '$tel', '$email', '$user', '$pass', '$date')") or die ("ERROR $insert_member");
+   87
+   88  $s="SELECT id, name, user, pass FROM `member` ORDER BY id DESC LIMIT 0,1";
+   89: $re=mysql_query($s) or die("ERROR $s");
+   90  $r=mysql_fetch_row($re);
+   91
+
+/Users/brio/Works/football/post-analyze-detail.php:
+    6  include "function/function.php";
+    7  $title="select * from web_detail where id=1";
+    8: $titlere=mysql_query($title) or die("ERROR $title บรททัด4");
+    9  $titler=mysql_fetch_row($titlere);
+   10  $link="select * from link where id=1";
+   11: $linkre=mysql_query($link) or die("ERROR $link บรททัด7");
+   12  $linkr=mysql_fetch_row($linkre);
+   13  $banner="select * from site_logo where id=1";
+   14: $bannerre=mysql_query($banner) or die("ERROR $banner บรททัด10");
+   15  $bannerr=mysql_fetch_row($bannerre);
+   16  $bg="select * from bg where id=1";
+   17: $bgre=mysql_query($bg) or die("ERROR $bg บรททัด13");
+   18  $bgr=mysql_fetch_row($bgre);
+   19  $footer="select * from footer_logo where id=1";
+   20: $refooter=mysql_query($footer) or die("ERROR $footer บรททัด10");
+   21  $rfooter=mysql_fetch_row($refooter);
+   22  $fb="select * from fanpage where id=1";
+   23: $fbre=mysql_query($fb) or die("ERROR $fb บรททัด16");
+   24  $fbr=mysql_fetch_row($fbre);
+   25  $st="select * from stats where id=1";
+   26: $stre=mysql_query($st) or die("ERROR $st บรททัด19");
+   27  $str=mysql_fetch_row($stre);
+   28
+   ..
+   30  $topic=$_GET["topic"];
+   31  $spost="SELECT * FROM `analyze` WHERE id='$topic_id'";
+   32: $repost=mysql_query($spost) or die("ERROR $spost");
+   33  $rpost=mysql_fetch_row($repost);
+   34
+   35  $new_view=$rpost[6]+1;
+   36: $upd_view=mysql_query("UPDATE `analyze` SET view='$new_view' WHERE id='$topic_id'") or die("ERROR $upd_view");
+   37  ?>
+   38  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   ..
+  100  <?php
+  101  $sads8="SELECT * FROM `ads_a8` ORDER BY id ASC";
+  102: $reads8=mysql_query($sads8) or die("Error $sads8");
+  103  while($rads8=mysql_fetch_row($reads8)){
+  104  ?>
+
+/Users/brio/Works/football/post-detail.php:
+    6  include "function/function.php";
+    7  $title="select * from web_detail where id=1";
+    8: $titlere=mysql_query($title) or die("ERROR $title บรททัด4");
+    9  $titler=mysql_fetch_row($titlere);
+   10  $link="select * from link where id=1";
+   11: $linkre=mysql_query($link) or die("ERROR $link บรททัด7");
+   12  $linkr=mysql_fetch_row($linkre);
+   13  $banner="select * from site_logo where id=1";
+   14: $bannerre=mysql_query($banner) or die("ERROR $banner บรททัด10");
+   15  $bannerr=mysql_fetch_row($bannerre);
+   16  $bg="select * from bg where id=1";
+   17: $bgre=mysql_query($bg) or die("ERROR $bg บรททัด13");
+   18  $bgr=mysql_fetch_row($bgre);
+   19  $footer="select * from footer_logo where id=1";
+   20: $refooter=mysql_query($footer) or die("ERROR $footer บรททัด10");
+   21  $rfooter=mysql_fetch_row($refooter);
+   22  $fb="select * from fanpage where id=1";
+   23: $fbre=mysql_query($fb) or die("ERROR $fb บรททัด16");
+   24  $fbr=mysql_fetch_row($fbre);
+   25  $st="select * from stats where id=1";
+   26: $stre=mysql_query($st) or die("ERROR $st บรททัด19");
+   27  $str=mysql_fetch_row($stre);
+   28
+   ..
+   32  $spost.="inner join tag_post on post.id=tag_post.post_id ";
+   33  $spost.="where post.id='$topic_id'";
+   34: $repost=mysql_query($spost) or die("ERROR $spost");
+   35  $rpost=mysql_fetch_row($repost);
+   36
+   37
+   38  $new_view=$rpost[8]+1;
+   39: $upd_view=mysql_query("UPDATE post SET view='$new_view' WHERE id='$topic_id'") or die("ERROE $upd_view");
+   40
+   41  $sct="select id, cate_name from category where id='$rpost[1]'";
+   42: $rect=mysql_query($sct) or die("ERROR $sct");
+   43  $rct=mysql_fetch_row($rect);
+   44  $url=rewrite($rct[1]);
+   ..
+  108  <?php
+  109  $sads8="SELECT * FROM `ads_a8` ORDER BY id ASC";
+  110: $reads8=mysql_query($sads8) or die("Error $sads8");
+  111  while($rads8=mysql_fetch_row($reads8)){
+  112  ?>
+  ...
+  233  <?php
+  234  $strSQL="SELECT id, title, img, short_detail, view FROM `post` WHERE cate_id='$rpost[1]' ORDER BY RAND() LIMIT 0, 4";
+  235: $objQuery = mysql_query($strSQL) or die("ERROR $strSQ1");
+  236  echo"<table border=\"0\"  cellspacing=\"1\" cellpadding=\"1\"><tr>";
+  237  $intRows= 0;
+
+/Users/brio/Works/football/register.php:
+    5  include "function/function.php";
+    6  $title="select * from web_detail where id=1";
+    7: $titlere=mysql_query($title) or die("ERROR $title บรททัด4");
+    8  $titler=mysql_fetch_row($titlere);
+    9  $link="select * from link where id=1";
+   10: $linkre=mysql_query($link) or die("ERROR $link บรททัด7");
+   11  $linkr=mysql_fetch_row($linkre);
+   12  $banner="select * from site_logo where id=1";
+   13: $bannerre=mysql_query($banner) or die("ERROR $banner บรททัด10");
+   14  $bannerr=mysql_fetch_row($bannerre);
+   15  $bg="select * from bg where id=1";
+   16: $bgre=mysql_query($bg) or die("ERROR $bg บรททัด13");
+   17  $bgr=mysql_fetch_row($bgre);
+   18  $footer="select * from footer_logo where id=1";
+   19: $refooter=mysql_query($footer) or die("ERROR $footer บรททัด10");
+   20  $rfooter=mysql_fetch_row($refooter);
+   21  $fb="select * from fanpage where id=1";
+   22: $fbre=mysql_query($fb) or die("ERROR $fb บรททัด16");
+   23  $fbr=mysql_fetch_row($fbre);
+   24  $st="select * from stats where id=1";
+   25: $stre=mysql_query($st) or die("ERROR $st บรททัด19");
+   26  $str=mysql_fetch_row($stre);
+   27  ?>
+   ..
+   98  <?php
+   99  $sads8="SELECT * FROM `ads_a8` ORDER BY id ASC";
+  100: $reads8=mysql_query($sads8) or die("Error $sads8");
+  101  while($rads8=mysql_fetch_row($reads8)){
+  102  ?>
+  ...
+  166                                            <?php
+  167    $strSQL = "SELECT * FROM province ORDER BY CONVERT(PROVINCE_NAME USING TIS620) ASC ";
+  168:   $objQuery = mysql_query($strSQL) or die ("Error Query [".$strSQL."]");
+  169    while($objResult = mysql_fetch_array($objQuery))
+  170    {
+
+/Users/brio/Works/football/search-tag.php:
+    6  include "function/function.php";
+    7  $title="select * from web_detail where id=1";
+    8: $titlere=mysql_query($title) or die("ERROR $title บรททัด4");
+    9  $titler=mysql_fetch_row($titlere);
+   10  $link="select * from link where id=1";
+   11: $linkre=mysql_query($link) or die("ERROR $link บรททัด7");
+   12  $linkr=mysql_fetch_row($linkre);
+   13  $banner="select * from site_logo where id=1";
+   14: $bannerre=mysql_query($banner) or die("ERROR $banner บรททัด10");
+   15  $bannerr=mysql_fetch_row($bannerre);
+   16  $bg="select * from bg where id=1";
+   17: $bgre=mysql_query($bg) or die("ERROR $bg บรททัด13");
+   18  $bgr=mysql_fetch_row($bgre);
+   19  $footer="select * from footer_logo where id=1";
+   20: $refooter=mysql_query($footer) or die("ERROR $footer บรททัด10");
+   21  $rfooter=mysql_fetch_row($refooter);
+   22  $fb="select * from fanpage where id=1";
+   23: $fbre=mysql_query($fb) or die("ERROR $fb บรททัด16");
+   24  $fbr=mysql_fetch_row($fbre);
+   25  $st="select * from stats where id=1";
+   26: $stre=mysql_query($st) or die("ERROR $st บรททัด19");
+   27  $str=mysql_fetch_row($stre);
+   28
+   ..
+   30  $cate=$_GET["cate"];
+   31  $sct="select * from category where id='$cate_id'";
+   32: $rect=mysql_query($sct) or die("ERROR $sct");
+   33  $rct=mysql_fetch_row($rect);
+   34
+   ..
+  234  <?php
+  235  $sads8="SELECT * FROM `ads_a8` ORDER BY id ASC";
+  236: $reads8=mysql_query($sads8) or die("Error $sads8");
+  237  while($rads8=mysql_fetch_row($reads8)){
+  238  ?>
+  ...
+  278  <?php
+  279  $stag="select post_id from tag_post where tag1='$keys' or tag2='$keys' or tag3='$keys' or tag4='$keys' or tag5='$keys' or tag6='$keys'";
+  280: $retag=mysql_query($stag) or die("ERROR $stag");
+  281  while($rtag=mysql_fetch_row($retag)){
+  282
+  283  $spost="SELECT id, title, img, short_detail, view FROM post WHERE id='$rtag[0]' ORDER BY id DESC";
+  284: $repost = mysql_query($spost) or die("ERROR $spost");
+  285  while($rpost=mysql_fetch_row($repost)){
+  286  $url=rewrite($rpost[1]);
+
+/Users/brio/Works/football/t-ded.php:
+    5  include "function/function.php";
+    6  $title="select * from web_detail where id=1";
+    7: $titlere=mysql_query($title) or die("ERROR $title บรททัด4");
+    8  $titler=mysql_fetch_row($titlere);
+    9  $link="select * from link where id=1";
+   10: $linkre=mysql_query($link) or die("ERROR $link บรททัด7");
+   11  $linkr=mysql_fetch_row($linkre);
+   12  $banner="select * from site_logo where id=1";
+   13: $bannerre=mysql_query($banner) or die("ERROR $banner บรททัด10");
+   14  $bannerr=mysql_fetch_row($bannerre);
+   15  $bg="select * from bg where id=1";
+   16: $bgre=mysql_query($bg) or die("ERROR $bg บรททัด13");
+   17  $bgr=mysql_fetch_row($bgre);
+   18  $footer="select * from footer_logo where id=1";
+   19: $refooter=mysql_query($footer) or die("ERROR $footer บรททัด10");
+   20  $rfooter=mysql_fetch_row($refooter);
+   21  $fb="select * from fanpage where id=1";
+   22: $fbre=mysql_query($fb) or die("ERROR $fb บรททัด16");
+   23  $fbr=mysql_fetch_row($fbre);
+   24  $st="select * from stats where id=1";
+   25: $stre=mysql_query($st) or die("ERROR $st บรททัด19");
+   26  $str=mysql_fetch_row($stre);
+   27  $date=$_GET["tDate"];
+   ..
+   90  <?php
+   91  $sads8="SELECT * FROM `ads_a8` ORDER BY id ASC";
+   92: $reads8=mysql_query($sads8) or die("Error $sads8");
+   93  while($rads8=mysql_fetch_row($reads8)){
+   94  ?>
+   ..
+  157  <?php
+  158  $slg="SELECT * FROM `league` order by id asc";
+  159: $relg=mysql_query($slg) or die("ERROR $slg");
+  160  while($rlg=mysql_fetch_row($relg)){
+  161
+  162  $std="SELECT * FROM `t_ded` WHERE l_id='$rlg[0]' AND post_date='$date' order by id asc";
+  163: $retd=mysql_query($std) or die("ERROR $std");
+  164  $ntd=mysql_num_rows($retd);
+  165  if($ntd>=1){
+
+/Users/brio/Works/football/template-board.php:
+    6  include "function/function.php";
+    7  $title="select * from web_detail where id=1";
+    8: $titlere=mysql_query($title) or die("ERROR $title บรททัด4");
+    9  $titler=mysql_fetch_row($titlere);
+   10  $link="select * from link where id=1";
+   11: $linkre=mysql_query($link) or die("ERROR $link บรททัด7");
+   12  $linkr=mysql_fetch_row($linkre);
+   13  $banner="select * from site_logo where id=1";
+   14: $bannerre=mysql_query($banner) or die("ERROR $banner บรททัด10");
+   15  $bannerr=mysql_fetch_row($bannerre);
+   16  $bg="select * from bg where id=1";
+   17: $bgre=mysql_query($bg) or die("ERROR $bg บรททัด13");
+   18  $bgr=mysql_fetch_row($bgre);
+   19  $footer="select * from footer_logo where id=1";
+   20: $refooter=mysql_query($footer) or die("ERROR $footer บรททัด10");
+   21  $rfooter=mysql_fetch_row($refooter);
+   22  $fb="select * from fanpage where id=1";
+   23: $fbre=mysql_query($fb) or die("ERROR $fb บรททัด16");
+   24  $fbr=mysql_fetch_row($fbre);
+   25  $st="select * from stats where id=1";
+   26: $stre=mysql_query($st) or die("ERROR $st บรททัด19");
+   27  $str=mysql_fetch_row($stre);
+   28  ?>
+
+/Users/brio/Works/football/template.php:
+    5  include "function/function.php";
+    6  $title="select * from web_detail where id=1";
+    7: $titlere=mysql_query($title) or die("ERROR $title บรททัด4");
+    8  $titler=mysql_fetch_row($titlere);
+    9  $link="select * from link where id=1";
+   10: $linkre=mysql_query($link) or die("ERROR $link บรททัด7");
+   11  $linkr=mysql_fetch_row($linkre);
+   12  $banner="select * from site_logo where id=1";
+   13: $bannerre=mysql_query($banner) or die("ERROR $banner บรททัด10");
+   14  $bannerr=mysql_fetch_row($bannerre);
+   15  $bg="select * from bg where id=1";
+   16: $bgre=mysql_query($bg) or die("ERROR $bg บรททัด13");
+   17  $bgr=mysql_fetch_row($bgre);
+   18  $footer="select * from footer_logo where id=1";
+   19: $refooter=mysql_query($footer) or die("ERROR $footer บรททัด10");
+   20  $rfooter=mysql_fetch_row($refooter);
+   21  $fb="select * from fanpage where id=1";
+   22: $fbre=mysql_query($fb) or die("ERROR $fb บรททัด16");
+   23  $fbr=mysql_fetch_row($fbre);
+   24  $st="select * from stats where id=1";
+   25: $stre=mysql_query($st) or die("ERROR $st บรททัด19");
+   26  $str=mysql_fetch_row($stre);
+   27  ?>
+   ..
+   89  <?php
+   90  $sads8="SELECT * FROM `ads_a8` ORDER BY id ASC";
+   91: $reads8=mysql_query($sads8) or die("Error $sads8");
+   92  while($rads8=mysql_fetch_row($reads8)){
+   93  ?>
+
+/Users/brio/Works/football/webboard-category.php:
+    6  include "function/function.php";
+    7  $title="select * from web_detail where id=1";
+    8: $titlere=mysql_query($title) or die("ERROR $title บรททัด4");
+    9  $titler=mysql_fetch_row($titlere);
+   10  $link="select * from link where id=1";
+   11: $linkre=mysql_query($link) or die("ERROR $link บรททัด7");
+   12  $linkr=mysql_fetch_row($linkre);
+   13  $banner="select * from site_logo where id=1";
+   14: $bannerre=mysql_query($banner) or die("ERROR $banner บรททัด10");
+   15  $bannerr=mysql_fetch_row($bannerre);
+   16  $bg="select * from bg where id=1";
+   17: $bgre=mysql_query($bg) or die("ERROR $bg บรททัด13");
+   18  $bgr=mysql_fetch_row($bgre);
+   19  $footer="select * from footer_logo where id=1";
+   20: $refooter=mysql_query($footer) or die("ERROR $footer บรททัด10");
+   21  $rfooter=mysql_fetch_row($refooter);
+   22  $fb="select * from fanpage where id=1";
+   23: $fbre=mysql_query($fb) or die("ERROR $fb บรททัด16");
+   24  $fbr=mysql_fetch_row($fbre);
+   25  $st="select * from stats where id=1";
+   26: $stre=mysql_query($st) or die("ERROR $st บรททัด19");
+   27  $str=mysql_fetch_row($stre);
+   28
+   ..
+   30  $cate=$_GET["cate"];
+   31  $sCATE="SELECT * FROM `webboard_category` WHERE id='$cate_id' ";
+   32: $reCATE=mysql_query($sCATE) or die("ERROR $sCATE บรรทัด 264");
+   33  $rCATE=mysql_fetch_row($reCATE);
+   34  ?>
+   ..
+  282  $swb.="INNER JOIN member ON webboard.member_id=member.id ";
+  283  $swb.="WHERE webboard.sticky='1' AND webboard.cate_id='$cate_id' ORDER BY webboard.upd_date DESC";
+  284: $rewb=mysql_query($swb) or die("ERROR $swb");
+  285  while($rwb=mysql_fetch_row($rewb)){
+  286  $url=rewrite($rwb[1]);
+  ...
+  327  $strWB.="INNER JOIN member ON ans_webboard.member_id=member.id ";
+  328  $strWB.="WHERE ans_webboard.topic_id='$rwb[0]' ORDER BY ans_webboard.id DESC ";
+  329: $WBQuery=mysql_query($strWB) or die("ERROR บรรทัด 437");
+  330  $WBResult=mysql_fetch_row($WBQuery);
+  331  $NumWB = mysql_num_rows($WBQuery);
+  ...
+  367  $strSQL.="INNER JOIN member ON webboard.member_id=member.id ";
+  368  $strSQL.="WHERE webboard.sticky='0' AND webboard.cate_id='$cate_id' ";
+  369: $objQuery=mysql_query($strSQL) or die("ERROR บรรทัด 344");
+  370  $Num_Rows = mysql_num_rows($objQuery);
+  371  		$Per_Page = 20;   // Per Page
+  ...
+  400
+  401  		$strSQL .=" ORDER BY webboard.upd_date DESC LIMIT $Page_Start , $Per_Page";
+  402: 		$objQuery  = mysql_query($strSQL) or die("ERROR");
+  403  		while($objResult = mysql_fetch_row($objQuery))
+  404  		{
+  ...
+  414  $strWB2.="INNER JOIN member ON ans_webboard.member_id=member.id ";
+  415  $strWB2.="WHERE ans_webboard.topic_id='$objResult[0]' ORDER BY ans_webboard.id DESC ";
+  416: $WBQuery2=mysql_query($strWB2) or die("ERROR $strWB2 บรรทัด 531");
+  417  $WBResult2=mysql_fetch_row($WBQuery2);
+  418  $NumWB2=mysql_num_rows($WBQuery2);
+
+/Users/brio/Works/football/webboard-detail.php:
+    6  include "function/function.php";
+    7  $title="select * from web_detail where id=1";
+    8: $titlere=mysql_query($title) or die("ERROR $title บรททัด4");
+    9  $titler=mysql_fetch_row($titlere);
+   10  $link="select * from link where id=1";
+   11: $linkre=mysql_query($link) or die("ERROR $link บรททัด7");
+   12  $linkr=mysql_fetch_row($linkre);
+   13  $banner="select * from site_logo where id=1";
+   14: $bannerre=mysql_query($banner) or die("ERROR $banner บรททัด10");
+   15  $bannerr=mysql_fetch_row($bannerre);
+   16  $bg="select * from bg where id=1";
+   17: $bgre=mysql_query($bg) or die("ERROR $bg บรททัด13");
+   18  $bgr=mysql_fetch_row($bgre);
+   19  $footer="select * from footer_logo where id=1";
+   20: $refooter=mysql_query($footer) or die("ERROR $footer บรททัด10");
+   21  $rfooter=mysql_fetch_row($refooter);
+   22  $fb="select * from fanpage where id=1";
+   23: $fbre=mysql_query($fb) or die("ERROR $fb บรททัด16");
+   24  $fbr=mysql_fetch_row($fbre);
+   25  $st="select * from stats where id=1";
+   26: $stre=mysql_query($st) or die("ERROR $st บรททัด19");
+   27  $str=mysql_fetch_row($stre);
+   28
+   ..
+   34  $sBOARD.="INNER JOIN webboard_category ON webboard.cate_id=webboard_category.id ";
+   35  $sBOARD.="WHERE webboard.id='$topic_id' ";
+   36: $reBOARDE=mysql_query($sBOARD) or die("ERROR $sBOARD บรรทัด 30");
+   37  $rBOARD=mysql_fetch_row($reBOARDE);
+   38  $url=rewrite($rBOARD[13]);
+   39
+   40  $new_view=$rBOARD[7]+1;
+   41: $upd_view=mysql_query("UPDATE webboard SET view='$new_view' WHERE id='$topic_id'") or die("ERROE $upd_view");
+   42  ?>
+   43  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   ..
+  263     $wordchange = ("<font color=red>***</font>") ; // ข้อความที่ต้องการแทนที่คำหยาบ
+  264     $sql = "select * from ban_word ";
+  265:    $dbquery = mysql_query($sql);
+  266     $num_rows = mysql_num_rows($dbquery);
+  267     $msg=stripslashes($rBOARD[4]);
+  ...
+  306                            <?php
+  307  $strSQL="SELECT * FROM `ans_webboard` WHERE topic_id='$topic_id' ";
+  308: $objQuery=mysql_query($strSQL) or die("ERROR บรรทัด 344");
+  309  $Num_Rows = mysql_num_rows($objQuery);
+  310  echo $Num_Rows;
+  ...
+  354
+  355  		$strSQL .=" ORDER BY id ASC LIMIT $Page_Start , $Per_Page";
+  356: 		$objQuery  = mysql_query($strSQL);
+  357  		while($objResult = mysql_fetch_row($objQuery))
+  358  		{
+  ...
+  395     $wordchange = ("<font color=red>***</font>") ; // ข้อความที่ต้องการแทนที่คำหยาบ
+  396     $sql = "select * from ban_word ";
+  397:    $dbquery = mysql_query($sql);
+  398     $num_rows = mysql_num_rows($dbquery);
+  399     $msg=stripslashes($objResult[3]);
+  ...
+  414                              <?php
+  415     $snickname="SELECT name, img FROM `member` WHERE id='$objResult[2]'";
+  416:    $renickname=mysql_query($snickname) or die("Error $snickname");
+  417     $rnickname=mysql_fetch_row($renickname);
+  418     echo $rnickname[0];
+
+/Users/brio/Works/football/admin/active-link-exchange.php:
+   37  <?php
+   38  $id=$_GET["id"];
+   39: $sql=mysql_query("update link_exchange set actived='1' where id='$id'")or die("ERROR $sql บรรทัด36");
+   40  echo "<meta http-equiv='refresh' content='0;url=linkexchange.php'>";
+   41  ?>
+
+/Users/brio/Works/football/admin/add-data-category.php:
+   80  $cate_id=$_GET["cate_id"];
+   81  $scate="SELECT cate_name FROM `category` WHERE id='$cate_id'";
+   82: $recate=mysql_query($scate) or die("ERROR $scate");
+   83  $rcate=mysql_fetch_row($recate);
+   84  ?>
+
+/Users/brio/Works/football/admin/add-game-match.php:
+   84  <?php
+   85  $sql="SELECT * FROM `game_league` ORDER BY `id` ASC";
+   86: $result=mysql_query($sql) or die("Error $sql");
+   87  while($row=mysql_fetch_row($result)){
+   88  ?>
+
+/Users/brio/Works/football/admin/add-league.php:
+  261                              <?php
+  262  		$strSQL = "SELECT * FROM league";
+  263: 		$objQuery = mysql_query($strSQL);
+  264  		$Num_Rows = mysql_num_rows($objQuery);
+  265
+  ...
+  295
+  296  		$strSQL .=" order  by id ASC LIMIT $Page_Start , $Per_Page";
+  297: 		$objQuery  = mysql_query($strSQL);
+  298  		while($objResult = mysql_fetch_row($objQuery)){
+  299  ?>
+
+/Users/brio/Works/football/admin/add-t-ded.php:
+    9  $l_id=$_GET["l_id"];
+   10  $s="SELECT * FROM `league` where id='$l_id'";
+   11: $re=mysql_query($s) or die("ERROR $s");
+   12  $r=mysql_fetch_row($re);
+   13  ?>
+
+/Users/brio/Works/football/admin/add-tded-zean.php:
+   74  $zean_id=$_GET['zean_id'];
+   75  $szn="SELECT * FROM `zean_name` WHERE id='$zean_id'";
+   76: $rezn=mysql_query($szn) or die("ERROR $szn");
+   77  $rzn=mysql_fetch_row($rezn);
+   78  ?>
+
+/Users/brio/Works/football/admin/admin.php:
+  128  <?php
+  129  $s="SELECT * FROM `admin`";
+  130: $re=mysql_query($s) or die("ERROR $s");
+  131  $x=1;
+  132  while($r=mysql_fetch_row($re)){
+
+/Users/brio/Works/football/admin/ads-a1.php:
+    7  }
+    8  $s="SELECT * FROM `ads_a1` WHERE id='1'";
+    9: $re=mysql_query($s) or die("Error $s");
+   10  $r=mysql_fetch_row($re);
+   11  if(isset($_GET['type'])){
+
+/Users/brio/Works/football/admin/ads-a2.php:
+   74  					<?php
+   75  					$strSQL1="SELECT * FROM ads_a2 ORDER BY id ASC";
+   76: 					$objQuery1 = mysql_query($strSQL1) or die("ERROR $strSQL1");
+   77  					while($objResult1 = mysql_fetch_row($objQuery1)){
+   78  					?>
+
+/Users/brio/Works/football/admin/ads-a3.php:
+   74  					<?php
+   75  					$strSQL1="SELECT * FROM ads_a3 ORDER BY id ASC";
+   76: 					$objQuery1 = mysql_query($strSQL1) or die("ERROR $strSQL1");
+   77  					while($objResult1 = mysql_fetch_row($objQuery1)){
+   78  					?>
+
+/Users/brio/Works/football/admin/ads-a4.php:
+   75  					<?php
+   76  					$strSQL1="SELECT * FROM ads_a4 ORDER BY id ASC";
+   77: 					$objQuery1 = mysql_query($strSQL1) or die("ERROR $strSQL1");
+   78  					while($objResult1 = mysql_fetch_row($objQuery1)){
+   79  					?>
+
+/Users/brio/Works/football/admin/ads-a5.php:
+   75  					<?php
+   76  					$strSQL1="SELECT * FROM ads_a5 ORDER BY id ASC";
+   77: 					$objQuery1 = mysql_query($strSQL1) or die("ERROR $strSQL1");
+   78  					while($objResult1 = mysql_fetch_row($objQuery1)){
+   79  					?>
+
+/Users/brio/Works/football/admin/ads-a6.php:
+   75            <?php
+   76            $strSQL1="SELECT * FROM ads_a6 ORDER BY id ASC";
+   77:           $objQuery1 = mysql_query($strSQL1) or die("ERROR $strSQL1");
+   78            while($objResult1 = mysql_fetch_row($objQuery1)){
+   79            ?>
+
+/Users/brio/Works/football/admin/ads-a7.php:
+   74                      <td align="center"><?php
+   75  			$strSQL1="SELECT * FROM ads_a7 ORDER BY id ASC";
+   76: 			$objQuery1 = mysql_query($strSQL1) or die("ERROR $strSQL1");
+   77  			while($objResult1 = mysql_fetch_row($objQuery1)){
+   78  			?>
+
+/Users/brio/Works/football/admin/ads-a8.php:
+   75  					<?php
+   76  					$strSQL1="SELECT * FROM ads_a8 ORDER BY id ASC";
+   77: 					$objQuery1 = mysql_query($strSQL1) or die("ERROR $strSQL1");
+   78  					while($objResult1 = mysql_fetch_row($objQuery1)){
+   79  					?>
+
+/Users/brio/Works/football/admin/ads-a9.php:
+   74                      <td align="center"><?php
+   75  			$strSQL1="SELECT * FROM ads_a9 ORDER BY id ASC";
+   76: 			$objQuery1 = mysql_query($strSQL1) or die("ERROR $strSQL1");
+   77  			while($objResult1 = mysql_fetch_row($objQuery1)){
+   78  			?>
+
+/Users/brio/Works/football/admin/ads.php:
+    8  }
+    9  $s="SELECT * FROM `ads` WHERE id='1'";
+   10: $re=mysql_query($s) or die("Error $s");
+   11  $r=mysql_fetch_row($re);
+   12  ?>
+
+/Users/brio/Works/football/admin/all-admin-analyze.php:
+  155                                <?php
+  156  $s="SELECT * FROM `admin_analyze` ORDER BY id ASC";
+  157: $re=mysql_query($s) or die("ERROR $s");
+  158  while($r=mysql_fetch_row($re)){
+  159  ?>
+
+/Users/brio/Works/football/admin/all-game-league.php:
+  258
+  259  		$strSQL = "SELECT * FROM game_league";
+  260: 		$objQuery = mysql_query($strSQL);
+  261  		$Num_Rows = mysql_num_rows($objQuery);
+  262
+  ...
+  292
+  293  		$strSQL .=" order  by id ASC LIMIT $Page_Start , $Per_Page";
+  294: 		$objQuery  = mysql_query($strSQL);
+  295  		while($objResult = mysql_fetch_row($objQuery)){
+  296  ?>
+
+/Users/brio/Works/football/admin/all-game-level.php:
+  234
+  235  $strSQL = "SELECT member_id, SUM(yes), SUM(no), SUM(point) FROM `game_member_score` GROUP BY member_id ORDER BY SUM(point) DESC";
+  236: $objQuery = mysql_query($strSQL) or die("ERROR $strSQL");
+  237  $i=1;
+  238  while($objResult = mysql_fetch_row($objQuery)){
+  ...
+  245                                <?php
+  246  $smem = "SELECT name, img FROM `member` WHERE id='$objResult[0]'";
+  247: $remem = mysql_query($smem) or die("ERROR $smem");
+  248  $rmem = mysql_fetch_row($remem);
+  249  if($rmem[1]!=""){ ?>
+
+/Users/brio/Works/football/admin/all-game-match.php:
+  251
+  252  		$strSQL = "SELECT * FROM game_match ";
+  253: 		$objQuery = mysql_query($strSQL);
+  254  		$Num_Rows = mysql_num_rows($objQuery);
+  255
+  ...
+  285
+  286  		$strSQL .=" ORDER BY game_date DESC LIMIT $Page_Start , $Per_Page";
+  287: 		$objQuery  = mysql_query($strSQL);
+  288  		while($objResult = mysql_fetch_row($objQuery)){
+  289  ?>
+
+/Users/brio/Works/football/admin/all-main-category.php:
+  207  $cate_id=$_GET["cate_id"];
+  208  $scate="SELECT cate_name FROM `category` WHERE id='$cate_id'";
+  209: $recate=mysql_query($scate) or die("ERROR $scate");
+  210  $rcate=mysql_fetch_row($recate);
+  211  ?>
+  ...
+  231                        <?php
+  232  		$strSQL = "SELECT * FROM post WHERE cate_id=$cate_id";
+  233: 		$objQuery = mysql_query($strSQL);
+  234  		$Num_Rows = mysql_num_rows($objQuery);
+  235
+  ...
+  265
+  266  		$strSQL .=" order  by id DESC LIMIT $Page_Start , $Per_Page";
+  267: 		$objQuery  = mysql_query($strSQL);
+  268  		while($objResult = mysql_fetch_row($objQuery)){
+  269  		$url=rewrite($objResult[2]);
+
+/Users/brio/Works/football/admin/all-member.php:
+  215                        <?php
+  216  $strSQL="SELECT id, reg_date, name, img FROM `member` ";
+  217: $objQuery=mysql_query($strSQL) or die("ERROR บรรทัด 208");
+  218  		$Num_Rows = mysql_num_rows($objQuery);
+  219
+  ...
+  249
+  250  		$strSQL .=" order  by id ASC LIMIT $Page_Start , $Per_Page";
+  251: 		$objQuery  = mysql_query($strSQL);
+  252  		while($objResult = mysql_fetch_row($objQuery))
+  253  		{
+
+/Users/brio/Works/football/admin/all-post-analyze.php:
+   11  $id=$_GET["id"];
+   12  $smod="select * from `admin_analyze` where id='$id'";
+   13: $remod=mysql_query($smod) or die("ERROR $smod");
+   14  $rmod=mysql_fetch_row($remod);
+   15  ?>
+   ..
+  229                          <?php
+  230  		$strSQL = "SELECT * FROM `analyze` WHERE mod_id='$id'";
+  231: 		$objQuery = mysql_query($strSQL);
+  232  		$Num_Rows = mysql_num_rows($objQuery);
+  233
+  ...
+  263
+  264  		$strSQL .=" ORDER BY id DESC LIMIT $Page_Start , $Per_Page";
+  265: 		$objQuery  = mysql_query($strSQL);
+  266  		$i=0;
+  267  		while($objResult = mysql_fetch_row($objQuery)){
+
+/Users/brio/Works/football/admin/all-webboard.php:
+  220                                    <?php
+  221  $scate="SELECT * FROM `webboard_category` ORDER BY id ASC";
+  222: $recate=mysql_query($scate) or die("ERROR $scate");
+  223  while($rcate=mysql_fetch_row($recate)){
+  224  $url=rewrite($rcate[1]);
+  ...
+  233                                        <?php
+  234  $strCATE="SELECT * FROM `webboard` WHERE cate_id='$rcate[0]' ";
+  235: $QueryCATE=mysql_query($strCATE) or die("ERROR $strCATE บรรทัด 221");
+  236  $NumCATE = mysql_num_rows($QueryCATE);
+  237  echo $NumCATE;
+  ...
+  283  $swb.="INNER JOIN member ON webboard.member_id=member.id ";
+  284  $swb.="WHERE webboard.sticky='1' ORDER BY webboard.upd_date DESC";
+  285: $rewb=mysql_query($swb) or die("ERROR $swb");
+  286  while($rwb=mysql_fetch_row($rewb)){
+  287  $url=rewrite($rwb[1]);
+  ...
+  307  $strWB.="INNER JOIN member ON ans_webboard.member_id=member.id ";
+  308  $strWB.="WHERE ans_webboard.topic_id='$rwb[0]' ORDER BY ans_webboard.id DESC ";
+  309: $WBQuery=mysql_query($strWB) or die("ERROR บรรทัด 437");
+  310  $WBResult=mysql_fetch_row($WBQuery);
+  311  $NumWB = mysql_num_rows($WBQuery);
+  ...
+  358  $strSQL.="INNER JOIN member ON webboard.member_id=member.id ";
+  359  $strSQL.="WHERE webboard.sticky='0' ";
+  360: $objQuery=mysql_query($strSQL) or die("ERROR บรรทัด 344");
+  361  $Num_Rows = mysql_num_rows($objQuery);
+  362  		$Per_Page = 20;   // Per Page
+  ...
+  391
+  392  		$strSQL .=" ORDER BY webboard.upd_date DESC LIMIT $Page_Start , $Per_Page";
+  393: 		$objQuery  = mysql_query($strSQL) or die("ERROR");
+  394  		while($objResult = mysql_fetch_row($objQuery))
+  395  		{
+  ...
+  405  $strWB2.="INNER JOIN member ON ans_webboard.member_id=member.id ";
+  406  $strWB2.="WHERE ans_webboard.topic_id='$objResult[0]' ORDER BY ans_webboard.id DESC ";
+  407: $WBQuery2=mysql_query($strWB2) or die("ERROR บรรทัด 531");
+  408  $WBResult2=mysql_fetch_row($WBQuery2);
+  409  $NumWB2=mysql_num_rows($WBQuery2);
+
+/Users/brio/Works/football/admin/ban-ip.php:
+  256
+  257  		$strSQL = "SELECT * FROM ban_ip";
+  258: 		$objQuery = mysql_query($strSQL);
+  259  		$Num_Rows = mysql_num_rows($objQuery);
+  260
+  ...
+  290
+  291  		$strSQL .=" order  by id ASC LIMIT $Page_Start , $Per_Page";
+  292: 		$objQuery  = mysql_query($strSQL);
+  293  		while($objResult = mysql_fetch_row($objQuery)){
+  294  ?>
+
+/Users/brio/Works/football/admin/ban-word.php:
+  260
+  261  		$strSQL = "SELECT * FROM ban_word";
+  262: 		$objQuery = mysql_query($strSQL);
+  263  		$Num_Rows = mysql_num_rows($objQuery);
+  264
+  ...
+  294
+  295  		$strSQL .=" order  by id ASC LIMIT $Page_Start , $Per_Page";
+  296: 		$objQuery  = mysql_query($strSQL);
+  297  		while($objResult = mysql_fetch_row($objQuery)){
+  298  ?>
+
+/Users/brio/Works/football/admin/bg.php:
+    8  }
+    9  $s="select * from bg where id=1";
+   10: $re=mysql_query($s) or die("ERROR $s บรททัด12");
+   11  $r=mysql_fetch_row($re);
+   12  ?>
+
+/Users/brio/Works/football/admin/block-email.php:
+  258
+  259  		$strSQL = "SELECT * FROM block_email";
+  260: 		$objQuery = mysql_query($strSQL);
+  261  		$Num_Rows = mysql_num_rows($objQuery);
+  262
+  ...
+  292
+  293  		$strSQL .=" order  by id ASC LIMIT $Page_Start , $Per_Page";
+  294: 		$objQuery  = mysql_query($strSQL);
+  295  		while($objResult = mysql_fetch_row($objQuery)){
+  296  ?>
+
+/Users/brio/Works/football/admin/cancel-contact-del-post-analyze.php:
+   39
+   40  //del contact_del_post
+   41: $sql=mysql_query("delete from contact_del_analyze_post where id='$id'")or die("ERROR $sql");
+   42
+   43  mysql_close();
+
+/Users/brio/Works/football/admin/cancel-contact-del-post.php:
+   39
+   40  //del contact_del_post
+   41: $sql=mysql_query("delete from contact_del_post where id='$id'")or die("ERROR $sql");
+   42
+   43  mysql_close();
+
+/Users/brio/Works/football/admin/contact.php:
+  216
+  217  		$strSQL = "SELECT * FROM contact";
+  218: 		$objQuery = mysql_query($strSQL);
+  219  		$Num_Rows = mysql_num_rows($objQuery);
+  220
+  ...
+  250
+  251  		$strSQL .=" order  by id desc LIMIT $Page_Start , $Per_Page";
+  252: 		$objQuery  = mysql_query($strSQL);
+  253  		while($objResult = mysql_fetch_row($objQuery)){
+  254  		?>
+
+/Users/brio/Works/football/admin/data.php:
+    8  }
+    9  $s="SELECT * FROM `web_detail` WHERE id='1'";
+   10: $re=mysql_query($s) or die("Error $s");
+   11  $r=mysql_fetch_row($re);
+   12  ?>
+
+/Users/brio/Works/football/admin/del-admin-analyze.php:
+   43  }
+   44  //del post
+   45: $spost=mysql_query("delete from `analyze` where mod_id='$id'")or die("ERROR $spost");
+   46
+   47  //del admin
+   48: $sql=mysql_query("delete from `admin_analyze` where id='$id'")or die("ERROR $sql");
+   49
+   50  echo "<meta http-equiv='refresh' content='0;url=all-admin-analyze.php'>";
+
+/Users/brio/Works/football/admin/del-admin.php:
+   37  <?php
+   38  $id=$_GET["id"];
+   39: $sql=mysql_query("delete from admin where id='$id'")or die("ERROR $sql");
+   40  echo "<meta http-equiv='refresh' content='0;url=admin.php'>";
+   41  ?>
+
+/Users/brio/Works/football/admin/del-ads2.php:
+   40  $part1="../ads-img/$op";
+   41  @unlink ($part1);
+   42: $sql2=mysql_query("delete from ads_a2 where id='$id'")or die("ERROR $sql2");
+   43  echo "<meta http-equiv='refresh' content='0;url=ads-a2.php'>";
+   44  ?>
+
+/Users/brio/Works/football/admin/del-ads3.php:
+   40  $part1="../ads-img/$op";
+   41  @unlink ($part1);
+   42: $sql2=mysql_query("delete from ads_a3 where id='$id'")or die("ERROR $sql2");
+   43  echo "<meta http-equiv='refresh' content='0;url=ads-a3.php'>";
+   44  ?>
+
+/Users/brio/Works/football/admin/del-ads4.php:
+   40  $part1="../ads-img/$op";
+   41  @unlink ($part1);
+   42: $sql2=mysql_query("delete from ads_a4 where id='$id'")or die("ERROR $sql2");
+   43  echo "<meta http-equiv='refresh' content='0;url=ads-a4.php'>";
+   44  ?>
+
+/Users/brio/Works/football/admin/del-ads5.php:
+   40  $part1="../ads-img/$op";
+   41  @unlink ($part1);
+   42: $sql2=mysql_query("delete from ads_a5 where id='$id'")or die("ERROR $sql2");
+   43  echo "<meta http-equiv='refresh' content='0;url=ads-a5.php'>";
+   44  ?>
+
+/Users/brio/Works/football/admin/del-ads6.php:
+   40  $part1="../ads-img/$op";
+   41  @unlink ($part1);
+   42: $sql2=mysql_query("delete from ads_a6 where id='$id'")or die("ERROR $sql2");
+   43  echo "<meta http-equiv='refresh' content='0;url=ads-a6.php'>";
+   44  ?>
+
+/Users/brio/Works/football/admin/del-ads7.php:
+   40  $part1="../ads-img/$op";
+   41  @unlink ($part1);
+   42: $sql2=mysql_query("delete from ads_a7 where id='$id'")or die("ERROR $sql2");
+   43  echo "<meta http-equiv='refresh' content='0;url=ads-a7.php'>";
+   44  ?>
+
+/Users/brio/Works/football/admin/del-ads8.php:
+   40  $part1="../ads-img/$op";
+   41  @unlink ($part1);
+   42: $sql2=mysql_query("delete from ads_a8 where id='$id'")or die("ERROR $sql2");
+   43  echo "<meta http-equiv='refresh' content='0;url=ads-a8.php'>";
+   44  ?>
+
+/Users/brio/Works/football/admin/del-ads9.php:
+   40  $part1="../ads-img/$op";
+   41  @unlink ($part1);
+   42: $sql2=mysql_query("delete from ads_a9 where id='$id'")or die("ERROR $sql2");
+   43  echo "<meta http-equiv='refresh' content='0;url=ads-a9.php'>";
+   44  ?>
+
+/Users/brio/Works/football/admin/del-ball-ded.php:
+   43  $id=$_GET["id"];
+   44  //del t_ded
+   45: $sql=mysql_query("delete from t_ded where id='$id'")or die("ERROR $sql");
+   46
+   47  echo "<meta http-equiv='refresh' content='0;url=league-t-ded.php?l_id=$l_id&tdate=$tdate'>";
+
+/Users/brio/Works/football/admin/del-ban-ip.php:
+   37  <?php
+   38  $id=$_GET["id"];
+   39: $sql2=mysql_query("delete from ban_ip where id='$id'")or die("ERROR $sql2");
+   40  echo "<meta http-equiv='refresh' content='0;url=ban-ip.php'>";
+   41  ?>
+
+/Users/brio/Works/football/admin/del-ban-word.php:
+   37  <?php
+   38  $id=$_GET["id"];
+   39: $sql2=mysql_query("delete from ban_word where id='$id'")or die("ERROR $sql2");
+   40  echo "<meta http-equiv='refresh' content='0;url=ban-word.php'>";
+   41  ?>
+
+/Users/brio/Works/football/admin/del-bg.php:
+   39  $part1="../bg-img/$img";
+   40  @unlink ($part1);
+   41: $sql=mysql_query("update `bg` set `img`='' ,`repeat`='' ,`fix`='' where id='1'")or die("ERROR $sql บรรทัด");
+   42  echo "<meta http-equiv='refresh' content='0;url=bg.php'>";
+   43  ?>
+
+/Users/brio/Works/football/admin/del-block-email.php:
+   37  <?php
+   38  $id=$_GET["id"];
+   39: $sql2=mysql_query("delete from block_email where id='$id'")or die("ERROR $sql2");
+   40  echo "<meta http-equiv='refresh' content='0;url=block-email.php'>";
+   41  ?>
+
+/Users/brio/Works/football/admin/del-contact-del-post-analyze.php:
+   39
+   40  //del post
+   41: $spost=mysql_query("delete from `analyze` where id='$id'")or die("ERROR $spost");
+   42
+   43  echo "<meta http-equiv='refresh' content='0;url=list-contact-del-post-analyze.php'>";
+
+/Users/brio/Works/football/admin/del-contact-del-post.php:
+   43
+   44  //del post
+   45: $sql=mysql_query("delete from post where id='$id'")or die("ERROR $sql");
+   46
+   47  //del tag post
+   48: $sql3=mysql_query("delete from tag_post where post_id='$id'")or die("ERROR $sql3");
+   49
+   50  //del contact_del_post
+   51: $sql4=mysql_query("delete from contact_del_post where post_id='$id'")or die("ERROR $sql4");
+   52
+   53  mysql_close();
+
+/Users/brio/Works/football/admin/del-contact.php:
+   37  <?php
+   38  $id=$_GET["id"];
+   39: $sql=mysql_query("delete from contact where id='$id'")or die("ERROR $sql บรรทัด35");
+   40  echo "<meta http-equiv='refresh' content='0;url=contact.php'>";
+   41  ?>
+
+/Users/brio/Works/football/admin/del-data-category.php:
+   44
+   45  //del post
+   46: $sql=mysql_query("delete from post where id='$id'")or die("ERROR $sql");
+   47
+   48  //del tag post
+   49: $sql3=mysql_query("delete from tag_post where post_id='$id'")or die("ERROR $sql3");
+   50
+   51  //del contact_del_post
+   52: $sql4=mysql_query("delete from contact_del_post where post_id='$id'")or die("ERROR $sql4");
+   53
+   54  mysql_close();
+
+/Users/brio/Works/football/admin/del-game-league.php:
+   39
+   40  //del game_league
+   41: $sql=mysql_query("delete from game_league where id='$id'")or die("ERROR $sql");
+   42
+   43  //select game_id from game_match
+   44  $s="SELECT id FROM `game_match` where league_id='$id'";
+   45: $re=mysql_query($s) or die("ERROR $s");
+   46  while($r=mysql_fetch_row($re)){
+   47  //del game_play
+   48: $sql3=mysql_query("delete from game_play where game_id='$r[0]'")or die("ERROR $sql3");
+   49  }
+   50
+   51  //del game_match
+   52: $sql2=mysql_query("delete from game_match where league_id='$id'")or die("ERROR $sql2");
+   53
+   54  echo "<meta http-equiv='refresh' content='0;url=all-game-league.php'>";
+
+/Users/brio/Works/football/admin/del-game-match.php:
+   39
+   40  //del game_play
+   41: $sql3=mysql_query("delete from game_play where game_id='$id'")or die("ERROR $sql3");
+   42
+   43  //del game_match
+   44: $sql2=mysql_query("delete from game_match where id='$id'")or die("ERROR $sql2");
+   45
+   46  echo "<meta http-equiv='refresh' content='0;url=all-game-match.php'>";
+
+/Users/brio/Works/football/admin/del-league.php:
+   42  @unlink ($part1);
+   43  //del league
+   44: $sql=mysql_query("delete from league where id='$id'")or die("ERROR $sql");
+   45  //del t_ded
+   46: $sql=mysql_query("delete from t_ded where l_id='$id'")or die("ERROR $sql");
+   47
+   48  echo "<meta http-equiv='refresh' content='0;url=add-league.php'>";
+
+/Users/brio/Works/football/admin/del-link-exchange.php:
+   37  <?php
+   38  $id=$_GET["id"];
+   39: $sql=mysql_query("delete from link_exchange where id='$id'")or die("ERROR $sql บรรทัด35");
+   40  echo "<meta http-equiv='refresh' content='0;url=linkexchange.php'>";
+   41  ?>
+
+/Users/brio/Works/football/admin/del-member.php:
+   20  //select img
+   21  $sql="SELECT img FROM `member` WHERE id='$member_id'";
+   22: $re=mysql_query($sql) or die("ERROR select img");
+   23  $r=mysql_fetch_row($re);
+   24  //del รูป Avatar
+   ..
+   27
+   28  //member
+   29: $del_member=mysql_query("delete from member where id='$member_id'") or die("ERROR $del_member");
+   30
+   31  //select webboard
+   32  $sql1="SELECT img FROM `webboard` WHERE member_id='$member_id'";
+   33: $re1=mysql_query($sql1) or die("ERROR select webboard");
+   34  while($r1=mysql_fetch_row($re1)){
+   35  //del รูปประกอบหลัก
+   ..
+   38  }
+   39  //del webboard
+   40: $del_webboard=mysql_query("DELETE FROM `webboard` WHERE `member_id`='$member_id'") or die ("ERROR del_auction_tab");
+   41
+   42  //select ans_webboard
+   43  $sql2="SELECT img FROM `ans_webboard` WHERE member_id='$member_id'";
+   44: $re2=mysql_query($sql2) or die("ERROR select ans_webboard");
+   45  while($r2=mysql_fetch_row($re2)){
+   46  //del รูปประกอบหลัก
+   ..
+   50
+   51  //del ans_webboard
+   52: $del_ans_webboard=mysql_query("DELETE FROM `ans_webboard` WHERE `member_id`='$member_id'") or die ("ERROR del_auction_tab");
+   53
+   54  //del game_play
+   55: $del_game_play=mysql_query("DELETE FROM `game_play` WHERE `member_id`='$member_id'") or die ("ERROR del_auction_tab");
+   56
+   57  //del game_member_score
+   58: $del_game_member_score=mysql_query("DELETE FROM `game_member_score` WHERE `member_id`='$member_id'") or die ("ERROR del_auction_tab");
+   59
+   60
+
+/Users/brio/Works/football/admin/del-post-analyze.php:
+   40
+   41  //del post
+   42: $spost=mysql_query("delete from `analyze` where id='$id'")or die("ERROR $spost");
+   43
+   44  echo "<meta http-equiv='refresh' content='0;url=all-post-analyze.php?id=$mod_id'>";
+
+/Users/brio/Works/football/admin/del-province.php:
+   37  <?php
+   38  $id=$_GET["id"];
+   39: $sql=mysql_query("delete from province where PROVINCE_ID='$id'")or die("ERROR $sql");
+   40
+   41  echo "<meta http-equiv='refresh' content='0;url=province.php'>";
+
+/Users/brio/Works/football/admin/del-t-ded.php:
+   43
+   44  //del t_ded
+   45: $sql=mysql_query("delete from t_ded where l_id='$l_id' AND post_date='$tdate'")or die("ERROR $sql");
+   46
+   47  echo "<meta http-equiv='refresh' content='0;url=t-ded.php?l_id=$l_id'>";
+
+/Users/brio/Works/football/admin/del-tded-zean.php:
+   39  $zean_id=$_GET['zean_id'];
+   40
+   41: $sql=mysql_query("delete from `tded_zean` where id='$id'")or die("ERROR $sql");
+   42
+   43  mysql_close();
+
+/Users/brio/Works/football/admin/del-webboard-category.php:
+   40  //select img webboard
+   41  $sql5="SELECT id, img FROM `webboard` WHERE cate_id='$id'";
+   42: $re5=mysql_query($sql5) or die("ERROR $sql5");
+   43  while($r5=mysql_fetch_row($re5)){
+   44  //del img webboard
+   ..
+   47  //select img ans_webboard
+   48  $sql6="SELECT img FROM `ans_webboard` WHERE topic_id='$r5[0]'";
+   49: $re6=mysql_query($sql6) or die("ERROR $sql6");
+   50  while($r6=mysql_fetch_row($re6)){
+   51  //del img ans_webboard
+   ..
+   54  }
+   55  //del ans_webboard
+   56: $del_ans_webboard=mysql_query("DELETE FROM `ans_webboard` WHERE topic_id='$r5[0]'") or die ("ERROR del_ans_webboard");
+   57  }
+   58  //del webboard
+   59: $del_webboard=mysql_query("DELETE FROM `webboard` WHERE `cate_id`='$id'") or die ("ERROR del_webboard");
+   60  //del category
+   61: $sql2=mysql_query("DELETE FROM `webboard_category` WHERE id='$id'")or die("ERROR $sql2");
+   62  echo "<meta http-equiv='refresh' content='0;url=webboard-category.php'>";
+   63  ?>
+
+/Users/brio/Works/football/admin/del-webboard.php:
+   39  //select img webboard
+   40  $sql5="SELECT img FROM `webboard` WHERE id='$id'";
+   41: $re5=mysql_query($sql5) or die("ERROR $sql5");
+   42  while($r5=mysql_fetch_row($re5)){
+   43  //del img webboard
+   ..
+   46  }
+   47  //del webboard
+   48: $del_webboard=mysql_query("DELETE FROM `webboard` WHERE `id`='$id'") or die ("ERROR del_webboard");
+   49
+   50  //select img ans_webboard
+   51  $sql6="SELECT img FROM `ans_webboard` WHERE topic_id='$id'";
+   52: $re6=mysql_query($sql6) or die("ERROR $sql6");
+   53  while($r6=mysql_fetch_row($re6)){
+   54  //del img ans_webboard
+   ..
+   57  }
+   58  //del ans_webboard
+   59: $del_ans_webboard=mysql_query("DELETE FROM `ans_webboard` WHERE `topic_id`='$id'") or die ("ERROR del_ans_webboard");
+   60  echo "<meta http-equiv='refresh' content='0;url=all-webboard.php'>";
+   61  ?>
+
+/Users/brio/Works/football/admin/edit-admin-analyze.php:
+   80  $id=$_GET["id"];
+   81  $sql="SELECT * FROM `admin_analyze` WHERE id='$id'";
+   82: $result=mysql_query($sql) or die("ERROR $sql");
+   83  $row=mysql_fetch_row($result);
+   84  ?>
+   ..
+  166  <?php
+  167  $s="SELECT * FROM `admin_analyze` ORDER BY id ASC";
+  168: $re=mysql_query($s) or die("ERROR $s");
+  169  while($r=mysql_fetch_row($re)){
+  170  ?>
+
+/Users/brio/Works/football/admin/edit-admin.php:
+    9  $id=$_GET["id"];
+   10  $s="SELECT * FROM `admin` where id='$id'";
+   11: $re=mysql_query($s) or die("ERROR $s");
+   12  $r=mysql_fetch_row($re);
+   13  ?>
+
+/Users/brio/Works/football/admin/edit-ads-a2.php:
+    9  $id=$_GET["id"];
+   10  $s="SELECT * FROM `ads_a2` WHERE id='$id'";
+   11: $re=mysql_query($s) or die("Error $s");
+   12  $r=mysql_fetch_row($re);
+   13  if(isset($_GET['type'])){
+
+/Users/brio/Works/football/admin/edit-ads-a3.php:
+    9  $id=$_GET["id"];
+   10  $s="SELECT * FROM `ads_a3` WHERE id='$id'";
+   11: $re=mysql_query($s) or die("Error $s");
+   12  $r=mysql_fetch_row($re);
+   13  if(isset($_GET['type'])){
+
+/Users/brio/Works/football/admin/edit-ads-a4.php:
+    9  $id=$_GET["id"];
+   10  $s="SELECT * FROM `ads_a4` WHERE id='$id'";
+   11: $re=mysql_query($s) or die("Error $s");
+   12  $r=mysql_fetch_row($re);
+   13  if(isset($_GET['type'])){
+
+/Users/brio/Works/football/admin/edit-ads-a5.php:
+    9  $id=$_GET["id"];
+   10  $s="SELECT * FROM `ads_a5` WHERE id='$id'";
+   11: $re=mysql_query($s) or die("Error $s");
+   12  $r=mysql_fetch_row($re);
+   13  if(isset($_GET['type'])){
+
+/Users/brio/Works/football/admin/edit-ads-a6.php:
+    9  $id=$_GET["id"];
+   10  $s="SELECT * FROM `ads_a6` WHERE id='$id'";
+   11: $re=mysql_query($s) or die("Error $s");
+   12  $r=mysql_fetch_row($re);
+   13  if(isset($_GET['type'])){
+
+/Users/brio/Works/football/admin/edit-ads-a7.php:
+    9  $id=$_GET["id"];
+   10  $s="SELECT * FROM `ads_a7` WHERE id='$id'";
+   11: $re=mysql_query($s) or die("Error $s");
+   12  $r=mysql_fetch_row($re);
+   13  if(isset($_GET['type'])){
+
+/Users/brio/Works/football/admin/edit-ads-a8.php:
+    9  $id=$_GET["id"];
+   10  $s="SELECT * FROM `ads_a8` WHERE id='$id'";
+   11: $re=mysql_query($s) or die("Error $s");
+   12  $r=mysql_fetch_row($re);
+   13  if(isset($_GET['type'])){
+
+/Users/brio/Works/football/admin/edit-ads-a9.php:
+    9  $id=$_GET["id"];
+   10  $s="SELECT * FROM `ads_a9` WHERE id='$id'";
+   11: $re=mysql_query($s) or die("Error $s");
+   12  $r=mysql_fetch_row($re);
+   13  if(isset($_GET['type'])){
+
+/Users/brio/Works/football/admin/edit-ban-ip.php:
+    9  $id=$_GET["id"];
+   10  $s="SELECT * FROM `ban_ip` where id='$id'";
+   11: $re=mysql_query($s) or die("ERROR $s");
+   12  $r=mysql_fetch_row($re);
+   13  ?>
+   ..
+  262
+  263  		$strSQL = "SELECT * FROM ban_ip";
+  264: 		$objQuery = mysql_query($strSQL);
+  265  		$Num_Rows = mysql_num_rows($objQuery);
+  266
+  ...
+  296
+  297  		$strSQL .=" order  by id ASC LIMIT $Page_Start , $Per_Page";
+  298: 		$objQuery  = mysql_query($strSQL);
+  299  		while($objResult = mysql_fetch_row($objQuery)){
+  300  ?>
+
+/Users/brio/Works/football/admin/edit-ban-word.php:
+    9  $id=$_GET["id"];
+   10  $s="SELECT * FROM `ban_word` where id='$id'";
+   11: $re=mysql_query($s) or die("ERROR $s");
+   12  $r=mysql_fetch_row($re);
+   13  ?>
+   ..
+  261
+  262  		$strSQL = "SELECT * FROM ban_word";
+  263: 		$objQuery = mysql_query($strSQL);
+  264  		$Num_Rows = mysql_num_rows($objQuery);
+  265
+  ...
+  295
+  296  		$strSQL .=" order  by id ASC LIMIT $Page_Start , $Per_Page";
+  297: 		$objQuery  = mysql_query($strSQL);
+  298  		while($objResult = mysql_fetch_row($objQuery)){
+  299  ?>
+
+/Users/brio/Works/football/admin/edit-block-email.php:
+    9  $id=$_GET["id"];
+   10  $s="SELECT * FROM `block_email` where id='$id'";
+   11: $re=mysql_query($s) or die("ERROR $s");
+   12  $r=mysql_fetch_row($re);
+   13  ?>
+   ..
+  262
+  263  		$strSQL = "SELECT * FROM block_email";
+  264: 		$objQuery = mysql_query($strSQL);
+  265  		$Num_Rows = mysql_num_rows($objQuery);
+  266
+  ...
+  296
+  297  		$strSQL .=" order  by id ASC LIMIT $Page_Start , $Per_Page";
+  298: 		$objQuery  = mysql_query($strSQL);
+  299  		while($objResult = mysql_fetch_row($objQuery)){
+  300  ?>
+
+/Users/brio/Works/football/admin/edit-category.php:
+   73  $cate_id=$_GET["cate_id"];
+   74  $scate="SELECT * FROM `category` WHERE id='$cate_id'";
+   75: $recate=mysql_query($scate) or die("ERROR $scate");
+   76  $rcate=mysql_fetch_row($recate);
+   77  ?>
+
+/Users/brio/Works/football/admin/edit-data-category.php:
+   82  $cate_id=$_GET["cate_id"];
+   83  $scate="SELECT cate_name FROM `category` WHERE id='$cate_id'";
+   84: $recate=mysql_query($scate) or die("ERROR $scate");
+   85  $rcate=mysql_fetch_row($recate);
+   86
+   ..
+   88  $spost.="INNER JOIN tag_post ON post.id=tag_post.post_id ";
+   89  $spost.="WHERE post.id='$id'";
+   90: $repost=mysql_query($spost) or die("ERROR $spost");
+   91  $rpost=mysql_fetch_row($repost);
+   92  ?>
+
+/Users/brio/Works/football/admin/edit-game-league.php:
+    9  $id=$_GET["id"];
+   10  $s="SELECT * FROM `game_league` where id='$id'";
+   11: $re=mysql_query($s) or die("ERROR $s");
+   12  $r=mysql_fetch_row($re);
+   13  ?>
+   ..
+  262
+  263  		$strSQL = "SELECT * FROM game_league";
+  264: 		$objQuery = mysql_query($strSQL);
+  265  		$Num_Rows = mysql_num_rows($objQuery);
+  266
+  ...
+  296
+  297  		$strSQL .=" order  by id ASC LIMIT $Page_Start , $Per_Page";
+  298: 		$objQuery  = mysql_query($strSQL);
+  299  		while($objResult = mysql_fetch_row($objQuery)){
+  300  ?>
+
+/Users/brio/Works/football/admin/edit-game-match.php:
+   76  $type=$_GET['type'];
+   77  $spost="SELECT * FROM `game_match` WHERE id='$id'";
+   78: $repost=mysql_query($spost) or die("ERROR $spost");
+   79  $rpost=mysql_fetch_row($repost);
+   80  ?>
+   ..
+   93  <?php
+   94  $s="SELECT * FROM `game_league` ORDER BY `id` ASC";
+   95: $re=mysql_query($s) or die("Error $s");
+   96  while($r=mysql_fetch_row($re)){
+   97  ?>
+
+/Users/brio/Works/football/admin/edit-league.php:
+    9  $id=$_GET["id"];
+   10  $s="SELECT * FROM `league` where id='$id'";
+   11: $re=mysql_query($s) or die("ERROR $s");
+   12  $r=mysql_fetch_row($re);
+   13  ?>
+   ..
+  285
+  286  		$strSQL = "SELECT * FROM league";
+  287: 		$objQuery = mysql_query($strSQL);
+  288  		$Num_Rows = mysql_num_rows($objQuery);
+  289
+  ...
+  319
+  320  		$strSQL .=" order  by id ASC LIMIT $Page_Start , $Per_Page";
+  321: 		$objQuery  = mysql_query($strSQL);
+  322  		while($objResult = mysql_fetch_row($objQuery)){
+  323  ?>
+
+/Users/brio/Works/football/admin/edit-province.php:
+  216  $id=$_GET["id"];
+  217  $s="select * from province where PROVINCE_ID='$id'";
+  218: $re=mysql_query($s) or die("ERROR $s บรททัด209");
+  219  $r=mysql_fetch_row($re);
+  220  ?>
+  ...
+  227                                            <?php
+  228  								$ss="SELECT * FROM `geography`";
+  229: 								$res=mysql_query($ss) or die("ERROR $s");
+  230  								while($rs=mysql_fetch_row($res)){
+  231  								?>
+  ...
+  284
+  285  		$strSQL = "SELECT * FROM province";
+  286: 		$objQuery = mysql_query($strSQL);
+  287  		$Num_Rows = mysql_num_rows($objQuery);
+  288
+  ...
+  318
+  319  		$strSQL .=" order  by PROVINCE_ID asc LIMIT $Page_Start , $Per_Page";
+  320: 		$objQuery  = mysql_query($strSQL);
+  321  		while($objResult = mysql_fetch_row($objQuery)){
+  322  ?>
+  ...
+  328                                  <?php
+  329  					  $sgo="SELECT * FROM `geography` WHERE GEO_ID='$objResult[3]'";
+  330: 					  $rego=mysql_query($sgo) or die("ERROR $sgo");
+  331  					  $rgo=mysql_fetch_row($rego);
+  332  					  echo $rgo[1];
+
+/Users/brio/Works/football/admin/edit-t-ded.php:
+   10  $id=$_GET["id"];
+   11  $sql="SELECT * FROM `t_ded` where id='$id'";
+   12: $result=mysql_query($sql) or die("ERROR $sql");
+   13  $row=mysql_fetch_row($result);
+   14
+   15  $s="SELECT * FROM `league` where id='$row[1]'";
+   16: $re=mysql_query($s) or die("ERROR $s");
+   17  $r=mysql_fetch_row($re);
+   18  ?>
+
+/Users/brio/Works/football/admin/edit-tded-zean.php:
+   76  $id=$_GET["id"];
+   77  $szn="SELECT * FROM `zean_name` WHERE id='$zean_id'";
+   78: $rezn=mysql_query($szn) or die("ERROR $szn");
+   79  $rzn=mysql_fetch_row($rezn);
+   80  ?>
+   ..
+   84  <?php
+   85  $spost="SELECT * FROM `tded_zean` WHERE id='$id'";
+   86: $repost=mysql_query($spost) or die("ERROR $spost");
+   87  $rpost=mysql_fetch_row($repost);
+   88  $postDate=$rpost[11];
+
+/Users/brio/Works/football/admin/edit-webboard-category.php:
+    9  $id=$_GET["id"];
+   10  $s="SELECT * FROM `webboard_category` where id='$id'";
+   11: $re=mysql_query($s) or die("ERROR $s");
+   12  $r=mysql_fetch_row($re);
+   13  ?>
+   ..
+  280
+  281  		$strSQL = "SELECT * FROM webboard_category ";
+  282: 		$objQuery = mysql_query($strSQL) or die("ERROR $strSQL");
+  283  		$Num_Rows = mysql_num_rows($objQuery);
+  284
+  ...
+  314
+  315  		$strSQL .=" order  by id ASC LIMIT $Page_Start , $Per_Page";
+  316: 		$objQuery  = mysql_query($strSQL);
+  317  		while($objResult = mysql_fetch_row($objQuery)){
+  318  ?>
+
+/Users/brio/Works/football/admin/edit-webboard.php:
+   84  $topic_id=$_GET["id"];
+   85  $strWB="SELECT * FROM `webboard` WHERE id='$topic_id'";
+   86: $WBQuery=mysql_query($strWB) or die("ERROR บรรทัด 131");
+   87  $WBResult=mysql_fetch_row($WBQuery);
+   88  ?>
+   ..
+  103                                        <?php
+  104  $scate="SELECT * FROM `webboard_category` ORDER BY id ASC";
+  105: $recate=mysql_query($scate) or die("ERROR $scate");
+  106  while($rcate=mysql_fetch_row($recate)){
+  107  ?>
+
+/Users/brio/Works/football/admin/edit-zean-name.php:
+   73  $zean_id=$_GET['zean_id'];
+   74  $szn="SELECT * FROM `zean_name` WHERE id='$zean_id'";
+   75: $rezn=mysql_query($szn) or die("ERROR $szn");
+   76  $rzn=mysql_fetch_row($rezn);
+   77  ?>
+
+/Users/brio/Works/football/admin/fb.php:
+    8  }
+    9  $s="select * from fanpage where id=1";
+   10: $re=mysql_query($s) or die("ERROR $s บรททัด8");
+   11  $r=mysql_fetch_row($re);
+   12  ?>
+
+/Users/brio/Works/football/admin/football.php:
+   72  $id=$_GET["id"];
+   73  $scate="SELECT * FROM `football` WHERE id='$id'";
+   74: $recate=mysql_query($scate) or die("ERROR $scate");
+   75  $rcate=mysql_fetch_row($recate);
+   76  ?>
+
+/Users/brio/Works/football/admin/footer-logo.php:
+    8  }
+    9  $logo="select * from footer_logo where id=1";
+   10: $relogo=mysql_query($logo) or die("ERROR $logo บรททัด8");
+   11  $rlogo=mysql_fetch_row($relogo);
+   12  ?>
+
+/Users/brio/Works/football/admin/game-setting.php:
+   72  <?php
+   73  $s="SELECT * FROM `game_config` where id='1'";
+   74: $re=mysql_query($s) or die("ERROR $s");
+   75  $r=mysql_fetch_row($re);
+   76  ?>
+
+/Users/brio/Works/football/admin/league-t-ded.php:
+   14  }
+   15  $s="SELECT * FROM `league` where id='$l_id'";
+   16: $re=mysql_query($s) or die("ERROR $s");
+   17  $r=mysql_fetch_row($re);
+   18  ?>
+   ..
+  107  <?php
+  108  $sql="SELECT * FROM `t_ded` where l_id='$l_id' AND post_date='$tdate' ORDER BY id ASC";
+  109: $result=mysql_query($sql) or die("ERROR $sql");
+  110  while($row=mysql_fetch_row($result)){
+  111  ?>
+
+/Users/brio/Works/football/admin/linkcolor.php:
+    8  }
+    9  $s="select * from link where id=1";
+   10: $re=mysql_query($s) or die("ERROR $s บรททัด12");
+   11  $r=mysql_fetch_row($re);
+   12  ?>
+
+/Users/brio/Works/football/admin/linkexchange.php:
+    8  }
+    9  $shop="select url from web_detail where id=1";
+   10: $shopre=mysql_query($shop) or die("ERROR $shop บรททัด8");
+   11  $shopr=mysql_fetch_row($shopre);
+   12  $s1="select data from link_admin where id=2";
+   13: $re1=mysql_query($s1) or die("ERROR $s1 บรททัด11");
+   14  $r1=mysql_fetch_row($re1);
+   15  $s2="select data, img from link_admin where id=1";
+   16: $re2=mysql_query($s2) or die("ERROR $s2 บรททัด15");
+   17  $r2=mysql_fetch_row($re2);
+   18  ?>
+   ..
+  360                            <?php
+  361  $s="SELECT * FROM `link_exchange` WHERE actived='0'";
+  362: $re=mysql_query($s) or die("ERROR $s");
+  363  $x=1;
+  364  while($r=mysql_fetch_row($re)){
+  ...
+  420                              <?php
+  421      $strSQL = "SELECT * FROM link_exchange WHERE actived='1'";
+  422:     $objQuery = mysql_query($strSQL);
+  423      $Num_Rows = mysql_num_rows($objQuery);
+  424
+  ...
+  454
+  455      $strSQL .=" order  by id desc LIMIT $Page_Start , $Per_Page";
+  456:     $objQuery  = mysql_query($strSQL);
+  457      $a=1;
+  458      while($objResult = mysql_fetch_row($objQuery)){
+
+/Users/brio/Works/football/admin/list-contact-del-post-analyze.php:
+  216  		$strSQL .= "FROM `contact_del_analyze_post` ";
+  217  		$strSQL .= "INNER JOIN `analyze` ON contact_del_analyze_post.post_id=analyze.id ";
+  218: 		$objQuery = mysql_query($strSQL);
+  219  		$Num_Rows = mysql_num_rows($objQuery);
+  220
+  ...
+  250
+  251  		$strSQL .=" order  by analyze.id ASC LIMIT $Page_Start , $Per_Page";
+  252: 		$objQuery  = mysql_query($strSQL);
+  253  		while($objResult = mysql_fetch_row($objQuery)){
+  254  		$url=rewrite($objResult[2]);
+
+/Users/brio/Works/football/admin/list-del-data-category.php:
+  214  		$strSQL = "SELECT contact_del_post.date, post.id, post.title, post.img, post.view, contact_del_post.id  FROM contact_del_post ";
+  215  		$strSQL .= "INNER JOIN post ON contact_del_post.post_id=post.id ";
+  216: 		$objQuery = mysql_query($strSQL);
+  217  		$Num_Rows = mysql_num_rows($objQuery);
+  218
+  ...
+  248
+  249  		$strSQL .=" order  by post.id ASC LIMIT $Page_Start , $Per_Page";
+  250: 		$objQuery  = mysql_query($strSQL);
+  251  		while($objResult = mysql_fetch_row($objQuery)){
+  252  		$url=rewrite($objResult[2]);
+
+/Users/brio/Works/football/admin/login.php:
+   33  $pass=$_POST["pass"];
+   34  $s="SELECT * FROM `admin` where user='$user' and pass='$pass'";
+   35: $re=mysql_query($s) or die("ERROR $s");
+   36  $num=mysql_num_rows($re);
+   37  $r=mysql_fetch_row($re);
+
+/Users/brio/Works/football/admin/mem-conditions.php:
+    8  }
+    9  $s="SELECT * FROM `mem_conditions` WHERE id='1'";
+   10: $re=mysql_query($s) or die("Error $s");
+   11  $r=mysql_fetch_row($re);
+   12  ?>
+
+/Users/brio/Works/football/admin/member-detail.php:
+   12  $s5.="INNER JOIN province ON member.province_id = province.PROVINCE_ID ";
+   13  $s5.="WHERE member.id='$member_id'";
+   14: $re5=mysql_query($s5) or die("ERROR บรรทัด 5-9");
+   15  $r5=mysql_fetch_row($re5);
+   16  ?>
+
+/Users/brio/Works/football/admin/menu.php:
+  152        <?php
+  153  $stab="select id, cate_name from category order by id asc";
+  154: $retab=mysql_query($stab) or die("ERROR $stab");
+  155  while($rtab=mysql_fetch_row($retab)){
+  156  ?>
+  ...
+  181  <?php
+  182  $sball="select id, name from football order by id asc";
+  183: $reball=mysql_query($sball) or die("ERROR $sball");
+  184  while($rball=mysql_fetch_row($reball)){
+  185  ?>
+  ...
+  207  <?php
+  208  $szean="select * from zean_name order by id asc";
+  209: $rezean=mysql_query($szean) or die("ERROR $szean");
+  210  while($rzean=mysql_fetch_row($rezean)){
+  211  ?>
+  ...
+  218        <?php
+  219  $ssco="select id, league from league order by id asc";
+  220: $resco=mysql_query($ssco) or die("ERROR $ssco");
+  221  while($rsco=mysql_fetch_row($resco)){
+  222  ?>
+  ...
+  243        <?php
+  244  $ssco="select id, league from league order by id asc";
+  245: $resco=mysql_query($ssco) or die("ERROR $ssco");
+  246  while($rsco=mysql_fetch_row($resco)){
+  247  ?>
+
+/Users/brio/Works/football/admin/news-index.php:
+    8  }
+    9  $s="SELECT * FROM `news_index` WHERE id='1'";
+   10: $re=mysql_query($s) or die("Error $s");
+   11  $r=mysql_fetch_row($re);
+   12  ?>
+
+/Users/brio/Works/football/admin/p-add-ads-a2.php:
+   13  if($type==1){
+   14  $adsense=addslashes($_POST[adsense]);
+   15: $upd=mysql_query("INSERT INTO `ads_a2` (`type` ,`type_ads` ,`adsense` ,`name` ,`tel` ,`email` ,`url` ,`keyword` ,`img` ,`start_date` ,`finish_date`)VALUES ('$type', '', '$adsense', '', '', '', '', '', '', '', '')") or die("Error $upd");
+   16  mysql_close();
+   17  }else if($type==2){
+   ..
+   38  $img="$date$file1";
+   39  @copy($tmp1,"../ads-img/$img");
+   40: $upd=mysql_query("INSERT INTO `ads_a2` (`type` ,`type_ads` ,`adsense` ,`name` ,`tel` ,`email` ,`url` ,`keyword` ,`img` ,`start_date` ,`finish_date`)VALUES ('$type', '$type_ads', '', '$name', '$tel', '$email', '$url', '$keyword', '$img', '$start_date', '$finish_date')") or die("Error $upd");
+   41  mysql_close();
+   42  }
+
+/Users/brio/Works/football/admin/p-add-ads-a3.php:
+   13  if($type==1){
+   14  $adsense=addslashes($_POST[adsense]);
+   15: $upd=mysql_query("INSERT INTO `ads_a3` (`type` ,`type_ads` ,`adsense` ,`name` ,`tel` ,`email` ,`url` ,`keyword` ,`img` ,`start_date` ,`finish_date`)VALUES ('$type', '', '$adsense', '', '', '', '', '', '', '', '')") or die("Error $upd");
+   16  mysql_close();
+   17  }else if($type==2){
+   ..
+   38  $img="$date$file1";
+   39  @copy($tmp1,"../ads-img/$img");
+   40: $upd=mysql_query("INSERT INTO `ads_a3` (`type` ,`type_ads` ,`adsense` ,`name` ,`tel` ,`email` ,`url` ,`keyword` ,`img` ,`start_date` ,`finish_date`)VALUES ('$type', '$type_ads', '', '$name', '$tel', '$email', '$url', '$keyword', '$img', '$start_date', '$finish_date')") or die("Error $upd");
+   41  mysql_close();
+   42  }
+
+/Users/brio/Works/football/admin/p-add-ads-a4.php:
+   13  if($type==1){
+   14  $adsense=addslashes($_POST[adsense]);
+   15: $upd=mysql_query("INSERT INTO `ads_a4` (`type` ,`type_ads` ,`adsense` ,`name` ,`tel` ,`email` ,`url` ,`keyword` ,`img` ,`start_date` ,`finish_date`)VALUES ('$type', '', '$adsense', '', '', '', '', '', '', '', '')") or die("Error $upd");
+   16  mysql_close();
+   17  }else if($type==2){
+   ..
+   38  $img="$date$file1";
+   39  @copy($tmp1,"../ads-img/$img");
+   40: $upd=mysql_query("INSERT INTO `ads_a4` (`type` ,`type_ads` ,`adsense` ,`name` ,`tel` ,`email` ,`url` ,`keyword` ,`img` ,`start_date` ,`finish_date`)VALUES ('$type', '$type_ads', '', '$name', '$tel', '$email', '$url', '$keyword', '$img', '$start_date', '$finish_date')") or die("Error $upd");
+   41  mysql_close();
+   42  }
+
+/Users/brio/Works/football/admin/p-add-ads-a5.php:
+   13  if($type==1){
+   14  $adsense=addslashes($_POST[adsense]);
+   15: $upd=mysql_query("INSERT INTO `ads_a5` (`type` ,`type_ads` ,`adsense` ,`name` ,`tel` ,`email` ,`url` ,`keyword` ,`img` ,`start_date` ,`finish_date`)VALUES ('$type', '', '$adsense', '', '', '', '', '', '', '', '')") or die("Error $upd");
+   16  mysql_close();
+   17  }else if($type==2){
+   ..
+   38  $img="$date$file1";
+   39  @copy($tmp1,"../ads-img/$img");
+   40: $upd=mysql_query("INSERT INTO `ads_a5` (`type` ,`type_ads` ,`adsense` ,`name` ,`tel` ,`email` ,`url` ,`keyword` ,`img` ,`start_date` ,`finish_date`)VALUES ('$type', '$type_ads', '', '$name', '$tel', '$email', '$url', '$keyword', '$img', '$start_date', '$finish_date')") or die("Error $upd");
+   41  mysql_close();
+   42  }
+
+/Users/brio/Works/football/admin/p-add-ads-a6.php:
+   13  if($type==1){
+   14  $adsense=addslashes($_POST[adsense]);
+   15: $upd=mysql_query("INSERT INTO `ads_a6` (`type` ,`type_ads` ,`adsense` ,`name` ,`tel` ,`email` ,`url` ,`keyword` ,`img` ,`start_date` ,`finish_date`)VALUES ('$type', '', '$adsense', '', '', '', '', '', '', '', '')") or die("Error $upd");
+   16  mysql_close();
+   17  }else if($type==2){
+   ..
+   38  $img="$date$file1";
+   39  @copy($tmp1,"../ads-img/$img");
+   40: $upd=mysql_query("INSERT INTO `ads_a6` (`type` ,`type_ads` ,`adsense` ,`name` ,`tel` ,`email` ,`url` ,`keyword` ,`img` ,`start_date` ,`finish_date`)VALUES ('$type', '$type_ads', '', '$name', '$tel', '$email', '$url', '$keyword', '$img', '$start_date', '$finish_date')") or die("Error $upd");
+   41  mysql_close();
+   42  }
+
+/Users/brio/Works/football/admin/p-add-ads-a7.php:
+   13  if($type==1){
+   14  $adsense=addslashes($_POST[adsense]);
+   15: $upd=mysql_query("INSERT INTO `ads_a7` (`type` ,`type_ads` ,`adsense` ,`name` ,`tel` ,`email` ,`url` ,`keyword` ,`img` ,`start_date` ,`finish_date`)VALUES ('$type', '', '$adsense', '', '', '', '', '', '', '', '')") or die("Error $upd");
+   16  mysql_close();
+   17  }else if($type==2){
+   ..
+   38  $img="$date$file1";
+   39  @copy($tmp1,"../ads-img/$img");
+   40: $upd=mysql_query("INSERT INTO `ads_a7` (`type` ,`type_ads` ,`adsense` ,`name` ,`tel` ,`email` ,`url` ,`keyword` ,`img` ,`start_date` ,`finish_date`)VALUES ('$type', '$type_ads', '', '$name', '$tel', '$email', '$url', '$keyword', '$img', '$start_date', '$finish_date')") or die("Error $upd");
+   41  mysql_close();
+   42  }
+
+/Users/brio/Works/football/admin/p-add-ads-a8.php:
+   13  if($type==1){
+   14  $adsense=addslashes($_POST[adsense]);
+   15: $upd=mysql_query("INSERT INTO `ads_a8` (`type` ,`type_ads` ,`adsense` ,`name` ,`tel` ,`email` ,`url` ,`keyword` ,`img` ,`start_date` ,`finish_date`)VALUES ('$type', '', '$adsense', '', '', '', '', '', '', '', '')") or die("Error $upd");
+   16  mysql_close();
+   17  }else if($type==2){
+   ..
+   38  $img="$date$file1";
+   39  @copy($tmp1,"../ads-img/$img");
+   40: $upd=mysql_query("INSERT INTO `ads_a8` (`type` ,`type_ads` ,`adsense` ,`name` ,`tel` ,`email` ,`url` ,`keyword` ,`img` ,`start_date` ,`finish_date`)VALUES ('$type', '$type_ads', '', '$name', '$tel', '$email', '$url', '$keyword', '$img', '$start_date', '$finish_date')") or die("Error $upd");
+   41  mysql_close();
+   42  }
+
+/Users/brio/Works/football/admin/p-add-ads-a9.php:
+   13  if($type==1){
+   14  $adsense=addslashes($_POST[adsense]);
+   15: $upd=mysql_query("INSERT INTO `ads_a9` (`type` ,`type_ads` ,`adsense` ,`name` ,`tel` ,`email` ,`url` ,`keyword` ,`img` ,`start_date` ,`finish_date`)VALUES ('$type', '', '$adsense', '', '', '', '', '', '', '', '')") or die("Error $upd");
+   16  mysql_close();
+   17  }else if($type==2){
+   ..
+   38  $img="$date$file1";
+   39  @copy($tmp1,"../ads-img/$img");
+   40: $upd=mysql_query("INSERT INTO `ads_a9` (`type` ,`type_ads` ,`adsense` ,`name` ,`tel` ,`email` ,`url` ,`keyword` ,`img` ,`start_date` ,`finish_date`)VALUES ('$type', '$type_ads', '', '$name', '$tel', '$email', '$url', '$keyword', '$img', '$start_date', '$finish_date')") or die("Error $upd");
+   41  mysql_close();
+   42  }
+
+/Users/brio/Works/football/admin/p-add-data-category.php:
+   26  	@copy($tmp1,"../post-s-img/$rename");
+   27  	//insert
+   28: 	$insert=mysql_query("INSERT INTO `post` (`cate_id` ,`title` ,`short_detail` ,`detail` ,`img` ,`status_comment` ,`post_date` ,`view`)VALUES ('$cate_id', '$title', '$short_detail', '$detail', '$rename', '$status_comment', '$date', '0')") or die("ERROR $insert บรรทัดที่ 44");
+   29  	//select
+   30  	$spost="SELECT id FROM `post` ORDER BY id DESC LIMIT 0, 1";
+   31: 	$repost=mysql_query($spost) or die("ERROR $spost");
+   32  	$rpost=mysql_fetch_row($repost);
+   33  	//insert tag
+   34: 	$insert_tag=mysql_query("INSERT INTO `tag_post` (`post_id` ,`tag1` ,`tag2` ,`tag3` ,`tag4` ,`tag5` ,`tag6`)VALUES ('$rpost[0]', '$tag1', '$tag2', '$tag3', '$tag4', '$tag5', '$tag6')") or die("ERROR $insert_tag");
+   35  	mysql_close();
+   36  	print "<meta http-equiv=refresh content=0;URL=all-main-category.php?cate_id=$cate_id>";
+   ..
+   45  }else{
+   46  	//insert
+   47: 	$insert=mysql_query("INSERT INTO `post` (`cate_id` ,`title` ,`short_detail` ,`detail` ,`status_comment` ,`post_date` ,`view`)VALUES ('$cate_id', '$title', '$short_detail', '$detail', '$status_comment', '$date', '0')") or die("ERROR $insert บรรทัดที่ 44");
+   48  	//select
+   49  	$spost="SELECT id FROM `post` ORDER BY id DESC LIMIT 0, 1";
+   50: 	$repost=mysql_query($spost) or die("ERROR $spost");
+   51  	$rpost=mysql_fetch_row($repost);
+   52  	//insert tag
+   53: 	$insert_tag=mysql_query("INSERT INTO `tag_post` (`post_id` ,`tag1` ,`tag2` ,`tag3` ,`tag4` ,`tag5` ,`tag6`)VALUES ('$rpost[0]', '$tag1', '$tag2', '$tag3', '$tag4', '$tag5', '$tag6')") or die("ERROR $insert_tag");
+   54  	mysql_close();
+   55  	print "<meta http-equiv=refresh content=0;URL=all-main-category.php?cate_id=$cate_id>";
+
+/Users/brio/Works/football/admin/p-add-game-league.php:
+   15  if($league!=""){
+   16  	//insert
+   17: 	$sql=mysql_query("INSERT INTO `game_league` (`league`)VALUES ('$league')")or die("ERROR $sql");
+   18  	mysql_close();
+   19  	print "<meta http-equiv=refresh content=0;URL=all-game-league.php>";
+
+/Users/brio/Works/football/admin/p-add-game-match.php:
+   45  if($league_id!=""&&$game_time!=""&&$home!=""&&$away!=""){
+   46
+   47: $sql=mysql_query("INSERT INTO `game_match` (`league_id` ,`home` ,`away` ,`days` ,`months` ,`years` ,`game_date` ,`game_time` ,`game_status` )VALUES ('$league_id', '$home', '$away', '$days', '$months', '$years', '$date', '$game_time', '1')")or die("ERROR $sql");
+   48
+   49  mysql_close();
+
+/Users/brio/Works/football/admin/p-add-league.php:
+   20  	@copy($tmp1,"../league-icon/$rename");
+   21  	//insert
+   22: 	$sql=mysql_query("INSERT INTO `league` (`league` ,`icon`)VALUES ('$league',  '$rename')")or die("ERROR $sql");
+   23  	mysql_close();
+   24  	print "<meta http-equiv=refresh content=0;URL=add-league.php>";
+
+/Users/brio/Works/football/admin/p-add-province.php:
+   39  $province=htmlspecialchars($_POST['province']);
+   40  $s="select * from province where PROVINCE_NAME='$province'";
+   41: $re=mysql_query($s) or die("ERROR $s บรททัด38");
+   42  $num=mysql_num_rows($re);
+   43  if($num>=1){
+   ..
+   50  }else{
+   51  if($province!=""&&$geo!=""){
+   52: $sql=mysql_query("INSERT INTO `province` (`PROVINCE_NAME`, `GEO_ID`)VALUES ('$province', '$geo')")or die("ERROR $sql บรรทัด49");
+   53  echo "<meta http-equiv='refresh' content='0;url=province.php'>";
+   54  }else{
+
+/Users/brio/Works/football/admin/p-add-t-ded.php:
+   49  $date="$years-$months-$days";
+   50  if($home!=""&&$away!=""&&$odds_ball!=""&&$detail!=""&&$time_live!=""){
+   51: $sql=mysql_query("INSERT INTO `t_ded` (`l_id` ,`home` ,`away` ,`odds_ball` ,`t_ded` ,`t_ded_detail` ,`time_live` ,`ch_live` ,`score` ,`days` ,`months` ,`years` ,`post_date` )VALUES ('$l_id', '$home', '$away', '$odds_ball', '$t_ded', '$detail', '$time_live', '$ch_live', '$score', '$days', '$months', '$years', '$date')")or die("ERROR $sql บรรทัด 45");
+   52
+   53  $s="SELECT post_date FROM `t_ded` order by id desc limit 0, 1";
+   54: $re=mysql_query($s) or die("ERROR $s");
+   55  $r=mysql_fetch_row($re);
+   56  echo "<meta http-equiv='refresh' content='0;url=league-t-ded.php?l_id=$l_id&tdate=$r[0]'>";
+
+/Users/brio/Works/football/admin/p-add-tded-zean.php:
+   49  //select post_date และ zean_id
+   50  $s="SELECT * FROM `tded_zean` WHERE zean_id='$zean_id' AND post_date='$date'";
+   51: $re=mysql_query($s) or die("ERROR 1");
+   52  $n=mysql_num_rows($re);
+   53  //check post_date และ zean_id ว่าวันนี้โพสต์ไปแล้วหรือยัง
+   54  if($n==0){
+   55: $sql=mysql_query("INSERT INTO `tded_zean` (`zean_id` ,`team1` ,`tded1` ,`team2` ,`tded2` ,`team3` ,`tded3` ,`days` ,`months` ,`years` ,`post_date` )VALUES ('$zean_id', '$team1', '$t_ded1', '$team2', '$t_ded2', '$team3', '$t_ded3', '$days', '$months', '$years','$date')")or die("ERROR 2");
+   56
+   57  mysql_close();
+
+/Users/brio/Works/football/admin/p-admin-analyze.php:
+   49  		$rename="$time-$file1";
+   50  		@copy($tmp1,"../mod/avatar/$rename");
+   51: 		$sql=mysql_query("INSERT INTO `admin_analyze` (`name` ,`img` ,`user` ,`pass` ,`reg_date` )VALUES ('$name', '$rename', '$user', '$pass', '$date')")or die("ERROR $sql");
+   52  		echo "<meta http-equiv='refresh' content='0;url=all-admin-analyze.php'>";
+   53  		}else{
+   ..
+   61  		}
+   62  	}else{
+   63: 	$sql=mysql_query("INSERT INTO `admin_analyze` (`name` ,`user` ,`pass` ,`reg_date` )VALUES ('$name', '$user', '$pass', '$date')")or die("ERROR $sql");
+   64  	echo "<meta http-equiv='refresh' content='0;url=all-admin-analyze.php'>";
+   65  	}
+
+/Users/brio/Works/football/admin/p-admin.php:
+   40  $pass=htmlspecialchars($_POST["pass"]);
+   41  if($user!=""&&$pass!=""){
+   42: $sql=mysql_query("INSERT INTO `admin` (`user` ,`pass`)VALUES ('$user',  '$pass')")or die("ERROR $sql");
+   43  echo "<meta http-equiv='refresh' content='0;url=admin.php'>";
+   44  }else{
+
+/Users/brio/Works/football/admin/p-ads-a1.php:
+   13  $part1="../ads-img/$op";
+   14  @unlink ($part1);
+   15: $upd=mysql_query("UPDATE `ads_a1` SET `type` =  '$type', `type_ads` =  '', `adsense` =  '$adsense', `name` =  '', `tel` =  '', `email` =  '', `url` =  '', `keyword` =  '', `img` =  '', `start_date` =  '', `finish_date` =  '' WHERE `id` =1 LIMIT 1") or die("Error $upd");
+   16  mysql_close();
+   17  }else if($type==2){
+   ..
+   38  $img=$op;
+   39  }
+   40: $upd=mysql_query("UPDATE `ads_a1` SET `type` =  '$type', `type_ads` =  '$type_ads', `adsense` =  '', `name` =  '$name', `tel` =  '$tel', `email` =  '$email', `url` =  '$url', `keyword` =  '$keyword', `img` =  '$rename', `start_date` =  '$start_date', `finish_date` =  '$finish_date' WHERE `id` =1 LIMIT 1") or die("Error $upd");
+   41  mysql_close();
+   42  }
+
+/Users/brio/Works/football/admin/p-ads-a2.php:
+   14  $part1="../ads-img/$op";
+   15  @unlink ($part1);
+   16: $upd=mysql_query("UPDATE `ads_a2` SET `type` =  '$type', `type_ads` =  '', `adsense` =  '$adsense', `name` =  '', `tel` =  '', `email` =  '', `url` =  '', `keyword` =  '', `img` =  '', `start_date` =  '', `finish_date` =  '' WHERE `id` ='$id' LIMIT 1") or die("Error $upd");
+   17  mysql_close();
+   18  }else if($type==2){
+   ..
+   40  $img=$op;
+   41  }
+   42: $upd=mysql_query("UPDATE `ads_a2` SET `type` =  '$type', `type_ads` =  '$type_ads', `adsense` =  '', `name` =  '$name', `tel` =  '$tel', `email` =  '$email', `url` =  '$url', `keyword` =  '$keyword', `img` =  '$img', `start_date` =  '$start_date', `finish_date` =  '$finish_date' WHERE `id` ='$id' LIMIT 1") or die("Error $upd");
+   43  mysql_close();
+   44  }
+
+/Users/brio/Works/football/admin/p-ads-a3.php:
+   14  $part1="../ads-img/$op";
+   15  @unlink ($part1);
+   16: $upd=mysql_query("UPDATE `ads_a3` SET `type` =  '$type', `type_ads` =  '', `adsense` =  '$adsense', `name` =  '', `tel` =  '', `email` =  '', `url` =  '', `keyword` =  '', `img` =  '', `start_date` =  '', `finish_date` =  '' WHERE `id` ='$id' LIMIT 1") or die("Error $upd");
+   17  mysql_close();
+   18  }else if($type==2){
+   ..
+   40  $img=$op;
+   41  }
+   42: $upd=mysql_query("UPDATE `ads_a3` SET `type` =  '$type', `type_ads` =  '$type_ads', `adsense` =  '', `name` =  '$name', `tel` =  '$tel', `email` =  '$email', `url` =  '$url', `keyword` =  '$keyword', `img` =  '$img', `start_date` =  '$start_date', `finish_date` =  '$finish_date' WHERE `id` ='$id' LIMIT 1") or die("Error $upd");
+   43  mysql_close();
+   44  }
+
+/Users/brio/Works/football/admin/p-ads-a4.php:
+   14  $part1="../ads-img/$op";
+   15  @unlink ($part1);
+   16: $upd=mysql_query("UPDATE `ads_a4` SET `type` =  '$type', `type_ads` =  '', `adsense` =  '$adsense', `name` =  '', `tel` =  '', `email` =  '', `url` =  '', `keyword` =  '', `img` =  '', `start_date` =  '', `finish_date` =  '' WHERE `id` ='$id' LIMIT 1") or die("Error $upd");
+   17  mysql_close();
+   18  }else if($type==2){
+   ..
+   40  $img=$op;
+   41  }
+   42: $upd=mysql_query("UPDATE `ads_a4` SET `type` =  '$type', `type_ads` =  '$type_ads', `adsense` =  '', `name` =  '$name', `tel` =  '$tel', `email` =  '$email', `url` =  '$url', `keyword` =  '$keyword', `img` =  '$img', `start_date` =  '$start_date', `finish_date` =  '$finish_date' WHERE `id` ='$id' LIMIT 1") or die("Error $upd");
+   43  mysql_close();
+   44  }
+
+/Users/brio/Works/football/admin/p-ads-a5.php:
+   14  $part1="../ads-img/$op";
+   15  @unlink ($part1);
+   16: $upd=mysql_query("UPDATE `ads_a5` SET `type` =  '$type', `type_ads` =  '', `adsense` =  '$adsense', `name` =  '', `tel` =  '', `email` =  '', `url` =  '', `keyword` =  '', `img` =  '', `start_date` =  '', `finish_date` =  '' WHERE `id` ='$id' LIMIT 1") or die("Error $upd");
+   17  mysql_close();
+   18  }else if($type==2){
+   ..
+   40  $img=$op;
+   41  }
+   42: $upd=mysql_query("UPDATE `ads_a5` SET `type` =  '$type', `type_ads` =  '$type_ads', `adsense` =  '', `name` =  '$name', `tel` =  '$tel', `email` =  '$email', `url` =  '$url', `keyword` =  '$keyword', `img` =  '$img', `start_date` =  '$start_date', `finish_date` =  '$finish_date' WHERE `id` ='$id' LIMIT 1") or die("Error $upd");
+   43  mysql_close();
+   44  }
+
+/Users/brio/Works/football/admin/p-ads-a6.php:
+   14  $part1="../ads-img/$op";
+   15  @unlink ($part1);
+   16: $upd=mysql_query("UPDATE `ads_a6` SET `type` =  '$type', `type_ads` =  '', `adsense` =  '$adsense', `name` =  '', `tel` =  '', `email` =  '', `url` =  '', `keyword` =  '', `img` =  '', `start_date` =  '', `finish_date` =  '' WHERE `id` ='$id' LIMIT 1") or die("Error $upd");
+   17  mysql_close();
+   18  }else if($type==2){
+   ..
+   40  $img=$op;
+   41  }
+   42: $upd=mysql_query("UPDATE `ads_a6` SET `type` =  '$type', `type_ads` =  '$type_ads', `adsense` =  '', `name` =  '$name', `tel` =  '$tel', `email` =  '$email', `url` =  '$url', `keyword` =  '$keyword', `img` =  '$img', `start_date` =  '$start_date', `finish_date` =  '$finish_date' WHERE `id` ='$id' LIMIT 1") or die("Error $upd");
+   43  mysql_close();
+   44  }
+
+/Users/brio/Works/football/admin/p-ads-a7.php:
+   14  $part1="../ads-img/$op";
+   15  @unlink ($part1);
+   16: $upd=mysql_query("UPDATE `ads_a7` SET `type` =  '$type', `type_ads` =  '', `adsense` =  '$adsense', `name` =  '', `tel` =  '', `email` =  '', `url` =  '', `keyword` =  '', `img` =  '', `start_date` =  '', `finish_date` =  '' WHERE `id` ='$id' LIMIT 1") or die("Error $upd");
+   17  mysql_close();
+   18  }else if($type==2){
+   ..
+   39  $img=$op;
+   40  }
+   41: $upd=mysql_query("UPDATE `ads_a7` SET `type` =  '$type', `type_ads` =  '$type_ads', `adsense` =  '', `name` =  '$name', `tel` =  '$tel', `email` =  '$email', `url` =  '$url', `keyword` =  '$keyword', `img` =  '$img', `start_date` =  '$start_date', `finish_date` =  '$finish_date' WHERE `id` ='$id' LIMIT 1") or die("Error $upd");
+   42  mysql_close();
+   43  }
+
+/Users/brio/Works/football/admin/p-ads-a8.php:
+   14  $part1="../ads-img/$op";
+   15  @unlink ($part1);
+   16: $upd=mysql_query("UPDATE `ads_a8` SET `type` =  '$type', `type_ads` =  '', `adsense` =  '$adsense', `name` =  '', `tel` =  '', `email` =  '', `url` =  '', `keyword` =  '', `img` =  '', `start_date` =  '', `finish_date` =  '' WHERE `id` ='$id' LIMIT 1") or die("Error $upd");
+   17  mysql_close();
+   18  }else if($type==2){
+   ..
+   40  $img=$op;
+   41  }
+   42: $upd=mysql_query("UPDATE `ads_a8` SET `type` =  '$type', `type_ads` =  '$type_ads', `adsense` =  '', `name` =  '$name', `tel` =  '$tel', `email` =  '$email', `url` =  '$url', `keyword` =  '$keyword', `img` =  '$img', `start_date` =  '$start_date', `finish_date` =  '$finish_date' WHERE `id` ='$id' LIMIT 1") or die("Error $upd");
+   43  mysql_close();
+   44  }
+
+/Users/brio/Works/football/admin/p-ads-a9.php:
+   14  $part1="../ads-img/$op";
+   15  @unlink ($part1);
+   16: $upd=mysql_query("UPDATE `ads_a9` SET `type` =  '$type', `type_ads` =  '', `adsense` =  '$adsense', `name` =  '', `tel` =  '', `email` =  '', `url` =  '', `keyword` =  '', `img` =  '', `start_date` =  '', `finish_date` =  '' WHERE `id` ='$id' LIMIT 1") or die("Error $upd");
+   17  mysql_close();
+   18  }else if($type==2){
+   ..
+   39  $img=$op;
+   40  }
+   41: $upd=mysql_query("UPDATE `ads_a9` SET `type` =  '$type', `type_ads` =  '$type_ads', `adsense` =  '', `name` =  '$name', `tel` =  '$tel', `email` =  '$email', `url` =  '$url', `keyword` =  '$keyword', `img` =  '$img', `start_date` =  '$start_date', `finish_date` =  '$finish_date' WHERE `id` ='$id' LIMIT 1") or die("Error $upd");
+   42  mysql_close();
+   43  }
+
+/Users/brio/Works/football/admin/p-ads.php:
+    8  }
+    9  $detail=addslashes($_POST["input"]);
+   10: $upd=mysql_query("UPDATE `ads` SET `detail` =  '$detail' WHERE `id` =1 LIMIT 1") or die("Error $upd");
+   11  mysql_close();
+   12  print "<meta http-equiv=refresh content=0;URL=ads.php>";
+
+/Users/brio/Works/football/admin/p-ban-ip.php:
+   38  $brand=htmlspecialchars($_POST['brand']);
+   39  $s="select * from ban_ip where ip='$brand'";
+   40: $re=mysql_query($s) or die("ERROR $s บรททัด39");
+   41  $num=mysql_num_rows($re);
+   42  if($num>=1){
+   ..
+   49  }else{
+   50  if($brand!=""){
+   51: $sql=mysql_query("INSERT INTO `ban_ip` (`ip`)VALUES ('$brand')")or die("ERROR $sql บรรทัด 51");
+   52  echo "<meta http-equiv='refresh' content='0;url=ban-ip.php'>";
+   53  }else{
+
+/Users/brio/Works/football/admin/p-ban-word.php:
+   38  $brand=htmlspecialchars($_POST['brand']);
+   39  $s="select * from ban_word where word='$brand'";
+   40: $re=mysql_query($s) or die("ERROR $s บรททัด39");
+   41  $num=mysql_num_rows($re);
+   42  if($num>=1){
+   ..
+   49  }else{
+   50  if($brand!=""){
+   51: $sql=mysql_query("INSERT INTO `ban_word` (`word`)VALUES ('$brand')")or die("ERROR $sql บรรทัด 51");
+   52  echo "<meta http-equiv='refresh' content='0;url=ban-word.php'>";
+   53  }else{
+
+/Users/brio/Works/football/admin/p-bg.php:
+   50  	//del img2
+   51
+   52: 	$sql=mysql_query("UPDATE  `bg` SET  `color` =  '$color',`img` =  '$file1',`repeat` =  '$repeat',`fix` =  '$fix' WHERE  `id` ='1'") or die("ไม่แก้ไขเพิ่มข้อมูลได้ 50");
+   53  	mysql_close();
+   54  	echo "<meta http-equiv=refresh content=0;URL=bg.php>";
+   55  }else if($file1==""){
+   56
+   57: 	$sql=mysql_query("UPDATE  `bg` SET  `color` =  '$color',`repeat` =  '$repeat',`fix` =  '$fix' WHERE  `id` ='1'") or die("ไม่แก้ไขเพิ่มข้อมูลได้ 55");
+   58  	mysql_close();
+   59  	echo "<meta http-equiv=refresh content=0;URL=bg.php>";
+
+/Users/brio/Works/football/admin/p-block-email.php:
+   38  $brand=htmlspecialchars($_POST['brand']);
+   39  $s="select * from block_email where email='$brand'";
+   40: $re=mysql_query($s) or die("ERROR $s บรททัด39");
+   41  $num=mysql_num_rows($re);
+   42  if($num>=1){
+   ..
+   49  }else{
+   50  if($brand!=""){
+   51: $sql=mysql_query("INSERT INTO `block_email` (`email`)VALUES ('$brand')")or die("ERROR $sql บรรทัด 51");
+   52  echo "<meta http-equiv='refresh' content='0;url=block-email.php'>";
+   53  }else{
+
+/Users/brio/Works/football/admin/p-data.php:
+   51  $keyword=htmlspecialchars($_POST['keyword']);
+   52  if($name!=""&&$add!=""&&$tel!=""&&$email!=""&&$fax!=""&&$date_s!=""&&$date_f!=""&&$time_s!=""&&$time_f!=""&&$title!=""&&$description!=""&&$keyword!=""){
+   53: $sql=mysql_query("UPDATE `web_detail` SET  `name` =  '$name',`add` =  '$add',`tel` =  '$tel',`email` =  '$email',`fax` =  '$fax',`date_s` =  '$date_s',`date_f` =  '$date_f',`time_s` =  '$time_s',`time_f` =  '$time_f',`title` =  '$title',`description` =  '$description',`keyword` =  '$keyword',`url` =  '$url' WHERE `id` =1 LIMIT 1")or die("ERROR $sql");
+   54  echo "<meta http-equiv='refresh' content='0;url=data.php'>";
+   55  }else{
+
+/Users/brio/Works/football/admin/p-edit-admin-analyze.php:
+   53  		$rename="$time-$file1";
+   54  		@copy($tmp1,"../mod/avatar/$rename");
+   55: 		$sql=mysql_query("UPDATE `admin_analyze` SET `name`='$name' ,`img`='$rename' ,`user`='$user' ,`pass`='$pass' WHERE id='$id'")or die("ERROR $sql");
+   56  		echo "<meta http-equiv='refresh' content='0;url=edit-admin-analyze.php?id=$id'>";
+   57  		}else{
+   ..
+   65  		}
+   66  	}else{
+   67: 	$sql=mysql_query("UPDATE `admin_analyze` SET `name`='$name' ,`user`='$user' ,`pass`='$pass' WHERE id='$id'")or die("ERROR $sql");
+   68  	echo "<meta http-equiv='refresh' content='0;url=edit-admin-analyze.php?id=$id'>";
+   69  	}
+
+/Users/brio/Works/football/admin/p-edit-admin.php:
+   41  $pass=htmlspecialchars($_POST["pass"]);
+   42  if($user!=""&&$pass!=""){
+   43: $sql=mysql_query("update `admin` set `user`='$user' ,`pass`='$pass' where id='$id'")or die("ERROR $sql");
+   44  echo "<meta http-equiv='refresh' content='0;url=admin.php'>";
+   45  }else{
+
+/Users/brio/Works/football/admin/p-edit-ban-ip.php:
+   39  $brand=htmlspecialchars($_POST['brand']);
+   40  if($brand!=""){
+   41: $sql=mysql_query("UPDATE `ban_ip` SET `ip`='$brand' WHERE id='$id'")or die("ERROR $sql บรรทัด67");
+   42  echo "<meta http-equiv='refresh' content='0;url=edit-ban-ip.php?id=$id'>";
+   43  }else{
+
+/Users/brio/Works/football/admin/p-edit-ban-word.php:
+   39  $brand=htmlspecialchars($_POST['brand']);
+   40  if($brand!=""){
+   41: $sql=mysql_query("UPDATE `ban_word` SET `word`='$brand' WHERE id='$id'")or die("ERROR $sql บรรทัด67");
+   42  echo "<meta http-equiv='refresh' content='0;url=edit-ban-word.php?id=$id'>";
+   43  }else{
+
+/Users/brio/Works/football/admin/p-edit-block-email.php:
+   39  $brand=htmlspecialchars($_POST['brand']);
+   40  if($brand!=""){
+   41: $sql=mysql_query("UPDATE `block_email` SET `email`='$brand' WHERE id='$id'")or die("ERROR $sql บรรทัด67");
+   42  echo "<meta http-equiv='refresh' content='0;url=edit-block-email.php?id=$id'>";
+   43  }else{
+
+/Users/brio/Works/football/admin/p-edit-category.php:
+   18  if($cate_name!=""&&$title!=""&&$description!=""&&$keyword!=""){
+   19  	//update
+   20: 	$update=mysql_query("UPDATE `category` SET `cate_name`='$cate_name' ,`title`='$title' ,`description`='$description' ,`keyword`='$keyword' WHERE id='$cate_id'") or die("ERROR $insert update 36");
+   21  	mysql_close();
+   22  	print "<meta http-equiv=refresh content=0;URL=edit-category.php?cate_id=$cate_id>";
+
+/Users/brio/Works/football/admin/p-edit-data-category.php:
+   30  	@copy($tmp1,"../post-s-img/$rename");
+   31  	//update
+   32: 	$update=mysql_query("UPDATE `post` SET `title`='$title' ,`short_detail`='$short_detail' ,`detail`='$detail' ,`img`='$rename' ,`status_comment`='$status_comment' WHERE id='$id'") or die("ERROR $update");
+   33  	//update tag
+   34: 	$update_tag=mysql_query("UPDATE `tag_post` SET `tag1`='$tag1' ,`tag2`='$tag2' ,`tag3`='$tag3' ,`tag4`='$tag4' ,`tag5`='$tag5' ,`tag6`='$tag6' WHERE post_id='$id'") or die("ERROR $update_tag");
+   35  	mysql_close();
+   36  	print "<meta http-equiv=refresh content=0;URL=all-main-category.php?cate_id=$cate_id>";
+   ..
+   45  }else{
+   46  	//update
+   47: 	$update=mysql_query("UPDATE `post` SET `title`='$title' ,`short_detail`='$short_detail' ,`detail`='$detail' ,`status_comment`='$status_comment' WHERE id='$id'") or die("ERROR $update");
+   48  	//update tag
+   49: 	$update_tag=mysql_query("UPDATE `tag_post` SET `tag1`='$tag1' ,`tag2`='$tag2' ,`tag3`='$tag3' ,`tag4`='$tag4' ,`tag5`='$tag5' ,`tag6`='$tag6' WHERE post_id='$id'") or die("ERROR $update_tag");
+   50  	mysql_close();
+   51  	print "<meta http-equiv=refresh content=0;URL=all-main-category.php?cate_id=$cate_id>";
+
+/Users/brio/Works/football/admin/p-edit-game-league.php:
+   15  if($league!=""){
+   16  	//update
+   17: 	$sql=mysql_query("UPDATE `game_league` SET `league`='$league' WHERE id='$id'")or die("ERROR $sql");
+   18  	mysql_close();
+   19  	print "<meta http-equiv=refresh content=0;URL=edit-game-league.php?id=$id>";
+
+/Users/brio/Works/football/admin/p-edit-game-match.php:
+   49  if($league_id!=""&&$game_time!=""&&$home!=""&&$away!=""){
+   50
+   51: $sql=mysql_query("UPDATE `game_match` SET `league_id`='$league_id' ,`home`='$home' ,`away`='$away' ,`score`='$score' ,`result`='$result' ,`days`='$days' ,`months`='$months' ,`years`='$years' ,`game_date`='$date' ,`game_time`='$game_time' ,`game_status`='$type' WHERE id='$id'")or die("ERROR $sql");
+   52
+   53  mysql_close();
+
+/Users/brio/Works/football/admin/p-edit-league.php:
+   24  	@copy($tmp1,"../league-icon/$rename");
+   25  	//update
+   26: 	$sql=mysql_query("UPDATE `league` SET `league`='$league' ,`icon`='$rename' WHERE id='$id'")or die("ERROR $sql");
+   27  	mysql_close();
+   28  	print "<meta http-equiv=refresh content=0;URL=edit-league.php?id=$id>";
+   29  	}else{
+   30  	//update
+   31: 	$sql=mysql_query("UPDATE `league` SET `league`='$league' WHERE id='$id'")or die("ERROR $sql");
+   32  	mysql_close();
+   33  	print "<meta http-equiv=refresh content=0;URL=edit-league.php?id=$id>";
+
+/Users/brio/Works/football/admin/p-edit-province.php:
+   41  //echo "$Submit=[Submit]<br>$cate=[cate]";
+   42  $s="select * from province where PROVINCE_NAME='$province' AND GEO_ID='$geo'";
+   43: $re=mysql_query($s) or die("ERROR MENU $s บรรทัด40");
+   44  $num=mysql_num_rows($re);
+   45  if($num>=1){
+   ..
+   52  }else{
+   53  if($province!=""&&$id!=""&&$geo!=""){
+   54: $sql=mysql_query("UPDATE `province` SET `PROVINCE_NAME`='$province', `GEO_ID`='$geo' WHERE PROVINCE_ID='$id'")or die("ERROR $sql บรรทัด51");
+   55  echo "<meta http-equiv='refresh' content='0;url=edit-province.php?id=$id'>";
+   56  }else{
+
+/Users/brio/Works/football/admin/p-edit-t-ded.php:
+   50  $date="$years-$months-$days";
+   51  if($home!=""&&$away!=""&&$odds_ball!=""&&$detail!=""&&$time_live!=""){
+   52: $sql=mysql_query("UPDATE `t_ded` SET `home`='$home' ,`away`='$away' ,`odds_ball`='$odds_ball' ,`t_ded`='$t_ded' ,`t_ded_detail`='$detail' ,`time_live`='$time_live' ,`ch_live`='$ch_live' ,`score`='$score' ,`days`='$days' ,`months`='$months' ,`years`='$years' ,`post_date`='$date' WHERE id='$id'")or die("ERROR $sql บรรทัด 46");
+   53  echo "<meta http-equiv='refresh' content='0;url=league-t-ded.php?l_id=$l_id&tdate=$date'>";
+   54  }else{
+
+/Users/brio/Works/football/admin/p-edit-tded-zean.php:
+   48  $date="$years-$months-$days";
+   49  if($team1!=""&&$team2!=""&&$team3!=""){
+   50: $sql=mysql_query("UPDATE `tded_zean` SET `team1`='$team1' ,`tded1`='$t_ded1' ,`team2`='$team2' ,`tded2`='$t_ded2' ,`team3`='$team3' ,`tded3`='$t_ded3' ,`days`='$days' ,`months`='$months' ,`years`='$years' ,`post_date`='$date' WHERE id='$id'")or die("ERROR $sql");
+   51
+   52  mysql_close();
+
+/Users/brio/Works/football/admin/p-edit-webboard-category.php:
+   42  $keyword=htmlspecialchars($_POST['keyword']);
+   43  if($brand!=""&&$title!=""&&$description!=""&&$keyword!=""){
+   44: $sql=mysql_query("UPDATE `webboard_category` SET `cate_name`='$brand', `title`='$title', `description`='$description', `keyword`='$keyword' WHERE id='$id'")or die("ERROR $sql บรรทัด67");
+   45  echo "<meta http-equiv='refresh' content='0;url=edit-webboard-category.php?id=$id'>";
+   46  }else{
+
+/Users/brio/Works/football/admin/p-edit-webboard.php:
+   24  			$rename="$time-$file1";
+   25  			@copy($tmp1,"board-img/$rename");
+   26: 			$upd=mysql_query("UPDATE `webboard` SET `cate_id`='$cate' ,`title`='$title' ,`detail`='$detail' ,`img`='$rename' WHERE `id`='$topic_id'") or die("ERROR $upd บรรทัดที่ 24");
+   27  			mysql_close();
+   28  			echo "<meta http-equiv='refresh' content='0;url=all-webboard.php'>" ;
+   ..
+   36  	}
+   37  }else{
+   38: 			$upd=mysql_query("UPDATE `webboard` SET `cate_id`='$cate' ,`title`='$title' ,`detail`='$detail' WHERE `id`='$topic_id'") or die("ERROR $upd บรรทัดที่ 36");
+   39  			mysql_close();
+   40  			echo "<meta http-equiv='refresh' content='0;url=all-webboard.php'>" ;
+
+/Users/brio/Works/football/admin/p-edit-zean-name.php:
+   39  $name=htmlspecialchars($_POST['name']);
+   40  if($name!=""){
+   41: $sql=mysql_query("update `zean_name` set `name`='$name' where id='$id'")or die("ERROR $sql");
+   42  echo "<meta http-equiv='refresh' content='0;url=tded-zean.php?zean_id=$id'>";
+   43  }else{
+
+/Users/brio/Works/football/admin/p-fb.php:
+   40  $detail=$_POST['detail'];
+   41  if($detail!=""){
+   42: $sql=mysql_query("UPDATE `fanpage` SET  `code` =  '$detail', online='$online' WHERE `id` =1 LIMIT 1")or die("ERROR $sql");
+   43  echo "<meta http-equiv='refresh' content='0;url=fb.php'>";
+   44  }else{
+
+/Users/brio/Works/football/admin/p-football.php:
+   23  	if($file1==""){
+   24  	//update
+   25: 	$update=mysql_query("UPDATE `football` SET `name`='$cate_name' ,`title`='$title' ,`description`='$description' ,`keyword`='$keyword' ,`code`='$code' WHERE id='$id'") or die("ERROR $insert update 36");
+   26  	mysql_close();
+   27  	print "<meta http-equiv=refresh content=0;URL=football.php?id=$id>";
+   ..
+   33  	@copy($tmp1,"../icon-menu/$rename");
+   34  	//update
+   35: 	$update=mysql_query("UPDATE `football` SET `name`='$cate_name' ,`icon`='$rename' ,`title`='$title' ,`description`='$description' ,`keyword`='$keyword' ,`code`='$code' WHERE id='$id'") or die("ERROR $insert update 36");
+   36  	mysql_close();
+   37  	print "<meta http-equiv=refresh content=0;URL=football.php?id=$id>";
+
+/Users/brio/Works/football/admin/p-footer-logo.php:
+   46  	@copy($tmp1,"../logo-img/$file1");
+   47
+   48: 	$sql=mysql_query("UPDATE `footer_logo` SET  `footer_logo` =  '$file1' WHERE `id` =1 LIMIT 1") or die("ไม่แก้ไขเพิ่มข้อมูลได้ 45");
+   49  	mysql_close();
+   50  	echo "<meta http-equiv=refresh content=0;URL=footer-logo.php>";
+
+/Users/brio/Works/football/admin/p-game-setting.php:
+   44  $keyword=htmlspecialchars($_POST['keyword']);
+   45  if($gametime!=""&&$win!=""&&$lost!=""){
+   46: $sql=mysql_query("UPDATE `game_config` SET `gametime`='$gametime' ,`yes`='$win' ,`no`='$lost',`title`='$title',`description`='$description',`keyword`='$keyword' WHERE `id`=1")or die("ERROR $sql");
+   47  echo "<meta http-equiv='refresh' content='0;url=game-setting.php'>";
+   48  }else{
+
+/Users/brio/Works/football/admin/p-link-exchange.php:
+   50  $date="$dm-$y";
+   51  if($links==1){
+   52: 	$sql=mysql_query("update link_admin set data='$data' where id='2'")or die("ERROR $sql บรรทัด43");
+   53  	echo "<meta http-equiv='refresh' content='0;url=linkexchange.php'>";
+   54  }else if($links==2){
+   ..
+   57  	@unlink ($part);
+   58  	@copy($tmp1,"../banner/$file1");
+   59: 	$sql=mysql_query("update link_admin set data='$data', img='$file1' where id='1'")or die("ERROR $sql บรรทัด50");
+   60  	echo "<meta http-equiv='refresh' content='0;url=linkexchange.php'>";
+   61  	}else{
+   62: 	$sql=mysql_query("update link_admin set data='$data' where id='1'")or die("ERROR $sql บรรทัด53");
+   63  	echo "<meta http-equiv='refresh' content='0;url=linkexchange.php'>";
+   64  	}
+   65  }else if($links==3){
+   66: 	$sql=mysql_query("INSERT INTO `link_exchange` (`name` ,`email` ,`url` ,`code` ,`type` ,`date` ,`actived`)VALUES ('$name',  '$email',  '$url',  '$code',  '$type',  '$date',  '1'
+   67  )")or die("ERROR $sql บรรทัด62");
+   68  	echo "<meta http-equiv='refresh' content='0;url=linkexchange.php'>";
+
+/Users/brio/Works/football/admin/p-linkcolor.php:
+   43  //echo "$color=[color]<br>$visit=[visit]<br>$rollover=[rollover]<br>$active=[active]";
+   44
+   45: $sql=mysql_query("update `link` set `color`='$color' ,`visit`='$visit' ,`rollover`='$rollover' ,`active`='$active' where id='1'")or die("ERROR $sql บรรทัด46");
+   46  echo "<meta http-equiv='refresh' content='0;url=linkcolor.php'>";
+   47
+
+/Users/brio/Works/football/admin/p-mem-conditions.php:
+    8  }
+    9  $detail=addslashes($_POST["input"]);
+   10: $upd=mysql_query("UPDATE `mem_conditions` SET `detail` =  '$detail' WHERE `id` =1 LIMIT 1") or die("Error $upd");
+   11  mysql_close();
+   12  print "<meta http-equiv=refresh content=0;URL=mem-conditions.php>";
+
+/Users/brio/Works/football/admin/p-news-index.php:
+    8  }
+    9  $detail=addslashes($_POST["input"]);
+   10: $upd=mysql_query("UPDATE `news_index` SET `detail` =  '$detail' WHERE `id` =1 LIMIT 1") or die("Error $upd");
+   11  mysql_close();
+   12  print "<meta http-equiv=refresh content=0;URL=news-index.php>";
+
+/Users/brio/Works/football/admin/p-site-logo.php:
+   46  	@copy($tmp1,"../logo-img/$file1");
+   47
+   48: 	$sql=mysql_query("UPDATE `site_logo` SET  `site_logo` =  '$file1' WHERE `id` =1 LIMIT 1") or die("ไม่แก้ไขเพิ่มข้อมูลได้ 45");
+   49  	mysql_close();
+   50  	echo "<meta http-equiv=refresh content=0;URL=sitelogo.php>";
+
+/Users/brio/Works/football/admin/p-stats.php:
+   40  $detail=$_POST['detail'];
+   41  if($detail!=""){
+   42: $sql=mysql_query("UPDATE `stats` SET  `code` =  '$detail', online='$online' WHERE `id` =1 LIMIT 1")or die("ERROR $sql");
+   43  echo "<meta http-equiv='refresh' content='0;url=stats.php'>";
+   44  }else{
+
+/Users/brio/Works/football/admin/p-webboard-category.php:
+   41  $keyword=htmlspecialchars($_POST['keyword']);
+   42  $s="select * from webboard_category where cate_name='$brand'";
+   43: $re=mysql_query($s) or die("ERROR $s บรททัด39");
+   44  $num=mysql_num_rows($re);
+   45  if($num>=1){
+   ..
+   52  }else{
+   53  if($brand!=""&&$title!=""&&$description!=""&&$keyword!=""){
+   54: $sql=mysql_query("INSERT INTO `webboard_category` (`cate_name`, `title`, `description`, `keyword`)VALUES ('$brand', '$title', '$description', '$keyword')")or die("ERROR $sql บรรทัด 51");
+   55  echo "<meta http-equiv='refresh' content='0;url=webboard-category.php'>";
+   56  }else{
+
+/Users/brio/Works/football/admin/point-game-match.php:
+   37  $id=$_GET["id"];
+   38
+   39: $sql=mysql_query("UPDATE `game_match` SET `game_status`='4' WHERE id='$id'")or die("ERROR $sql");
+   40
+   41  //select แต้มถูก ผิด
+   42  $sgame="select yes, no from game_config where id=1";
+   43: $regame=mysql_query($sgame) or die("ERROR $sgame");
+   44  $rgame=mysql_fetch_row($regame);
+   45  //echo $rgame[0];
+   ..
+   47  //select ผลการแข่างขัน
+   48  $sql1="SELECT result, game_date FROM `game_match` WHERE id='$id'";
+   49: $result1=mysql_query($sql1) or die("ERROR $sql1");
+   50  $row1=mysql_fetch_row($result1);
+   51
+   52  //select หาคนทายถูก
+   53  $sql2="SELECT member_id, result FROM `game_play` WHERE game_id='$id' AND result='$row1[0]'";
+   54: $result2=mysql_query($sql2) or die("ERROR $sql2");
+   55  $num2=mysql_num_rows($result2);
+   56  if($num2>=1){
+   ..
+   58
+   59  //insert game_member_score
+   60: $sql4=mysql_query("INSERT INTO `game_member_score` (`member_id` ,`yes` ,`no` ,`point` ,`date` )VALUES ('$row2[0]', '1', '0', '$rgame[0]', '$row1[1]')")or die("ERROR $sql4");
+   61
+   62  }
+   ..
+   65  //select หาคนทายผิด
+   66  $sql3="SELECT member_id, result FROM `game_play` WHERE game_id='$id' AND result!='$row1[0]'";
+   67: $result3=mysql_query($sql3) or die("ERROR $sql3");
+   68  $num3=mysql_num_rows($result3);
+   69  if($num3>=1){
+   ..
+   71
+   72  //insert game_member_score
+   73: $sql4=mysql_query("INSERT INTO `game_member_score` (`member_id` ,`yes` ,`no` ,`point` ,`date` )VALUES ('$row3[0]', '0', '1', '$rgame[1]', '$row1[1]')")or die("ERROR $sql4");
+   74
+   75  }
+
+/Users/brio/Works/football/admin/province.php:
+  225  	                                          <?php
+  226  									$s="SELECT * FROM `geography`";
+  227: 									$re=mysql_query($s) or die("ERROR $s");
+  228  									while($r=mysql_fetch_row($re)){
+  229  									?>
+  ...
+  284
+  285  		$strSQL = "SELECT * FROM province";
+  286: 		$objQuery = mysql_query($strSQL);
+  287  		$Num_Rows = mysql_num_rows($objQuery);
+  288
+  ...
+  318
+  319  		$strSQL .=" order  by PROVINCE_ID asc LIMIT $Page_Start , $Per_Page";
+  320: 		$objQuery  = mysql_query($strSQL);
+  321  		while($objResult = mysql_fetch_row($objQuery)){
+  322  ?>
+  ...
+  328                                  <?php
+  329  					  $sgo="SELECT * FROM `geography` WHERE GEO_ID='$objResult[3]'";
+  330: 					  $rego=mysql_query($sgo) or die("ERROR $sgo");
+  331  					  $rgo=mysql_fetch_row($rego);
+  332  					  echo $rgo[1];
+
+/Users/brio/Works/football/admin/reset-score.php:
+   36  <body>
+   37  <?php
+   38: $sql=mysql_query("TRUNCATE TABLE `game_match`")or die("ERROR $sql");
+   39: $sql2=mysql_query("TRUNCATE TABLE `game_play`")or die("ERROR $sql2");
+   40: $sql3=mysql_query("TRUNCATE TABLE `game_member_score`")or die("ERROR $sql3");
+   41  echo "<meta http-equiv='refresh' content='0;url=all-game-level.php'>";
+   42  ?>
+
+/Users/brio/Works/football/admin/search-member.php:
+  251                          <?php
+  252  $strSQL="SELECT id, reg_date, name, img FROM `member` $where ";
+  253: $objQuery=mysql_query($strSQL) or die("ERROR บรรทัด 208");
+  254  		$Num_Rows = mysql_num_rows($objQuery);
+  255
+  ...
+  285
+  286  		$strSQL .=" order  by id ASC LIMIT $Page_Start , $Per_Page";
+  287: 		$objQuery  = mysql_query($strSQL);
+  288  		while($objResult = mysql_fetch_row($objQuery))
+  289  		{
+
+/Users/brio/Works/football/admin/search-webboard.php:
+  213                                <?php
+  214  $scate="SELECT * FROM `webboard_category` ORDER BY id ASC";
+  215: $recate=mysql_query($scate) or die("Error $scate");
+  216  while($rcate=mysql_fetch_row($recate)){
+  217  ?>
+  ...
+  290  $strSQL.="FROM `webboard` INNER JOIN member ON webboard.member_id=member.id ";
+  291  $strSQL.="$where ";
+  292: $objQuery=mysql_query($strSQL) or die("ERROR บรรทัด 344");
+  293  $Num_Rows = mysql_num_rows($objQuery);
+  294  		$Per_Page = 20;   // Per Page
+  ...
+  323
+  324  		$strSQL .=" ORDER BY webboard.upd_date DESC LIMIT $Page_Start , $Per_Page";
+  325: 		$objQuery  = mysql_query($strSQL) or die("ERROR");
+  326  		while($objResult = mysql_fetch_row($objQuery))
+  327  		{
+  ...
+  337  $strWB2.="INNER JOIN member ON ans_webboard.member_id=member.id ";
+  338  $strWB2.="WHERE ans_webboard.topic_id='$objResult[0]' ORDER BY ans_webboard.id DESC ";
+  339: $WBQuery2=mysql_query($strWB2) or die("ERROR บรรทัด 531");
+  340  $WBResult2=mysql_fetch_row($WBQuery2);
+  341  $NumWB2=mysql_num_rows($WBQuery2);
+
+/Users/brio/Works/football/admin/sitelogo.php:
+    8  }
+    9  $logo="select * from site_logo where id=1";
+   10: $relogo=mysql_query($logo) or die("ERROR $logo บรททัด8");
+   11  $rlogo=mysql_fetch_row($relogo);
+   12  ?>
+
+/Users/brio/Works/football/admin/stats.php:
+    8  }
+    9  $s="select * from stats where id=1";
+   10: $re=mysql_query($s) or die("ERROR $s บรททัด8");
+   11  $r=mysql_fetch_row($re);
+   12  ?>
+
+/Users/brio/Works/football/admin/sticky.php:
+   39  $type=$_GET['type'];
+   40  if($type==1){
+   41: $sql2=mysql_query("update webboard set sticky='0' where id='$id'")or die("ERROR $sql2");
+   42  }else if($type==2){
+   43: $sql2=mysql_query("update webboard set sticky='1' where id='$id'")or die("ERROR $sql2");
+   44  }
+   45  echo "<meta http-equiv='refresh' content='0;url=all-webboard.php'>";
+
+/Users/brio/Works/football/admin/stop-game-match.php:
+   37  $id=$_GET["id"];
+   38
+   39: $sql=mysql_query("UPDATE `game_match` SET `game_status`='2' WHERE id='$id'")or die("ERROR $sql");
+   40
+   41  mysql_close();
+
+/Users/brio/Works/football/admin/t-ded.php:
+   10  $l_id=$_GET["l_id"];
+   11  $s="SELECT * FROM `league` where id='$l_id'";
+   12: $re=mysql_query($s) or die("ERROR $s");
+   13  $r=mysql_fetch_row($re);
+   14  ?>
+   ..
+  233
+  234  		$strSQL = "SELECT post_date FROM t_ded WHERE l_id='$l_id' GROUP BY post_date";
+  235: 		$objQuery = mysql_query($strSQL);
+  236  		$Num_Rows = mysql_num_rows($objQuery);
+  237
+  ...
+  267
+  268  		$strSQL .=" order  by post_date DESC LIMIT $Page_Start , $Per_Page";
+  269: 		$objQuery  = mysql_query($strSQL);
+  270  		while($objResult = mysql_fetch_row($objQuery)){
+  271  ?>
+
+/Users/brio/Works/football/admin/tded-zean.php:
+  214  $zean_id=$_GET['zean_id'];
+  215  $szn="SELECT * FROM `zean_name` WHERE id='$zean_id'";
+  216: $rezn=mysql_query($szn) or die("ERROR $szn");
+  217  $rzn=mysql_fetch_row($rezn);
+  218  ?>
+  ...
+  243
+  244  		$strSQL = "SELECT * FROM tded_zean WHERE zean_id='$zean_id'";
+  245: 		$objQuery = mysql_query($strSQL);
+  246  		$Num_Rows = mysql_num_rows($objQuery);
+  247
+  ...
+  277
+  278  		$strSQL .=" order  by post_date DESC LIMIT $Page_Start , $Per_Page";
+  279: 		$objQuery  = mysql_query($strSQL);
+  280  		while($objResult = mysql_fetch_row($objQuery)){
+  281  ?>
+
+/Users/brio/Works/football/admin/webboard-category.php:
+  279
+  280  		$strSQL = "SELECT * FROM webboard_category ";
+  281: 		$objQuery = mysql_query($strSQL) or die("ERROR $strSQL");
+  282  		$Num_Rows = mysql_num_rows($objQuery);
+  283
+  ...
+  313
+  314  		$strSQL .=" order  by id ASC LIMIT $Page_Start , $Per_Page";
+  315: 		$objQuery  = mysql_query($strSQL);
+  316  		while($objResult = mysql_fetch_row($objQuery)){
+  317  ?>
+
+/Users/brio/Works/football/game/index.php:
+    5  include "../function/function.php";
+    6  $title="select * from web_detail where id=1";
+    7: $titlere=mysql_query($title) or die("ERROR $title บรททัด4");
+    8  $titler=mysql_fetch_row($titlere);
+    9  $link="select * from link where id=1";
+   10: $linkre=mysql_query($link) or die("ERROR $link บรททัด7");
+   11  $linkr=mysql_fetch_row($linkre);
+   12  $banner="select * from site_logo where id=1";
+   13: $bannerre=mysql_query($banner) or die("ERROR $banner บรททัด10");
+   14  $bannerr=mysql_fetch_row($bannerre);
+   15  $bg="select * from bg where id=1";
+   16: $bgre=mysql_query($bg) or die("ERROR $bg บรททัด13");
+   17  $bgr=mysql_fetch_row($bgre);
+   18  $footer="select * from footer_logo where id=1";
+   19: $refooter=mysql_query($footer) or die("ERROR $footer บรททัด10");
+   20  $rfooter=mysql_fetch_row($refooter);
+   21  $fb="select * from fanpage where id=1";
+   22: $fbre=mysql_query($fb) or die("ERROR $fb บรททัด16");
+   23  $fbr=mysql_fetch_row($fbre);
+   24  $st="select * from stats where id=1";
+   25: $stre=mysql_query($st) or die("ERROR $st บรททัด19");
+   26  $str=mysql_fetch_row($stre);
+   27  $sgame="select * from game_config where id=1";
+   28: $regame=mysql_query($sgame) or die("ERROR $sgame บรททัด19");
+   29  $rgame=mysql_fetch_row($regame);
+   30  ?>
+   ..
+  133  <?php
+  134  $sgm="select * from game_match where game_date = '$today_date' order by id asc";
+  135: $regm=mysql_query($sgm) or die("ERROR ");
+  136  $ngm=mysql_num_rows($regm);
+  137  if($ngm>=1){
+
+/Users/brio/Works/football/game/level.php:
+    5  include "../function/function.php";
+    6  $title="select * from web_detail where id=1";
+    7: $titlere=mysql_query($title) or die("ERROR $title บรททัด4");
+    8  $titler=mysql_fetch_row($titlere);
+    9  $link="select * from link where id=1";
+   10: $linkre=mysql_query($link) or die("ERROR $link บรททัด7");
+   11  $linkr=mysql_fetch_row($linkre);
+   12  $banner="select * from site_logo where id=1";
+   13: $bannerre=mysql_query($banner) or die("ERROR $banner บรททัด10");
+   14  $bannerr=mysql_fetch_row($bannerre);
+   15  $bg="select * from bg where id=1";
+   16: $bgre=mysql_query($bg) or die("ERROR $bg บรททัด13");
+   17  $bgr=mysql_fetch_row($bgre);
+   18  $footer="select * from footer_logo where id=1";
+   19: $refooter=mysql_query($footer) or die("ERROR $footer บรททัด10");
+   20  $rfooter=mysql_fetch_row($refooter);
+   21  $fb="select * from fanpage where id=1";
+   22: $fbre=mysql_query($fb) or die("ERROR $fb บรททัด16");
+   23  $fbr=mysql_fetch_row($fbre);
+   24  $st="select * from stats where id=1";
+   25: $stre=mysql_query($st) or die("ERROR $st บรททัด19");
+   26  $str=mysql_fetch_row($stre);
+   27  $sgame="select * from game_config where id=1";
+   28: $regame=mysql_query($sgame) or die("ERROR $sgame บรททัด19");
+   29  $rgame=mysql_fetch_row($regame);
+   30  ?>
+   ..
+  110
+  111  $strSQL = "SELECT member_id, SUM(yes), SUM(no), SUM(point) FROM `game_member_score` GROUP BY member_id ORDER BY SUM(point) DESC, member_id DESC LIMIT 0,100";
+  112: $objQuery = mysql_query($strSQL) or die("ERROR $strSQL");
+  113  $i=1;
+  114  while($objResult = mysql_fetch_row($objQuery)){
+  ...
+  121                            <?php
+  122  $smem = "SELECT name, img FROM `member` WHERE id='$objResult[0]'";
+  123: $remem = mysql_query($smem) or die("ERROR $smem");
+  124  $rmem = mysql_fetch_row($remem);
+  125  if($rmem[1]!=""){ ?>
+
+/Users/brio/Works/football/game/list-play-game.php:
+    9  include "../function/function.php";
+   10  $title="select * from web_detail where id=1";
+   11: $titlere=mysql_query($title) or die("ERROR $title บรททัด4");
+   12  $titler=mysql_fetch_row($titlere);
+   13  $link="select * from link where id=1";
+   14: $linkre=mysql_query($link) or die("ERROR $link บรททัด7");
+   15  $linkr=mysql_fetch_row($linkre);
+   16  $banner="select * from site_logo where id=1";
+   17: $bannerre=mysql_query($banner) or die("ERROR $banner บรททัด10");
+   18  $bannerr=mysql_fetch_row($bannerre);
+   19  $bg="select * from bg where id=1";
+   20: $bgre=mysql_query($bg) or die("ERROR $bg บรททัด13");
+   21  $bgr=mysql_fetch_row($bgre);
+   22  $footer="select * from footer_logo where id=1";
+   23: $refooter=mysql_query($footer) or die("ERROR $footer บรททัด10");
+   24  $rfooter=mysql_fetch_row($refooter);
+   25  $fb="select * from fanpage where id=1";
+   26: $fbre=mysql_query($fb) or die("ERROR $fb บรททัด16");
+   27  $fbr=mysql_fetch_row($fbre);
+   28  $st="select * from stats where id=1";
+   29: $stre=mysql_query($st) or die("ERROR $st บรททัด19");
+   30  $str=mysql_fetch_row($stre);
+   31  ?>
+   ..
+  124  $strSQL .="WHERE game_play.member_id='$_SESSION[m_id]' ";
+  125  $strSQL .="ORDER BY game_play.id DESC ";
+  126: $objQuery = mysql_query($strSQL) or die("ERROR $strSQL");
+  127  $i=1;
+  128  while($objResult = mysql_fetch_row($objQuery)){
+
+/Users/brio/Works/football/game/playgame-save.php:
+    7  $date=date("Y-m-d");
+    8  if($result!=""){
+    9: 	$s=mysql_query("INSERT INTO `game_play` (`game_id` ,`member_id` ,`dategame` ,`result`)VALUES ('$game_id',  '$_SESSION[m_id]',  '$date',  '$result')") or die("ERROR INSERT บรรทัด22");
+   10  	mysql_close();
+   11  ?>
+
+/Users/brio/Works/football/game/playgame.php:
+    5  include "../function/function.php";
+    6  $title="select * from web_detail where id=1";
+    7: $titlere=mysql_query($title) or die("ERROR $title บรททัด4");
+    8  $titler=mysql_fetch_row($titlere);
+    9  $link="select * from link where id=1";
+   10: $linkre=mysql_query($link) or die("ERROR $link บรททัด7");
+   11  $linkr=mysql_fetch_row($linkre);
+   12  $banner="select * from site_logo where id=1";
+   13: $bannerre=mysql_query($banner) or die("ERROR $banner บรททัด10");
+   14  $bannerr=mysql_fetch_row($bannerre);
+   15  $bg="select * from bg where id=1";
+   16: $bgre=mysql_query($bg) or die("ERROR $bg บรททัด13");
+   17  $bgr=mysql_fetch_row($bgre);
+   18  $footer="select * from footer_logo where id=1";
+   19: $refooter=mysql_query($footer) or die("ERROR $footer บรททัด10");
+   20  $rfooter=mysql_fetch_row($refooter);
+   21  $fb="select * from fanpage where id=1";
+   22: $fbre=mysql_query($fb) or die("ERROR $fb บรททัด16");
+   23  $fbr=mysql_fetch_row($fbre);
+   24  $st="select * from stats where id=1";
+   25: $stre=mysql_query($st) or die("ERROR $st บรททัด19");
+   26  $str=mysql_fetch_row($stre);
+   27  $sgame="select * from game_config where id=1";
+   28: $regame=mysql_query($sgame) or die("ERROR $sgame บรททัด19");
+   29  $rgame=mysql_fetch_row($regame);
+   30
+   ..
+   42  //เช็คทายผลรายคู่
+   43  $s="SELECT * FROM `game_play` WHERE member_id='$_SESSION[m_id]' AND game_id='$id'";
+   44: $re=mysql_query($s) or die("ERROR $s");
+   45  $n=mysql_num_rows($re);
+   46  if($n>=1){
+   ..
+   56  $time=date("H:i:s");
+   57  $s3="SELECT gametime FROM `game_config`";
+   58: $re3=mysql_query($s3) or die("ERROR $s3");
+   59  $r3=mysql_fetch_row($re3);
+   60  if($time>$r3[0]){
+   ..
+   70  $today_date=date("Y-m-d");
+   71  $s2="SELECT * FROM `game_play` WHERE member_id='$_SESSION[m_id]' AND dategame='$today_date'";
+   72: $re2=mysql_query($s2) or die("ERROR $s2");
+   73  $n2=mysql_num_rows($re2);
+   74  if($n2>=5){
+   ..
+  155  $sql.="inner join game_league on game_match.league_id=game_league.id ";
+  156  $sql.="where game_match.id='$id'";
+  157: $db_resule=mysql_query($sql);
+  158  $row=mysql_fetch_row($db_resule);
+  159  ?>
+
+/Users/brio/Works/football/game/template.php:
+    5  include "../function/function.php";
+    6  $title="select * from web_detail where id=1";
+    7: $titlere=mysql_query($title) or die("ERROR $title บรททัด4");
+    8  $titler=mysql_fetch_row($titlere);
+    9  $link="select * from link where id=1";
+   10: $linkre=mysql_query($link) or die("ERROR $link บรททัด7");
+   11  $linkr=mysql_fetch_row($linkre);
+   12  $banner="select * from site_logo where id=1";
+   13: $bannerre=mysql_query($banner) or die("ERROR $banner บรททัด10");
+   14  $bannerr=mysql_fetch_row($bannerre);
+   15  $bg="select * from bg where id=1";
+   16: $bgre=mysql_query($bg) or die("ERROR $bg บรททัด13");
+   17  $bgr=mysql_fetch_row($bgre);
+   18  $footer="select * from footer_logo where id=1";
+   19: $refooter=mysql_query($footer) or die("ERROR $footer บรททัด10");
+   20  $rfooter=mysql_fetch_row($refooter);
+   21  $fb="select * from fanpage where id=1";
+   22: $fbre=mysql_query($fb) or die("ERROR $fb บรททัด16");
+   23  $fbr=mysql_fetch_row($fbre);
+   24  $st="select * from stats where id=1";
+   25: $stre=mysql_query($st) or die("ERROR $st บรททัด19");
+   26  $str=mysql_fetch_row($stre);
+   27  $sgame="select * from game_config where id=1";
+   28: $regame=mysql_query($sgame) or die("ERROR $sgame บรททัด19");
+   29  $rgame=mysql_fetch_row($regame);
+   30  ?>
+
+/Users/brio/Works/football/inc/config.inc.php:
+    2  @mysql_connect("localhost","root","root") or die(mysql_error());
+    3  @mysql_select_db("admin_football") or die(mysql_error());
+    4: @mysql_query("SET NAMES utf8");
+    5  ?>
+
+/Users/brio/Works/football/member/edit-personal.php:
+    9  include "../function/function.php";
+   10  $title="select * from web_detail where id=1";
+   11: $titlere=mysql_query($title) or die("ERROR $title บรททัด4");
+   12  $titler=mysql_fetch_row($titlere);
+   13  $link="select * from link where id=1";
+   14: $linkre=mysql_query($link) or die("ERROR $link บรททัด7");
+   15  $linkr=mysql_fetch_row($linkre);
+   16  $banner="select * from site_logo where id=1";
+   17: $bannerre=mysql_query($banner) or die("ERROR $banner บรททัด10");
+   18  $bannerr=mysql_fetch_row($bannerre);
+   19  $bg="select * from bg where id=1";
+   20: $bgre=mysql_query($bg) or die("ERROR $bg บรททัด13");
+   21  $bgr=mysql_fetch_row($bgre);
+   22  $footer="select * from footer_logo where id=1";
+   23: $refooter=mysql_query($footer) or die("ERROR $footer บรททัด10");
+   24  $rfooter=mysql_fetch_row($refooter);
+   25  $fb="select * from fanpage where id=1";
+   26: $fbre=mysql_query($fb) or die("ERROR $fb บรททัด16");
+   27  $fbr=mysql_fetch_row($fbre);
+   28  $st="select * from stats where id=1";
+   29: $stre=mysql_query($st) or die("ERROR $st บรททัด19");
+   30  $str=mysql_fetch_row($stre);
+   31  ?>
+   ..
+   96                            <td><?php
+   97  $sp="select * from member where id='$_SESSION[m_id]'";
+   98: $rep=mysql_query($sp) or die("ERROR $sp");
+   99  $rp=mysql_fetch_row($rep);
+  100  ?>
+  ...
+  123                                              <?php
+  124  	$strSQL = "SELECT * FROM province ORDER BY CONVERT(PROVINCE_NAME USING TIS620) ASC ";
+  125: 	$objQuery = mysql_query($strSQL) or die ("Error Query [".$strSQL."]");
+  126  	while($objResult = mysql_fetch_array($objQuery))
+  127  	{
+
+/Users/brio/Works/football/member/index.php:
+    9  include "../function/function.php";
+   10  $title="select * from web_detail where id=1";
+   11: $titlere=mysql_query($title) or die("ERROR $title บรททัด4");
+   12  $titler=mysql_fetch_row($titlere);
+   13  $link="select * from link where id=1";
+   14: $linkre=mysql_query($link) or die("ERROR $link บรททัด7");
+   15  $linkr=mysql_fetch_row($linkre);
+   16  $banner="select * from site_logo where id=1";
+   17: $bannerre=mysql_query($banner) or die("ERROR $banner บรททัด10");
+   18  $bannerr=mysql_fetch_row($bannerre);
+   19  $bg="select * from bg where id=1";
+   20: $bgre=mysql_query($bg) or die("ERROR $bg บรททัด13");
+   21  $bgr=mysql_fetch_row($bgre);
+   22  $footer="select * from footer_logo where id=1";
+   23: $refooter=mysql_query($footer) or die("ERROR $footer บรททัด10");
+   24  $rfooter=mysql_fetch_row($refooter);
+   25  $fb="select * from fanpage where id=1";
+   26: $fbre=mysql_query($fb) or die("ERROR $fb บรททัด16");
+   27  $fbr=mysql_fetch_row($fbre);
+   28  $st="select * from stats where id=1";
+   29: $stre=mysql_query($st) or die("ERROR $st บรททัด19");
+   30  $str=mysql_fetch_row($stre);
+   31  ?>
+   ..
+   99  $sp.="inner join province on member.province_id=province.PROVINCE_ID ";
+  100  $sp.="where id='$_SESSION[m_id]'";
+  101: $rep=mysql_query($sp) or die("ERROR $sp");
+  102  $rp=mysql_fetch_row($rep);
+  103  ?>
+
+/Users/brio/Works/football/member/list-webboard.php:
+   10  include "../function/function.php";
+   11  $title="select * from web_detail where id=1";
+   12: $titlere=mysql_query($title) or die("ERROR $title บรททัด4");
+   13  $titler=mysql_fetch_row($titlere);
+   14  $link="select * from link where id=1";
+   15: $linkre=mysql_query($link) or die("ERROR $link บรททัด7");
+   16  $linkr=mysql_fetch_row($linkre);
+   17  $banner="select * from site_logo where id=1";
+   18: $bannerre=mysql_query($banner) or die("ERROR $banner บรททัด10");
+   19  $bannerr=mysql_fetch_row($bannerre);
+   20  $bg="select * from bg where id=1";
+   21: $bgre=mysql_query($bg) or die("ERROR $bg บรททัด13");
+   22  $bgr=mysql_fetch_row($bgre);
+   23  $footer="select * from footer_logo where id=1";
+   24: $refooter=mysql_query($footer) or die("ERROR $footer บรททัด10");
+   25  $rfooter=mysql_fetch_row($refooter);
+   26  $fb="select * from fanpage where id=1";
+   27: $fbre=mysql_query($fb) or die("ERROR $fb บรททัด16");
+   28  $fbr=mysql_fetch_row($fbre);
+   29  $st="select * from stats where id=1";
+   30: $stre=mysql_query($st) or die("ERROR $st บรททัด19");
+   31  $str=mysql_fetch_row($stre);
+   32  ?>
+   ..
+  245  $strSQL.="INNER JOIN member ON webboard.member_id=member.id ";
+  246  $strSQL.="WHERE webboard.member_id=$_SESSION[m_id] ";
+  247: $objQuery=mysql_query($strSQL) or die("ERROR บรรทัด 344");
+  248  $Num_Rows = mysql_num_rows($objQuery);
+  249  		$Per_Page = 50;   // Per Page
+  ...
+  278
+  279  		$strSQL .=" ORDER BY webboard.upd_date DESC LIMIT $Page_Start , $Per_Page";
+  280: 		$objQuery  = mysql_query($strSQL) or die("ERROR");
+  281  		while($objResult = mysql_fetch_row($objQuery))
+  282  		{
+  ...
+  292  $strWB2.="INNER JOIN member ON ans_webboard.member_id=member.id ";
+  293  $strWB2.="WHERE ans_webboard.topic_id='$objResult[0]' ORDER BY ans_webboard.id DESC ";
+  294: $WBQuery2=mysql_query($strWB2) or die("ERROR บรรทัด 531");
+  295  $WBResult2=mysql_fetch_row($WBQuery2);
+  296  $NumWB2=mysql_num_rows($WBQuery2);
+
+/Users/brio/Works/football/member/p-edit-personal.php:
+   29  	@copy($tmp1,"avatar/$rename");
+   30
+   31: 	$update_member=mysql_query("UPDATE `member` SET `name`='$name' ,`add`='$add' ,`province_id`='$province' ,`tel`='$tel' ,`email`='$email' ,`img`='$rename' ,`user`='$user' ,`pass`='$pass' WHERE id='$_SESSION[m_id]'") or die ("ERROR $update_member");
+   32
+   33  	$_SESSION["m_name"]="$name";
+   ..
+   42  	}
+   43  }else{
+   44: 	$update_member=mysql_query("UPDATE `member` SET `name`='$name' ,`add`='$add' ,`province_id`='$province' ,`tel`='$tel' ,`email`='$email' ,`user`='$user' ,`pass`='$pass' WHERE id='$_SESSION[m_id]'") or die ("ERROR $update_member");
+   45
+   46  	$_SESSION["m_name"]="$name";
+
+/Users/brio/Works/football/member/template.php:
+    9  include "../function/function.php";
+   10  $title="select * from web_detail where id=1";
+   11: $titlere=mysql_query($title) or die("ERROR $title บรททัด4");
+   12  $titler=mysql_fetch_row($titlere);
+   13  $link="select * from link where id=1";
+   14: $linkre=mysql_query($link) or die("ERROR $link บรททัด7");
+   15  $linkr=mysql_fetch_row($linkre);
+   16  $banner="select * from site_logo where id=1";
+   17: $bannerre=mysql_query($banner) or die("ERROR $banner บรททัด10");
+   18  $bannerr=mysql_fetch_row($bannerre);
+   19  $bg="select * from bg where id=1";
+   20: $bgre=mysql_query($bg) or die("ERROR $bg บรททัด13");
+   21  $bgr=mysql_fetch_row($bgre);
+   22  $footer="select * from footer_logo where id=1";
+   23: $refooter=mysql_query($footer) or die("ERROR $footer บรททัด10");
+   24  $rfooter=mysql_fetch_row($refooter);
+   25  $fb="select * from fanpage where id=1";
+   26: $fbre=mysql_query($fb) or die("ERROR $fb บรททัด16");
+   27  $fbr=mysql_fetch_row($fbre);
+   28  $st="select * from stats where id=1";
+   29: $stre=mysql_query($st) or die("ERROR $st บรททัด19");
+   30  $str=mysql_fetch_row($stre);
+   31  ?>
+
+/Users/brio/Works/football/mod/all-post-analyze.php:
+  233  		$modid = $_SESSION['mod_id'];
+  234  		$strSQL = "SELECT * FROM `analyze` WHERE mod_id='$modid'";
+  235: 		$objQuery = mysql_query($strSQL);
+  236  		$Num_Rows = mysql_num_rows($objQuery);
+  237
+  ...
+  267
+  268  		$strSQL .=" ORDER BY id DESC LIMIT $Page_Start , $Per_Page";
+  269: 		$objQuery  = mysql_query($strSQL);
+  270  		$i=0;
+  271  		while($objResult = mysql_fetch_row($objQuery)){
+
+/Users/brio/Works/football/mod/del-post-analyze.php:
+   38  $id=$_GET["id"];
+   39  //del post
+   40: $spost=mysql_query("delete from `analyze` where id='$id'")or die("ERROR $spost");
+   41
+   42  echo "<meta http-equiv='refresh' content='0;url=all-post-analyze.php'>";
+
+/Users/brio/Works/football/mod/edit-post-analyze.php:
+   97  $id=$_GET["id"];
+   98  $spost="select * from `analyze` where id='$id'";
+   99: $repost=mysql_query($spost) or die("ERROR $spost");
+  100  $rpost=mysql_fetch_row($repost);
+  101  ?>
+
+/Users/brio/Works/football/mod/login.php:
+   33  $pass=$_POST["pass"];
+   34  $s="SELECT * FROM `admin_analyze` where user='$user' and pass='$pass'";
+   35: $re=mysql_query($s) or die("ERROR $s");
+   36  $num=mysql_num_rows($re);
+   37  $r=mysql_fetch_row($re);
+
+/Users/brio/Works/football/mod/main.php:
+   86  $modid = $_SESSION['mod_id'];
+   87  $sql="SELECT * FROM `admin_analyze` WHERE id='$modid'";
+   88: $result=mysql_query($sql) or die("ERROR $sql");
+   89  $row=mysql_fetch_row($result);
+   90  ?>
+
+/Users/brio/Works/football/mod/p-add-analyze.php:
+   10  $date=date("Y-m-d H:i:s");
+   11  $modid = $_SESSION['mod_id'];
+   12: $insert=mysql_query("INSERT INTO `analyze` (`mod_id` ,`title` ,`detail` ,`status_comment` ,`post_date`) VALUES ('$modid', '$title', '$detail', '$status_comment', '$date')") or die("ERROR $insert บรรทัดที่ 12");
+   13  mysql_close();
+   14
+
+/Users/brio/Works/football/mod/p-edit-admin-analyze.php:
+   53  		$rename="$time-$file1";
+   54  		@copy($tmp1,"avatar/$rename");
+   55: 		$sql=mysql_query("UPDATE `admin_analyze` SET `name`='$name' ,`img`='$rename' ,`user`='$user' ,`pass`='$pass' WHERE id='$modid'")or die("ERROR $sql");
+   56  		echo "<meta http-equiv='refresh' content='0;url=main.php'>";
+   57  		}else{
+   ..
+   65  		}
+   66  	}else{
+   67: 	$sql=mysql_query("UPDATE `admin_analyze` SET `name`='$name' ,`user`='$user' ,`pass`='$pass' WHERE id='$modid'")or die("ERROR $sql");
+   68  	echo "<meta http-equiv='refresh' content='0;url=main.php'>";
+   69  	}
+
+/Users/brio/Works/football/mod/p-edit-analyze.php:
+   11  $status_comment=$_POST['status_comment'];
+   12
+   13: $insert=mysql_query("UPDATE `analyze` SET `title`='$title' ,`detail`='$detail' ,`status_comment`='$status_comment' WHERE id='$id'") or die("ERROR $insert บรรทัดที่ 12");
+   14
+   15  $spost="select * from `analyze` where id='$id'";
+   16: $repost=mysql_query($spost) or die("ERROR $spost");
+   17  $rpost=mysql_fetch_row($repost);
+   18  $url=rewrite($rpost[2]);
+
+/Users/brio/Works/football/webboard/del-webboard-reply.php:
+   37  //select img ans_webboard
+   38  $sql6="SELECT img FROM `ans_webboard` WHERE id='$id'";
+   39: $re6=mysql_query($sql6) or die("ERROR $sql6");
+   40  while($r6=mysql_fetch_row($re6)){
+   41  //del img ans_webboard
+   ..
+   44  }
+   45  //del ans_webboard
+   46: $del_ans_webboard=mysql_query("DELETE FROM `ans_webboard` WHERE `id`='$id'") or die ("ERROR del_ans_webboard");
+   47  echo "<meta http-equiv='refresh' content='0;url=../board-$topic_id-$cate_id/$topic.html'>";
+   48  ?>
+
+/Users/brio/Works/football/webboard/del-webboard.php:
+   36  //select img webboard
+   37  $sql5="SELECT img FROM `webboard` WHERE id='$topic_id'";
+   38: $re5=mysql_query($sql5) or die("ERROR $sql5");
+   39  while($r5=mysql_fetch_row($re5)){
+   40  //del img webboard
+   ..
+   43  }
+   44  //del webboard
+   45: $del_webboard=mysql_query("DELETE FROM `webboard` WHERE `id`='$topic_id'") or die ("ERROR del_webboard");
+   46
+   47  //select img ans_webboard
+   48  $sql6="SELECT img FROM `ans_webboard` WHERE topic_id='$topic_id'";
+   49: $re6=mysql_query($sql6) or die("ERROR $sql6");
+   50  while($r6=mysql_fetch_row($re6)){
+   51  //del img ans_webboard
+   ..
+   54  }
+   55  //del ans_webboard
+   56: $del_ans_webboard=mysql_query("DELETE FROM `ans_webboard` WHERE `topic_id`='$topic_id'") or die ("ERROR del_ans_webboard");
+   57  echo "<meta http-equiv='refresh' content='0;url=../wcate-$cate_id/$cate.html'>";
+   58  ?>
+
+/Users/brio/Works/football/webboard/edit-webboard-reply.php:
+    6  include "../function/function.php";
+    7  $title="select * from web_detail where id=1";
+    8: $titlere=mysql_query($title) or die("ERROR $title บรททัด4");
+    9  $titler=mysql_fetch_row($titlere);
+   10  $link="select * from link where id=1";
+   11: $linkre=mysql_query($link) or die("ERROR $link บรททัด7");
+   12  $linkr=mysql_fetch_row($linkre);
+   13  $banner="select * from site_logo where id=1";
+   14: $bannerre=mysql_query($banner) or die("ERROR $banner บรททัด10");
+   15  $bannerr=mysql_fetch_row($bannerre);
+   16  $bg="select * from bg where id=1";
+   17: $bgre=mysql_query($bg) or die("ERROR $bg บรททัด13");
+   18  $bgr=mysql_fetch_row($bgre);
+   19  $footer="select * from footer_logo where id=1";
+   20: $refooter=mysql_query($footer) or die("ERROR $footer บรททัด10");
+   21  $rfooter=mysql_fetch_row($refooter);
+   22  $fb="select * from fanpage where id=1";
+   23: $fbre=mysql_query($fb) or die("ERROR $fb บรททัด16");
+   24  $fbr=mysql_fetch_row($fbre);
+   25  $st="select * from stats where id=1";
+   26: $stre=mysql_query($st) or die("ERROR $st บรททัด19");
+   27  $str=mysql_fetch_row($stre);
+   28
+   ..
+   31  $cate_id=$_GET["cate_id"];
+   32  $sart="SELECT title FROM `webboard` WHERE id='$topic_id'";
+   33: $reart=mysql_query($sart) or die("ERROR $sart");
+   34  $rart=mysql_fetch_row($reart);
+   35  $url=rewrite($rart[0]);
+   36
+   37  $sre="SELECT detail, img FROM `ans_webboard` WHERE id='$id'";
+   38: $rere=mysql_query($sre) or die("ERROR $sre");
+   39  $rre=mysql_fetch_row($rere);
+   40  ?>
+
+/Users/brio/Works/football/webboard/edit-webboard.php:
+    6  include "../function/function.php";
+    7  $title="select * from web_detail where id=1";
+    8: $titlere=mysql_query($title) or die("ERROR $title บรททัด4");
+    9  $titler=mysql_fetch_row($titlere);
+   10  $link="select * from link where id=1";
+   11: $linkre=mysql_query($link) or die("ERROR $link บรททัด7");
+   12  $linkr=mysql_fetch_row($linkre);
+   13  $banner="select * from site_logo where id=1";
+   14: $bannerre=mysql_query($banner) or die("ERROR $banner บรททัด10");
+   15  $bannerr=mysql_fetch_row($bannerre);
+   16  $bg="select * from bg where id=1";
+   17: $bgre=mysql_query($bg) or die("ERROR $bg บรททัด13");
+   18  $bgr=mysql_fetch_row($bgre);
+   19  $footer="select * from footer_logo where id=1";
+   20: $refooter=mysql_query($footer) or die("ERROR $footer บรททัด10");
+   21  $rfooter=mysql_fetch_row($refooter);
+   22  $fb="select * from fanpage where id=1";
+   23: $fbre=mysql_query($fb) or die("ERROR $fb บรททัด16");
+   24  $fbr=mysql_fetch_row($fbre);
+   25  $st="select * from stats where id=1";
+   26: $stre=mysql_query($st) or die("ERROR $st บรททัด19");
+   27  $str=mysql_fetch_row($stre);
+   28
+   ..
+   34  $sBOARD.="INNER JOIN webboard_category ON webboard.cate_id=webboard_category.id ";
+   35  $sBOARD.="WHERE webboard.id='$topic_id' ";
+   36: $reBOARDE=mysql_query($sBOARD) or die("ERROR $sBOARD บรรทัด 30");
+   37  $rBOARD=mysql_fetch_row($reBOARDE);
+   38  ?>
+   ..
+  127                          <?php
+  128  		$scate="SELECT * FROM `webboard_category` ORDER BY id ASC";
+  129: 		$recate=mysql_query($scate) or die("Error $scate");
+  130  		while($rcate=mysql_fetch_row($recate)){
+  131  		?>
+
+/Users/brio/Works/football/webboard/index.php:
+    6  include "../function/function.php";
+    7  $title="select * from web_detail where id=1";
+    8: $titlere=mysql_query($title) or die("ERROR $title บรททัด4");
+    9  $titler=mysql_fetch_row($titlere);
+   10  $link="select * from link where id=1";
+   11: $linkre=mysql_query($link) or die("ERROR $link บรททัด7");
+   12  $linkr=mysql_fetch_row($linkre);
+   13  $banner="select * from site_logo where id=1";
+   14: $bannerre=mysql_query($banner) or die("ERROR $banner บรททัด10");
+   15  $bannerr=mysql_fetch_row($bannerre);
+   16  $bg="select * from bg where id=1";
+   17: $bgre=mysql_query($bg) or die("ERROR $bg บรททัด13");
+   18  $bgr=mysql_fetch_row($bgre);
+   19  $footer="select * from footer_logo where id=1";
+   20: $refooter=mysql_query($footer) or die("ERROR $footer บรททัด10");
+   21  $rfooter=mysql_fetch_row($refooter);
+   22  $fb="select * from fanpage where id=1";
+   23: $fbre=mysql_query($fb) or die("ERROR $fb บรททัด16");
+   24  $fbr=mysql_fetch_row($fbre);
+   25  $st="select * from stats where id=1";
+   26: $stre=mysql_query($st) or die("ERROR $st บรททัด19");
+   27  $str=mysql_fetch_row($stre);
+   28  ?>
+   ..
+  222  <?php
+  223     $sni="select * from news_index where id=1";
+  224:    $reni=mysql_query($sni) or die("ERROR $sni บรททัด 89");
+  225     $rni=mysql_fetch_row($reni);
+  226     $msg=stripslashes($rni[1]);
+  ...
+  255                          <?php
+  256     $scate="SELECT * FROM `webboard_category` ORDER BY id ASC";
+  257:    $recate=mysql_query($scate) or die("Error $scate");
+  258     while($rcate=mysql_fetch_row($recate)){
+  259     $url=rewrite($rcate[1]);
+  ...
+  266                              <?php
+  267  $strCATE="SELECT * FROM `webboard` WHERE cate_id='$rcate[0]' ";
+  268: $QueryCATE=mysql_query($strCATE) or die("ERROR $strCATE บรรทัด 221");
+  269  $NumCATE = mysql_num_rows($QueryCATE);
+  270  echo $NumCATE;
+  ...
+  329  $swb.="INNER JOIN member ON webboard.member_id=member.id ";
+  330  $swb.="WHERE webboard.sticky='1' ORDER BY webboard.upd_date DESC";
+  331: $rewb=mysql_query($swb) or die("ERROR $swb");
+  332  while($rwb=mysql_fetch_row($rewb)){
+  333  $url=rewrite($rwb[1]);
+  ...
+  374  $strWB.="INNER JOIN member ON ans_webboard.member_id=member.id ";
+  375  $strWB.="WHERE ans_webboard.topic_id='$rwb[0]' ORDER BY ans_webboard.id DESC ";
+  376: $WBQuery=mysql_query($strWB) or die("ERROR บรรทัด 437");
+  377  $WBResult=mysql_fetch_row($WBQuery);
+  378  $NumWB = mysql_num_rows($WBQuery);
+  ...
+  414  $strSQL.="INNER JOIN member ON webboard.member_id=member.id ";
+  415  $strSQL.="WHERE webboard.sticky='0' ";
+  416: $objQuery=mysql_query($strSQL) or die("ERROR บรรทัด 344");
+  417  $Num_Rows = mysql_num_rows($objQuery);
+  418  		$Per_Page = 20;   // Per Page
+  ...
+  447
+  448  		$strSQL .=" ORDER BY webboard.upd_date DESC LIMIT $Page_Start , $Per_Page";
+  449: 		$objQuery  = mysql_query($strSQL) or die("ERROR");
+  450  		while($objResult = mysql_fetch_row($objQuery))
+  451  		{
+  ...
+  461  $strWB2.="INNER JOIN member ON ans_webboard.member_id=member.id ";
+  462  $strWB2.="WHERE ans_webboard.topic_id='$objResult[0]' ORDER BY ans_webboard.id DESC ";
+  463: $WBQuery2=mysql_query($strWB2) or die("ERROR $strWB2 บรรทัด 531");
+  464  $WBResult2=mysql_fetch_row($WBQuery2);
+  465  $NumWB2=mysql_num_rows($WBQuery2);
+
+/Users/brio/Works/football/webboard/new-topic.php:
+    6  include "../function/function.php";
+    7  $title="select * from web_detail where id=1";
+    8: $titlere=mysql_query($title) or die("ERROR $title บรททัด4");
+    9  $titler=mysql_fetch_row($titlere);
+   10  $link="select * from link where id=1";
+   11: $linkre=mysql_query($link) or die("ERROR $link บรททัด7");
+   12  $linkr=mysql_fetch_row($linkre);
+   13  $banner="select * from site_logo where id=1";
+   14: $bannerre=mysql_query($banner) or die("ERROR $banner บรททัด10");
+   15  $bannerr=mysql_fetch_row($bannerre);
+   16  $bg="select * from bg where id=1";
+   17: $bgre=mysql_query($bg) or die("ERROR $bg บรททัด13");
+   18  $bgr=mysql_fetch_row($bgre);
+   19  $footer="select * from footer_logo where id=1";
+   20: $refooter=mysql_query($footer) or die("ERROR $footer บรททัด10");
+   21  $rfooter=mysql_fetch_row($refooter);
+   22  $fb="select * from fanpage where id=1";
+   23: $fbre=mysql_query($fb) or die("ERROR $fb บรททัด16");
+   24  $fbr=mysql_fetch_row($fbre);
+   25  $st="select * from stats where id=1";
+   26: $stre=mysql_query($st) or die("ERROR $st บรททัด19");
+   27  $str=mysql_fetch_row($stre);
+   28
+   29  $cate_id=$_GET["cate_id"];
+   30  $rscate="SELECT cate_name FROM `webboard_category` WHERE id='$cate_id' ORDER BY id ASC";
+   31: $rrecate=mysql_query($rscate) or die("ERROR $rscate");
+   32  $rrcate=mysql_fetch_row($rrecate);
+   33  ?>
+   ..
+   44  //check ban ip
+   45  $sip="SELECT * FROM `ban_ip` WHERE ip='$ip'";
+   46: $reip=mysql_query($sip) or die("ERROR $sip");
+   47  $nip=mysql_num_rows($reip);
+   48  if($nip>=1){
+   ..
+  153                          <?php
+  154  		$scate="SELECT * FROM `webboard_category` ORDER BY id ASC";
+  155: 		$recate=mysql_query($scate) or die("Error $scate");
+  156  		while($rcate=mysql_fetch_row($recate)){
+  157  		?>
+
+/Users/brio/Works/football/webboard/p-edit-webboard-replay.php:
+   26  			$rename="$time-$file1";
+   27  			@copy($tmp1,"board-img/$rename");
+   28: 			$upd=mysql_query("UPDATE `ans_webboard` SET `detail`='$detail' ,`img`='$rename' WHERE `id`='$id'") or die("ERROR $upd บรรทัดที่ 21");
+   29  			mysql_close();
+   30
+   ..
+   40  	}
+   41  }else{
+   42: 			$upd=mysql_query("UPDATE `ans_webboard` SET `detail`='$detail' WHERE `id`='$id'") or die("ERROR $upd บรรทัดที่ 21");
+   43  			mysql_close();
+   44
+
+/Users/brio/Works/football/webboard/p-edit-webboard.php:
+   25  			$rename="$time-$file1";
+   26  			@copy($tmp1,"board-img/$rename");
+   27: 			$upd=mysql_query("UPDATE `webboard` SET `cate_id`='$cate' ,`title`='$title' ,`detail`='$detail' ,`img`='$rename' WHERE `id`='$topic_id'") or die("ERROR $upd บรรทัดที่ 21");
+   28  			mysql_close();
+   29
+   ..
+   39  	}
+   40  }else{
+   41: 			$upd=mysql_query("UPDATE `webboard` SET `cate_id`='$cate' ,`title`='$title' ,`detail`='$detail' WHERE `id`='$topic_id'") or die("ERROR $upd บรรทัดที่ 35");
+   42  			mysql_close();
+   43
+
+/Users/brio/Works/football/webboard/p-new-topic.php:
+   22  	//check user & pass
+   23  	$s="SELECT id FROM `member` where user='$user' and pass='$pass'";
+   24: 	$re=mysql_query($s) or die("ERROR $s");
+   25  	$num=mysql_num_rows($re);
+   26  	$r=mysql_fetch_row($re);
+   ..
+   40  			@copy($tmp1,"board-img/$rename");
+   41  			$scate="SELECT * FROM `webboard_category` WHERE id='$cate'";
+   42: 			$recate=mysql_query($scate) or die("Error $scate");
+   43  			$rcate=mysql_fetch_row($recate);
+   44  			$url=rewrite($rcate[1]);
+   45: 			$insert=mysql_query("INSERT INTO `webboard` (`member_id` ,`cate_id` ,`title` ,`detail` ,`img` ,`date` ,`view` ,`sticky` ,`ip` ,`upd_date` ,`status` )VALUES ('$r[0]', '$cate', '$title', '$detail', '$rename', '$date', '0', '0', '$ip', '$date', '1')") or die("ERROR $insert บรรทัดที่ 44");
+   46  			mysql_close();
+   47  			echo "<meta http-equiv='refresh' content='0;url=../wcate-$cate/$url'>" ;
+   ..
+   56  			}else{
+   57  			$scate="SELECT * FROM `webboard_category` WHERE id='$cate'";
+   58: 			$recate=mysql_query($scate) or die("Error $scate");
+   59  			$rcate=mysql_fetch_row($recate);
+   60  			$url=rewrite($rcate[1]);
+   61: 			$insert=mysql_query("INSERT INTO `webboard` (`member_id` ,`cate_id` ,`title` ,`detail` ,`img` ,`date` ,`view` ,`sticky` ,`ip` ,`upd_date` ,`status` )VALUES ('$r[0]', '$cate', '$title', '$detail', '$file1', '$date', '0', '0', '$ip', '$date', '1')") or die("ERROR $insert บรรทัดที่ 56");
+   62  			mysql_close();
+   63  			echo "<meta http-equiv='refresh' content='0;url=../wcate-$cate/$url'>" ;
+
+/Users/brio/Works/football/webboard/p-webboard-replay.php:
+   20  	//check user & pass
+   21  	$s="SELECT id FROM `member` where user='$user' and pass='$pass'";
+   22: 	$re=mysql_query($s) or die("ERROR $s");
+   23  	$num=mysql_num_rows($re);
+   24  	$r=mysql_fetch_row($re);
+   ..
+   37  			$rename="$time-$file1";
+   38  			@copy($tmp1,"board-img/$rename");
+   39: 			$insert=mysql_query("INSERT INTO `ans_webboard` (`topic_id` ,`member_id` ,`detail` ,`img` ,`date` ,`ip` )VALUES ('$topic_id', '$r[0]', '$detail', '$rename', '$date', '$ip')") or die("ERROR $insert บรรทัดที่ 37");
+   40: 			$upd=mysql_query("UPDATE `webboard` SET `upd_date`='$date' , `status`='2' WHERE `id`='$topic_id'") or die("ERROR $upd บรรทัดที่ 43");
+   41  			mysql_close();
+   42  			echo "<meta http-equiv='refresh' content='0;url=../board-$topic_id-$cate_id/$topic.html'>" ;
+   ..
+   50  			}
+   51  			}else{
+   52: 			$insert=mysql_query("INSERT INTO `ans_webboard` (`topic_id` ,`member_id` ,`detail` ,`img` ,`date` ,`ip` )VALUES ('$topic_id', '$r[0]', '$detail', '', '$date', '$ip')") or die("ERROR $insert บรรทัดที่ 55");
+   53: 			$upd=mysql_query("UPDATE `webboard` SET `upd_date`='$date' , `status`='2' WHERE `id`='$topic_id'") or die("ERROR $upd บรรทัดที่ 56");
+   54  			mysql_close();
+   55  			echo "<meta http-equiv='refresh' content='0;url=../board-$topic_id-$cate_id/$topic.html'>" ;
+
+/Users/brio/Works/football/webboard/template.php:
+    6  include "../function/function.php";
+    7  $title="select * from web_detail where id=1";
+    8: $titlere=mysql_query($title) or die("ERROR $title บรททัด4");
+    9  $titler=mysql_fetch_row($titlere);
+   10  $link="select * from link where id=1";
+   11: $linkre=mysql_query($link) or die("ERROR $link บรททัด7");
+   12  $linkr=mysql_fetch_row($linkre);
+   13  $banner="select * from site_logo where id=1";
+   14: $bannerre=mysql_query($banner) or die("ERROR $banner บรททัด10");
+   15  $bannerr=mysql_fetch_row($bannerre);
+   16  $bg="select * from bg where id=1";
+   17: $bgre=mysql_query($bg) or die("ERROR $bg บรททัด13");
+   18  $bgr=mysql_fetch_row($bgre);
+   19  $footer="select * from footer_logo where id=1";
+   20: $refooter=mysql_query($footer) or die("ERROR $footer บรททัด10");
+   21  $rfooter=mysql_fetch_row($refooter);
+   22  $fb="select * from fanpage where id=1";
+   23: $fbre=mysql_query($fb) or die("ERROR $fb บรททัด16");
+   24  $fbr=mysql_fetch_row($fbre);
+   25  $st="select * from stats where id=1";
+   26: $stre=mysql_query($st) or die("ERROR $st บรททัด19");
+   27  $str=mysql_fetch_row($stre);
+   28  ?>
+
+/Users/brio/Works/football/webboard/webboard-replay.php:
+    6  include "../function/function.php";
+    7  $title="select * from web_detail where id=1";
+    8: $titlere=mysql_query($title) or die("ERROR $title บรททัด4");
+    9  $titler=mysql_fetch_row($titlere);
+   10  $link="select * from link where id=1";
+   11: $linkre=mysql_query($link) or die("ERROR $link บรททัด7");
+   12  $linkr=mysql_fetch_row($linkre);
+   13  $banner="select * from site_logo where id=1";
+   14: $bannerre=mysql_query($banner) or die("ERROR $banner บรททัด10");
+   15  $bannerr=mysql_fetch_row($bannerre);
+   16  $bg="select * from bg where id=1";
+   17: $bgre=mysql_query($bg) or die("ERROR $bg บรททัด13");
+   18  $bgr=mysql_fetch_row($bgre);
+   19  $footer="select * from footer_logo where id=1";
+   20: $refooter=mysql_query($footer) or die("ERROR $footer บรททัด10");
+   21  $rfooter=mysql_fetch_row($refooter);
+   22  $fb="select * from fanpage where id=1";
+   23: $fbre=mysql_query($fb) or die("ERROR $fb บรททัด16");
+   24  $fbr=mysql_fetch_row($fbre);
+   25  $st="select * from stats where id=1";
+   26: $stre=mysql_query($st) or die("ERROR $st บรททัด19");
+   27  $str=mysql_fetch_row($stre);
+   28
+   ..
+   30  $cate_id=$_GET["cate_id"];
+   31  $sart="SELECT title FROM `webboard` WHERE id='$topic_id'";
+   32: $reart=mysql_query($sart) or die("ERROR $sart");
+   33  $rart=mysql_fetch_row($reart);
+   34  $url=rewrite($rart[0]);
+   ..
+   46  //check ban ip
+   47  $sip="SELECT * FROM `ban_ip` WHERE ip='$ip'";
+   48: $reip=mysql_query($sip) or die("ERROR $sip");
+   49  $nip=mysql_num_rows($reip);
+   50  if($nip>=1){
+
+759 matches across 235 files

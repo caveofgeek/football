@@ -9,11 +9,11 @@ if(!isset($_SESSION["admin_login"])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
-$cate_id=$_POST["cate_id"];
-$cate_name=$_POST['cate_name'];
-$title=$_POST['title'];
-$description=$_POST['description'];
-$keyword=$_POST['keyword'];
+$cate_id=mysql_real_escape_string($_POST["cate_id"]);
+$cate_name=mysql_real_escape_string($_POST['cate_name']);
+$title=mysql_real_escape_string($_POST['title']);
+$description=mysql_real_escape_string($_POST['description']);
+$keyword=mysql_real_escape_string($_POST['keyword']);
 //echo "$cate_name=[cate_name]<br>$title=[title]<br>$description=[description]<br>$keyword=[keyword]<br>$file1=[file1][name]<br>$tmp1=[file1][tmp_name]";
 if($cate_name!=""&&$title!=""&&$description!=""&&$keyword!=""){
 	//update

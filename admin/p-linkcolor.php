@@ -36,10 +36,10 @@ a:active {
 <body>
 <?php
 $Submit=$_POST['Submit'];
-$color=$_POST['color'];
-$visit=$_POST['visit'];
-$rollover=$_POST['rollover'];
-$active=$_POST['active'];
+$color=mysql_real_escape_string($_POST['color']);
+$visit=mysql_real_escape_string($_POST['visit']);
+$rollover=mysql_real_escape_string($_POST['rollover']);
+$active=mysql_real_escape_string($_POST['active']);
 //echo "$color=[color]<br>$visit=[visit]<br>$rollover=[rollover]<br>$active=[active]";
 
 $sql=mysql_query("update `link` set `color`='$color' ,`visit`='$visit' ,`rollover`='$rollover' ,`active`='$active' where id='1'")or die("ERROR $sql บรรทัด46");

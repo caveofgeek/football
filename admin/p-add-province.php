@@ -34,9 +34,9 @@ a:active {
 
 <body>
 <?php
-$Submit=$_POST['Submit'];
-$geo=$_POST[geo];
-$province=htmlspecialchars($_POST['province']);
+$Submit=mysql_real_escape_string($_POST['Submit']);
+$geo=mysql_real_escape_string($_POST[geo]);
+$province=htmlspecialchars(mysql_real_escape_string($_POST['province']));
 $s="select * from province where PROVINCE_NAME='$province'";
 $re=mysql_query($s) or die("ERROR $s บรททัด38");
 $num=mysql_num_rows($re);

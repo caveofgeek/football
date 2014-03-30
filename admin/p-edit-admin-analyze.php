@@ -35,14 +35,14 @@ a:active {
 
 <body>
 <?php
-$id=$_POST['id'];
-$name=htmlspecialchars($_POST['name']);
-$op=$_POST['op'];
+$id=mysql_real_escape_string($_POST['id']);
+$name=htmlspecialchars(mysql_real_escape_string($_POST['name']));
+$op=mysql_real_escape_string($_POST['op']);
 $file1=$_FILES["file1"]["name"];
 $tmp1=$_FILES["file1"]["tmp_name"];
 $size1=$_FILES["file1"]["size"];
-$user=htmlspecialchars($_POST["user"]);
-$pass=htmlspecialchars($_POST["pass"]);
+$user=htmlspecialchars(mysql_real_escape_string($_POST["user"]));
+$pass=htmlspecialchars(mysql_real_escape_string($_POST["pass"]));
 $date=date("Y-m-d");
 if($name!=""&&$user!=""&&$pass!=""){
 	if(isset($file1)&&$file1!=""){

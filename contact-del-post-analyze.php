@@ -11,23 +11,23 @@ include "inc/config.inc.php";
 
 <body>
 <?php
-$topic_id=$_POST["topic_id"];
+$topic_id=mysql_real_escape_string($_POST["topic_id"]);
 $capcha=htmlspecialchars($_POST["capcha"]);
-$rands=$_POST["rands"];
+$rands=mysql_real_escape_string($_POST["rands"]);
 $date=date("Y-n-j H:i:s");
 if(isset($rands)&&isset($capcha)&&$rands==$capcha){
 //insert
 $insert=mysql_query("INSERT INTO `contact_del_analyze_post` (`post_id` ,`date`)VALUES ('$topic_id', '$date')") or die("ERROR $insert");
 ?>
-<script language="JavaScript"> 	
+<script language="JavaScript">
 	alert('บันทึกข้อมูลเสร็จเรียบร้อย');
-	window.location = 'index.php'; 
-</script> 
+	window.location = 'index.php';
+</script>
 <?php
 }else{
 ?>
-<script language="JavaScript" type="text/javascript"> 	
-		alert('ขอโทษครับ คุณกรอกรหัสยืนยันไม่ถูกต้องครับ'); 	
+<script language="JavaScript" type="text/javascript">
+		alert('ขอโทษครับ คุณกรอกรหัสยืนยันไม่ถูกต้องครับ');
 		history.back();
 </script>
 <?php } ?>

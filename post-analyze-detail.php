@@ -26,8 +26,8 @@ $st="select * from stats where id=1";
 $stre=mysql_query($st) or die("ERROR $st บรททัด19");
 $str=mysql_fetch_row($stre);
 
-$topic_id=$_GET["topic_id"];
-$topic=$_GET["topic"];
+$topic_id=mysql_real_escape_string($_GET["topic_id"]);
+$topic=mysql_real_escape_string($_GET["topic"]);
 $spost="SELECT * FROM `analyze` WHERE id='$topic_id'";
 $repost=mysql_query($spost) or die("ERROR $spost");
 $rpost=mysql_fetch_row($repost);

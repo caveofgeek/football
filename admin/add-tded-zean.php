@@ -71,7 +71,7 @@ body {
                   <tr>
                     <td height="25"><strong><font size="2">
 <?php
-$zean_id=$_GET['zean_id'];
+$zean_id=mysql_real_escape_string($_GET['zean_id']);
 $szn="SELECT * FROM `zean_name` WHERE id='$zean_id'";
 $rezn=mysql_query($szn) or die("ERROR $szn");
 $rzn=mysql_fetch_row($rezn);
@@ -178,7 +178,7 @@ $rzn=mysql_fetch_row($rezn);
         </table></td>
       </tr>
       <tr>
-        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2014 &copy; Ruk-Com.in.th</font></strong></td>
+        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2014 &copy; scriptweb2u  Modify By Ruk-Com.In.Th</font></strong></td>
       </tr>
     </table></td>
   </tr>

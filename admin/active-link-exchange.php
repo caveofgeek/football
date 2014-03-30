@@ -3,7 +3,7 @@ session_start();
 include "../inc/config.inc.php";
 //echo "$_SESSION[m_login]<br>$_SESSION["m_id"]";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 ?>
@@ -35,7 +35,7 @@ a:active {
 
 <body>
 <?php
-$id=$_GET["id"];
+$id=mysql_real_escape_string($_GET["id"]);
 $sql=mysql_query("update link_exchange set actived='1' where id='$id'")or die("ERROR $sql บรรทัด36");
 echo "<meta http-equiv='refresh' content='0;url=linkexchange.php'>";
 ?>

@@ -72,8 +72,8 @@ body {
                   <tr>
                     <td height="25"><strong><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> <a href="all-game-match.php">จัดการข้อมูลรายการแข่งขัน</a> <img src="images/arrow.gif" width="7" height="11" /> แก้ไขข้อมูลรายการแข่งขัน</font></strong>
 <?php
-$id=$_GET["id"];
-$type=$_GET['type'];
+$id=mysql_real_escape_string($_GET["id"]);
+$type=mysql_real_escape_string($_GET['type']);
 $spost="SELECT * FROM `game_match` WHERE id='$id'";
 $repost=mysql_query($spost) or die("ERROR $spost");
 $rpost=mysql_fetch_row($repost);
@@ -198,7 +198,7 @@ while($r=mysql_fetch_row($re)){
         </table></td>
       </tr>
       <tr>
-        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2014 &copy; Ruk-Com.in.th</font></strong></td>
+        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2014 &copy; scriptweb2u  Modify By Ruk-Com.In.Th</font></strong></td>
       </tr>
     </table></td>
   </tr>

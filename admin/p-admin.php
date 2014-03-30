@@ -36,8 +36,8 @@ a:active {
 <body>
 <?php
 $Submit=$_POST['Submit'];
-$user=htmlspecialchars($_POST["user"]);
-$pass=htmlspecialchars($_POST["pass"]);
+$user=htmlspecialchars(mysql_real_escape_string($_POST["user"]));
+$pass=htmlspecialchars(mysql_real_escape_string($_POST["pass"]));
 if($user!=""&&$pass!=""){
 $sql=mysql_query("INSERT INTO `admin` (`user` ,`pass`)VALUES ('$user',  '$pass')")or die("ERROR $sql");
 echo "<meta http-equiv='refresh' content='0;url=admin.php'>";

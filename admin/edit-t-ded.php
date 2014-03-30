@@ -7,7 +7,7 @@ echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 
 exit() ;
 }
-$id=$_GET["id"];
+$id=mysql_real_escape_string($_GET["id"]);
 $sql="SELECT * FROM `t_ded` where id='$id'";
 $result=mysql_query($sql) or die("ERROR $sql");
 $row=mysql_fetch_row($result);
@@ -225,7 +225,7 @@ return true ;
         </table></td>
       </tr>
       <tr>
-        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2014 &copy; Ruk-Com.in.th</font></strong></td>
+        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2014 &copy; scriptweb2u  Modify By Ruk-Com.In.Th</font></strong></td>
       </tr>
     </table></td>
   </tr>

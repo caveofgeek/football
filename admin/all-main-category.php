@@ -204,7 +204,7 @@ body {
                   <tr>
                     <td height="25">
 <?php
-$cate_id=$_GET["cate_id"];
+$cate_id=mysql_real_escape_string($_GET["cate_id"]);
 $scate="SELECT cate_name FROM `category` WHERE id='$cate_id'";
 $recate=mysql_query($scate) or die("ERROR $scate");
 $rcate=mysql_fetch_row($recate);
@@ -368,7 +368,7 @@ echo $pages->display_pages()
         </table></td>
       </tr>
       <tr>
-        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2014 &copy; Ruk-Com.in.th</font></strong></td>
+        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2014 &copy; scriptweb2u  Modify By Ruk-Com.In.Th</font></strong></td>
       </tr>
     </table></td>
   </tr>

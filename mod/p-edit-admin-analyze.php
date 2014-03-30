@@ -35,13 +35,13 @@ a:active {
 
 <body>
 <?php
-$name=htmlspecialchars($_POST['name']);
-$op=$_POST['op'];
+$name=htmlspecialchars(mysql_real_escape_string($_POST['name']));
+$op=mysql_real_escape_string($_POST['op']);
 $file1=$_FILES["file1"]["name"];
 $tmp1=$_FILES["file1"]["tmp_name"];
 $size1=$_FILES["file1"]["size"];
-$user=htmlspecialchars($_POST["user"]);
-$pass=htmlspecialchars($_POST["pass"]);
+$user=htmlspecialchars(mysql_real_escape_string($_POST["user"]));
+$pass=htmlspecialchars(mysql_real_escape_string($_POST["pass"]));
 $date=date("Y-m-d");
 $modid = $_SESSION['mod_id'];
 if($name!=""&&$user!=""&&$pass!=""){

@@ -35,12 +35,12 @@ a:active {
 
 <body>
 <?php
-$l_id=$_GET["l_id"];
+$l_id=mysql_real_escape_string($_GET["l_id"]);
 if(isset($_GET["tDate"]))
 {
   $tdate=$_GET["tDate"];
 }
-$id=$_GET["id"];
+$id=mysql_real_escape_string($_GET["id"]);
 //del t_ded
 $sql=mysql_query("delete from t_ded where id='$id'")or die("ERROR $sql");
 

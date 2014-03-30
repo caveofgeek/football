@@ -37,8 +37,8 @@ a:active {
 <?php
 $Submit=$_POST['Submit'];
 $id=$_POST['id'];
-$user=htmlspecialchars($_POST["user"]);
-$pass=htmlspecialchars($_POST["pass"]);
+$user=htmlspecialchars(mysql_real_escape_string($_POST["user"]));
+$pass=htmlspecialchars(mysql_real_escape_string($_POST["pass"]));
 if($user!=""&&$pass!=""){
 $sql=mysql_query("update `admin` set `user`='$user' ,`pass`='$pass' where id='$id'")or die("ERROR $sql");
 echo "<meta http-equiv='refresh' content='0;url=admin.php'>";

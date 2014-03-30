@@ -35,16 +35,16 @@ a:active {
 
 <body>
 <?php
-$links=$_POST['links'];
-$data=$_POST['data'];
-$op=$_POST['op'];
+$links=mysql_real_escape_string($_POST['links']);
+$data=mysql_real_escape_string($_POST['data']);
+$op=mysql_real_escape_string($_POST['op']);
 $file1=$_FILES["file1"]["name"];
 $tmp1=$_FILES["file1"]["tmp_name"];
-$name=$_POST['name'];
-$email=$_POST['email'];
-$url=$_POST['url'];
-$code=$_POST['code'];
-$type=$_POST['type'];
+$name=mysql_real_escape_string($_POST['name']);
+$email=mysql_real_escape_string($_POST['email']);
+$url=mysql_real_escape_string($_POST['url']);
+$code=mysql_real_escape_string($_POST['code']);
+$type=mysql_real_escape_string($_POST['type']);
 $dm=date("d-m");
 $y=date("Y")+543;
 $date="$dm-$y";

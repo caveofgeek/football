@@ -9,8 +9,8 @@ if(!isset($_SESSION["admin_login"])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
-$id=$_POST['id'];
-$league=$_POST['league'];
+$id=mysql_real_escape_string($_POST['id']);
+$league=mysql_real_escape_string($_POST['league']);
 $file1=$_FILES["file1"]["name"];
 $tmp1=$_FILES["file1"]["tmp_name"];
 //echo "$cate_name=[cate_name]<br>$title=[title]<br>$description=[description]<br>$keyword=[keyword]<br>$file1=[file1][name]<br>$tmp1=[file1][tmp_name]";

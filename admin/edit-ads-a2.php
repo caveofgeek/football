@@ -6,12 +6,12 @@ echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 
 exit() ;
 }
-$id=$_GET["id"];
+$id=mysql_real_escape_string($_GET["id"]);
 $s="SELECT * FROM `ads_a2` WHERE id='$id'";
 $re=mysql_query($s) or die("Error $s");
 $r=mysql_fetch_row($re);
 if(isset($_GET['type'])){
-$type=$_GET['type'];
+$type=mysql_real_escape_string($_GET['type']);
 }else{
 $type=$r[1];
 }
@@ -229,7 +229,7 @@ body {
         </table></td>
       </tr>
       <tr>
-        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2014 &copy; Ruk-Com.in.th</font></strong></td>
+        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2014 &copy; scriptweb2u  Modify By Ruk-Com.In.Th</font></strong></td>
       </tr>
     </table></td>
   </tr>

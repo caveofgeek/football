@@ -35,8 +35,8 @@ a:active {
 
 <body>
 <?php
-$id=$_GET["id"];
-$zean_id=$_GET['zean_id'];
+$id=mysql_real_escape_string($_GET["id"]);
+$zean_id=mysql_real_escape_string($_GET['zean_id']);
 
 $sql=mysql_query("delete from `tded_zean` where id='$id'")or die("ERROR $sql");
 

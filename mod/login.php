@@ -29,8 +29,8 @@ a:active {
 
 <body>
 <?php
-$user=$_POST["user"];
-$pass=$_POST["pass"];
+$user=mysql_real_escape_string($_POST["user"]);
+$pass=mysql_real_escape_string($_POST["pass"]);
 $s="SELECT * FROM `admin_analyze` where user='$user' and pass='$pass'";
 $re=mysql_query($s) or die("ERROR $s");
 $num=mysql_num_rows($re);

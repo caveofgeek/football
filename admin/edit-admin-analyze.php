@@ -77,7 +77,7 @@ body {
                       <tr>
                         <td>
                           <?php
-$id=$_GET["id"];
+$id=mysql_real_escape_string($_GET["id"]);
 $sql="SELECT * FROM `admin_analyze` WHERE id='$id'";
 $result=mysql_query($sql) or die("ERROR $sql");
 $row=mysql_fetch_row($result);
@@ -207,7 +207,7 @@ while($r=mysql_fetch_row($re)){
         </table></td>
       </tr>
       <tr>
-        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2014 &copy; Ruk-Com.in.th</font></strong></td>
+        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2014 &copy; scriptweb2u  Modify By Ruk-Com.In.Th</font></strong></td>
       </tr>
     </table></td>
   </tr>

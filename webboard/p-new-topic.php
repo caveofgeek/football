@@ -3,16 +3,16 @@
 <?php
 include "../inc/config.inc.php";
 include "../function/function.php";
-$user=$_POST["user"];
-$pass=$_POST["pass"];
-$title=$_POST['title'];
-$cate=$_POST['cate'];
-$detail=addslashes($_POST["input"]);
+$user=mysql_real_escape_string($_POST["user"]);
+$pass=mysql_real_escape_string($_POST["pass"]);
+$title=mysql_real_escape_string($_POST['title']);
+$cate=mysql_real_escape_string($_POST['cate']);
+$detail=addslashes(mysql_real_escape_string($_POST["input"]));
 $file1=$_FILES["file1"]["name"];
 $tmp1=$_FILES["file1"]["tmp_name"];
 $size1=$_FILES["file1"]["size"];
-$capcha=$_POST["capcha"];
-$rands=$_POST["rands"];
+$capcha=mysql_real_escape_string($_POST["capcha"]);
+$rands=mysql_real_escape_string($_POST["rands"]);
 $date=date("Y-n-j H:i:s");
 $ip=$_SERVER['REMOTE_ADDR'];
 //check ค่าว่าง
