@@ -149,14 +149,21 @@ body {
                               <label for="detail" class="col-sm-2 control-label">ทีมที่ต่อ</label>
                               <div class="col-sm-10 form-inline">
                                 <div class="radio">
-                                    <input name="t_ded" type="radio" value="1" checked="checked" /> ทีมเจ้าบ้าน
+                                    <input name="detail" type="radio" value="1" checked="checked" /> ทีมเจ้าบ้าน
                                 </div>
-                                <div class="radio">
-                                    <input name="t_ded" type="radio" value="2" checked="checked" /> ทีมเยือน
-                                </div>
-                                <div class="radio">
-                                    <input name="t_ded" type="radio" value="0" checked="checked" /> เสมอ
-                                </div>
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="time_live" class="col-sm-2 control-label">ทีเด็ด</label>
+                              <div class="col-sm-8">
+                                <input name="time_live" class="form-control" type="text" id="time_live" />
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label for="time_live" class="col-sm-2 control-label">เวลาแข่งขัน</label>
+                              <div class="col-sm-5">
+                                <input name="time_live" class="form-control" type="text" id="time_live" />
                               </div>
                             </div>
 

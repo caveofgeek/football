@@ -93,7 +93,7 @@ echo DateThai($postDate);
                   <tr>
                     <td><table width="720" border="0" align="center" cellpadding="0" cellspacing="0">
                       <tr>
-                        <td><form action="p-edit-tded-zean.php" method="post" enctype="multipart/form-data" name ="checkForm" id="checkForm" onsubmit="return check1()">
+                        <td><form action="p-edit-tded-zean.php" class="form-horizontal" role="form" method="post" enctype="multipart/form-data" name ="checkForm" id="checkForm" onsubmit="return check1()">
                             <table width="100%" height="10" border="0" align="center" cellpadding="0" cellspacing="0">
                               <tr>
                                 <td></td>
@@ -105,7 +105,7 @@ echo DateThai($postDate);
                                   <tr>
                                     <td width="150" align="right"><span class="style4">วันที่แข่งขัน</span></td>
                                     <td width="10">&nbsp;</td>
-                                    <td width="390"><select name="days" id="days">
+                                    <td width="390" class='form-inline'><select class='form-control' name="days" id="days">
                                       <?php
 								  $a=1;
 								  while($a<=31){
@@ -115,7 +115,7 @@ echo DateThai($postDate);
                                       </option>
                                       <?php $a++;} ?>
                                     </select>
-                                    <select name="months" id="months">
+                                    <select class='form-control' name="months" id="months">
                                       <option value="01" <?php if($rpost[9]==1){ ?>selected="selected" <?php } ?> >มกราคม</option>
                                       <option value="02" <?php if($rpost[9]==2){ ?>selected="selected" <?php } ?> >กุมภาพันธ์</option>
                                       <option value="03" <?php if($rpost[9]==3){ ?>selected="selected" <?php } ?> >มีนาคม</option>
@@ -129,7 +129,7 @@ echo DateThai($postDate);
                                       <option value="11" <?php if($rpost[9]==11){ ?>selected="selected" <?php } ?> >พฤศจิกายน</option>
                                       <option value="12" <?php if($rpost[9]==12){ ?>selected="selected" <?php } ?> >ธันวาคม</option>
                                     </select>
-                                    <select name="years" id="years">
+                                    <select class='form-control' name="years" id="years">
                                       <?php
 								  $y=date("Y");
 								  $ny=date("Y")+1;
@@ -157,9 +157,9 @@ echo DateThai($postDate);
                                     </tr>
                                   <tr>
                                     <td width="90" height="20" align="center" bgcolor="#CCCCCC"><span class="style4">ชื่อทีม</span></td>
-                                    <td width="170" height="20" align="center" bgcolor="#999999"><input name="team1" type="text" id="team1" style="width:120px;" value="<?php echo $rpost[2]; ?>" /></td>
-                                    <td width="170" height="20" align="center" bgcolor="#CCCCCC"><input name="team2" type="text" id="team2" style="width:120px;" value="<?php echo $rpost[4]; ?>" /></td>
-                                    <td width="170" height="20" align="center" bgcolor="#999999"><input name="team3" type="text" id="team3" style="width:120px;" value="<?php echo $rpost[6]; ?>" /></td>
+                                    <td width="170" height="20" align="center" bgcolor="#999999"><input class='form-control' name="team1" type="text" id="team1" style="width:120px;" value="<?php echo $rpost[2]; ?>" /></td>
+                                    <td width="170" height="20" align="center" bgcolor="#CCCCCC"><input class='form-control' name="team2" type="text" id="team2" style="width:120px;" value="<?php echo $rpost[4]; ?>" /></td>
+                                    <td width="170" height="20" align="center" bgcolor="#999999"><input class='form-control' name="team3" type="text" id="team3" style="width:120px;" value="<?php echo $rpost[6]; ?>" /></td>
                                     </tr>
                                   <tr>
                                     <td width="90" height="20" align="center" bgcolor="#CCCCCC"><span class="style4">ทีเด็ด</span></td>
@@ -179,7 +179,7 @@ echo DateThai($postDate);
                                 </table></td>
                               </tr>
                               <tr>
-                                <td align="center" bgcolor="#CCCCCC"><input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' /></td>
+                                <td align="center" bgcolor="#CCCCCC"><br><input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' /></td>
                               </tr>
                             </table>
                         </form></td>

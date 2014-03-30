@@ -102,6 +102,7 @@ class Paginator{
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/font-awesome.min.css" rel="stylesheet">
 <link href="../css/justified-nav.css" rel="stylesheet">
+<link href="./css/admin.css" rel="stylesheet">
 <style type="text/css">
 <!--
 	.paginate {
@@ -215,29 +216,44 @@ body {
                       <tr>
                         <td><table width="580" border="0" align="center" cellpadding="0" cellspacing="0">
                             <tr>
-                              <td><form method="post" action="p-edit-league.php" enctype="multipart/form-data" name ="checkForm" id="checkForm" onsubmit="return check1()">
-                                  <table width="550" border="0" align="center" cellpadding="0" cellspacing="0">
-                                    <tr>
-                                      <td align="right"><font size="2" color="#333333"><strong>ชื่อลีก</strong></font></td>
-                                      <td width="10">&nbsp;</td>
-                                      <td width="390" align="left"><input name="league" type="text" id="league" value="<?php echo $r[1]; ?>" />
-                                        <input type="hidden" name="id" id="id" value="<?php echo $id; ?>" /></td>
-                                    </tr>
-                                    <tr>
-                                      <td align="right"><font size="2" color="#333333"><strong>ไอคอน</strong></font></td>
-                                      <td width="10">&nbsp;</td>
-                                      <td width="390" align="left">
-                                        <img src="../league-icon/<?php echo $r[2]; ?>" width="30" height="30" />
-                                        <input name="file1" type="file" id="file1" style="width:180px;" />
-                                        <input type="hidden" name="op" id="op" value="<?php echo $r[2]; ?>" />
-                                        <font size="2" color="#FF0000">* รูปภาพขนาด 32 x 32 px</font></strong></td>
-                                    </tr>
-                                    <tr>
-                                      <td width="150" align="right">&nbsp;</td>
-                                      <td width="10">&nbsp;</td>
-                                      <td width="390" align="left"><input type="submit" name="Submit" value="บักทึกข้อมูล" />                                      </td>
-                                    </tr>
-                                  </table>
+                              <td>
+                              	<form class="form-horizontal" role="form" method="post" action="p-add-league.php" enctype="multipart/form-data" name ="checkForm" id="checkForm" onsubmit="return check1()">
+                                  <div class="form-group">
+                                    <label for="name" class="col-sm-2 control-label">ชื่อลีก</label>
+                                    <div class="col-sm-8">
+                                      <input class="form-control" name="league" type="text" id="league" value="<?php echo $r[1]; ?>" />
+                                      <input type="hidden" name="id" id="id" value="<?php echo $id; ?>" />
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group">
+                                    <label for="name" class="col-sm-2 control-label">ไอคอน</label>
+                                    <div class="col-sm-8">
+                                    	<img src="../league-icon/<?php echo $r[2]; ?>" width="30" height="30" />
+                                      <input class="form-control"  name="file1" type="file" id="file1" />
+                                      <input type="hidden" name="op" id="op" value="<?php echo $r[2]; ?>" />
+                                      <span class="help-block">* รูปภาพขนาด 32 x 32 px</span>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                      <input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' />
+                                    </div>
+                                  </div>
+                                  <script language="JavaScript" type="text/javascript">
+                                    function check1() {
+                                      if(document.checkForm.brand.value=="") {
+                                        alert("กรุณากรอกไอพีด้วยนะครับ") ;
+                                        document.checkForm.brand.focus() ;
+                                        return false ;
+                                      }
+                                      else return true ;
+                                    }
+                                  </script>
+                                </form>
+
+
                                 <script language="JavaScript" type="text/javascript">
 
 function check1() {
@@ -250,7 +266,7 @@ else
 return true ;
 }
                     </script>
-                              </form></td>
+                              </td>
                             </tr>
                         </table></td>
                       </tr>
@@ -310,7 +326,16 @@ return true ;
                               <td width="310" height="25" align="center" valign="middle"><font size="2">
                                 <?php echo $objResult[1]; ?>
                               </font></td>
-                              <td width="100" height="25" align="center" valign="middle"><font size="2"><a href="edit-league.php?id=<?php echo $objResult[0]; ?>"><img src="images/edit.gif" width="40" height="15" border="0" /> </a><a href="del-league.php?id=<?php echo $objResult[0]; ?>&op=<?php echo $objResult[2]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"> <img src="images/del.gif" width="40" height="15" border="0" /></a></font></td>
+                              <td width="100" height="25" align="center" valign="middle">
+                                <font size="2">
+                                  <a href="edit-league.php?id=<?php echo $objResult[0]; ?>" class='btn btn-warning btn-xs white'>
+                                    <i class="glyphicon glyphicon-pencil"></i> แก้ไข
+                                  </a>
+                                  <a href="del-league.php?id=<?php echo $objResult[0]; ?>&op=<?php echo $objResult[2]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}" class='btn btn-danger btn-xs white'>
+                                    <i class="glyphicon glyphicon-remove"></i> ลบ
+                                  </a>
+                                </font>
+                              </td>
                             </tr>
                             <?php } ?>
                         </table></td>

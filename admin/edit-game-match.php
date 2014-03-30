@@ -83,42 +83,37 @@ $rpost=mysql_fetch_row($repost);
                   <tr>
                     <td><table width="720" border="0" align="center" cellpadding="0" cellspacing="0">
                       <tr>
-                        <td><form action="p-edit-game-match.php" method="post" enctype="multipart/form-data" name ="checkForm" id="checkForm" onsubmit="return check1()">
-                            <table width="100%" height="10" border="0" align="center" cellpadding="0" cellspacing="0">
-                              <tr>
-                                <td></td>
-                              </tr>
-                            </table>
-                            <table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
-                              <tr>
-                                <td height="25" align="center"><table width="550" border="0" align="center" cellpadding="0" cellspacing="0">
-                                  <tr>
-                                    <td width="150" align="right"><span class="style4">เลือกลีก</span></td>
-                                    <td width="10">&nbsp;</td>
-                                    <td width="390"><select name="league_id" id="league_id">
+                        <td>
+
+                          <form action="p-edit-game-match.php" class="form-horizontal" role="form" method="post" enctype="multipart/form-data" name ="checkForm" id="checkForm" onsubmit="return check1()">
+                            <div class="form-group">
+                              <label for="league_id" class="col-sm-2 control-label">เลือกลีก</label>
+                              <div class="col-sm-8">
+                                <select class="form-control" name="league_id" id="league_id">
 <?php
 $s="SELECT * FROM `game_league` ORDER BY `id` ASC";
 $re=mysql_query($s) or die("Error $s");
 while($r=mysql_fetch_row($re)){
 ?>
-									  <option value="<?php echo $r[0]; ?>" <?php if($rpost[1]==$r[0]){ ?>selected="selected" <?php } ?> ><?php echo $r[1]; ?></option>
+                    <option value="<?php echo $r[0]; ?>" <?php if($rpost[1]==$r[0]){ ?>selected="selected" <?php } ?> ><?php echo $r[1]; ?></option>
 <?php } ?>
-                                    </select>                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td align="right"><span class="style4">วันที่แข่งขัน</span></td>
-                                    <td>&nbsp;</td>
-                                    <td><select name="days" id="days">
+                                    </select>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label for="days" class="col-sm-2 control-label">วันที่แข่งขัน</label>
+                              <div class="col-sm-5 form-inline">
+                                <select class="form-control" name="days" id="days">
                                       <?php
-								  $a=1;
-								  while($a<=31){
-								  ?>
+                  $a=1;
+                  while($a<=31){
+                  ?>
                                       <option value="<?php echo $a; ?>" <?php if($a==$rpost[6]){ ?>selected="selected" <?php } ?> >
                                       <?php echo $a; ?>
                                       </option>
                                       <?php $a++;} ?>
                                     </select>
-                                      <select name="months" id="months">
+                                      <select class="form-control" name="months" id="months">
                                         <option value="1" <?php if($rpost[7]==1){ ?>selected="selected" <?php } ?> >มกราคม</option>
                                         <option value="2" <?php if($rpost[7]==2){ ?>selected="selected" <?php } ?> >กุมภาพันธ์</option>
                                         <option value="3" <?php if($rpost[7]==3){ ?>selected="selected" <?php } ?> >มีนาคม</option>
@@ -132,62 +127,69 @@ while($r=mysql_fetch_row($re)){
                                         <option value="11" <?php if($rpost[7]==11){ ?>selected="selected" <?php } ?> >พฤศจิกายน</option>
                                         <option value="12" <?php if($rpost[7]==12){ ?>selected="selected" <?php } ?> >ธันวาคม</option>
                                       </select>
-                                      <select name="years" id="years">
+                                      <select class="form-control" name="years" id="years">
                                         <?php
-								  $y=date("Y");
-								  $ny=date("Y")+1;
-								  while($y<=$ny){
-								  ?>
+                  $y=date("Y");
+                  $ny=date("Y")+1;
+                  while($y<=$ny){
+                  ?>
                                         <option value="<?php echo $y; ?>" <?php if($y==$rpost[8]){ ?>selected="selected" <?php } ?> >
                                         <?php echo $y; ?>
                                         </option>
                                         <?php $y++;} ?>
-                                      </select></td>
-                                  </tr>
-                                  <tr>
-                                    <td align="right"><span class="style4">เวลาแข่งขัน</span></td>
-                                    <td>&nbsp;</td>
-                                    <td>
-									<input name="game_time" type="text" id="game_time" value="<?php echo $rpost[10]; ?>" />
-									<input type="hidden" name="id" id="id" value="<?php echo $id; ?>" />
-									<input type="hidden" name="type" id="type" value="<?php echo $type; ?>" />
-									</td>
-                                  </tr>
-                                  <tr>
-                                    <td align="right"><span class="style4">ทีมเจ้่าบ้าน</span></td>
-                                    <td>&nbsp;</td>
-                                    <td><input name="home" type="text" id="home" value="<?php echo $rpost[2]; ?>" /></td>
-                                  </tr>
-                                  <tr>
-                                    <td align="right"><span class="style4">ทีมเยือน</span></td>
-                                    <td>&nbsp;</td>
-                                    <td><input name="away" type="text" id="away" value="<?php echo $rpost[3]; ?>" /></td>
-                                  </tr>
-                                  <tr>
-                                    <td align="right"><span class="style4">สกอร์</span></td>
-                                    <td>&nbsp;</td>
-                                    <td><input name="score" type="text" id="score" value="<?php echo $rpost[4]; ?>" /></td>
-                                  </tr>
-                                  <tr>
-                                    <td align="right"><span class="style4">ผลการแข่งขัน</span></td>
-                                    <td>&nbsp;</td>
-                                    <td><input name="result" type="radio" value="1" <?php if($rpost[5]==1){ echo "checked"; } ?> />
-                                      <span class="style5"><?php echo $rpost[2]; ?> ชนะ
-                                      <input name="result" type="radio" value="2" <?php if($rpost[5]==2){ echo "checked"; } ?> />
-                                      <?php echo $rpost[3]; ?> ชนะ
-                                      <input name="result" type="radio" value="3" <?php if($rpost[5]==3){ echo "checked"; } ?> />
-                                      เสมอกัน</span></td>
-                                  </tr>
-                                  <tr>
-                                    <td align="right">&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td><input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' /></td>
-                                  </tr>
+                                      </select>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label for="game_time" class="col-sm-2 control-label">เวลาแข่งขัน</label>
+                              <div class="col-sm-5">
+                                <input name="game_time" type="text" id="game_time" class="form-control" value="<?php echo $rpost[10]; ?>" />
+                                <input type="hidden" name="id" id="id" value="<?php echo $id; ?>" />
+                                <input type="hidden" name="type" id="type" value="<?php echo $type; ?>" />
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label for="home" class="col-sm-2 control-label">ทีมเจ้าบ้าน</label>
+                              <div class="col-sm-5">
+                                <input name="home" type="text" id="home" class="form-control" value="<?php echo $rpost[2]; ?>" />
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label for="away" class="col-sm-2 control-label">ทีมเยือน</label>
+                              <div class="col-sm-5">
+                                <input name="away" type="text" id="away" class="form-control" value="<?php echo $rpost[3]; ?>" />
+                              </div>
+                            </div>
 
-                                </table></td>
-                              </tr>
-                            </table>
-                        </form></td>
+                            <div class="form-group">
+                              <label for="score" class="col-sm-2 control-label">สกอร์</label>
+                              <div class="col-sm-5">
+                                <input name="score" type="text" id="score" class="form-control" value="<?php echo $rpost[4]; ?>" />
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="score" class="col-sm-2 control-label">ผลการแข่งขัน</label>
+                              <div class="col-sm-10 form-inline">
+                                <div class="radio">
+                                  <input name="result" type="radio" value="1" <?php if($rpost[5]==1){ echo "checked"; } ?>  /> <?php echo $rpost[2]; ?> ชนะ
+                                </div>
+                                <div class="radio">
+                                  <input name="result" type="radio" value="2" <?php if($rpost[5]==2){ echo "checked"; } ?>  /> <?php echo $rpost[3]; ?> ชนะ
+                                </div>
+                                <div class="radio">
+                                  <input name="result" type="radio" value="3" <?php if($rpost[5]==3){ echo "checked"; } ?>  />  เสมอกัน
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <div class="col-sm-offset-2 col-sm-10">
+                                <input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' />
+                              </div>
+                            </div>
+                          </form>
+                        </td>
                       </tr>
                     </table></td>
                   </tr>

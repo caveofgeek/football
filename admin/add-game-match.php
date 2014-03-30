@@ -140,7 +140,7 @@ while($row=mysql_fetch_row($result)){
                                     </div>
                                   </div>
                                   <div class="form-group">
-                                    <label for="home" class="col-sm-2 control-label">ทีมเจ้่าบ้าน</label>
+                                    <label for="home" class="col-sm-2 control-label">ทีมเจ้าบ้าน</label>
                                     <div class="col-sm-5">
                                       <input name="home" type="text" id="home" class="form-control" />
                                     </div>
@@ -161,7 +161,7 @@ while($row=mysql_fetch_row($result)){
                             </td>
                               </tr>
                             </table>
-                        </form></td>
+                        </td>
                       </tr>
                     </table></td>
                   </tr>

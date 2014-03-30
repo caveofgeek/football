@@ -117,6 +117,12 @@ body {
                         </div>
                       </div>
 
+                      <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                          <input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' />
+                        </div>
+                      </div>
+
                       <?php }else if($type==2){ ?>
                       <div class="form-group">
                         <div class="col-sm-8">
