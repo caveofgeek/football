@@ -5783,3 +5783,7 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+ul.sidebar-justified > li > a {
+  text-align: left !important;
+}
