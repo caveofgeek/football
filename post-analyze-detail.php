@@ -44,9 +44,12 @@ $upd_view=mysql_query("UPDATE `analyze` SET view='$new_view' WHERE id='$topic_id
 <META NAME="description" CONTENT="<?php echo $titler[1]; ?> วิเคราะห์บอล วิเคราะห์ฟุตบอล วิเคราะห์บอลวันนี้ ผลบอล ผลบอลสด 7M livescore ผลบอลมีเสียง เกมส์ฟุตบอล เกมส์ทายผลฟุตบอล ทีเด็ด ทีเด็ดวันนี้ ราคาบอล">
 <meta name="robots"  content="index,follow">
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/font-awesome.min.css" rel="stylesheet">
 <link href="../css/justified-nav.css" rel="stylesheet">
+<link href="../css/justified-nav.css" rel="stylesheet">
+<link href="../css/football.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 <!--
 body {
@@ -174,8 +177,29 @@ while($rads8=mysql_fetch_row($reads8)){
                           <td>
 						  <?php
 						  $msg=stripslashes($rpost[3]);
-						  echo $msg;
-						  ?>						  </td>
+						  echo $msg."<br/><br/>";
+						  function get_data($url) {
+							  $ch = curl_init();
+							  $timeout = 10;
+							  curl_setopt($ch, CURLOPT_URL, $url);
+							  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+							  curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+							  curl_setopt($ch, CURLOPT_REFERER, 'http://football.kapook.com');
+							  $data = curl_exec($ch);
+							  curl_close($ch);
+							  return $data;
+							}
+							$link = explode("||",$rpost[8]);
+							$data = get_data($link[1]);
+							$data = iconv('windows-874','utf-8',$data);
+
+              preg_match_all('/<div id="box_center">(^)<\/div>/', $data,$detail);
+              print_r($detail[1]);
+						  ?>
+						  						<div id="show_stat">
+						  								<?php //echo $detail; ?>
+						  						</div>
+						  				  	</td>
                         </tr>
 
                         <tr>
