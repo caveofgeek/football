@@ -76,53 +76,49 @@ a:active {
         </table></td>
       </tr>
       <tr>
-        <td align="center"><form action="p-edit-admin-analyze.php" method="post" enctype="multipart/form-data" name ="checkForm" id="checkForm" onsubmit="return check1()">
-          <table width="100%" height="10" border="0" align="center" cellpadding="0" cellspacing="0">
-            <tr>
-              <td></td>
-            </tr>
-          </table>
-<?php
+        <td align="center">
+          <?php
 $modid = $_SESSION['mod_id'];
 $sql="SELECT * FROM `admin_analyze` WHERE id='$modid'";
 $result=mysql_query($sql) or die("ERROR $sql");
 $row=mysql_fetch_row($result);
 ?>
-          <table width="720" border="0" align="center" cellpadding="0" cellspacing="0">
-            <tr>
-              <td width="130" height="20" align="right"><font size="2">ชื่อที่ใช้เรียก / ฉายา </font></td>
-              <td width="10" height="20" align="center"><font size="2">:</font></td>
-              <td width="580" height="20" align="left"><input name="name" type="text" id="name" style="width:250px;" value="<?php echo $row[1]; ?>" />
-                <input type="hidden" name="op" id="op" value="<?php echo $row[2]; ?>" />
-                  <font size="2" color="#FF0000">*</font> </td>
-            </tr>
-            <tr>
-              <td height="20" align="right"><font size="2">รูป Avatar </font></td>
-              <td height="20" align="center"><font size="2">:</font></td>
-              <td height="20" align="left"><input name="file1" type="file" id="file1" />
-                  <?php if($row[2]!=""){ ?>
+          <form action="p-edit-admin-analyze.php" class="form-horizontal" role="form" method="post" enctype="multipart/form-data" name ="checkForm" id="checkForm" onsubmit="return check1()">
+            <div class="form-group">
+              <label for="name" class="col-sm-2 control-label">ชื่อที่ใช้เรียก / ฉายา</label>
+              <div class="col-sm-8">
+                <input name="name" class="form-control" type="text" id="name" value="<?php echo $row[1]; ?>" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="file1" class="col-sm-2 control-label">รูป Avatar</label>
+              <div class="col-sm-8">
+                <input name="file1" class="form-control" type="file" id="file1" />
+              </div>
+              <br><br>
+              <?php if($row[2]!=""){ ?>
                 <img src="../mod/avatar/<?php echo $row[2]; ?>" width="110" height="18" />
-                <?php } ?>
-                  <font size="2" color="#FF0000">* ขนาด 110x18 px ไม่เกิน 50kb </font></td>
-            </tr>
-            <tr>
-              <td height="20" align="right" valign="top"><font size="2">ชื่อผู้ใช้</font></td>
-              <td height="20" align="center" valign="top"><font size="2">:</font></td>
-              <td height="20" align="left"><input name="user" type="text" id="user" style="width:200px;" value="<?php echo $row[3]; ?>" />
-                  <font size="2" color="#FF0000">*</font></td>
-            </tr>
-            <tr>
-              <td height="20" align="right" valign="top"><font size="2">รหัสผ่าน</font></td>
-              <td height="20" align="center" valign="top"><font size="2">:</font></td>
-              <td height="20" align="left"><input name="pass" type="text" id="pass" style="width:200px;" value="<?php echo $row[4]; ?>" />
-                  <font size="2" color="#FF0000">*</font></td>
-            </tr>
-            <tr>
-              <td width="130" height="20" align="right">&nbsp;</td>
-              <td width="10" height="20" align="center">&nbsp;</td>
-              <td width="580" height="20" align="left"><input type="submit" name="Submit" value="บันทึกข้อมูล" style="width:100px;" /></td>
-            </tr>
-          </table>
+                <font size="2" color="#FF0000">* ขนาด 110x18 px ไม่เกิน 50kb </font>
+              <?php } ?>
+            </div>
+            <div class="form-group">
+              <label for="user" class="col-sm-2 control-label">ชื่อผู้ใช้</label>
+              <div class="col-sm-8">
+                <input name="user" class="form-control" type="text" id="user" value="<?php echo $row[3]; ?>" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="pass" class="col-sm-2 control-label">รหัสผ่าน</label>
+              <div class="col-sm-8">
+                <input name="pass" class="form-control" type="text" id="pass" value="<?php echo $row[4]; ?>" />
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-8">
+                <input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' />
+              </div>
+            </div>
+          </form>
           <script language="JavaScript" type="text/javascript">
 
 function check1() {
@@ -146,7 +142,7 @@ return true ;
 }
 
         </script>
-        </form></td>
+        </td>
       </tr>
     </table></td>
   </tr>

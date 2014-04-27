@@ -118,6 +118,7 @@ class Paginator{
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/font-awesome.min.css" rel="stylesheet">
 <link href="../css/justified-nav.css" rel="stylesheet">
+<link href="./css/admin.css" rel="stylesheet">
 <style type="text/css">
 <!--
 	.paginate {
@@ -290,7 +291,14 @@ class Paginator{
                   <td width="150" height="25" align="center"><span style="font-family:'Times New Roman', Times, serif; font-size:12px;">
                     <?php echo DateTime($objResult[5]); ?>
                   </span></td>
-                  <td width="100" height="25" align="center"><font size="2"><a href="edit-post-analyze.php?id=<?php echo $objResult[0]; ?>"><img src="img/edit.gif" width="40" height="15" border="0" /></a> <a href="del-post-analyze.php?id=<?php echo $objResult[0]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"> <img src="img/del.gif" width="40" height="15" border="0" /></a></font></td>
+                  <td width="100" height="25" align="center">
+                    <a href="edit-post-analyze.php?id=<?php echo $objResult[0]; ?>" class='btn btn-warning btn-xs white'>
+                      <i class="glyphicon glyphicon-pencil"></i> แก้ไข
+                    </a>
+                    <a href="del-post-analyze.php?id=<?php echo $objResult[0]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}" class='btn btn-danger btn-xs white'>
+                      <i class="glyphicon glyphicon-remove"></i> ลบ
+                    </a>
+                  </td>
                 </tr>
 <?php } ?>
               </table>
