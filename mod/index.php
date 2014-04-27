@@ -15,49 +15,29 @@ body {
 </style></head>
 
 <body>
-<table width="450" border="0" align="center" cellpadding="0" cellspacing="0">
-  <tr>
-    <td height="100">&nbsp;</td>
-  </tr>
-  <tr>
-    <td><table width="450" border="0" align="center" cellpadding="0" cellspacing="2" bgcolor="#CCCCCC">
-      <tr>
-        <td height="32" background="../admin/img/bg-menu.jpg"><font size="2"><strong>&nbsp;&nbsp;ระบบจัดการข้อมูลวิเคราะห์บอล</strong></font></td>
-      </tr>
-      <tr>
-        <td bgcolor="#FFFFFF"><form id="form1" name="form1" method="post" action="login.php">
-          <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-            <tr>
-              <td height="5"></td>
-            </tr>
-          </table>
-          <table width="430" border="0" align="center" cellpadding="0" cellspacing="0">
-            <tr>
-              <td align="left"><font size="2"><strong>ชื่อผู้ใช้งาน</strong></font></td>
-            </tr>
-            <tr>
-              <td align="left"><input name="user" type="text" class="input" id="user" onblur="if(this.value==''){this.value='Username';}" onclick="if(this.value=='Username'){this.value='';}" value="Username" style="width:420px;"/></td>
-            </tr>
-            <tr>
-              <td align="left"><font size="2"><strong>รหัสผ่าน</strong></font></td>
-            </tr>
-            <tr>
-              <td align="left"><input name="pass" type="password" class="input" id="pass" onblur="if(this.value==''){this.value='Password'; }" onclick="if(this.value=='Password'){this.value='';}" value="Password" style="width:420px;"/></td>
-            </tr>
-            <tr>
-              <td align="right"><input type="submit" name="Submit" value="เข้าสู่ระบบ" /></td>
-            </tr>
-          </table>
-                <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td height="5"></td>
-                  </tr>
-                </table>
-        </form>
-        </td>
-      </tr>
-    </table></td>
-  </tr>
-</table>
+  <div class="container" style="margin-top:150px;">
+    <form class="form-horizontal col-sm-offset-2" role="form" id="form1" name="form1" method="post" action="login.php">
+      <div class="form-group">
+        <h2 class='col-sm-offset-1'>ระบบจัดการข้อมูลวิเคราะห์บอล</h2>
+      </div>
+      <div class="form-group">
+        <label for="user" class="col-sm-2 control-label">ชื่อผู้ใช้งาน</label>
+        <div class="col-sm-5">
+          <input name='user' type="text" class="form-control" id="user" placeholder="Username" autocomplete="off">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="pass" class="col-sm-2 control-label">รหัสผ่าน</label>
+        <div class="col-sm-5">
+          <input name="pass" type="password" class="form-control" id="pass" placeholder="Password" autocomplete="off">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-5">
+          <button type="submit" class="btn btn-primary">เข้าสู่ระบบ</button>
+        </div>
+      </div>
+    </form>
+  </div>
 </body>
 </html>
