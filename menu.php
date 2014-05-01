@@ -12,11 +12,11 @@
 ?>
           <li>
             <a href="http://<?php echo $titler[13]; ?>/cate-<?php echo $rcate[0]; ?>/<?php echo $urlcate; ?>" title="<?php echo $rcate[1]; ?>">
-              <?php echo $rcate[1]; ?>
+              <i class="glyphicon glyphicon-globe"></i> <?php echo $rcate[1]; ?>
             </a>
           </li>
 <?php } ?>
-          <li><a href="http://<?php echo $titler[13]; ?>/webboard" title="เว็บบอร์ด">เว็บบอร์ด</a></li>
+          <li><a href="http://<?php echo $titler[13]; ?>/webboard" title="เว็บบอร์ด"><i class="glyphicon glyphicon-globe"></i> เว็บบอร์ด</a></li>
         </ul>
       </div>
     </td>
