@@ -1,4 +1,5 @@
 <?php
+header("Referer: http://football.kapook.com");
 session_start();
 include "inc/config.inc.php";
 include "function/datethai.php";
@@ -57,6 +58,11 @@ $upd_view=mysql_query("UPDATE `analyze` SET view='$new_view' WHERE id='$topic_id
     $("table.text_teble2 tr").removeAttr("style");
 
     $("table.text_teble2 td img").each(function(){
+      console.log($(this).attr("title"));
+      if ($(this).attr("title") == ''){
+        $(this).attr("src",'../img/football.jpeg');
+        $(this).css("width","29px");
+      }
     });
   });
 
@@ -214,7 +220,6 @@ $team = str_replace('<img src="images_match/frame_b07.jpg" width="1" height="6" 
 $team = str_replace('<img src="images_match/frame_b08.jpg" width="6" height="6" />','',$team);
 $team = str_replace('<img src="images_match/frame_b06.jpg" width="6" height="6" />','',$team);
 $team = str_replace('<font color="#FF6600">ดูผลงานย้อนหลัง</font>','',$team);
-
 preg_match('/<table width="97\%" border="0" align="center" cellpadding="0" cellspacing="0" style="display:none" id="tbDetail">[\s\d\w_ก-๙เๆแไใ&;<\/>,.#-^!@%*()+"\']{0,}<\/table>/',$data,$stat);
 $stat = str_replace(array('display:none','97%'),array('','30%'),$stat[0]);
 
