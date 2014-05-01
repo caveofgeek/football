@@ -50,33 +50,26 @@ $upd_view=mysql_query("UPDATE `analyze` SET view='$new_view' WHERE id='$topic_id
 <link href="../css/justified-nav.css" rel="stylesheet">
 <link href="../css/justified-nav.css" rel="stylesheet">
 <link href="../css/football.css" rel="stylesheet" type="text/css">
+<script>
+  $(document).ready(function(){
+    $("table.text_teble2 tr").removeAttr("onclick");
+    $("table.text_teble2 tr").removeAttr("title");
+    $("table.text_teble2 tr").removeAttr("style");
+
+    $("table.text_teble2 td img").each(function(){
+    });
+  });
+
+</script>
 <style type="text/css">
-<!--
-body {
-	background-color: #<?php echo $bgr[1]; ?>;
-	<?php if($bgr[2]!=""){ ?>background-image: url(http://<?php echo $titler[13]; ?>/bg-img/<?php echo $bgr[2]; ?>);
-	background-repeat: <?php echo $bgr[3]; ?>;
-	<?php }if($bgr[4]==1){ ?>
-	background-attachment:fixed;
-	<?php } ?>
-}
-a:link {
-	color: #<?php echo $linkr[1]; ?>;
-	text-decoration: none;
-}
-a:visited {
-	text-decoration: none;
-	color: #<?php echo $linkr[2]; ?>;
-}
-a:hover {
-	text-decoration: underline;
-	color: #<?php echo $linkr[3]; ?>;
-}
-a:active {
-	text-decoration: none;
-	color: #<?php echo $linkr[4]; ?>;
-}
--->
+  #trSched, #tr1HF2HF1, #tr1HF2HF2, #trHT, #trFin { display: none;}
+  td.mg_at { display: none;}
+
+  p#analyze_text {
+    margin-top:10px;
+    text-indent: 30px;
+    font-size: 15px;
+  }
 </style>
 </head>
 
@@ -175,30 +168,63 @@ while($rads8=mysql_fetch_row($reads8)){
                       <table width="725" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tr>
                           <td>
-						  <?php
-						  $msg=stripslashes($rpost[3]);
-						  echo $msg."<br/><br/>";
-						  function get_data($url) {
-							  $ch = curl_init();
-							  $timeout = 10;
-							  curl_setopt($ch, CURLOPT_URL, $url);
-							  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-							  curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
-							  curl_setopt($ch, CURLOPT_REFERER, 'http://football.kapook.com');
-							  $data = curl_exec($ch);
-							  curl_close($ch);
-							  return $data;
-							}
-							$link = explode("||",$rpost[8]);
-							$data = get_data($link[1]);
-							$data = iconv('windows-874','utf-8',$data);
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 'On');
 
-              preg_match_all('/<div id="box_center">(^)<\/div>/', $data,$detail);
-              print_r($detail[1]);
-						  ?>
-						  						<div id="show_stat">
-						  								<?php //echo $detail; ?>
-						  						</div>
+function get_data($url) {
+  $ch = curl_init();
+  $timeout = 10;
+  curl_setopt($ch, CURLOPT_URL, $url);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+  curl_setopt($ch, CURLOPT_REFERER, 'http://football.kapook.com');
+  $data = curl_exec($ch);
+  curl_close($ch);
+  return $data;
+}
+if ($rpost[8] != "") {
+$link = explode("||",$rpost[8]);
+$data = get_data($link[1]);
+
+$data = iconv('windows-874','utf-8',$data);
+
+
+preg_match('/<table width="620" border="0" align="center" cellpadding="0" cellspacing="1">[\s\d\w_ก-๙เๆแไใ&;<\/>,.#-^!@%*()+"\']{0,}<\/table>/',$data,$team);
+$team = str_replace(array('display:none'),array(''),$team[0]);
+$team = str_replace('style="background:url(images_match/bg_score2.png) top center no-repeat;"','',$team);
+$team = str_replace('<img src="images_match/vs.png" width="88" height="58"/>','',$team);
+$team = str_replace('<img src="images_match/frame_b01.jpg" width="6" height="6" />','',$team);
+$team = str_replace('<img src="images_match/table_04.png" width="327" height="14" />','',$team);
+$team = str_replace('<img src="images_match/goal_icon.gif" width="14" height="13" />','',$team);
+$team = str_replace('<img src="images_match/sec_01.png" width="114" height="31" />','',$team);
+$team = str_replace('<img src="images_match/led_gif.gif" width="13" height="13" align="absmiddle" />','',$team);
+$team = str_replace('<span><img src="../../images/space.gif" width="5" height="8" /></span>','',$team);
+$team = str_replace('style="background:url(images_match/table_01.png) top center no-repeat;"','',$team);
+$team = str_replace('style="background:url(images_match/table_02.png) top center repeat-y;"','',$team);
+$team = str_replace('<img src="images_match/frame_b03.jpg" width="6" height="6" />','',$team);
+$team = str_replace('style="background:url(images_match/frame_b02.jpg) top left repeat-x"','',$team);
+$team = str_replace('<img src="images_match/frame_b02.jpg" width="1" height="6" />','',$team);
+$team = str_replace('style="background:url(images_match/frame_b04.jpg) top left repeat-y"','',$team);
+$team = str_replace('<img src="images_match/frame_b04.jpg" width="6" height="1" />','',$team);
+$team = str_replace('style="background:url(images_match/frame_b05.jpg) top left repeat-y"','',$team);
+$team = str_replace('<img src="images_match/frame_b05.jpg" width="6" height="1" />','',$team);
+$team = str_replace('style="background:url(images_match/frame_b07.jpg) top left repeat-x"','',$team);
+$team = str_replace('<img src="images_match/frame_b07.jpg" width="1" height="6" />','',$team);
+$team = str_replace('<img src="images_match/frame_b08.jpg" width="6" height="6" />','',$team);
+$team = str_replace('<img src="images_match/frame_b06.jpg" width="6" height="6" />','',$team);
+$team = str_replace('<font color="#FF6600">ดูผลงานย้อนหลัง</font>','',$team);
+
+preg_match('/<table width="97\%" border="0" align="center" cellpadding="0" cellspacing="0" style="display:none" id="tbDetail">[\s\d\w_ก-๙เๆแไใ&;<\/>,.#-^!@%*()+"\']{0,}<\/table>/',$data,$stat);
+$stat = str_replace(array('display:none','97%'),array('','30%'),$stat[0]);
+
+echo $team."<br>";
+}
+?>
+                            <br><br>
+                            <h3>วิเคราะห์ฟุตบอล</h3>
+                            <p id="analyze_text"><?php echo $rpost[3]; ?></p>
+
 						  				  	</td>
                         </tr>
 
