@@ -303,8 +303,11 @@ body {
                                     <td></td>
                                   </tr>
                                 </table>
-                                  <font size="2"> <a href="del-contact.php?id=<?php echo $objResult[0]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"> <img src="images/del.gif" width="40" height="15" border="0" /></a></font></td>
-                            </tr>
+                                <td width="100" height="25" align="center" valign="middle">
+                              	<a href="del-contact.php?id=<?php echo $objResult[0]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}" class='btn btn-danger btn-xs white'>
+                              		<span class="glyphicon glyphicon-remove"></span> ลบ
+                              	</a></td>
+                              </tr>
                             <?php } ?>
                         </table></td>
                       </tr>
@@ -351,7 +354,7 @@ echo $pages->display_pages()
         </table></td>
       </tr>
       <tr>
-        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2012 &copy; ScritpWeb2U </font></strong></td>
+        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2014 &copy; scriptweb2u  Modify By Ruk-Com.In.Th</font></strong></td>
       </tr>
     </table></td>
   </tr>

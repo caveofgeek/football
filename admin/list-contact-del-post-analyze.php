@@ -99,6 +99,7 @@ class Paginator{
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/font-awesome.min.css" rel="stylesheet">
 <link href="../css/justified-nav.css" rel="stylesheet">
+<link href="./css/admin.css" rel="stylesheet">
 <style type="text/css">
 <!--
 	.paginate {
@@ -289,8 +290,17 @@ body {
                           </table>
                             <table width="100" border="0" align="center" cellpadding="0" cellspacing="0">
                               <tr>
-                                <td align="center"><font size="2"><a href="del-contact-del-post-analyze.php?id=<?php echo $objResult[1]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"><img src="images/del.gif" width="40" height="15" border="0" /></a> <a href="cancel-contact-del-post-analyze.php?id=<?php echo $objResult[4]; ?>" onclick="javascript:if(!confirm('ท่านต้องการยกเลิกจริงหรือไม่')){return false;}"><img src="images/cancel.gif" width="40" height="15" border="0" /></a></font></td>
-                              </tr>
+                              	<td width="100" height="25" align="center" valign="middle">
+                                  <font size="2">
+                                    <a href="del-contact-del-post-analyze.php?id=<?php echo $objResult[1]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}" class='btn btn-danger btn-xs white'>
+                                      <i class="glyphicon glyphicon-remove"></i> ลบ
+                                    </a>
+                                    <a href="cancel-contact-del-post-analyze.php?id=<?php echo $objResult[4]; ?>" onclick="javascript:if(!confirm('ท่านต้องการยกเลิกจริงหรือไม่')){return false;}" class='btn btn-warning btn-xs white'>
+                                      <i class="glyphicon glyphicon-remove"></i> ยกเลิก
+                                    </a>
+                                  </font>
+                                </td>
+                                </tr>
                             </table></td>
                       </tr>
                       <?php } ?>
@@ -337,7 +347,7 @@ echo $pages->display_pages()
         </table></td>
       </tr>
       <tr>
-        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2012 &copy; ScritpWeb2U </font></strong></td>
+        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2014 &copy; scriptweb2u  Modify By Ruk-Com.In.Th</font></strong></td>
       </tr>
     </table></td>
   </tr>

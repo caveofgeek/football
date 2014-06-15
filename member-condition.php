@@ -30,7 +30,7 @@ $str=mysql_fetch_row($stre);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>เงื่อนไขการสมัครสมาชิก | <?php echo $titler[1]; ?></title>
-<META NAME="keywords" CONTENT="<?php echo $titler[12]; ?>"> 
+<META NAME="keywords" CONTENT="<?php echo $titler[12]; ?>">
 <META NAME="description" CONTENT="<?php echo $titler[1]; ?> เงื่อนไขการสมัครสมาชิก <?php echo $titler[11]; ?>">
 <meta name="robots"  content="index,follow">
 <script type="text/javascript">
@@ -51,7 +51,7 @@ body {
 	background-color: #<?php echo $bgr[1]; ?>;
 	<?php if($bgr[2]!=""){ ?>background-image: url(http://<?php echo $titler[13]; ?>/bg-img/<?php echo $bgr[2]; ?>);
 	background-repeat: <?php echo $bgr[3]; ?>;
-	<?php }if($bgr[4]==1){ ?>	
+	<?php }if($bgr[4]==1){ ?>
 	background-attachment:fixed;
 	<?php } ?>
 }
@@ -103,9 +103,9 @@ while($rads8=mysql_fetch_row($reads8)){
                     <table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tr>
                           <td align="center" valign="middle">
-						  <?php 
-						  if($rads8[1]==1){ 
-						  $ads8=stripslashes($rads8[3]); 
+						  <?php
+						  if($rads8[1]==1){
+						  $ads8=stripslashes($rads8[3]);
 						  echo $ads8;
 						  }else if($rads8[1]==2){
 						  ?>
@@ -146,7 +146,7 @@ while($rads8=mysql_fetch_row($reads8)){
                     <form id="checkForm1" name="checkForm1" method="post" action="register.php" onsubmit="return check2()">
                       <table width="710" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tr>
-                          <td><?php 
+                          <td><?php
 					  $s="SELECT * FROM `mem_conditions` WHERE id='1'";
 					  $re=mysql_query($s) or die("Error $s");
 					  $r=mysql_fetch_row($re);
@@ -159,7 +159,7 @@ while($rads8=mysql_fetch_row($reads8)){
                               <font color="#000000"size="2"><b>ข้าพเจ้าได้อ่านและยอมรับในเงื่อนไงข้างต้นทุกประการ (คลิ๊กที่ช่องสี่เหลี่ยมเพื่อยอมรับเงื่อนไข)</b></font></td>
                         </tr>
                         <tr>
-                          <td align="center"><input name="btLogin" type="submit" id="btLogin" value="ถัดไป | Next &gt;&gt;" disabled="disabled"/></td>
+                          <td align="center"><input class="btn btn-info" name="btLogin" type="submit" id="btLogin" class="btn btn-info" value="ถัดไป | Next &gt;&gt;" disabled="disabled"/></td>
                         </tr>
                       </table>
                       <script language="JavaScript" type="text/javascript">

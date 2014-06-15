@@ -2,7 +2,7 @@
 session_start();
 include "../inc/config.inc.php";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 ?>
@@ -34,8 +34,8 @@ a:active {
 
 <body>
 <?php
-$Submit=$_POST[Submit];
-$brand=htmlspecialchars($_POST[brand]);
+$Submit=$_POST['Submit'];
+$brand=htmlspecialchars($_POST['brand']);
 $s="select * from ban_word where word='$brand'";
 $re=mysql_query($s) or die("ERROR $s บรททัด39");
 $num=mysql_num_rows($re);
@@ -44,7 +44,7 @@ if($num>=1){
 <script language="JavaScript">
 	alert('ขอโทษครับ Iคำหยาบนี้มีอยู่แล้วครับ');
 	history.back();
-</script> 
+</script>
 <?php
 }else{
 if($brand!=""){
@@ -55,7 +55,7 @@ echo "<meta http-equiv='refresh' content='0;url=ban-word.php'>";
 <script language="JavaScript">
 	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ');
 	history.back();
-</script> 
+</script>
 <?php
 }
 }

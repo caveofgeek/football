@@ -71,7 +71,7 @@ class Paginator{
 				if($this->range[0] > 2 And $i == $this->range[0]) $this->return .= "<li class=\"disabled\"><a href=\"#\">...</a></li>";
 				if($i==1 Or $i==$this->num_pages Or in_array($i,$this->range))
 				{
-					$this->return .= ($i == $this->current_page And $_GET['Page'] != 'All') ? "<li class=\"active\"><a title=\"หน้า $i จาก $this->num_pages\"href=\"#\">$i</a></li> ":"<li><a title=\"ไปที่หน้า $i จาก $this->num_pages\" href=\"".$this->url_next.$i."\">$i</a></li>";
+					$this->return .= ($i == $this->current_page And $_GET['Page'] != 'All') ? "<li class=\"active\"><a title=\"หน้า $i จาก $this->num_pages\"href=\"#\">$i</a></li> ":"<li><a title=\"ไปที่หน้า $i จาก $this->num_pages\" href=\"".$this->url_next.$i."\">$i</a></li> ";
 				}
 				if($this->range[$this->mid_range-1] < $this->num_pages-1 And $i == $this->range[$this->mid_range-1]) $this->return .= "<li class=\"disabled\"><a href=\"#\">...</a></li>";
 			}
@@ -98,6 +98,8 @@ class Paginator{
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/font-awesome.min.css" rel="stylesheet">
 <link href="../css/justified-nav.css" rel="stylesheet">
+<link href="./css/admin.css" rel="stylesheet">
+
 <style type="text/css">
 <!--
 	.paginate {
@@ -211,37 +213,41 @@ body {
                       <tr>
                         <td><table width="580" border="0" align="center" cellpadding="0" cellspacing="0">
                             <tr>
-                              <td><form method="post" action="p-add-province.php" enctype="multipart/form-data" name ="checkForm" id="checkForm" onsubmit="return check1()">
-                                  <table width="460" border="0" align="center" cellpadding="0" cellspacing="0">
-                                    <tr>
-                                      <td width="150" align="right"><font size="2" color="#333333"><strong>ข้อมูลภาค</strong></font></td>
-                                      <td width="10">&nbsp;</td>
-                                      <td width="300" align="left"><select name="geo" id="geo">
-                                          <option value="">-- กรุณาเลือกภาค --</option>
-                                          <?php
-								$s="SELECT * FROM `geography`";
-								$re=mysql_query($s) or die("ERROR $s");
-								while($r=mysql_fetch_row($re)){
-								?>
-                                          <option value="<?php echo $r[0]; ?>">
-                                            <?php echo $r[1]; ?>
-                                            </option>
-                                          <?php } ?>
-                                        </select>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td align="right"><font size="2" color="#333333"><strong>ชื่อข้อมูลจังหวัด</strong></font></td>
-                                      <td width="10">&nbsp;</td>
-                                      <td width="300" align="left"><input name="province" type="text" id="province" /></td>
-                                    </tr>
-                                    <tr>
-                                      <td width="150" align="right">&nbsp;</td>
-                                      <td width="10">&nbsp;</td>
-                                      <td width="300" align="left"><input type="submit" name="Submit" value="บักทึกข้อมูล" />
-                                      </td>
-                                    </tr>
-                                  </table>
+                              <td>
+                              	<form class="form-horizontal" role="form" method="post" action="p-add-province.php"  enctype="multipart/form-data" name ="checkForm" id="checkForm" onsubmit="return check1()">
+                              		<div class="form-group">
+                                    <label for="geo" class="col-sm-3 control-label">ประเภท</label>
+                                    <div class="col-sm-offset-3">
+                                      <div class="checkbox">
+                                        <label>
+                                          <select name="geo" id="geo">
+	                                          <option value="">-- กรุณาเลือกภาค --</option>
+	                                          <?php
+									$s="SELECT * FROM `geography`";
+									$re=mysql_query($s) or die("ERROR $s");
+									while($r=mysql_fetch_row($re)){
+									?>
+	                                          <option value="<?php echo $r[0]; ?>">
+	                                            <?php echo $r[1]; ?>
+	                                            </option>
+	                                          <?php } ?>
+	                                        </select>
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+			                              <label for="province" class="col-sm-3 control-label">ชื่อข้อมูลจังหวัด</label>
+			                              <div class="col-sm-5">
+			                              	<input name="province" class="form-control" type="text" id="province" />
+			                              </div>
+			                            </div>
+			                            <div class="form-group">
+			                              <div class="col-sm-offset-3 col-sm-10">
+			                                <input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' />
+			                              </div>
+			                            </div>
+                                </form>
                                 <script language="JavaScript" type="text/javascript">
 
 function check1() {
@@ -258,7 +264,7 @@ else
 return true ;
 }
                     </script>
-                              </form></td>
+                              </td>
                             </tr>
                         </table></td>
                       </tr>
@@ -329,8 +335,12 @@ return true ;
                               <td width="250" height="25" align="left">&nbsp;&nbsp;<font size="2">
                                 <?php echo $objResult[2]; ?>
                               </font></td>
-                              <td width="100" align="center"><font size="2"><a href="edit-province.php?id=<?php echo $objResult[0]; ?>"><img src="images/edit.gif" width="40" height="15" border="0" /> </a><a href="del-province.php?id=<?php echo $objResult[0]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"> <img src="images/del.gif" width="40" height="15" border="0" /></a></font></td>
-                            </tr>
+                              <td width="100" height="25" align="center" valign="middle">
+                              	<a href="edit-province.php?id=<?php echo $objResult[0]; ?>" class='btn btn-warning btn-xs white'> <span class="glyphicon glyphicon-pencil"></span>แก้ไข</a>
+                              	<a href="del-province.php?id=<?php echo $objResult[0]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}" class='btn btn-danger btn-xs white'>
+                              		<span class="glyphicon glyphicon-remove"></span> ลบ
+                              	</a></td>
+                              </tr>
                             <?php } ?>
                         </table></td>
                       </tr>
@@ -352,8 +362,9 @@ return true ;
                                   หน้า</font></td>
                               </tr>
                               <tr>
-                                <td height="30" align="center" valign="middle"><ul class="pagination  pagination-sm">
-<?php
+                                <td height="30" align="center" valign="middle"><ul class="pagination  pagination-sm"><?php
+
+
 $pages = new Paginator;
 $pages->items_total = $Num_Rows;
 $pages->mid_range = 10;
@@ -364,8 +375,7 @@ $pages->url_next = $_SERVER["PHP_SELF"]."?QueryString=value&Page=";
 $pages->paginate();
 
 echo $pages->display_pages()
-?>
-</ul></td>
+?></ul></td>
                               </tr>
                           </table></td>
                       </tr>
@@ -376,7 +386,7 @@ echo $pages->display_pages()
         </table></td>
       </tr>
       <tr>
-        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2012 &copy; ScritpWeb2U </font></strong></td>
+        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2014 &copy; scriptweb2u  Modify By Ruk-Com.In.Th</font></strong></td>
       </tr>
     </table></td>
   </tr>

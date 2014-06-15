@@ -1,7 +1,7 @@
 <?php
 @session_start();
 include "../inc/config.inc.php";
-if(!isset($_SESSION[mod_login])) {
+if(!isset($_SESSION['mod_login'])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
@@ -87,50 +87,60 @@ a:active {
       <tr>
         <td align="center"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0" style="border:3px solid #999999; border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;">
           <tr>
-            <td align="center"><form action="p-edit-analyze.php" method="post" enctype="multipart/form-data" name ="checkForm" id="checkForm" onsubmit="return check1()">
-              <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                <tr>
-                  <td height="5"></td>
-                </tr>
-              </table>
-<?php
+            <td>
+              <?php
 $id=$_GET["id"];
 $spost="select * from `analyze` where id='$id'";
 $repost=mysql_query($spost) or die("ERROR $spost");
 $rpost=mysql_fetch_row($repost);
 ?>
-			  <table width="730" border="0" align="center" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td width="100" height="30" align="right" valign="top"><strong><font color="#000000" size="2">หัวข้อ</font></strong></td>
-                  <td width="10" height="30">&nbsp;</td>
-                  <td width="620" height="30" valign="top">
-				  <input name="title" type="text" id="title" style="width:600px;" value="<?php echo $rpost[2]; ?>" />
-				  <input type="hidden" name="id" id="id" value="<?php echo $id; ?>" />
-				  </td>
-                </tr>
-
-                <tr>
-                  <td width="100" height="455" align="right" valign="top"><strong><font color="#000000" size="2">รายละเอียด</font></strong></td>
-                  <td width="10" height="455">&nbsp;</td>
-                  <td width="620" height="455" valign="top"><textarea class="cleditorMain" id="input" name="input" style="width:600px; height:450px;"><?php echo $rpost[3]; ?></textarea></td>
-                </tr>
-
-                <tr>
-                  <td width="100" height="30" align="right" valign="top"><strong><font color="#000000" size="2">สถานะ</font></strong></td>
-                  <td width="10" height="30">&nbsp;</td>
-                  <td width="620" height="30" align="left" valign="top">
-				  <input name="status_comment" type="radio" value="1" <?php if($rpost[4]==1){ ?>checked="checked"<?php } ?> />
-                      <font color="#000000" size="2">Comment ได้ทุกคน
+              <form action="p-edit-analyze.php" method="post" enctype="multipart/form-data" class="form-horizontal" role="form" name ="checkForm" id="checkForm" onsubmit="return check1()">
+                <br>
+                <div class="form-group">
+                  <label for="title" class="col-sm-2 control-label">หัวข้อ</label>
+                  <div class="col-sm-8">
+                    <input name="title" class="form-control" type="text" id="title" value="<?php echo $rpost[2]; ?>"  />
+                    <input type="hidden" name="id" id="id" value="<?php echo $id; ?>" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="input" class="col-sm-2 control-label">รายละเอียด</label>
+                  <div class="col-sm-8">
+                    <textarea class="cleditorMain form-control" id="input" name="input" rows="5" cols="10"><?php echo $rpost[3]; ?></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="status_comment" class="col-sm-2 control-label">สถานะ</label>
+                  <div class="col-sm-8">
+                    <div class="radio">
+                      <label>
+                        <input name="status_comment" type="radio" value="1" <?php if($rpost[4]==1){ ?>checked="checked"<?php } ?> />
+                        Comment ได้ทุกคน
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
                         <input name="status_comment" type="radio" value="2" <?php if($rpost[4]==2){ ?>checked="checked"<?php } ?> />
                         เฉพาะสมาชิก
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
                         <input name="status_comment" type="radio" value="3" <?php if($rpost[4]==3){ ?>checked="checked"<?php } ?> />
-                        ไม่ให้ Comment </font></td>
-                </tr>
-
+                        ไม่ให้ Comment
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' />
+                  </div>
+                </div>
+              </form>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
-                  <td width="100" height="30" align="right" valign="top">&nbsp;</td>
-                  <td width="10" height="30">&nbsp;</td>
-                  <td width="620" height="30" align="left" valign="top"><input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' /></td>
+                  <td height="5"></td>
                 </tr>
               </table>
               <script language="JavaScript" type="text/javascript">
@@ -149,7 +159,7 @@ else
 return true ;
 }
             </script>
-            </form></td>
+            </td>
           </tr>
         </table></td>
       </tr>

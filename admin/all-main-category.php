@@ -99,6 +99,7 @@ class Paginator{
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/font-awesome.min.css" rel="stylesheet">
 <link href="../css/justified-nav.css" rel="stylesheet">
+<link href="./css/admin.css" rel="stylesheet">
 <style type="text/css">
 <!--
 	.paginate {
@@ -203,7 +204,7 @@ body {
                   <tr>
                     <td height="25">
 <?php
-$cate_id=$_GET["cate_id"];
+$cate_id=mysql_real_escape_string($_GET["cate_id"]);
 $scate="SELECT cate_name FROM `category` WHERE id='$cate_id'";
 $recate=mysql_query($scate) or die("ERROR $scate");
 $rcate=mysql_fetch_row($recate);
@@ -309,8 +310,17 @@ $rcate=mysql_fetch_row($recate);
                           </table>
                             <table width="100" border="0" align="center" cellpadding="0" cellspacing="0">
                               <tr>
-                                <td align="center"><font size="2"><a href="edit-data-category.php?id=<?php echo $objResult[0]; ?>&cate_id=<?php echo $cate_id; ?>"><img src="images/edit.gif" width="40" height="15" border="0" /> </a><a href="del-data-category.php?id=<?php echo $objResult[0]; ?>&cate_id=<?php echo $cate_id; ?>&op=<?php echo $objResult[5]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"> <img src="images/del.gif" width="40" height="15" border="0" /></a></font></td>
-                              </tr>
+                              	<td width="100" height="25" align="center" valign="middle">
+                                  <font size="2">
+                                    <a href="edit-data-category.php?id=<?php echo $objResult[0]; ?>&cate_id=<?php echo $cate_id; ?>" class='btn btn-warning btn-xs white'>
+                                      <i class="glyphicon glyphicon-pencil"></i> แก้ไข
+                                    </a>
+                                    <a href="del-data-category.php?id=<?php echo $objResult[0]; ?>&cate_id=<?php echo $cate_id; ?>&op=<?php echo $objResult[5]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}" class='btn btn-danger btn-xs white'>
+                                      <i class="glyphicon glyphicon-remove"></i> ลบ
+                                    </a>
+                                  </font>
+                                </td>
+                                </tr>
                           </table></td>
                       </tr>
                       <?php } ?>
@@ -358,7 +368,7 @@ echo $pages->display_pages()
         </table></td>
       </tr>
       <tr>
-        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2012 &copy; ScritpWeb2U </font></strong></td>
+        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2014 &copy; scriptweb2u  Modify By Ruk-Com.In.Th</font></strong></td>
       </tr>
     </table></td>
   </tr>

@@ -2,7 +2,7 @@
 session_start();
 include "../inc/config.inc.php";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 ?>
@@ -34,9 +34,9 @@ a:active {
 
 <body>
 <?php
-$Submit=$_POST[Submit];
-$geo=$_POST[geo];
-$province=htmlspecialchars($_POST[province]);
+$Submit=mysql_real_escape_string($_POST['Submit']);
+$geo=mysql_real_escape_string($_POST[geo]);
+$province=htmlspecialchars(mysql_real_escape_string($_POST['province']));
 $s="select * from province where PROVINCE_NAME='$province'";
 $re=mysql_query($s) or die("ERROR $s บรททัด38");
 $num=mysql_num_rows($re);
@@ -45,7 +45,7 @@ if($num>=1){
 <script language="JavaScript">
 	alert('ขอโทษครับ ชื่อจังหวัดนี้มีอยู่แล้วครับ');
 	history.back();
-</script> 
+</script>
 <?php
 }else{
 if($province!=""&&$geo!=""){
@@ -56,7 +56,7 @@ echo "<meta http-equiv='refresh' content='0;url=province.php'>";
 <script language="JavaScript">
 	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ');
 	history.back();
-</script> 
+</script>
 <?php
 }
 }

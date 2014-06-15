@@ -99,6 +99,7 @@ class Paginator{
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/font-awesome.min.css" rel="stylesheet">
 <link href="../css/justified-nav.css" rel="stylesheet">
+<link href="./css/admin.css" rel="stylesheet">
 <style type="text/css">
 <!--
 	.paginate {
@@ -221,10 +222,12 @@ body {
                           <tr>
                             <td height="30"><table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
                               <tr>
-                                <td width="150" align="left"><img src="images/icon-stop.png" width="16" height="16" /> <span class="style5">= ปิดการทายผล </span></td>
-                                <td width="150" align="left"><img src="images/icon-score.png" width="16" height="16" /> <span class="style5">= ให้คะแนน</span></td>
-                                <td width="150" align="left"><img src="images/edit.gif" width="40" height="15" /> <span class="style5">= แก้ไขข้อมูล </span></td>
-                                <td width="150" align="left"><img src="images/del.gif" width="40" height="15" /> <span class="style5">= ลบข้อมูล </span></td>
+                                <td width="150" align="left"><a class='btn'><i class="glyphicon glyphicon-remove-sign"></i></a> = ปิดการทายผล </td>
+                                <td width="150" align="left"><a class='btn'><i class="glyphicon glyphicon-plus-sign"></i></a> = ให้คะแนน </td>
+                                <td width="150" align="left"><a class='btn btn-warning btn-xs white'><i class="glyphicon glyphicon-pencil"></i> แก้ไข</a> = แก้ไขข้อมูล
+						                    </td>
+                                <td width="150" align="left"><a class='btn btn-danger btn-xs white'><i class="glyphicon glyphicon-remove"></i> ลบ </a>= ลบข้อมูล
+                                </td>
                               </tr>
                             </table></td>
                           </tr>
@@ -301,14 +304,14 @@ body {
                             <td width="120" height="20" align="center"><font size="2" color="#FF0000">
 
 							<?php if($objResult[11]==1){?>
-							<a href="stop-game-match.php?id=<?php echo $objResult[0]; ?>"><img src="images/icon-stop.png" width="16" height="16" border="0" /></a>
-							<a href="edit-game-match.php?id=<?php echo $objResult[0]; ?>&type=1"><img src="images/edit.gif" width="40" height="15" border="0" /></a>
-							<a href="del-game-match.php?id=<?php echo $objResult[0]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"> <img src="images/del.gif" width="40" height="15" border="0" /></a>
+							<a href="stop-game-match.php?id=<?php echo $objResult[0]; ?>" width="16" height="16" class='btn'><i class="glyphicon glyphicon-remove-sign"></i></a><br>
+							<a class='btn btn-warning btn-xs white' href="edit-game-match.php?id=<?php echo $objResult[0]; ?>&type=3" ><i class="glyphicon glyphicon-pencil"></i> แก้ไข</a>
+							<a href="del-game-match.php?id=<?php echo $objResult[0]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}" class='btn btn-danger btn-xs white'><i class="glyphicon glyphicon-remove"></i> ลบ </a>
 							<?php }else if($objResult[11]==2){ ?>
-							<a href="edit-game-match.php?id=<?php echo $objResult[0]; ?>&type=3"><img src="images/edit.gif" width="40" height="15" border="0" /></a>
-							<a href="del-game-match.php?id=<?php echo $objResult[0]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"> <img src="images/del.gif" width="40" height="15" border="0" /></a>
+							<a class='btn btn-warning btn-xs white' href="edit-game-match.php?id=<?php echo $objResult[0]; ?>&type=3" ><i class="glyphicon glyphicon-pencil"></i> แก้ไข</a>
+							<a href="del-game-match.php?id=<?php echo $objResult[0]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}" class='btn btn-danger btn-xs white'><i class="glyphicon glyphicon-remove"></i> ลบ </a>
 							<?php }else if($objResult[11]==3){ ?>
-							<a href="point-game-match.php?id=<?php echo $objResult[0]; ?>"><img src="images/icon-score.png" width="16" height="16" border="0" /></a>
+							<a href="point-game-match.php?id=<?php echo $objResult[0]; ?>" class='btn'><i class="glyphicon glyphicon-plus-sign"></i></a>
 							<?php }else if($objResult[11]==4){ ?>
 							ปิดการทายผลและให้คะแนนแล้ว
 							<?php } ?>
@@ -360,7 +363,7 @@ echo $pages->display_pages()
         </table></td>
       </tr>
       <tr>
-        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2012 &copy; ScritpWeb2U </font></strong></td>
+        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2014 &copy; scriptweb2u  Modify By Ruk-Com.In.Th</font></strong></td>
       </tr>
     </table></td>
   </tr>

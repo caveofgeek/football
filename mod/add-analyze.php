@@ -1,11 +1,47 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 'On');
 @session_start();
+header('Content-Type: text/html; charset=utf-8');
 include "../inc/config.inc.php";
-if(!isset($_SESSION[mod_login])) {
+if(!isset($_SESSION['mod_login'])) {
 echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
+
+function get_data($url) {
+  $ch = curl_init();
+  $timeout = 10;
+  curl_setopt($ch, CURLOPT_URL, $url);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+  curl_setopt($ch, CURLOPT_REFERER, 'http://football.kapook.com');
+  $data = curl_exec($ch);
+  curl_close($ch);
+  return $data;
+}
+$data = get_data('http://football.kapook.com/livescore/match.php?event=&type=next');
+
+$data = iconv('windows-874','utf-8',$data);
+
+preg_match_all("/<td><img src='.+?' border='0' alt='(.+?)'/", $data,$league);
+preg_match_all("/<font color='#FFFFFF'>วันนี้<br>(.+?)<\/font>/", $data,$date);
+preg_match_all("/<font title='(.+?)'/", $data, $team);
+preg_match_all("/onClick=\"window\.open\('(.+?)'/",$data,$view);
+
+$t = 0; // team
+$index = 0;
+foreach ($league[1] as $leg) {
+  $leagueindex = str_replace(" ", "", $leg);
+  $match[$index]["id"] = $t;
+  $match[$index]["league"] = $leg;
+  $show_team[$leagueindex]["team"][] = $team[1][$t] . " vs " . $team[1][ ($t + 1) ];
+  $show_team[$leagueindex]["link"][] = $view[1][$t];
+  $t+=2;
+  $index++;
+}
 ?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -19,6 +55,7 @@ exit() ;
         $("#input").cleditor({width:600, height:450, useCSS:true})[0].focus();
       });
 </script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/font-awesome.min.css" rel="stylesheet">
 <link href="../css/justified-nav.css" rel="stylesheet">
@@ -87,42 +124,79 @@ a:active {
       <tr>
         <td align="center"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0" style="border:3px solid #999999; border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;">
           <tr>
-            <td align="center"><form action="p-add-analyze.php" method="post" enctype="multipart/form-data" name ="checkForm" id="checkForm" onsubmit="return check1()">
-              <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                <tr>
-                  <td height="5"></td>
-                </tr>
-              </table>
-              <table width="730" border="0" align="center" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td width="100" height="30" align="right" valign="top"><strong><font color="#000000" size="2">หัวข้อ</font></strong></td>
-                  <td width="10" height="30">&nbsp;</td>
-                  <td width="620" height="30" valign="top"><input name="title" type="text" id="title" style="width:600px;" /></td>
-                </tr>
+            <td>
+              <br>
+              <form action="p-add-analyze.php" method="post" enctype="multipart/form-data" class="form-horizontal" role="form" name ="checkForm" id="checkForm" onsubmit="return check1()">
+                <div class="form-group">
+                  <label for="title" class="col-sm-2 control-label">หัวข้อ</label>
+                  <div class="col-sm-8">
+                    <input name="title" class="form-control" type="text" id="title" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="league_name" class="col-sm-2 control-label">เลือกลีค</label>
+                  <div class="col-sm-8">
+                    <?php
+                      $unique_league = array();
+                      foreach ($match as $m) {
+                        $unique_league[] = $m["league"];
+                      }
 
-                <tr>
-                  <td width="100" height="455" align="right" valign="top"><strong><font color="#000000" size="2">รายละเอียด</font></strong></td>
-                  <td width="10" height="455">&nbsp;</td>
-                  <td width="620" height="455" valign="top"><textarea class="cleditorMain" id="input" name="input" style="width:600px; height:450px;"></textarea></td>
-                </tr>
+                      $unique_league = array_unique($unique_league);
 
-                <tr>
-                  <td width="100" height="30" align="right" valign="top"><strong><font color="#000000" size="2">สถานะ</font></strong></td>
-                  <td width="10" height="30">&nbsp;</td>
-                  <td width="620" height="30" align="left" valign="top"><input name="status_comment" type="radio" value="1" checked="checked" />
-                      <font color="#000000" size="2">Comment ได้ทุกคน
+                      echo "<select name='league_name' id='league_selector' class='form-control'>";
+                      foreach ($unique_league as $u) {
+                        $leagueindex = str_replace(" ", "", $u);
+                        echo "<option value=".$leagueindex.">".$u."</option>";
+                        $already_add = $u;
+                      }
+                      echo "</select>";
+                    ?>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="team_link" class="col-sm-2 control-label">เลือกทีม</label>
+                  <div class="col-sm-8">
+                    <select id="team_link" name='team_link' class='form-control'>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="input" class="col-sm-2 control-label">รายละเอียด</label>
+                  <div class="col-sm-8">
+                    <textarea class="cleditorMain form-control" id="input" name="input" rows="5" cols="10"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="status_comment" class="col-sm-2 control-label">สถานะ</label>
+                  <div class="col-sm-8">
+                    <div class="radio">
+                      <label>
+                        <input name="status_comment" type="radio" value="1" checked="checked" />
+                        Comment ได้ทุกคน
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
                         <input name="status_comment" type="radio" value="2" />
                         เฉพาะสมาชิก
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
                         <input name="status_comment" type="radio" value="3" />
-                        ไม่ให้ Comment </font></td>
-                </tr>
+                        ไม่ให้ Comment
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' />
+                  </div>
+                </div>
+              </form>
 
-                <tr>
-                  <td width="100" height="30" align="right" valign="top">&nbsp;</td>
-                  <td width="10" height="30">&nbsp;</td>
-                  <td width="620" height="30" align="left" valign="top"><input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' /></td>
-                </tr>
-              </table>
               <script language="JavaScript" type="text/javascript">
 
 function check1() {
@@ -138,8 +212,40 @@ return false ;
 else
 return true ;
 }
+
+    var all_team_arr =  <?php echo json_encode($show_team); ?>;
+    var now_showing_league = "";
+    function load_match_selector() {
+      $("#title").val("");
+      var html_content = "";
+      html_content = "<option>กรุณาเลือกคู่ที่มีการแข่งขัน</option>"
+      for(var i = 0; i < all_team_arr[now_showing_league]["team"].length; i++)
+      {
+        html_content += "<option value='" + all_team_arr[now_showing_league]["team"][i] + "||" + all_team_arr[now_showing_league]["link"][i] + "'>" + all_team_arr[now_showing_league]["team"][i] + "</option>";
+      }
+
+      $("#team_link").html(html_content);
+    }
+    $(document).ready(function(){
+      now_showing_league = $.trim($("#league_selector").val());
+      load_match_selector();
+    });
+    $( "#league_selector" ).change(function() {
+      now_showing_league = $.trim($(this).val());
+      load_match_selector();
+    });
+    $( "#team_link" ).change(function() {
+      var name = $(this).val().split("||");
+      if(name != "กรุณาเลือกคู่ที่มีการแข่งขัน") {
+        $("#title").val("วิเคราะห์บอลคู่ระหว่าง " + name[0]);
+      }
+      else
+      {
+        $("#title").val("");
+      }
+    });
             </script>
-            </form></td>
+            </td>
           </tr>
         </table></td>
       </tr>

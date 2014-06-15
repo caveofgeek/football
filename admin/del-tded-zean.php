@@ -3,7 +3,7 @@ session_start();
 include "../inc/config.inc.php";
 //echo "$_SESSION[m_login]<br>$_SESSION["m_id"]";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 ?>
@@ -35,8 +35,8 @@ a:active {
 
 <body>
 <?php
-$id=$_GET["id"];
-$zean_id=$_GET[zean_id];
+$id=mysql_real_escape_string($_GET["id"]);
+$zean_id=mysql_real_escape_string($_GET['zean_id']);
 
 $sql=mysql_query("delete from `tded_zean` where id='$id'")or die("ERROR $sql");
 

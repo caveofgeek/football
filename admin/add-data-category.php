@@ -22,6 +22,7 @@ exit() ;
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/font-awesome.min.css" rel="stylesheet">
 <link href="../css/justified-nav.css" rel="stylesheet">
+<link href="./css/admin.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -87,69 +88,98 @@ $rcate=mysql_fetch_row($recate);
                   </tr>
                   <tr>
                     <td>
-					<form action="p-add-data-category.php" method="post" enctype="multipart/form-data" name ="checkForm" id="checkForm" onsubmit="return check1()">
-					<table width="730" border="0" align="center" cellpadding="0" cellspacing="0">
-                      <tr>
-                        <td width="100" height="30" align="right" valign="top"><font color="#000000" size="2">หัวข้อ</font></td>
-                        <td width="10" height="30">&nbsp;</td>
-                        <td width="620" height="30" valign="top">
-						<input name="title" type="text" id="title" style="width:600px;" />
-						<input type="hidden" name="cate_id" id="cate_id" value="<?php echo $cate_id; ?>" />						</td>
-                      </tr>
-                      <tr>
-                        <td width="100" height="80" align="right" valign="top"><font color="#000000" size="2">รายละเอียดย่อ</font></td>
-                        <td width="10" height="80">&nbsp;</td>
-                        <td width="620" height="80" valign="top"><textarea name="short_detail" id="short_detail" style="width:600px; height:75px;"></textarea></td>
-                      </tr>
-                      <tr>
-                        <td width="100" height="455" align="right" valign="top"><font color="#000000" size="2">รายละเอียด</font></td>
-                        <td width="10" height="455">&nbsp;</td>
-                        <td width="620" height="455" valign="top"><textarea class="cleditorMain" id="input" name="input" style="width:600px; height:450px;"></textarea></td>
-                      </tr>
-                      <tr>
-                        <td width="100" height="30" align="right" valign="top"><font color="#000000" size="2">รูปภาพ</font></td>
-                        <td width="10" height="30">&nbsp;</td>
-                        <td width="620" height="30" align="left" valign="top"><input name="file1" type="file" id="file1" />
-                          <font color="#FF0000" size="2">* ขนาดไม่เกิน 50 KB </font></td>
-                      </tr>
-                      <tr>
-                        <td width="100" height="30" align="right" valign="top"><font color="#000000" size="2">สถานะ</font></td>
-                        <td width="10" height="30">&nbsp;</td>
-                        <td width="620" height="30" align="left" valign="top"><input name="status_comment" type="radio" value="1" checked="checked" />
-                          <font color="#000000" size="2">Comment ได้ทุกคน
-                          <input name="status_comment" type="radio" value="2" />
-                          เฉพาะสมาชิก
-                          <input name="status_comment" type="radio" value="3" />
-                           ไม่ให้ Comment </font></td>
-                      </tr>
-                      <tr>
-                        <td width="100" height="30" align="right"><font color="#000000" size="2">TAG</font></td>
-                        <td width="10" height="30">&nbsp;</td>
-                        <td height="30" align="left" valign="top"><font color="#000000" size="2">1.
-                          <input name="tag1" type="text" id="tag1" />
-                        2.
-                          <input name="tag2" type="text" id="tag2" />
-3.
-                          <input name="tag3" type="text" id="tag3" />
-</font></td>
-                      </tr>
-                      <tr>
-                        <td width="100" height="30" align="right" valign="top">&nbsp;</td>
-                        <td width="10" height="30">&nbsp;</td>
-                        <td height="30" align="left" valign="top"><font color="#000000" size="2">4.
-                            <input name="tag4" type="text" id="tag4" />
-5.
-<input name="tag5" type="text" id="tag5" />
-6.
-<input name="tag6" type="text" id="tag6" />
-                        </font></td>
-                      </tr>
-                      <tr>
-                        <td width="100" height="30" align="right" valign="top">&nbsp;</td>
-                        <td width="10" height="30">&nbsp;</td>
-                        <td width="620" height="30" align="left" valign="top"><input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' /></td>
-                      </tr>
-                    </table>
+
+
+					<form action="p-add-data-category.php" method="post" enctype="multipart/form-data" class="form-horizontal" role="form" name ="checkForm" id="checkForm" onsubmit="return check1()">
+					  <div class="form-group">
+              <label for="title" class="col-sm-2 control-label">หัวข้อ</label>
+              <div class="col-sm-5">
+                <input name="title" class="form-control" type="text" id="title" />
+                <input type="hidden" name="cate_id" id="cate_id" value="<?php echo $cate_id; ?>" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="short_detail" class="col-sm-2 control-label">รายละเอียดย่อ</label>
+              <div class="col-sm-5">
+                <textarea name="short_detail" class="form-control" id="short_detail" style="width:600px; height:75px;"></textarea>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="input" class="col-sm-2 control-label">รายละเอียด</label>
+              <div class="col-sm-5">
+                <textarea name="input" class="form-control" id="input" style="width:600px; height:450px;"></textarea>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="file1" class="col-sm-2 control-label">รูปภาพ</label>
+              <div class="col-sm-5">
+                <input name="file1" class="form-control" type="file" id="file1" />
+                <span class="help-block"><font color="#FF0000" size="2">* ขนาดไม่เกิน 50 KB </font></span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="status_comment" class="col-sm-2 control-label">สถานะ</label>
+              <div class="col-sm-8 form-inline">
+                <div class="radio">
+                  <label>
+                    <input name="status_comment" type="radio" value="1" checked="checked" /> Comment ได้ทุกคน
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input name="status_comment" type="radio" value="2" /> เฉพาะสมาชิก
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input name="status_comment" type="radio" value="3" /> ไม่ให้ Comment
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="tag1" class="col-sm-2 control-label">TAG</label>
+              <div class="col-sm-10 form-inline">
+                <div class="col-sm-4">
+                  1. <input class="form-control" name="tag1" type="text" id="tag1" />
+                </div>
+                <div class="col-sm-4">
+                  2. <input class="form-control" name="tag2" type="text" id="tag2" />
+                </div>
+                <div class="col-sm-4">
+                  3. <input class="form-control" name="tag3" type="text" id="tag3" />
+                </div>
+
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="file1" class="col-sm-2 control-label"></label>
+              <div class="col-sm-10 form-inline">
+                <div class="col-sm-4">
+                  4. <input class="form-control" name="tag4" type="text" id="tag4" />
+                </div>
+                <div class="col-sm-4">
+                  5. <input class="form-control" name="tag5" type="text" id="tag5" />
+                </div>
+                <div class="col-sm-4">
+                  6. <input class="form-control" name="tag6" type="text" id="tag6" />
+                </div>
+
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' />
+              </div>
+            </div>
+          </form>
 <script language="JavaScript" type="text/javascript">
 
 function check1() {
@@ -170,7 +200,6 @@ else
 return true ;
 }
 </script>
-					</form>
                     </td>
                   </tr>
                 </table></td>
@@ -178,7 +207,7 @@ return true ;
         </table></td>
       </tr>
       <tr>
-        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2012 &copy; ScritpWeb2U </font></strong></td>
+        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2014 &copy; scriptweb2u  Modify By Ruk-Com.In.Th</font></strong></td>
       </tr>
     </table></td>
   </tr>

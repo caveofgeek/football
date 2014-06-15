@@ -2,7 +2,7 @@
 session_start();
 include "../inc/config.inc.php";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 ?>
@@ -34,17 +34,17 @@ a:active {
 
 <body>
 <?php
-$type=htmlspecialchars($_POST[type]);
-$id=htmlspecialchars($_POST[id]);
-$league_id=htmlspecialchars($_POST[league_id]);
-$home=htmlspecialchars($_POST[home]);
-$away=htmlspecialchars($_POST[away]);
-$score=htmlspecialchars($_POST[score]);
-$result=htmlspecialchars($_POST[result]);
-$days=htmlspecialchars($_POST[days]);
-$months=htmlspecialchars($_POST[months]);
-$years=htmlspecialchars($_POST[years]);
-$game_time=htmlspecialchars($_POST[game_time]);
+$type=htmlspecialchars($_POST['type']);
+$id=htmlspecialchars($_POST['id']);
+$league_id=htmlspecialchars($_POST['league_id']);
+$home=htmlspecialchars($_POST['home']);
+$away=htmlspecialchars($_POST['away']);
+$score=htmlspecialchars($_POST['score']);
+$result=htmlspecialchars($_POST['result']);
+$days=htmlspecialchars($_POST['days']);
+$months=htmlspecialchars($_POST['months']);
+$years=htmlspecialchars($_POST['years']);
+$game_time=htmlspecialchars($_POST['game_time']);
 $date="$years-$months-$days";
 if($league_id!=""&&$game_time!=""&&$home!=""&&$away!=""){
 
@@ -57,7 +57,7 @@ echo "<meta http-equiv='refresh' content='0;url=edit-game-match.php?id=$id&type=
 <script language="JavaScript">
 	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ');
 	history.back();
-</script> 
+</script>
 <?php
 }
 ?>

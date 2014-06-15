@@ -1,8 +1,8 @@
-<?php 
-@session_start(); 
+<?php
+@session_start();
 include "../inc/config.inc.php";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 
 exit() ;
 }
@@ -15,26 +15,27 @@ exit() ;
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/font-awesome.min.css" rel="stylesheet">
 <link href="../css/justified-nav.css" rel="stylesheet">
+<link href="./css/admin.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
-	text-decoration: none;
-	color: #000000;
+  text-decoration: none;
+  color: #000000;
 }
 a:visited {
-	text-decoration: none;
-	color: #000000;
+  text-decoration: none;
+  color: #000000;
 }
 a:hover {
-	text-decoration: underline;
-	color: #FFFFFF;
+  text-decoration: underline;
+  color: #FFFFFF;
 }
 a:active {
-	text-decoration: none;
-	color: #000000;
+  text-decoration: none;
+  color: #000000;
 }
 body {
-	background-color: #888888;
+  background-color: #888888;
 }
 -->
 </style></head>
@@ -49,12 +50,12 @@ body {
               <tr valign="top">
                 <td width="690"><div align="left"><font color="#ffffff" size="4">.:: ยินดีต้อนรับเข้าสู่ ระบบจัดการข้อมูลเว็บไซต์ ::
                   <?php
-				$dm=date("d/m");
-				$y=date("Y")+543;
-				$date="$dm/$y";
-				$time=date("H:i:s");
-				echo "$date $time";
-				?>
+        $dm=date("d/m");
+        $y=date("Y")+543;
+        $date="$dm/$y";
+        $time=date("H:i:s");
+        echo "$date $time";
+        ?>
                   ::.</font></div></td>
                 <td width="270"><div align="right"><font color="#ffffff" size="4"><a href="../index.php" target="_blank"><font color="#ffffff">ไปยังหน้าเว็บไซต์</font></a> | <a href="logout.php"><font color="#ffffff">ออกจากระบบ</font></a></font></div></td>
               </tr>
@@ -71,22 +72,22 @@ body {
                   </tr>
                   <tr>
                     <td align="center">
-					<?php
-					$strSQL1="SELECT * FROM ads_a6 ORDER BY id ASC";
-					$objQuery1 = mysql_query($strSQL1) or die("ERROR $strSQL1");
-					while($objResult1 = mysql_fetch_row($objQuery1)){
-					?>
+          <?php
+          $strSQL1="SELECT * FROM ads_a6 ORDER BY id ASC";
+          $objQuery1 = mysql_query($strSQL1) or die("ERROR $strSQL1");
+          while($objResult1 = mysql_fetch_row($objQuery1)){
+          ?>
                       <table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tr>
                           <td align="center" valign="top">
                           <?php
 
-						  if($objResult1[1]==1){
-						  $ads=stripslashes($objResult1[3]);
-						  echo $ads;
-						  }else if($objResult1[1]==2){
-						  	if($objResult1[2]==1){
-						  ?>
+              if($objResult1[1]==1){
+              $ads=stripslashes($objResult1[3]);
+              echo $ads;
+              }else if($objResult1[1]==2){
+                if($objResult1[2]==1){
+              ?>
                               <img src="../ads-img/<?php echo $objResult1[9]; ?>" width="728" border="0" />
                               <?php }else if($objResult1[2]==2){ ?>
                               <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="728">
@@ -104,57 +105,82 @@ body {
                                 </tr>
                                 <tr>
                                   <td align="left">
-								  <?php $ads=stripslashes($objResult1[3]); ?>
-								  <textarea name="textarea" rows="10" style="width:600px;" disabled="disabled"><?php echo $ads; ?></textarea>
-								  </td>
+                  <?php $ads=stripslashes($objResult1[3]); ?>
+                  <textarea name="textarea" rows="10" style="width:600px;" disabled="disabled"><?php echo $ads; ?></textarea>
+                  </td>
                                 </tr>
                                 <tr>
-                                  <td align="left"><strong><font size="2"><a href="edit-ads-a6.php?id=<?php echo $objResult1[0]; ?>"><img src="images/edit.gif" width="40" height="15" border="0" /></a> <a href="del-ads6.php?id=<?php echo $objResult1[0]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"> <img src="images/del.gif" width="40" height="15" border="0" /></a></font></strong></td>
+                                  <td width="100" height="25" align="center" valign="middle">
+                                  <a href="edit-ads-a6.php?id=<?php echo $objResult1[0]; ?>" class='btn btn-warning btn-xs white'>
+                                      <i class="glyphicon glyphicon-pencil"></i> แก้ไข
+                                    </a>
+                                    <a href="del-ads6.php?id=<?php echo $objResult1[0]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}" class='btn btn-danger btn-xs white'>
+                                      <i class="glyphicon glyphicon-remove"></i> ลบ
+                                    </a>
+                                  </td>
                                 </tr>
                               </table>
                             <?php }else if($objResult1[1]==2){ ?>
-                              <table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
-                                <tr>
-                                  <td width="150" align="right"><font color="#000000" size="2">คำอธิบาย</font></td>
-                                  <td width="10">&nbsp;</td>
-                                  <td width="440" align="left"><input name="keyword" type="text" id="keyword" value="<?php echo $objResult1[8]; ?>" disabled="disabled" /></td>
-                                </tr>
-                                <tr>
-                                  <td width="150" align="right"><font color="#000000" size="2">ลิงค์</font></td>
-                                  <td width="10">&nbsp;</td>
-                                  <td width="440" align="left"><input name="url" type="text" id="url" value="<?php echo $objResult1[7]; ?>" size="50" disabled="disabled" />
-                                      <br />
-                                      <font size="2" color="#FF0000">ใส่ http:// ด้วย เช่น http://www.domain.com </font></td>
-                                </tr>
-                                <tr>
-                                  <td width="150" align="right"><font color="#000000" size="2">วันที่</font></td>
-                                  <td width="10">&nbsp;</td>
-                                  <td width="440" align="left"><input name="start_date" type="text" id="start_date" value="<?php echo $objResult1[10]; ?>" disabled="disabled" />
-                                      <font color="#000000" size="2">ถึง
-                                        <input name="finish_date" type="text" id="finish_date" value="<?php echo $objResult1[11]; ?>" disabled="disabled" />
-                                    </font></td>
-                                </tr>
-                                <tr>
-                                  <td width="150" align="right"><font color="#000000" size="2">ชื่อลูกค้า</font></td>
-                                  <td width="10">&nbsp;</td>
-                                  <td width="440" align="left"><input name="name" type="text" id="name" value="<?php echo $objResult1[4]; ?>" disabled="disabled" /></td>
-                                </tr>
-                                <tr>
-                                  <td width="150" align="right"><font color="#000000" size="2">เบอร์โทรศัพท์</font></td>
-                                  <td width="10">&nbsp;</td>
-                                  <td width="440" align="left"><input name="tel" type="text" id="tel" value="<?php echo $objResult1[5]; ?>" disabled="disabled" /></td>
-                                </tr>
-                                <tr>
-                                  <td width="150" align="right"><font color="#000000" size="2">อีเมล์</font></td>
-                                  <td width="10">&nbsp;</td>
-                                  <td width="440" align="left"><input name="email" type="text" id="email" value="<?php echo $objResult1[6]; ?>" disabled="disabled" /></td>
-                                </tr>
-                                <tr>
-                                  <td width="150" align="right">&nbsp;</td>
-                                  <td width="10">&nbsp;</td>
-                                  <td align="left"><font size="2"><a href="edit-ads-a6.php?id=<?php echo $objResult1[0]; ?>"><img src="images/edit.gif" width="40" height="15" border="0" /></a> <a href="del-ads6.php?id=<?php echo $objResult1[0]; ?>&amp;op=<?php echo $objResult1[9]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"> <img src="images/del.gif" width="40" height="15" border="0" /></a></font></td>
-                                </tr>
-                              </table>
+                            <br><br/>
+                            <form class="form-horizontal" role="form">
+                                <div class="form-group">
+                                  <label for="keyword" class="col-sm-2 control-label">คำอธิบาย</label>
+                                  <div class="col-sm-5">
+                                    <input class="form-control" name="keyword" type="text" id="keyword" value="<?php echo $objResult1[8]; ?>" disabled="disabled" />
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label for="url" class="col-sm-2 control-label">ลิงค์</label>
+                                  <div class="col-sm-5">
+                                    <input class="form-control" name="url" type="text" id="url" value="<?php echo $objResult1[7]; ?>" size="50" disabled="disabled" />
+                                    <span class="help-block">ใส่ http:// ด้วย เช่น http://www.domain.com </span>
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label for="keyword" class="col-sm-2 control-label">คำอธิบาย</label>
+                                  <div class="col-sm-5">
+                                    <input class="form-control" name="keyword" type="text" id="keyword" value="<?php echo $objResult1[8]; ?>" disabled="disabled" />
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label for="start_date" class="col-sm-2 control-label">วันที่</label>
+                                  <div class="col-sm-5">
+                                    <input class="form-control" name="start_date" type="text" id="start_date" value="<?php echo $objResult1[10]; ?> ถึง <?php echo $objResult1[11]; ?>" disabled="disabled" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label for="start_date" class="col-sm-2 control-label">ชื่อลูกค้า</label>
+                                  <div class="col-sm-5">
+                                    <input class="form-control" name="name" type="text" id="name" value="<?php echo $objResult1[4]; ?>" disabled="disabled" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label for="start_date" class="col-sm-2 control-label">เบอร์โทรศัพท์</label>
+                                  <div class="col-sm-5">
+                                    <input class="form-control" name="tel" type="text" id="tel" value="<?php echo $objResult1[5]; ?>" disabled="disabled"  />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label for="start_date" class="col-sm-2 control-label">อีเมล์</label>
+                                  <div class="col-sm-5">
+                                    <input class="form-control" name="email" type="text" id="email" value="<?php echo $objResult1[6]; ?>" disabled="disabled"  />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <div class="col-sm-6">
+                                    <a href="edit-ads-a6.php?id=<?php echo $objResult1[0]; ?>" class='btn btn-warning btn-xs white'>
+                                      <i class="glyphicon glyphicon-pencil"></i> แก้ไข
+                                    </a>
+                                    <a href="del-ads6.php?id=<?php echo $objResult1[0]; ?>&amp;op=<?php echo $objResult1[9]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}" class='btn btn-danger btn-xs white'>
+                                      <i class="glyphicon glyphicon-remove"></i> ลบ
+                                    </a>
+                                  </div>
+                                </div>
+                              </form>
                             <?php } ?></td>
                         </tr>
                       </table>
@@ -170,7 +196,7 @@ body {
         </table></td>
       </tr>
       <tr>
-        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2012 &copy; ScritpWeb2U </font></strong></td>
+        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2014 &copy; scriptweb2u  Modify By Ruk-Com.In.Th</font></strong></td>
       </tr>
     </table></td>
   </tr>

@@ -15,6 +15,7 @@ exit() ;
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/font-awesome.min.css" rel="stylesheet">
 <link href="../css/justified-nav.css" rel="stylesheet">
+<link href="./css/admin.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -69,7 +70,7 @@ body {
                   <tr>
                     <td height="25">
 <?php
-$cate_id=$_GET["cate_id"];
+$cate_id=mysql_real_escape_string($_GET["cate_id"]);
 $scate="SELECT * FROM `category` WHERE id='$cate_id'";
 $recate=mysql_query($scate) or die("ERROR $scate");
 $rcate=mysql_fetch_row($recate);
@@ -85,36 +86,43 @@ $rcate=mysql_fetch_row($recate);
 					</font></strong></td>
                   </tr>
                   <tr>
-                    <td><form action="p-edit-category.php" method="post" enctype="multipart/form-data" name ="checkForm" id="checkForm" onsubmit="return check1()">
-                      <table width="460" border="0" align="center" cellpadding="0" cellspacing="0">
-                        <tr>
-                          <td width="100" align="right"><strong><font size="2">ชื่อหมวดหมู่</font></strong></td>
-                          <td width="10" align="center">&nbsp;</td>
-                          <td width="350" align="left">
-						  <input name="cate_name" type="text" id="cate_name" style="width:200px;" value="<?php echo $rcate[1]; ?>" />
-						  <input type="hidden" name="cate_id" id="cate_id" value="<?php echo $cate_id; ?>" />						  </td>
-                        </tr>
-                        <tr>
-                          <td width="100" height="105" align="right" valign="top"><strong><font size="2">Title</font></strong></td>
-                          <td width="10" height="105" align="center" valign="top">&nbsp;</td>
-                          <td width="350" height="105" align="left" valign="top"><textarea name="title" id="title" style="width:330px; height:100px;"><?php echo $rcate[2]; ?></textarea></td>
-                        </tr>
-                        <tr>
-                          <td width="100" height="105" align="right" valign="top"><strong><font size="2">Description</font></strong></td>
-                          <td width="10" height="105" align="center" valign="top">&nbsp;</td>
-                          <td width="350" height="105" align="left" valign="top"><textarea name="description" id="description" style="width:330px; height:100px;"><?php echo $rcate[3]; ?></textarea></td>
-                        </tr>
-                        <tr>
-                          <td width="100" height="105" align="right" valign="top"><strong><font size="2">Keyword</font></strong></td>
-                          <td width="10" height="105" align="center" valign="top">&nbsp;</td>
-                          <td width="350" height="105" align="left" valign="top"><textarea name="keyword" id="keyword" style="width:330px; height:100px;"><?php echo $rcate[4]; ?></textarea></td>
-                        </tr>
-                        <tr>
-                          <td width="100" align="right">&nbsp;</td>
-                          <td width="10" align="center">&nbsp;</td>
-                          <td width="350" align="left"><input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' /></td>
-                        </tr>
-                      </table>
+                    <td>
+                      <form class="form-horizontal" role="form" action="p-edit-category.php" method="post" enctype="multipart/form-data" name ="checkForm" id="checkForm" onsubmit="return check1()">
+                        <div class="form-group">
+                          <label for="cate_name" class="col-sm-3 control-label">ชื่อหมวดหมู่</label>
+                          <div class="col-sm-5">
+                            <input name="cate_name" class="form-control" type="text" id="cate_name" value="<?php echo $rcate[1]; ?>" />
+                            <input type="hidden" name="cate_id" id="cate_id" value="<?php echo $cate_id; ?>" />
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label for="title" class="col-sm-3 control-label">Title</label>
+                          <div class="col-sm-5">
+                            <textarea name="title" class="form-control" id="title"><?php echo $rcate[2]; ?></textarea>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label for="description" class="col-sm-3 control-label">Description</label>
+                          <div class="col-sm-5">
+                            <textarea name="description" class="form-control" id="description"><?php echo $rcate[3]; ?></textarea>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label for="keyword" class="col-sm-3 control-label">Keyword</label>
+                          <div class="col-sm-5">
+                            <textarea name="keyword" class="form-control" id="keyword"><?php echo $rcate[4]; ?></textarea>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <div class="col-sm-offset-3 col-sm-10">
+                            <input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' />
+                          </div>
+                        </div>
+                      </form>
 <script language="JavaScript" type="text/javascript">
 
 function check1() {
@@ -139,7 +147,6 @@ else
 return true ;
 }
 </script>
-</form>
                     </td>
                   </tr>
                 </table></td>
@@ -147,7 +154,7 @@ return true ;
         </table></td>
       </tr>
       <tr>
-        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2012 &copy; ScritpWeb2U </font></strong></td>
+        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2014 &copy; scriptweb2u  Modify By Ruk-Com.In.Th</font></strong></td>
       </tr>
     </table></td>
   </tr>

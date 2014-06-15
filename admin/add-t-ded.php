@@ -6,7 +6,7 @@ if(!isset($_SESSION["admin_login"])) {
   echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
   exit() ;
 }
-$l_id=$_GET["l_id"];
+$l_id=mysql_real_escape_string($_GET["l_id"]);
 $s="SELECT * FROM `league` where id='$l_id'";
 $re=mysql_query($s) or die("ERROR $s");
 $r=mysql_fetch_row($re);
@@ -78,28 +78,23 @@ body {
                   <tr>
                     <td><table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
                       <tr>
-                        <td><form action="p-add-t-ded.php" method="post" enctype="multipart/form-data" name ="checkForm" id="checkForm" onsubmit="return check1()">
-                            <table width="100%" height="10" border="0" align="center" cellpadding="0" cellspacing="0">
-                              <tr>
-                                <td></td>
-                              </tr>
-                            </table>
-                          <table width="510" border="0" align="center" cellpadding="0" cellspacing="0">
-                              <tr>
-                                <td width="150" align="right"><span class="style4">วันที่แข่งขัน</span></td>
-                                <td width="10">&nbsp;</td>
-                                <td width="350"><select name="days" id="days">
+                        <td>
+                          <form action="p-add-t-ded.php" class="form-horizontal" role="form" method="post" enctype="multipart/form-data" name ="checkForm" id="checkForm" onsubmit="return check1()">
+                            <div class="form-group">
+                              <label for="days" class="col-sm-2 control-label">วันที่แข่งขัน</label>
+                              <div class="col-sm-10 form-inline">
+                                <select class="form-control" name="days" id="days">
                                   <?php
-								  $dd=date("j");
-								  $a=1;
-								  while($a<=31){
-								  ?>
+                  $dd=date("j");
+                  $a=1;
+                  while($a<=31){
+                  ?>
                                   <option value="<?php echo $a; ?>" <?php if($a==$dd){ ?>selected="selected" <?php } ?> >
                                   <?php echo $a; ?>
                                   </option>
                                   <?php $a++;} ?>
                                 </select>
-                                  <select name="months" id="months">
+                                  <select class="form-control" name="months" id="months">
                                     <option value="1" <?php $mm=date("m"); if($mm==1){ ?>selected="selected" <?php } ?> >มกราคม</option>
                                     <option value="2" <?php $mm=date("m"); if($mm==2){ ?>selected="selected" <?php } ?> >กุมภาพันธ์</option>
                                     <option value="3" <?php $mm=date("m"); if($mm==3){ ?>selected="selected" <?php } ?> >มีนาคม</option>
@@ -113,73 +108,92 @@ body {
                                     <option value="11" <?php $mm=date("m"); if($mm==11){ ?>selected="selected" <?php } ?> >พฤศจิกายน</option>
                                     <option value="12" <?php $mm=date("m"); if($mm==12){ ?>selected="selected" <?php } ?> >ธันวาคม</option>
                                   </select>
-                                  <select name="years" id="years">
+                                  <select class="form-control" name="years" id="years">
                                     <?php
-								  $yy=date("Y");
-								  $y=date("Y");
-								  $ny=date("Y")+1;
-								  while($y<=$ny){
-								  ?>
+                  $yy=date("Y");
+                  $y=date("Y");
+                  $ny=date("Y")+1;
+                  while($y<=$ny){
+                  ?>
                                     <option value="<?php echo $y; ?>" <?php if($y==$yy){ ?>selected="selected" <?php } ?> >
                                     <?php echo $y; ?>
                                     </option>
                                     <?php $y++;} ?>
                                   </select>
-                                  <input type="hidden" name="l_id" id="l_id" value="<?php echo $l_id; ?>" />								</td>
-                              </tr>
-                              <tr>
-                                <td align="right"><span class="style4">ทีมเจ้าบ้าน</span></td>
-                                <td>&nbsp;</td>
-                                <td><input name="home" type="text" id="home" /></td>
-                              </tr>
-                              <tr>
-                                <td width="150" align="right"><span class="style4">ทีมเยือน</span></td>
-                                <td width="10">&nbsp;</td>
-                                <td width="350"><input name="away" type="text" id="away" /></td>
-                              </tr>
-                              <tr>
-                                <td width="150" align="right"><span class="style4">ราคาบอล</span></td>
-                                <td width="10">&nbsp;</td>
-                                <td><input name="odds_ball" type="text" id="odds_ball" /></td>
-                              </tr>
-                              <tr>
-                                <td width="150" align="right"><span class="style4">ทีมที่ต่อ</span></td>
-                                <td width="10">&nbsp;</td>
-                                <td><input name="t_ded" type="radio" value="1" checked="checked" />
-                                  <span class="style5">ทีมเจ้าบ้าน
-                                  <input name="t_ded" type="radio" value="2" />
-ทีมเยือน
-<input name="t_ded" type="radio" value="0" />
-เสมอ</span></td>
-                              </tr>
-                              <tr>
-                                <td width="150" align="right"><span class="style4">ทีเด็ด</span></td>
-                                <td width="10">&nbsp;</td>
-                                <td><input name="detail" type="text" id="detail" size="50" /></td>
-                              </tr>
-                              <tr>
-                                <td width="150" align="right"><span class="style4">เวลาแข่งขัน</span></td>
-                                <td width="10">&nbsp;</td>
-                                <td><input name="time_live" type="text" id="time_live" /></td>
-                              </tr>
-                              <tr>
-                                <td width="150" align="right"><span class="style4">ช่องที่ถ่ายทอดสด</span></td>
-                                <td width="10">&nbsp;</td>
-                                <td><input name="ch_live" type="text" id="ch_live" /></td>
-                              </tr>
-                              <tr>
-                                <td width="150" align="right"><span class="style4">ผลบอล</span></td>
-                                <td width="10">&nbsp;</td>
-                                <td><input name="score" type="text" id="score" /></td>
-                              </tr>
-                              <tr>
-                                <td width="150">&nbsp;</td>
-                                <td width="10">&nbsp;</td>
-                                <td width="350"><label>
-                                  <input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' />
-                                </label></td>
-                              </tr>
-                            </table>
+                                  <input type="hidden" name="l_id" id="l_id" value="<?php echo $l_id; ?>" />
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="home" class="col-sm-2 control-label">ทีมเจ้าบ้าน</label>
+                              <div class="col-sm-5">
+                                <input name="home" class="form-control" type="text" id="home" />
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="away" class="col-sm-2 control-label">ทีมเยือน</label>
+                              <div class="col-sm-5">
+                                <input name="away" class="form-control" type="text" id="away" />
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="odds_ball" class="col-sm-2 control-label">ราคาบอล</label>
+                              <div class="col-sm-5">
+                                <input name="odds_ball" class="form-control" type="text" id="odds_ball" />
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="detail" class="col-sm-2 control-label">ทีมที่ต่อ</label>
+                              <div class="col-sm-10 form-inline">
+                                <div class="radio">
+                                    <input name="detail" type="radio" value="1" checked="checked" /> ทีมเจ้าบ้าน
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="time_live" class="col-sm-2 control-label">ทีเด็ด</label>
+                              <div class="col-sm-8">
+                                <input name="time_live" class="form-control" type="text" id="time_live" />
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label for="time_live" class="col-sm-2 control-label">เวลาแข่งขัน</label>
+                              <div class="col-sm-5">
+                                <input name="time_live" class="form-control" type="text" id="time_live" />
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="time_live" class="col-sm-2 control-label">เวลาแข่งขัน</label>
+                              <div class="col-sm-5">
+                                <input name="time_live" class="form-control" type="text" id="time_live" />
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="ch_live" class="col-sm-2 control-label">ช่องที่ถ่ายทอดสด</label>
+                              <div class="col-sm-5">
+                                <input name="ch_live" class="form-control" type="text" id="ch_live" />
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="score" class="col-sm-2 control-label">ผลบอล</label>
+                              <div class="col-sm-5">
+                                <input name="score" class="form-control" type="text" id="score" />
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <div class="col-sm-offset-2 col-sm-10">
+                                <input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' />
+                              </div>
+                            </div>
+
                           <script language="JavaScript" type="text/javascript">
 
 function check1() {
@@ -205,7 +219,7 @@ return true ;
         </table></td>
       </tr>
       <tr>
-        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2012 &copy; ScritpWeb2U </font></strong></td>
+        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2014 &copy; scriptweb2u  Modify By Ruk-Com.In.Th</font></strong></td>
       </tr>
     </table></td>
   </tr>

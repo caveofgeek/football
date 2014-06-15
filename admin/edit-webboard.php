@@ -1,8 +1,8 @@
-<?php 
-@session_start(); 
+<?php
+@session_start();
 include "../inc/config.inc.php";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 
 exit() ;
 }
@@ -81,7 +81,7 @@ body {
                     <td><table width="730" border="0" align="center" cellpadding="0" cellspacing="0">
                       <tr>
                         <td><?php
-$topic_id=$_GET["id"];
+$topic_id=mysql_real_escape_string($_GET["id"]);
 $strWB="SELECT * FROM `webboard` WHERE id='$topic_id'";
 $WBQuery=mysql_query($strWB) or die("ERROR บรรทัด 131");
 $WBResult=mysql_fetch_row($WBQuery);
@@ -145,7 +145,7 @@ while($rcate=mysql_fetch_row($recate)){
         </table></td>
       </tr>
       <tr>
-        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2012 &copy; ScritpWeb2U </font></strong></td>
+        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2014 &copy; scriptweb2u  Modify By Ruk-Com.In.Th</font></strong></td>
       </tr>
     </table></td>
   </tr>

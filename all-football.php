@@ -25,8 +25,8 @@ $st="select * from stats where id=1";
 $stre=mysql_query($st) or die("ERROR $st บรททัด19");
 $str=mysql_fetch_row($stre);
 
-$id=$_GET["id"];
-$name=$_GET["name"];
+$id=mysql_real_escape_string($_GET["id"]);
+$name=mysql_real_escape_string($_GET["name"]);
 $sct="select * from football where id='$id'";
 $rect=mysql_query($sct) or die("ERROR $sct");
 $rct=mysql_fetch_row($rect);

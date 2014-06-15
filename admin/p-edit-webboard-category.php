@@ -2,7 +2,7 @@
 session_start();
 include "../inc/config.inc.php";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 ?>
@@ -34,12 +34,12 @@ a:active {
 
 <body>
 <?php
-$Submit=$_POST[Submit];
-$id=$_POST[id];
-$brand=htmlspecialchars($_POST[brand]);
-$title=htmlspecialchars($_POST[title]);
-$description=htmlspecialchars($_POST[description]);
-$keyword=htmlspecialchars($_POST[keyword]);
+$Submit=$_POST['Submit'];
+$id=$_POST['id'];
+$brand=htmlspecialchars($_POST['brand']);
+$title=htmlspecialchars($_POST['title']);
+$description=htmlspecialchars($_POST['description']);
+$keyword=htmlspecialchars($_POST['keyword']);
 if($brand!=""&&$title!=""&&$description!=""&&$keyword!=""){
 $sql=mysql_query("UPDATE `webboard_category` SET `cate_name`='$brand', `title`='$title', `description`='$description', `keyword`='$keyword' WHERE id='$id'")or die("ERROR $sql บรรทัด67");
 echo "<meta http-equiv='refresh' content='0;url=edit-webboard-category.php?id=$id'>";
@@ -48,7 +48,7 @@ echo "<meta http-equiv='refresh' content='0;url=edit-webboard-category.php?id=$i
 <script language="JavaScript">
 	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ');
 	history.back();
-</script> 
+</script>
 <?php
 }
 ?>

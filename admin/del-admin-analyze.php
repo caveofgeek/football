@@ -3,7 +3,7 @@ session_start();
 include "../inc/config.inc.php";
 //echo "$_SESSION[m_login]<br>$_SESSION["m_id"]";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 ?>
@@ -36,7 +36,7 @@ a:active {
 <body>
 <?php
 $id=$_GET["id"];
-$img=$_GET[img];
+$img=$_GET['img'];
 if($img!=""){
 $part="../mod/avatar/$img";
 @unlink ($part);

@@ -1,4 +1,5 @@
 <?php
+header("Referer: http://football.kapook.com");
 session_start();
 include "inc/config.inc.php";
 include "function/datethai.php";
@@ -26,8 +27,8 @@ $st="select * from stats where id=1";
 $stre=mysql_query($st) or die("ERROR $st บรททัด19");
 $str=mysql_fetch_row($stre);
 
-$topic_id=$_GET["topic_id"];
-$topic=$_GET["topic"];
+$topic_id=mysql_real_escape_string($_GET["topic_id"]);
+$topic=mysql_real_escape_string($_GET["topic"]);
 $spost="SELECT * FROM `analyze` WHERE id='$topic_id'";
 $repost=mysql_query($spost) or die("ERROR $spost");
 $rpost=mysql_fetch_row($repost);
@@ -44,36 +45,37 @@ $upd_view=mysql_query("UPDATE `analyze` SET view='$new_view' WHERE id='$topic_id
 <META NAME="description" CONTENT="<?php echo $titler[1]; ?> วิเคราะห์บอล วิเคราะห์ฟุตบอล วิเคราะห์บอลวันนี้ ผลบอล ผลบอลสด 7M livescore ผลบอลมีเสียง เกมส์ฟุตบอล เกมส์ทายผลฟุตบอล ทีเด็ด ทีเด็ดวันนี้ ราคาบอล">
 <meta name="robots"  content="index,follow">
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/font-awesome.min.css" rel="stylesheet">
 <link href="../css/justified-nav.css" rel="stylesheet">
+<link href="../css/justified-nav.css" rel="stylesheet">
+<link href="../css/football.css" rel="stylesheet" type="text/css">
+<script>
+  $(document).ready(function(){
+    $("table.text_teble2 tr").removeAttr("onclick");
+    $("table.text_teble2 tr").removeAttr("title");
+    $("table.text_teble2 tr").removeAttr("style");
+
+    $("table.text_teble2 td img").each(function(){
+      console.log($(this).attr("title"));
+      if ($(this).attr("title") == ''){
+        $(this).attr("src",'../img/football.jpeg');
+        $(this).css("width","29px");
+      }
+    });
+  });
+
+</script>
 <style type="text/css">
-<!--
-body {
-	background-color: #<?php echo $bgr[1]; ?>;
-	<?php if($bgr[2]!=""){ ?>background-image: url(http://<?php echo $titler[13]; ?>/bg-img/<?php echo $bgr[2]; ?>);
-	background-repeat: <?php echo $bgr[3]; ?>;
-	<?php }if($bgr[4]==1){ ?>
-	background-attachment:fixed;
-	<?php } ?>
-}
-a:link {
-	color: #<?php echo $linkr[1]; ?>;
-	text-decoration: none;
-}
-a:visited {
-	text-decoration: none;
-	color: #<?php echo $linkr[2]; ?>;
-}
-a:hover {
-	text-decoration: underline;
-	color: #<?php echo $linkr[3]; ?>;
-}
-a:active {
-	text-decoration: none;
-	color: #<?php echo $linkr[4]; ?>;
-}
--->
+  #trSched, #tr1HF2HF1, #tr1HF2HF2, #trHT, #trFin { display: none;}
+  td.mg_at { display: none;}
+
+  p#analyze_text {
+    margin-top:10px;
+    text-indent: 30px;
+    font-size: 15px;
+  }
 </style>
 </head>
 
@@ -172,17 +174,70 @@ while($rads8=mysql_fetch_row($reads8)){
                       <table width="725" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tr>
                           <td>
-						  <?php
-						  $msg=stripslashes($rpost[3]);
-						  echo $msg;
-						  ?>						  </td>
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 'On');
+
+function get_data($url) {
+  $ch = curl_init();
+  $timeout = 10;
+  curl_setopt($ch, CURLOPT_URL, $url);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+  curl_setopt($ch, CURLOPT_REFERER, 'http://football.kapook.com');
+  $data = curl_exec($ch);
+  curl_close($ch);
+  return $data;
+}
+if ($rpost[8] != "") {
+$link = explode("||",$rpost[8]);
+$data = get_data($link[1]);
+
+$data = iconv('windows-874','utf-8',$data);
+
+
+preg_match('/<table width="620" border="0" align="center" cellpadding="0" cellspacing="1">[\s\d\w_ก-๙เๆแไใ&;<\/>,.#-^!@%*()+"\']{0,}<\/table>/',$data,$team);
+$team = str_replace(array('display:none'),array(''),$team[0]);
+$team = str_replace('style="background:url(images_match/bg_score2.png) top center no-repeat;"','',$team);
+$team = str_replace('<img src="images_match/vs.png" width="88" height="58"/>','',$team);
+$team = str_replace('<img src="images_match/frame_b01.jpg" width="6" height="6" />','',$team);
+$team = str_replace('<img src="images_match/table_04.png" width="327" height="14" />','',$team);
+$team = str_replace('<img src="images_match/goal_icon.gif" width="14" height="13" />','',$team);
+$team = str_replace('<img src="images_match/sec_01.png" width="114" height="31" />','',$team);
+$team = str_replace('<img src="images_match/led_gif.gif" width="13" height="13" align="absmiddle" />','',$team);
+$team = str_replace('<span><img src="../../images/space.gif" width="5" height="8" /></span>','',$team);
+$team = str_replace('style="background:url(images_match/table_01.png) top center no-repeat;"','',$team);
+$team = str_replace('style="background:url(images_match/table_02.png) top center repeat-y;"','',$team);
+$team = str_replace('<img src="images_match/frame_b03.jpg" width="6" height="6" />','',$team);
+$team = str_replace('style="background:url(images_match/frame_b02.jpg) top left repeat-x"','',$team);
+$team = str_replace('<img src="images_match/frame_b02.jpg" width="1" height="6" />','',$team);
+$team = str_replace('style="background:url(images_match/frame_b04.jpg) top left repeat-y"','',$team);
+$team = str_replace('<img src="images_match/frame_b04.jpg" width="6" height="1" />','',$team);
+$team = str_replace('style="background:url(images_match/frame_b05.jpg) top left repeat-y"','',$team);
+$team = str_replace('<img src="images_match/frame_b05.jpg" width="6" height="1" />','',$team);
+$team = str_replace('style="background:url(images_match/frame_b07.jpg) top left repeat-x"','',$team);
+$team = str_replace('<img src="images_match/frame_b07.jpg" width="1" height="6" />','',$team);
+$team = str_replace('<img src="images_match/frame_b08.jpg" width="6" height="6" />','',$team);
+$team = str_replace('<img src="images_match/frame_b06.jpg" width="6" height="6" />','',$team);
+$team = str_replace('<font color="#FF6600">ดูผลงานย้อนหลัง</font>','',$team);
+preg_match('/<table width="97\%" border="0" align="center" cellpadding="0" cellspacing="0" style="display:none" id="tbDetail">[\s\d\w_ก-๙เๆแไใ&;<\/>,.#-^!@%*()+"\']{0,}<\/table>/',$data,$stat);
+$stat = str_replace(array('display:none','97%'),array('','30%'),$stat[0]);
+
+echo $team."<br>";
+}
+?>
+                            <br><br>
+                            <h3>วิเคราะห์ฟุตบอล</h3>
+                            <p id="analyze_text"><?php echo $rpost[3]; ?></p>
+
+						  				  	</td>
                         </tr>
 
                         <tr>
                           <td height="30" align="right" style="font-family:'Times New Roman', Times, serif; font-size:12px;"><font size="2">
                           <?php if(isset($_SESSION["admin_login"])){ ?>
                           <a href="http://<?php echo $titler[13]; ?>/admin/del-post-analyze.php?id=<?php echo $rpost[0]; ?>&mod_id=<?php echo $rpost[1]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"><img src="http://<?php echo $titler[13]; ?>/webboard/img/Delete.gif" width="16" height="16" border="0" />ลบ</a>
-                          <?php }else if(isset($_SESSION[mod_login])&&$_SESSION[mod_id]==$rpost[1]){ ?>
+                          <?php }else if(isset($_SESSION['mod_login'])&&$_SESSION['mod_id']==$rpost[1]){ ?>
                           <a href="http://<?php echo $titler[13]; ?>/mod/del-post-analyze.php?id=<?php echo $rpost[0]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"><img src="http://<?php echo $titler[13]; ?>/webboard/img/Delete.gif" width="16" height="16" border="0" />ลบ</a>
                           <?php }else{ ?>
                           <a href="http://<?php echo $titler[13]; ?>/confirm-del-post-analyze.php?topic_id=<?php echo $topic_id; ?>" onclick="javascript:if(!confirm('ต้องการแจ้งลบข่าวสาร')){return false;}">แจ้งลบ</a>

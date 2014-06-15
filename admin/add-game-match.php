@@ -74,45 +74,38 @@ body {
                   <tr>
                     <td><table width="720" border="0" align="center" cellpadding="0" cellspacing="0">
                       <tr>
-                        <td><form action="p-add-game-match.php" method="post" enctype="multipart/form-data" name ="checkForm" id="checkForm" onsubmit="return check1()">
-                            <table width="100%" height="10" border="0" align="center" cellpadding="0" cellspacing="0">
-                              <tr>
-                                <td></td>
-                              </tr>
-                            </table>
-                            <table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
-                              <tr>
-                                <td height="25" align="center"><table width="550" border="0" align="center" cellpadding="0" cellspacing="0">
-                                  <tr>
-                                    <td width="150" align="right"><span class="style4">เลือกลีก</span></td>
-                                    <td width="10">&nbsp;</td>
-                                    <td width="390"><select name="league_id" id="league_id">
+                        <td>
+                          <form action="p-add-game-match.php" class="form-horizontal" role="form" method="post" enctype="multipart/form-data" name ="checkForm" id="checkForm" onsubmit="return check1()">
+                            <div class="form-group">
+                              <label for="league_id" class="col-sm-2 control-label">เลือกลีก</label>
+                              <div class="col-sm-5">
+                                <select name="league_id" id="league_id" class="form-control">
                                       <option selected="selected" value="">- กรุณาเลือก -</option>
 <?php
 $sql="SELECT * FROM `game_league` ORDER BY `id` ASC";
 $result=mysql_query($sql) or die("Error $sql");
 while($row=mysql_fetch_row($result)){
 ?>
-									  <option value="<?php echo $row[0]; ?>"><?php echo $row[1]; ?></option>
+                    <option value="<?php echo $row[0]; ?>"><?php echo $row[1]; ?></option>
 <?php } ?>
                                     </select>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td align="right"><span class="style4">วันที่แข่งขัน</span></td>
-                                    <td>&nbsp;</td>
-                                    <td><select name="days" id="days">
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label for="days" class="col-sm-2 control-label">วันที่แข่งขัน</label>
+                              <div class="col-sm-5 form-inline">
+                                <select name="days" id="days" class="form-control">
                                         <?php
-								  $dd=date("j");
-								  $a=1;
-								  while($a<=31){
-								  ?>
+                  $dd=date("j");
+                  $a=1;
+                  while($a<=31){
+                  ?>
                                         <option value="<?php echo $a; ?>" <?php if($a==$dd){ ?>selected="selected" <?php } ?> >
                                         <?php echo $a; ?>
                                         </option>
                                         <?php $a++;} ?>
                                       </select>
-                                        <select name="months" id="months">
+                                        <select name="months" id="months" class="form-control">
                                           <option value="1" <?php $mm=date("m"); if($mm==1){ ?>selected="selected" <?php } ?> >มกราคม</option>
                                           <option value="2" <?php $mm=date("m"); if($mm==2){ ?>selected="selected" <?php } ?> >กุมภาพันธ์</option>
                                           <option value="3" <?php $mm=date("m"); if($mm==3){ ?>selected="selected" <?php } ?> >มีนาคม</option>
@@ -126,44 +119,49 @@ while($row=mysql_fetch_row($result)){
                                           <option value="11" <?php $mm=date("m"); if($mm==11){ ?>selected="selected" <?php } ?> >พฤศจิกายน</option>
                                           <option value="12" <?php $mm=date("m"); if($mm==12){ ?>selected="selected" <?php } ?> >ธันวาคม</option>
                                         </select>
-                                        <select name="years" id="years">
+                                        <select name="years" id="years" class="form-control">
                                           <?php
-								  $yy=date("Y");
-								  $y=date("Y");
-								  $ny=date("Y")+1;
-								  while($y<=$ny){
-								  ?>
+                  $yy=date("Y");
+                  $y=date("Y");
+                  $ny=date("Y")+1;
+                  while($y<=$ny){
+                  ?>
                                           <option value="<?php echo $y; ?>" <?php if($y==$yy){ ?>selected="selected" <?php } ?> >
                                           <?php echo $y; ?>
                                           </option>
                                           <?php $y++;} ?>
-                                      </select></td>
-                                  </tr>
-                                  <tr>
-                                    <td align="right"><span class="style4">เวลาแข่งขัน</span></td>
-                                    <td>&nbsp;</td>
-                                    <td><input name="game_time" type="text" id="game_time" /></td>
-                                  </tr>
-                                  <tr>
-                                    <td align="right"><span class="style4">ทีมเจ้่าบ้าน</span></td>
-                                    <td>&nbsp;</td>
-                                    <td><input name="home" type="text" id="home" /></td>
-                                  </tr>
-                                  <tr>
-                                    <td align="right"><span class="style4">ทีมเยือน</span></td>
-                                    <td>&nbsp;</td>
-                                    <td><input name="away" type="text" id="away" /></td>
-                                  </tr>
-                                  <tr>
-                                    <td align="right">&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td><input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' /></td>
-                                  </tr>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="game_time" class="col-sm-2 control-label">เวลาแข่งขัน</label>
+                                    <div class="col-sm-5">
+                                      <input name="game_time" type="text" id="game_time" class="form-control" />
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="home" class="col-sm-2 control-label">ทีมเจ้าบ้าน</label>
+                                    <div class="col-sm-5">
+                                      <input name="home" type="text" id="home" class="form-control" />
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="away" class="col-sm-2 control-label">ทีมเยือน</label>
+                                    <div class="col-sm-5">
+                                      <input name="away" type="text" id="away" class="form-control" />
+                                    </div>
+                                  </div>
 
-                                </table></td>
+                                  <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                      <input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' />
+                                    </div>
+                                  </div>
+                                </form>
+                            </td>
                               </tr>
                             </table>
-                        </form></td>
+                        </td>
                       </tr>
                     </table></td>
                   </tr>
@@ -172,7 +170,7 @@ while($row=mysql_fetch_row($result)){
         </table></td>
       </tr>
       <tr>
-        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2012 &copy; ScritpWeb2U </font></strong></td>
+        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2014 &copy; scriptweb2u  Modify By Ruk-Com.In.Th</font></strong></td>
       </tr>
     </table></td>
   </tr>

@@ -3,7 +3,7 @@ session_start();
 include "../inc/config.inc.php";
 //echo "$_SESSION[m_login]<br>$_SESSION["m_id"]";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 ?>
@@ -35,7 +35,7 @@ a:active {
 
 <body>
 <?php
-$img=$_GET[img];
+$img=$_GET['img'];
 $part1="../bg-img/$img";
 @unlink ($part1);
 $sql=mysql_query("update `bg` set `img`='' ,`repeat`='' ,`fix`='' where id='1'")or die("ERROR $sql บรรทัด");

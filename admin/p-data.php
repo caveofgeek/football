@@ -3,7 +3,7 @@ session_start();
 include "../inc/config.inc.php";
 //echo "$_SESSION[m_login]<br>$_SESSION["m_id"]";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 ?>
@@ -35,20 +35,20 @@ a:active {
 
 <body>
 <?php
-$Submit=$_POST[Submit];
-$name=htmlspecialchars($_POST[name]);
-$add=htmlspecialchars($_POST[add]);
-$url=htmlspecialchars($_POST[url]);
-$tel=htmlspecialchars($_POST[tel]);
-$email=htmlspecialchars($_POST[email]);
-$fax=htmlspecialchars($_POST[fax]);
-$date_s=htmlspecialchars($_POST[date_s]);
-$date_f=htmlspecialchars($_POST[date_f]);
-$time_s=htmlspecialchars($_POST[time_s]);
-$time_f=htmlspecialchars($_POST[time_f]);
-$title=htmlspecialchars($_POST[title]);
-$description=htmlspecialchars($_POST[description]);
-$keyword=htmlspecialchars($_POST[keyword]);
+$Submit=$_POST['Submit'];
+$name=htmlspecialchars($_POST['name']);
+$add=htmlspecialchars($_POST['add']);
+$url=htmlspecialchars($_POST['url']);
+$tel=htmlspecialchars($_POST['tel']);
+$email=htmlspecialchars($_POST['email']);
+$fax=htmlspecialchars($_POST['fax']);
+$date_s=htmlspecialchars($_POST['date_s']);
+$date_f=htmlspecialchars($_POST['date_f']);
+$time_s=htmlspecialchars($_POST['time_s']);
+$time_f=htmlspecialchars($_POST['time_f']);
+$title=htmlspecialchars($_POST['title']);
+$description=htmlspecialchars($_POST['description']);
+$keyword=htmlspecialchars($_POST['keyword']);
 if($name!=""&&$add!=""&&$tel!=""&&$email!=""&&$fax!=""&&$date_s!=""&&$date_f!=""&&$time_s!=""&&$time_f!=""&&$title!=""&&$description!=""&&$keyword!=""){
 $sql=mysql_query("UPDATE `web_detail` SET  `name` =  '$name',`add` =  '$add',`tel` =  '$tel',`email` =  '$email',`fax` =  '$fax',`date_s` =  '$date_s',`date_f` =  '$date_f',`time_s` =  '$time_s',`time_f` =  '$time_f',`title` =  '$title',`description` =  '$description',`keyword` =  '$keyword',`url` =  '$url' WHERE `id` =1 LIMIT 1")or die("ERROR $sql");
 echo "<meta http-equiv='refresh' content='0;url=data.php'>";
@@ -57,7 +57,7 @@ echo "<meta http-equiv='refresh' content='0;url=data.php'>";
 <script language="JavaScript">
 	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ');
 	history.back();
-</script> 
+</script>
 <?php
 }
 ?>

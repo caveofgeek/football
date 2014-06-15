@@ -204,11 +204,11 @@ body {
                     <td height="25"><strong><font size="2"><img src="../img/icon_bullet_arrow_small.gif" width="9" height="9" /> จัดการข้อมูลรายการเว็บบอร์ด</font></strong></td>
                   </tr>
                   <tr>
-                    <td><form id="form1" name="form1" method="post" action="">
+                    <td><form id="form1" role="form" name="form1" method="post" action="">
                       <label></label>
                       <table width="730" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tr>
-                          <td width="200" align="left"><select name="category" id="category" style="width:190px; height:29px;">
+                          <td width="200" align="left"><select name="category" id="category" class="form-control">
                               <option value="">ค้นหาทั้งหมด</option>
                               <?php
 $scate="SELECT * FROM `webboard_category` ORDER BY id ASC";
@@ -221,22 +221,22 @@ while($rcate=mysql_fetch_row($recate)){
                               <?php } ?>
                             </select>
                           </td>
-                          <td width="460" align="left"><input name="keys" type="text" id="keys" value="ระบุคำค้นหา" onclick="if(this.value=='ระบุคำค้นหา'){this.value='';}" onblur="if(this.value==''){this.value='ระบุคำค้นหา';}" style="width:450px; height:29px;" /></td>
-                          <td width="70" align="left"><input type="submit" name="Submit" value="Search" /></td>
+                          <td width="460" align="left"><div class='col-sm-12'><input name="keys" type="text" id="keys" value="ระบุคำค้นหา" onclick="if(this.value=='ระบุคำค้นหา'){this.value='';}" onblur="if(this.value==''){this.value='ระบุคำค้นหา';}" class="form-control" /></div></td>
+                          <td width="70" align="left"><input class="btn btn-primary" type="submit" name="Submit" value="Search" /></td>
                         </tr>
                       </table>
                     </form>
                       <?php
-$Submit=$_POST[Submit];
-if(isset($_POST[category])){
-$cate_id=$_POST[category];
-}else if(isset($_GET[category])){
-$cate_id=$_GET[category];
+$Submit=$_POST['Submit'];
+if(isset($_POST['category'])){
+$cate_id=$_POST['category'];
+}else if(isset($_GET['category'])){
+$cate_id=$_GET['category'];
 }
-if(isset($_POST[keys])){
-$keys=$_POST[keys];
-}else if(isset($_GET[keys])){
-$keys=$_GET[keys];
+if(isset($_POST['keys'])){
+$keys=$_POST['keys'];
+}else if(isset($_GET['keys'])){
+$keys=$_GET['keys'];
 }
 if(isset($Submit)){
 	if($cate_id==""&&$keys=="ระบุคำค้นหา"){
@@ -444,7 +444,7 @@ echo $pages->display_pages()
         </table></td>
       </tr>
       <tr>
-        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2012 &copy; ScritpWeb2U </font></strong></td>
+        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2014 &copy; scriptweb2u  Modify By Ruk-Com.In.Th</font></strong></td>
       </tr>
     </table></td>
   </tr>

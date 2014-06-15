@@ -6,7 +6,7 @@ echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 
 exit() ;
 }
-$id=$_GET["id"];
+$id=mysql_real_escape_string($_GET["id"]);
 $s="SELECT * FROM `game_league` where id='$id'";
 $re=mysql_query($s) or die("ERROR $s");
 $r=mysql_fetch_row($re);
@@ -102,6 +102,7 @@ class Paginator{
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/font-awesome.min.css" rel="stylesheet">
 <link href="../css/justified-nav.css" rel="stylesheet">
+<link href="./css/admin.css" rel="stylesheet" >
 <style type="text/css">
 <!--
 	.paginate {
@@ -215,20 +216,22 @@ body {
                       <tr>
                         <td><table width="580" border="0" align="center" cellpadding="0" cellspacing="0">
                             <tr>
-                              <td><form method="post" action="p-edit-game-league.php" enctype="multipart/form-data" name ="checkForm" id="checkForm" onsubmit="return check1()">
-                                  <table width="550" border="0" align="center" cellpadding="0" cellspacing="0">
-                                    <tr>
-                                      <td align="right"><font size="2" color="#333333"><strong>ชื่อลีก</strong></font></td>
-                                      <td width="10">&nbsp;</td>
-                                      <td width="390" align="left"><input name="league" type="text" id="league" value="<?php echo $r[1]; ?>" />
-                                        <input type="hidden" name="id" id="id" value="<?php echo $id; ?>" /></td>
-                                    </tr>
-                                    <tr>
-                                      <td width="150" align="right">&nbsp;</td>
-                                      <td width="10">&nbsp;</td>
-                                      <td width="390" align="left"><input type="submit" name="Submit" value="บักทึกข้อมูล" />                                      </td>
-                                    </tr>
-                                  </table>
+                              <td>
+                              	<form method="post" action="p-edit-game-league.php"  class="form-horizontal" role="form" enctype="multipart/form-data" name ="checkForm" id="checkForm" onsubmit="return check1()">
+                              		<div class="form-group">
+				                            <label for="league" class="col-sm-2 control-label">ชื่อลีก</label>
+				                            <div class="col-sm-5">
+				                              <input name="league" class="form-control" type="text" id="league" value="<?php echo $r[1]; ?>" />
+				                              <input type="hidden" name="id" id="id" value="<?php echo $id; ?>" />
+				                            </div>
+				                          </div>
+
+				                          <div class="form-group">
+				                            <div class="col-sm-offset-2 col-sm-10">
+				                              <input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' />
+				                            </div>
+				                          </div>
+                                </form>
                                 <script language="JavaScript" type="text/javascript">
 
 function check1() {
@@ -241,7 +244,7 @@ else
 return true ;
 }
                     </script>
-                              </form></td>
+                              </td>
                             </tr>
                         </table></td>
                       </tr>
@@ -299,8 +302,17 @@ return true ;
                               <td width="400" height="25" align="left" valign="middle"><font size="2">&nbsp;&nbsp;
                                     <?php echo $objResult[1]; ?>
                               </font></td>
-                              <td width="100" height="25" align="center" valign="middle"><font size="2"><a href="edit-game-league.php?id=<?php echo $objResult[0]; ?>"><img src="images/edit.gif" width="40" height="15" border="0" /> </a><a href="del-game-league.php?id=<?php echo $objResult[0]; ?>&amp;op=<?php echo $objResult[2]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"> <img src="images/del.gif" width="40" height="15" border="0" /></a></font></td>
-                            </tr>
+                              <td width="150" height="25" align="center" valign="middle">
+                                  <font size="2">
+                                    <a href="edit-game-league.php?id=<?php echo $objResult[0]; ?>" class='btn btn-warning btn-xs white'>
+                                      <i class="glyphicon glyphicon-pencil"></i> แก้ไข
+                                    </a>
+                                    <a href="del-game-league.php?id=<?php echo $objResult[0]; ?>&amp;op=<?php echo $objResult[2]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}" class='btn btn-danger btn-xs white'>
+                                      <i class="glyphicon glyphicon-remove"></i> ลบ
+                                    </a>
+                                  </font>
+                                </td>
+                              </tr>
                             <?php } ?>
                         </table></td>
                       </tr>
@@ -346,7 +358,7 @@ echo $pages->display_pages()
         </table></td>
       </tr>
       <tr>
-        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2012 &copy; ScritpWeb2U </font></strong></td>
+        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2014 &copy; scriptweb2u  Modify By Ruk-Com.In.Th</font></strong></td>
       </tr>
     </table></td>
   </tr>

@@ -69,7 +69,7 @@ body {
                   <tr>
                     <td height="25">
 <?php
-$id=$_GET["id"];
+$id=mysql_real_escape_string($_GET["id"]);
 $scate="SELECT * FROM `football` WHERE id='$id'";
 $recate=mysql_query($scate) or die("ERROR $scate");
 $rcate=mysql_fetch_row($recate);
@@ -151,7 +151,7 @@ $rcate=mysql_fetch_row($recate);
         </table></td>
       </tr>
       <tr>
-        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2012 &copy; ScritpWeb2U </font></strong></td>
+        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2014 &copy; scriptweb2u  Modify By Ruk-Com.In.Th</font></strong></td>
       </tr>
     </table></td>
   </tr>

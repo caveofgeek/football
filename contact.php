@@ -30,7 +30,7 @@ $str=mysql_fetch_row($stre);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>ติดต่อเรา ติดต่อลงโฆษณา | <?php echo $titler[1]; ?></title>
-<META NAME="keywords" CONTENT="<?php echo $titler[12]; ?>"> 
+<META NAME="keywords" CONTENT="<?php echo $titler[12]; ?>">
 <META NAME="description" CONTENT="<?php echo $titler[1]; ?> ติดต่อเรา ติดต่อลงโฆษณา <?php echo $titler[11]; ?>">
 <meta name="robots"  content="index,follow">
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -42,7 +42,7 @@ body {
 	background-color: #<?php echo $bgr[1]; ?>;
 	<?php if($bgr[2]!=""){ ?>background-image: url(http://<?php echo $titler[13]; ?>/bg-img/<?php echo $bgr[2]; ?>);
 	background-repeat: <?php echo $bgr[3]; ?>;
-	<?php }if($bgr[4]==1){ ?>	
+	<?php }if($bgr[4]==1){ ?>
 	background-attachment:fixed;
 	<?php } ?>
 }
@@ -94,9 +94,9 @@ while($rads8=mysql_fetch_row($reads8)){
                     <table width="728" border="0" align="center" cellpadding="0" cellspacing="0">
                         <tr>
                           <td align="center" valign="middle">
-						  <?php 
-						  if($rads8[1]==1){ 
-						  $ads8=stripslashes($rads8[3]); 
+						  <?php
+						  if($rads8[1]==1){
+						  $ads8=stripslashes($rads8[3]);
 						  echo $ads8;
 						  }else if($rads8[1]==2){
 						  ?>
@@ -195,61 +195,71 @@ $r9=mysql_fetch_row($re9);
                                     <tr>
                                       <td align="left"><table width="330" border="0" align="center" cellpadding="0" cellspacing="0">
                                           <tr>
-                                            <td align="left"><font size="2" color="#333333"><strong>ฟอร์มการติดต่อออนไลน์ี้</strong></font></td>
+                                            <td align="left"><font size="2" color="#333333"><strong>ฟอร์มการติดต่อออนไลน์</strong></font></td>
                                           </tr>
                                       </table></td>
                                     </tr>
                                     <tr>
-                                      <td><form action="p-contact.php" method="post" name="checkForm" id="checkForm" onsubmit="return check1()" style="height:270px;">
-                                          <table width="320" border="0" align="center" cellpadding="0" cellspacing="0">
-                                            <tr>
-                                              <td width="100" height="25" align="left"><font size="2">เรื่องที่ติดต่อ</font></td>
-                                              <td width="220" height="25" align="left"><select name="title" id="title">
-                                                  <option value="">-โปรดเลือกหัวข้อที่ติดต่อ-</option>
+                                      <td>
+                                        <form action="p-contact.php" method="post" name="checkForm" id="checkForm" class="form-horizontal" role="form" onsubmit="return check1()" style="height:270px;">
+                                          <div class="form-group">
+                                            <label for="title" class="col-sm-4 control-label">เรื่องที่ติดต่อ</label>
+                                            <div class="col-sm-7">
+                                              <select name="title" id="title" class="form-control input-sm">
+                                                <option value="">-โปรดเลือกหัวข้อที่ติดต่อ-</option>
                                                   <option value="แนะนำ ติชม">แนะนำ ติชม</option>
                                                   <option value="แจ้งปัญหาการใช้งาน">แจ้งปัญหาการใช้งาน</option>
                                                   <option value="ติดต่อลงโฆษณา">ติดต่อลงโฆษณา</option>
                                                   <option value="ติดต่อสอบถามเรื่องอื่นๆ">ติดต่อสอบถามเรื่องอื่นๆ</option>
-                                                </select>
-                                              </td>
-                                            </tr>
-                                            <tr>
-                                              <td width="100" height="25" align="left"><font size="2">ชื่อผู้ติดต่อ</font></td>
-                                              <td width="220" height="25" align="left"><input name="name" type="text" id="name" size="30" /></td>
-                                            </tr>
-                                            <tr>
-                                              <td width="100" height="25" align="left"><font size="2">Email</font></td>
-                                              <td width="220" height="25" align="left"><input name="email" type="text" id="email" size="30" /></td>
-                                            </tr>
-                                            <tr>
-                                              <td width="100" height="25" align="left"><font size="2">เบอร์โทรศัพท์</font></td>
-                                              <td width="220" height="25" align="left"><input name="tel" type="text" id="tel" /></td>
-                                            </tr>
-                                            <tr>
-                                              <td height="25" colspan="2" align="left"><font size="2">รายละเอียด/ข้อความถึงเรา</font></td>
-                                            </tr>
-                                            <tr>
-                                              <td colspan="2" align="center"><textarea name="detail" rows="5" id="detail" style="width:300px;"></textarea></td>
-                                            </tr>
-                                            <tr>
-                                              <td width="100" height="25" align="left"><font size="2">หาผลบวกของ
+                                              </select>
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="name" class="col-sm-4 control-label">ชื่อผู้ติดต่อ</label>
+                                            <div class="col-sm-7">
+                                              <input name="name" class="form-control input-sm" type="text" id="name" />
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="email" class="col-sm-4 control-label">Email</label>
+                                            <div class="col-sm-7">
+                                              <input name="email" class="form-control input-sm" type="text" id="email" />
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="tel" class="col-sm-4 control-label">เบอร์โทรศัพท์</label>
+                                            <div class="col-sm-7">
+                                              <input name="tel" class="form-control input-sm" type="text" id="tel" />
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="tel" class="col-sm-4 control-label">รายละเอียด/ข้อความถึงเรา</label>
+                                            <div class="col-sm-7">
+                                              <textarea name="detail" class="form-control input-sm" rows="5" id="detail"></textarea>
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="ans" class="col-sm-4 control-label">หาผลบวกของ
                                                 <?php
 $a=rand(0,9);
 $b=rand(0,9);
 $s=$a+$b;
 echo "$a+$b";
-?>
-                                              </font></td>
-                                              <td width="220" height="25" align="left"><input name="ans" type="text" id="ans" size="5" maxlength="2" />
-                                                  <font color="#FF0000" size="2">&lt;==ใส่คำตอบ</font>
-                                                  <input type="hidden" id="ask" name="ask" value="<?php echo $s; ?>" /></td>
-                                            </tr>
-                                            <tr>
-                                              <td height="25" colspan="2" align="center"><label>
-                                                <input name="Submit" type="submit" id="Submit" value="บันทึกข้อมูล" />
-                                              </label></td>
-                                            </tr>
-                                          </table>
+?></label>
+                                            <div class="col-sm-3">
+                                              <input name="ans" type="text" id="ans" class="form-control input-sm" maxlength="2" />
+
+                                                  <input type="hidden" id="ask" name="ask" value="<?php echo $s; ?>" />
+                                            </div>
+                                            <font color="#FF0000" size="2">&lt;==ใส่คำตอบ</font>
+                                          </div>
+                                          <div class="form-group">
+                                            <div class="col-sm-offset-4 col-sm-6">
+                                              <input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' />
+                                            </div>
+                                          </div>
+                                        </form>
+
                                         <script language="JavaScript" type="text/javascript">
 
 function check1() {
@@ -308,7 +318,7 @@ return true ;
 }
 
                                           </script>
-                                      </form></td>
+                                      </td>
                                     </tr>
                                   </table>
                                 <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">

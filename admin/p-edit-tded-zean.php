@@ -2,7 +2,7 @@
 session_start();
 include "../inc/config.inc.php";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 ?>
@@ -34,17 +34,17 @@ a:active {
 
 <body>
 <?php
-$id=$_POST[id];
-$zean_id=$_POST[zean_id];
-$team1=htmlspecialchars($_POST[team1]);
-$team2=htmlspecialchars($_POST[team2]);
-$team3=htmlspecialchars($_POST[team3]);
-$t_ded1=htmlspecialchars($_POST[t_ded1]);
-$t_ded2=htmlspecialchars($_POST[t_ded2]);
-$t_ded3=htmlspecialchars($_POST[t_ded3]);
-$days=htmlspecialchars($_POST[days]);
-$months=htmlspecialchars($_POST[months]);
-$years=htmlspecialchars($_POST[years]);
+$id=$_POST['id'];
+$zean_id=$_POST['zean_id'];
+$team1=htmlspecialchars($_POST['team1']);
+$team2=htmlspecialchars($_POST['team2']);
+$team3=htmlspecialchars($_POST['team3']);
+$t_ded1=htmlspecialchars($_POST['t_ded1']);
+$t_ded2=htmlspecialchars($_POST['t_ded2']);
+$t_ded3=htmlspecialchars($_POST['t_ded3']);
+$days=htmlspecialchars($_POST['days']);
+$months=htmlspecialchars($_POST['months']);
+$years=htmlspecialchars($_POST['years']);
 $date="$years-$months-$days";
 if($team1!=""&&$team2!=""&&$team3!=""){
 $sql=mysql_query("UPDATE `tded_zean` SET `team1`='$team1' ,`tded1`='$t_ded1' ,`team2`='$team2' ,`tded2`='$t_ded2' ,`team3`='$team3' ,`tded3`='$t_ded3' ,`days`='$days' ,`months`='$months' ,`years`='$years' ,`post_date`='$date' WHERE id='$id'")or die("ERROR $sql");
@@ -56,7 +56,7 @@ echo "<meta http-equiv='refresh' content='0;url=tded-zean.php?zean_id=$zean_id'>
 <script language="JavaScript">
 	alert('ขอโทษครับ คุณกรอกข้อมูลไม่ครบครับ');
 	history.back();
-</script> 
+</script>
 <?php
 }
 ?>

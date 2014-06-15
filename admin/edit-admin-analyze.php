@@ -1,9 +1,9 @@
-<?php 
-@session_start(); 
+<?php
+@session_start();
 include "../inc/config.inc.php";
 include "../function/datethai.php";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 
 exit() ;
 }
@@ -16,6 +16,7 @@ exit() ;
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/font-awesome.min.css" rel="stylesheet">
 <link href="../css/justified-nav.css" rel="stylesheet">
+<link href="./css/admin.css" rel="stylesheet">
 <style type="text/css">
 <!--
 a:link {
@@ -74,55 +75,54 @@ body {
                   <tr>
                     <td><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
                       <tr>
-                        <td><form action="p-edit-admin-analyze.php" method="post" enctype="multipart/form-data" name ="checkForm" id="checkForm" onsubmit="return check1()">
-                            <table width="100%" height="10" border="0" align="center" cellpadding="0" cellspacing="0">
-                              <tr>
-                                <td></td>
-                              </tr>
-                            </table>
-<?php
-$id=$_GET["id"];
+                        <td>
+                          <?php
+$id=mysql_real_escape_string($_GET["id"]);
 $sql="SELECT * FROM `admin_analyze` WHERE id='$id'";
 $result=mysql_query($sql) or die("ERROR $sql");
 $row=mysql_fetch_row($result);
 ?>
-							<table width="720" border="0" align="center" cellpadding="0" cellspacing="0">
-                              <tr>
-                                <td width="130" height="20" align="right"><font size="2">ชื่อที่ใช้เรียก / ฉายา </font></td>
-                                <td width="10" height="20" align="center"><font size="2">:</font></td>
-                                <td width="580" height="20" align="left">
-								<input name="name" type="text" id="name" style="width:250px;" value="<?php echo $row[1]; ?>" /> 
-								<input type="hidden" name="id" id="id" value="<?php echo $id; ?>" />
-								<input type="hidden" name="op" id="op" value="<?php echo $row[2]; ?>" />
-								<font size="2" color="#FF0000">*</font>
-								</td>
-                              </tr>
-                              <tr>
-                                <td height="20" align="right"><font size="2">รูป Avatar </font></td>
-                                <td height="20" align="center"><font size="2">:</font></td>
-                                <td height="20" align="left"><input name="file1" type="file" id="file1" />
-                                    <?php if($row[2]!=""){ ?><img src="../mod/avatar/<?php echo $row[2]; ?>" width="110" height="17" /><?php } ?>
-<font size="2" color="#FF0000">* ขนาด 110x17 px ไม่เกิน 50kb </font></td>
-                              </tr>
-                              <tr>
-                                <td height="20" align="right" valign="top"><font size="2">ชื่อผู้ใช้</font></td>
-                                <td height="20" align="center" valign="top"><font size="2">:</font></td>
-                                <td height="20" align="left"><input name="user" type="text" id="user" style="width:200px;" value="<?php echo $row[3]; ?>" />
-                                    <font size="2" color="#FF0000">*</font></td>
-                              </tr>
-                              <tr>
-                                <td height="20" align="right" valign="top"><font size="2">รหัสผ่าน</font></td>
-                                <td height="20" align="center" valign="top"><font size="2">:</font></td>
-                                <td height="20" align="left"><input name="pass" type="text" id="pass" style="width:200px;" value="<?php echo $row[4]; ?>" />
-                                    <font size="2" color="#FF0000">*</font></td>
-                              </tr>
+                          <form class="form-horizontal" role="form" action="p-edit-admin-analyze.php" method="post" enctype="multipart/form-data" name ="checkForm" id="checkForm" onsubmit="return check1()">
+                            <div class="form-group">
+                              <label for="name" class="col-sm-3 control-label">ชื่อที่ใช้เรียก / ฉายา <font size="2" color="#FF0000">*</font></label>
+                              <div class="col-sm-5">
+                                <input name="name" class="form-control" type="text" id="name" value="<?php echo $row[1]; ?>" />
+                                <input type="hidden" name="id" id="id" value="<?php echo $id; ?>" />
+                                <input type="hidden" name="op" id="op" value="<?php echo $row[2]; ?>" />
+                              </div>
+                            </div>
 
-                              <tr>
-                                <td width="130" height="20" align="right">&nbsp;</td>
-                                <td width="10" height="20" align="center">&nbsp;</td>
-                                <td width="580" height="20" align="left"><input type="submit" name="Submit" value="บันทึกข้อมูล" style="width:100px;" /></td>
-                              </tr>
-                            </table>
+                            <div class="form-group">
+                              <label for="file1" class="col-sm-3 control-label">รูป Avatar <font size="2" color="#FF0000">*</font></label>
+                              <div class="col-sm-5">
+                                <input name="file1" class="form-control" type="file" id="file1" />
+                                <?php if($row[2]!=""){ ?> <span class="help-block"> ภาพตัวอย่าง <img src="../mod/avatar/<?php echo $row[2]; ?>" width="110" height="17" /></span> <?php } ?>
+                                <span class="help-block"><font size="2" color="#FF0000">* ขนาด 110x18 px ไม่เกิน 50kb </font></span>
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="user" class="col-sm-3 control-label">ชื่อผู้ใช้<font size="2" color="#FF0000">*</font></label>
+                              <div class="col-sm-5">
+                                <input name="user" class="form-control" type="text" id="user" value="<?php echo $row[3]; ?>" />
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="pass" class="col-sm-3 control-label">รหัสผ่าน<font size="2" color="#FF0000">*</font></label>
+                              <div class="col-sm-5">
+                                <input name="pass" class="form-control" type="password" id="pass" value="<?php echo $row[4]; ?>" />
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <div class="col-sm-offset-3 col-sm-10">
+                                <input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' />
+                              </div>
+                            </div>
+                          </form>
+
+
 <script language="JavaScript" type="text/javascript">
 
 function check1() {
@@ -146,7 +146,7 @@ return true ;
 }
 
 </script>
-                        </form></td>
+                        </td>
                       </tr>
                       <tr>
                         <td><table width="100%" height="10" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -186,8 +186,17 @@ while($r=mysql_fetch_row($re)){
                                 <td width="120" height="25" align="center" valign="middle"><font size="2">
                                   <?php echo DateThai($r[5]); ?>
                                 </font> </td>
-                                <td width="150" height="25" align="center" valign="middle"><font size="2"><a href="all-post-analyze.php?id=<?php echo $r[0]; ?>"><img src="images/post.jpg" width="40" height="15" border="0" /></a> <a href="edit-admin-analyze.php?id=<?php echo $r[0]; ?>"><img src="images/edit.gif" width="40" height="15" border="0" /></a> <a href="del-admin-analyze.php?id=<?php echo $r[0]; ?>&img=<?php echo $r[2]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}"> <img src="images/del.gif" width="40" height="15" border="0" /></a> </font> </td>
-                              </tr>
+                                <td width="200" height="25" align="center" valign="middle">
+                                  <font size="2">
+                                    <a href="all-post-analyze.php?id=<?php echo $r[0]; ?>" class='btn btn-primary btn-xs white'>ดูโพสต์</a>
+                                    <a href="edit-admin-analyze.php?id=<?php echo $r[0]; ?>" class='btn btn-warning btn-xs white'>
+                                      <i class="glyphicon glyphicon-pencil"></i> แก้ไข
+                                    </a>
+                                    <a href="del-admin-analyze.php?id=<?php echo $r[0]; ?>&img=<?php echo $r[2]; ?>" onclick="javascript:if(!confirm('ท่านต้องการลบข้อมูลจริงหรือไม่')){return false;}" class='btn btn-danger btn-xs white'>
+                                      <i class="glyphicon glyphicon-remove"></i> ลบ
+                                    </a>
+                                  </font>
+                                </td></tr>
                               <?php } ?>
                           </table></td>
                       </tr>
@@ -198,7 +207,7 @@ while($r=mysql_fetch_row($re)){
         </table></td>
       </tr>
       <tr>
-        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2012 &copy; ScritpWeb2U </font></strong></td>
+        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2014 &copy; scriptweb2u  Modify By Ruk-Com.In.Th</font></strong></td>
       </tr>
     </table></td>
   </tr>

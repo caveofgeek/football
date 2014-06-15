@@ -3,7 +3,7 @@ session_start();
 include "../inc/config.inc.php";
 //echo "$_SESSION[m_login]<br>$_SESSION["m_id"]";
 if(!isset($_SESSION["admin_login"])) {
-echo "<meta http-equiv='refresh' content='0;url=index.php'>" ; 
+echo "<meta http-equiv='refresh' content='0;url=index.php'>" ;
 exit() ;
 }
 ?>
@@ -35,7 +35,7 @@ a:active {
 
 <body>
 <?php
-$id=$_GET["id"];
+$id=mysql_real_escape_string($_GET["id"]);
 $sql2=mysql_query("delete from ban_word where id='$id'")or die("ERROR $sql2");
 echo "<meta http-equiv='refresh' content='0;url=ban-word.php'>";
 ?>

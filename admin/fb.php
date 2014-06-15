@@ -86,7 +86,7 @@ body {
                           <td align="center"><textarea name="detail" rows="10" id="detail" style="width:700px"><?php echo $r[1]; ?></textarea></td>
                         </tr>
                         <tr>
-                          <td align="center"><input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' /></td>
+                          <td align="center"><br/><input type="submit" name="Submit" value="บันทึกข้อมูล" class='btn btn-success' /></td>
                         </tr>
                       </table>
                     </form></td>
@@ -96,7 +96,7 @@ body {
         </table></td>
       </tr>
       <tr>
-        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2012 &copy; ScritpWeb2U </font></strong></td>
+        <td height="30" align="center" bgcolor="#666666"><strong><font size="2" color="#ffffff">Copyright 2014 &copy; scriptweb2u  Modify By Ruk-Com.In.Th</font></strong></td>
       </tr>
     </table></td>
   </tr>
