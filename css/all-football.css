@@ -1,0 +1,56 @@
+.clear-div {clear:both}
+
+
+
+.team_text { font-family:Tahoma; font-size:23px; color: #3300ff; font-weight:bold; }
+.bigscore { font-family:Tahoma; font-size:80px; color: #000; font-weight:bold; }
+span.league{ font-family:Tahoma; font-size:18px; color: #000; font-weight:bold; }
+
+div.sum{float: left; width: 316px; height:18px; display:block; border : 1px solid #000000; background-color:#CCCCCC; padding:2px;  font-size: 14px; color:#eb0000; text-align: center; font-weight: bold; }
+div.result{float: left; width: 316px; height:20px; display:block; border-bottom : 1px solid #CCCCCC; background-color:#f5f5f5; padding:2px;  font-size: 13px; }
+div.datekick{float: left; font-size: 11px; color:#ff9900; margin:2px;  width: 55px;!important;}
+div.sta{float: left; font-size: 11px;  margin:2px;  width: 25px;!important;}
+div.win{float: left; font-size: 13px; margin:2px;  width: 28px;!important;}
+
+div.miniteam {float: left;width: 120px;  font-size: 13px; color:#000000; margin-left:5px;font-weight: normal;  text-align: left;}
+div.minimatch{display:block; float: left; width: 40px;  font-size: 10px;margin-left:8px; padding-top:2px; }
+div.miniscore {float: left; width: 18px;  margin:2px; text-align: center; color:#990000; font-weight: normal; font-size: 13px; }
+
+div.headerscore{float: left; width: 320px; height:20px; display:block; border-top : 1px solid #204d7c; background: #204d7c ; padding:2px 0px 2px 4px; margin-top:10px;}
+div.miniheaderscore{width: 200px; height:15px;  background: #e0e0e0 ; display:block;  padding:2px 0px 2px 5px; }
+div.scoreimg{width: 16px; height:13px; float: left; padding:0px 2px 0px 2px; margin-right:2px;}
+div.headerscore span{ font-size: 13px; color:#204d7c;  }
+div.minibox{margin:0px;  width: 320px;}
+div.head{color: #000033;text-align: center; margin-top:4px; font-weight: bold; }
+
+div.team1,div.team2 {float: left;width: 140px;  font-size: 13px; color:#000000; margin:2px;font-weight: normal;  text-align: left;}
+
+
+table.headtohead{width: 600px; }
+
+
+
+table.detail{width: 640px;background: #eeeeee; border:1px #061f01 solid ; border-top:3px #061f01 solid ; padding:0px; margin:5px 0px 5px 0px; font-size: 12px; }
+table.detail tr.action,tr.gaction  {border:1px #061f01 dashed; padding:2px;}
+table.detail tbody tr:hover td{color:#FFFFFF;background:#061f01;}
+
+table.detail tr.haction td{border-bottom:  1px solid #CCCCCC; padding:2px; text-align: center;}
+table.detail tr.gaction td{border-bottom : 1px solid #CCCCCC; padding:2px;text-align: center;}
+table.detail tr.action td{border-bottom : 1px solid #CCCCCC; padding:2px;text-align: center;}
+
+td.result {color: #061f01; background: #e0e0e0 ; width: 40px; text-align: center; }
+td.status{color: #061f01; background: #e0e0e0 ; width: 60px; text-align: center; }
+tr.haction1 td.home,tr.gaction1 td.guest {background:  url(http://www.olegoal.com/icon/goal.gif) no-repeat left ; width: 255px;}  /* �ԧ���� */
+tr.gaction2 td.guest , tr.haction2  td.home {background:  url(http://www.olegoal.com/icon/red.gif) no-repeat left ; width: 255px; }  /* ������ͧ*/
+tr.gaction3  td.guest , tr.haction3  td.home {background:  url(http://www.olegoal.com/icon/yellow.gif) no-repeat left ; width: 255px; }  /* ������ͧ*/
+tr.haction4 td.home,tr.gaction4 td.guest {background:  url(http://www.olegoal.com/icon/goal.gif) no-repeat left ; width: 255px;}  /* �ԧ���� */
+tr.gaction5  td.guest , tr.haction5  td.home {background:  url(http://www.olegoal.com/icon/pen.png) no-repeat left ; width: 255px; }  /*   ���һ�еٵ���ͧ */
+tr.haction6 td.home,tr.gaction6 td.guest {background:  url(http://www.olegoal.com/icon/not-goal.gif) no-repeat left ; width: 255px;}  /* ��Ҵ�ش��� */
+
+div.matchdetail{text-align: center ;margin:5px;padding:5px; width: 620px;font-size: 14px; background:#ffffcc ; color:#000000;border:2px #061f01 solid ; }
+
+#widget {
+		width:300px;
+		margin-bottom:2px;
+		border:0px solid #061f01; padding:2px;background-color:#eeeeee;
+	}
