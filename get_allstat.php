@@ -46,18 +46,23 @@
 	    return $response;
 		}
 			$data = upload_data("http://www.olegoal.com/");
-			preg_match('/<div id="content">(.*?)<\/div>(.*?)<div id="right">/s',$data,$stat);
+			if ($data != null) {
+				preg_match('/<div id="content">(.*?)<\/div>(.*?)<div id="right">/s',$data,$stat);
 
-			$stat = str_replace(array('id="tabcontent1"','id="tabcontent2"','id="tabcontent3"','id="tabcontent4"'),array('class="unshow"','class="unshow"','class="unshow"','class="unshow"'),$stat[0]);
-			$stat = str_replace(array('id="top"','id="header"','id="hornav"','id="minimenu"'),array('class="unshow"','class="unshow"','class="unshow"','class="unshow"'),$stat);
-			$stat = str_replace(array('id="DIV_YNG_34278"','id="subminimenu"','id="right"','id="footer_top"','id="footer"'),array('class="unshow"','class="unshow"','class="unshow"','class="unshow"','class="unshow"'),$stat);
-			$stat = str_replace(array('class="fblike"','class=" fb_reset"'),array('class="unshow"','class="unshow"'),$stat);
-			$stat = str_replace(array('style="margin:0px 3px 0px 2px; padding:3px; background-color:#eef5e5;"'),array('class="unshow"'),$stat);
-			$stat = str_replace(array('style="background-color: #cdcdcd; width:160px; float: left; position: fixed; left:0px; top:0px; z-index: 1"'),array('class="unshow"'),$stat);
-			$stat = str_replace(array('style="background-color: #cdcdcd; width:160px; float: left; position: fixed; right:0px; top:0px; z-index: 1"'),array('class="unshow"'),$stat);
-			$stat = str_replace(array('style="margin:2px;  padding:6px; height:260px; text-align:center; display:block; background-color:#006401;border-top:1px solid #006401;border-bottom:1px solid #006401;"'),array('class="unshow"'),$stat);
-			$stat = str_replace(array('บ้านผลบอล โปรแกรมบอลวันนี้ วิเคราะห์บอลวันนี้ บ้านบอล ข้อมูล สถิติฟุตบอล'),array(''),$stat);
-			echo $stat;
+				$stat = str_replace(array('id="tabcontent1"','id="tabcontent2"','id="tabcontent3"','id="tabcontent4"'),array('class="unshow"','class="unshow"','class="unshow"','class="unshow"'),$stat[0]);
+				$stat = str_replace(array('id="top"','id="header"','id="hornav"','id="minimenu"'),array('class="unshow"','class="unshow"','class="unshow"','class="unshow"'),$stat);
+				$stat = str_replace(array('id="DIV_YNG_34278"','id="subminimenu"','id="right"','id="footer_top"','id="footer"'),array('class="unshow"','class="unshow"','class="unshow"','class="unshow"','class="unshow"'),$stat);
+				$stat = str_replace(array('class="fblike"','class=" fb_reset"'),array('class="unshow"','class="unshow"'),$stat);
+				$stat = str_replace(array('style="margin:0px 3px 0px 2px; padding:3px; background-color:#eef5e5;"'),array('class="unshow"'),$stat);
+				$stat = str_replace(array('style="background-color: #cdcdcd; width:160px; float: left; position: fixed; left:0px; top:0px; z-index: 1"'),array('class="unshow"'),$stat);
+				$stat = str_replace(array('style="background-color: #cdcdcd; width:160px; float: left; position: fixed; right:0px; top:0px; z-index: 1"'),array('class="unshow"'),$stat);
+				$stat = str_replace(array('style="margin:2px;  padding:6px; height:260px; text-align:center; display:block; background-color:#006401;border-top:1px solid #006401;border-bottom:1px solid #006401;"'),array('class="unshow"'),$stat);
+				$stat = str_replace(array('บ้านผลบอล โปรแกรมบอลวันนี้ วิเคราะห์บอลวันนี้ บ้านบอล ข้อมูล สถิติฟุตบอล'),array(''),$stat);
+				echo $stat;
+			} else {
+				echo "ไม่สามารถโหลดข้อมูลได้";
+			}
+
 	?>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>

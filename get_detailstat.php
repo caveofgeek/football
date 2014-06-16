@@ -47,18 +47,6 @@
 	    return $response;
 		}
 
-		/* เอาไว้ดึงหน้าหลัก
-
-		$data = upload_data("http://www.olegoal.com/");
-		//preg_match('/<table width="620" border="0" align="center" cellpadding="0" cellspacing="1">[\s\d\w_ก-๙เๆแไใ&;<\/>,.#-^!@%*()+"\']{0,}<\/table>/',$data,$team);
-		preg_match('/<div id="content">[\s\d\w_ก-๙เๆแไใ&;<\/>,.#-^!@%*()+"\']{0,}<\/div>/',$data,$stat);
-
-		$stat = str_replace(array('id="tabcontent1"','id="tabcontent2"','id="tabcontent3"','id="tabcontent4"'),array('class="unshow"','class="unshow"','class="unshow"','class="unshow"'),$stat[0]);
-		$stat = str_replace(array('style="margin:2px;  padding:6px; height:260px; text-align:center; display:block; background-color:#006401;border-top:1px solid #006401;border-bottom:1px solid #006401;"'),array('class="unshow"'),$stat);
-		$stat = str_replace(array('บ้านผลบอล โปรแกรมบอลวันนี้ วิเคราะห์บอลวันนี้ บ้านบอล ข้อมูล สถิติฟุตบอล'),array(''),$stat);
-		echo $stat;
-
-		*/
 		if(isset($_GET['url']))
 		{
 			$url = $_GET['url'];
